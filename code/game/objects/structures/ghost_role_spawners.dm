@@ -61,6 +61,7 @@
 		var/mob/living/carbon/human/H = new_spawn
 		H.underwear = "Nude"
 		H.update_body()
+		H.remove_language(/datum/language/common)  //yogs: removes the ashwalkers ability to speak common on spawn
 
 /obj/effect/mob_spawn/human/ash_walker/Initialize(mapload, datum/team/ashwalkers/ashteam)
 	. = ..()
