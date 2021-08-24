@@ -52564,15 +52564,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/maintenance/department/tcoms)
-"pOW" = (
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/shower{
-	pixel_y = 20
-	},
-/turf/open/floor/noslip,
-/area/medical/sleeper)
 "pOY" = (
 /obj/effect/mapping_helpers/airlock/abandoned,
 /obj/machinery/door/firedoor/border_only,
@@ -53291,6 +53282,15 @@
 	dir = 8
 	},
 /turf/open/floor/plasteel/white,
+/area/medical/sleeper)
+"qmI" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/shower{
+	pixel_y = 20
+	},
+/turf/open/floor/noslip,
 /area/medical/sleeper)
 "qmS" = (
 /obj/machinery/door/firedoor/border_only{
@@ -103548,7 +103548,7 @@ hHy
 kub
 taG
 bvj
-pOW
+qmI
 xOh
 bDR
 waN
