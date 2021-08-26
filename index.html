@@ -29,8 +29,8 @@ General Public License version 3.
 
 
 <h3 id="modules">Modules
-<aside>(379 modules,
-    545/6581 macros, 8.3%)</aside></h3>
+<aside>(381 modules,
+    547/6592 macros, 8.3%)</aside></h3>
 <ul class="index-tree modules">
     <li class="has-children"><span title="code">code</span><ul class="index-tree">
     <li class="has-children"><span title="code&#x2F;__DEFINES">__DEFINES</span><ul class="index-tree">
@@ -354,6 +354,7 @@ These materials call on_applied() on whatever item they are applied to, common e
     </ul></li>
     <li><span class="no-substance">songs&#x2F;</span><a href="code/modules/instruments/songs/_song.html" title="code&#x2F;modules&#x2F;instruments&#x2F;songs&#x2F;_song">_song</a></li>
     </ul></li>
+    <li><span class="no-substance">jobs&#x2F;</span><a href="code/modules/jobs/access.html" title="code&#x2F;modules&#x2F;jobs&#x2F;access">access</a></li>
     <li><a href="code/modules/keybindings.html" title="code&#x2F;modules&#x2F;keybindings">In-code keypress handling system</a> - This whole system is heavily based off of forum_account's keyboard library.
 Thanks to forum_account for saving the day, the library can be found
 <a href="https://secure.byond.com/developer/Forum_account/Keyboard">here</a>!</li>
@@ -453,6 +454,7 @@ transformations and other events that cause new languages to become available.</
     <li><a href="code/modules/reagents/chemistry/reagents/cat2_medicine_reagents.html" title="code&#x2F;modules&#x2F;reagents&#x2F;chemistry&#x2F;reagents&#x2F;cat2_medicine_reagents">cat2_medicine_reagents</a></li>
     <li><a href="code/modules/reagents/chemistry/reagents/drink_reagents.html" title="code&#x2F;modules&#x2F;reagents&#x2F;chemistry&#x2F;reagents&#x2F;drink_reagents">drink_reagents</a></li>
     <li><a href="code/modules/reagents/chemistry/reagents/food_reagents.html" title="code&#x2F;modules&#x2F;reagents&#x2F;chemistry&#x2F;reagents&#x2F;food_reagents">food_reagents</a></li>
+    <li><a href="code/modules/reagents/chemistry/reagents/medicine_reagents.html" title="code&#x2F;modules&#x2F;reagents&#x2F;chemistry&#x2F;reagents&#x2F;medicine_reagents">medicine_reagents</a></li>
     <li><a href="code/modules/reagents/chemistry/reagents/other_reagents.html" title="code&#x2F;modules&#x2F;reagents&#x2F;chemistry&#x2F;reagents&#x2F;other_reagents">other_reagents</a></li>
     <li><a href="code/modules/reagents/chemistry/reagents/toxin_reagents.html" title="code&#x2F;modules&#x2F;reagents&#x2F;chemistry&#x2F;reagents&#x2F;toxin_reagents">toxin_reagents</a></li>
     </ul></li>
@@ -593,7 +595,7 @@ transformations and other events that cause new languages to become available.</
 
 
 <h3 id="types">Types
-<aside>(335 detailed/864 documented/23243 total, 3.7%)</aside></h3>
+<aside>(337 detailed/868 documented/23324 total, 3.7%)</aside></h3>
 <ul class="index-tree">
     <li><a href="global.html" title="(global)">(global)</a></li>
     <li class="has-children"><a href="area.html" title="&#x2F;area">area</a> - A grouping of tiles into a logical space, mostly used by map editors<ul class="index-tree">
@@ -1040,12 +1042,15 @@ DRINKS BELOW, Beer is up there though, along with cola. Cap'n Pete's Cuban Spice
     <li class="has-children"><a href="datum/religion_rites.html" title="&#x2F;datum&#x2F;religion_rites">religious rite</a><ul class="index-tree">
     <li><a href="datum/religion_rites/burning_sacrifice.html" title="&#x2F;datum&#x2F;religion_rites&#x2F;burning_sacrifice">Candle Fuel</a></li>
     <li><a href="datum/religion_rites/fireproof.html" title="&#x2F;datum&#x2F;religion_rites&#x2F;fireproof">Unmelting Wax</a></li>
+    <li><a href="datum/religion_rites/meatbless.html" title="&#x2F;datum&#x2F;religion_rites&#x2F;meatbless">Meat Blessing</a></li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_rites&#x2F;plantconversion">Ent Conversion</span> - Plant people</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_rites&#x2F;ruinousknife">Ruinous Knife</span> - Old Ones</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_rites&#x2F;synthconversion">Synthetic Conversion</span> - Technophiles</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_rites&#x2F;toppercent">Reaching the Top Percent</span> - Capitalists</li>
     </ul></li>
     <li class="has-children"><a href="datum/religion_sect.html" title="&#x2F;datum&#x2F;religion_sect">Religious Sect Base Type</a><ul class="index-tree">
     <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_sect&#x2F;candle_sect">Ever-Burning Candle</span> - Ever-Burning Candle sect</li>
+    <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_sect&#x2F;oldgods">Gathering of the Old Ones</span> - Gathering of the Old Ones sect, bless flesh and sacrifice it to gain favor for fancy runes.</li>
     <li><span class="no-substance" title="&#x2F;datum&#x2F;religion_sect&#x2F;plant">Children of the Kudzu</span> - Children of the Kudzu sect, will allow you to sacrifice plants to become a special wood golem.</li>
     </ul></li>
     <li class="has-children"><span title="&#x2F;datum&#x2F;round_event">round_event</span><ul class="index-tree">
@@ -1423,6 +1428,7 @@ This has a shitload of vars on it, and I'm sorry for that, but it does make maki
     <li class="has-children"><a href="obj/item/instrument.html" title="&#x2F;obj&#x2F;item&#x2F;instrument">generic instrument</a><ul class="index-tree">
     <li><span class="no-substance">piano_synth&#x2F;</span><a href="obj/item/instrument/piano_synth/headphones.html" title="&#x2F;obj&#x2F;item&#x2F;instrument&#x2F;piano_synth&#x2F;headphones">headphones</a></li>
     </ul></li>
+    <li><span class="no-substance">kitchen&#x2F;</span><a href="obj/item/kitchen/fork.html" title="&#x2F;obj&#x2F;item&#x2F;kitchen&#x2F;fork">fork</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;lazarus_injector">lazarus injector</span> - Lazarus Injector</li>
     <li><a href="obj/item/living_heart.html" title="&#x2F;obj&#x2F;item&#x2F;living_heart">Living Heart</a></li>
     <li><span class="no-substance" title="&#x2F;obj&#x2F;item&#x2F;malf_upgrade">combat software upgrade</span> - AI Upgrades</li>
@@ -1797,7 +1803,7 @@ uranium</li>
 </main>
 <footer>
     yogstation.dme
-    <a href="https://github.com/nmajask/Yogstation-But-Worse/tree/18e86e38e890294df1b6b96841eb0ff43a5f1269">18e86e3</a>
+    <a href="https://github.com/nmajask/Yogstation-But-Worse/tree/fbb8c1530f932681a7928adb5d53fde6ee59054b">fbb8c15</a>
         (master) &mdash; <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/src/dmdoc/README.md">dmdoc 1.4.0</a></footer>
 </body>
 </html>
