@@ -1,0 +1,3073 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"am" = (
+/obj/item/storage/toolbox/mechanical,
+/obj/structure/rack,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"ar" = (
+/obj/machinery/telecomms/server/presets/medical,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"as" = (
+/obj/structure/table/wood,
+/obj/machinery/microwave{
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"at" = (
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/white{
+	dir = 8
+	},
+/obj/item/radio/intercom{
+	freerange = 1;
+	name = "Station Intercom (Telecomms)";
+	pixel_x = -25
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"bk" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior - Aft Port";
+	network = list("minisat")
+	},
+/turf/open/space/basic,
+/area/tcommsat/computer)
+"bF" = (
+/obj/structure/window/reinforced,
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior Access";
+	dir = 8;
+	network = list("minisat","ss13")
+	},
+/turf/open/space/basic,
+/area/ai_monitored/turret_protected/aisat_interior)
+"bH" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/donkpockets{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vodka{
+	pixel_x = 8;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/shotglass{
+	pixel_x = 8;
+	pixel_y = 1
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"cf" = (
+/obj/machinery/telecomms/server/presets/science,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"cH" = (
+/obj/machinery/telecomms/processor/preset_three,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"cJ" = (
+/obj/structure/transit_tube/curved{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"cM" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/structure/table/wood,
+/obj/item/book/manual/wiki/tcomms{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/paper_bin{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/folder/blue,
+/obj/item/pen,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"cQ" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/green,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"cV" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"dj" = (
+/obj/machinery/atmospherics/components/binary/valve/layer2,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"dt" = (
+/obj/structure/transit_tube/crossing/horizontal,
+/turf/open/space/basic,
+/area/space/nearstation)
+"dA" = (
+/obj/machinery/teleport/station,
+/turf/open/floor/circuit,
+/area/ai_monitored/turret_protected/aisat_interior)
+"dF" = (
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"eh" = (
+/obj/item/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_x = 26
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"ei" = (
+/obj/effect/turf_decal/tile/darkblue,
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"ej" = (
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"ep" = (
+/obj/structure/window/reinforced{
+	layer = 2.9
+	},
+/obj/machinery/atmospherics/components/unary/portables_connector,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"eB" = (
+/turf/closed/wall,
+/area/tcommsat/computer)
+"eY" = (
+/obj/machinery/blackbox_recorder,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"eZ" = (
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/holopad,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"fg" = (
+/turf/closed/wall/r_wall,
+/area/tcommsat/server)
+"fp" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"fr" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
+"gr" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/green,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"gv" = (
+/obj/structure/table/wood,
+/obj/machinery/cell_charger,
+/obj/item/stock_parts/cell/high{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"gU" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/button/door{
+	id = "tcomms_bridge";
+	name = "Telecommunications server shutters control";
+	pixel_x = 25;
+	pixel_y = 25;
+	req_one_access_txt = "19;61"
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"hp" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
+"hC" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/door/airlock/external{
+	name = "MiniSat External Access";
+	req_access_txt = "65"
+	},
+/turf/open/floor/plating,
+/area/ai_monitored/turret_protected/aisat_interior)
+"hM" = (
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/open/space/basic,
+/area/space)
+"hO" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms Control Room";
+	req_access_txt = "61"
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"hS" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple,
+/obj/machinery/doorButtons/access_button{
+	idDoor = "telecomms_airlock_interior";
+	idSelf = "telecomms_airlock_control";
+	pixel_x = -23;
+	pixel_y = 23
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"hV" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 10
+	},
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"ii" = (
+/turf/template_noop,
+/area/template_noop)
+"im" = (
+/obj/structure/transit_tube/diagonal/topleft,
+/turf/open/space/basic,
+/area/space/nearstation)
+"io" = (
+/obj/structure/table/wood,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"iq" = (
+/turf/closed/wall/r_wall,
+/area/ai_monitored/turret_protected/aisat_interior)
+"iG" = (
+/obj/machinery/door/airlock/hatch{
+	autoclose = 0;
+	frequency = 1449;
+	id_tag = "telecomms_airlock_exterior";
+	name = "Telecomms Server Room Access";
+	req_access_txt = "61"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"iH" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/obj/machinery/status_display/ai{
+	pixel_y = 32
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"iI" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/line,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"iQ" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"jN" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/tank/air{
+	piping_layer = 2
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"jT" = (
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space)
+"kg" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+	dir = 1;
+	external_pressure_bound = 120;
+	name = "server vent"
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"kl" = (
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space/nearstation)
+"km" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/spawner/structure/window/reinforced/shutter,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"kC" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/machinery/airalarm/tcomms{
+	pixel_y = -30
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"kI" = (
+/obj/effect/spawner/structure/window/reinforced/shutter,
+/turf/open/floor/plating,
+/area/tcommsat/computer)
+"kV" = (
+/obj/structure/grille,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"li" = (
+/obj/effect/mapping_helpers/airlock/locked,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/machinery/door/airlock/public{
+	autoclose = 0;
+	frequency = 1449;
+	glass = 1;
+	id_tag = "telecomms_airlock_interior";
+	name = "Telecomms Server Room Access";
+	req_access_txt = "61"
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 8
+	},
+/obj/machinery/door/firedoor/border_only{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/computer)
+"lz" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/effect/turf_decal/trimline/yellow/corner,
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"lE" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"lI" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "tcomms";
+	name = "Telecommunications server shutters"
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/open/floor/plating,
+/area/tcommsat/server)
+"lL" = (
+/obj/machinery/power/smes/engineering{
+	charge = 5e+006
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"lR" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"ml" = (
+/obj/machinery/telecomms/processor/preset_four,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"mH" = (
+/obj/machinery/door/airlock/external{
+	name = "MiniSat External Access";
+	req_access_txt = "65"
+	},
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/turf/open/floor/plating,
+/area/ai_monitored/turret_protected/aisat_interior)
+"mL" = (
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"nq" = (
+/obj/structure/window/reinforced{
+	dir = 1;
+	layer = 2.9
+	},
+/obj/structure/transit_tube/curved/flipped,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"nv" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"nP" = (
+/obj/structure/table,
+/obj/effect/spawner/lootdrop/techstorage/tcomms,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"og" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/turf/open/space/basic,
+/area/space/nearstation)
+"ok" = (
+/obj/machinery/atmospherics/pipe/manifold/yellow/hidden{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"oH" = (
+/obj/machinery/announcement_system,
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"pl" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/airlock/hatch{
+	name = "MiniSat Teleporter Room";
+	req_one_access_txt = "17;65"
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"pm" = (
+/obj/structure/table/wood,
+/obj/item/radio/off{
+	pixel_x = -6;
+	pixel_y = 5
+	},
+/obj/item/folder{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"pt" = (
+/obj/machinery/telecomms/server/presets/common,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"pv" = (
+/turf/closed/wall,
+/area/maintenance/department/tcoms)
+"pH" = (
+/obj/machinery/telecomms/server/presets/supply,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"pO" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior - Fore Port";
+	dir = 1;
+	network = list("minisat")
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/maintenance/department/tcoms)
+"pW" = (
+/obj/structure/table,
+/obj/item/multitool{
+	pixel_x = 12;
+	pixel_y = 14
+	},
+/obj/item/pipe_dispenser{
+	pixel_x = 1;
+	pixel_y = -1
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"qh" = (
+/obj/machinery/bluespace_beacon,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 5
+	},
+/obj/effect/turf_decal/stripes/line,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"qk" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"qz" = (
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"rz" = (
+/obj/machinery/light,
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/machinery/modular_computer/console/preset/engineering{
+	dir = 8
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"rA" = (
+/obj/machinery/vending/wardrobe/sig_wardrobe,
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"rB" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/components/binary/pump/on/layer2{
+	dir = 4;
+	name = "AI Satellite Supply"
+	},
+/obj/machinery/camera{
+	c_tag = "Telecomms Tech Storage";
+	dir = 1;
+	network = list("ss13","telecomms")
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"se" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"sh" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "tcomms";
+	name = "Telecommunications server shutters"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plating,
+/area/tcommsat/server)
+"sy" = (
+/obj/item/radio/intercom{
+	pixel_x = 32
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 6
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"sT" = (
+/obj/machinery/newscaster/security_unit{
+	pixel_x = -28
+	},
+/turf/closed/wall,
+/area/tcommsat/computer)
+"te" = (
+/obj/machinery/camera/motion{
+	c_tag = "MiniSat Foyer";
+	dir = 8;
+	network = list("minisat","ss13")
+	},
+/obj/structure/sign/departments/minsky/engineering/telecommmunications{
+	pixel_x = 32
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 5
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"tk" = (
+/obj/structure/table/wood,
+/obj/item/flashlight/lamp{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/phone{
+	pixel_x = 7;
+	pixel_y = 1
+	},
+/obj/machinery/newscaster/security_unit{
+	pixel_y = -28
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"tB" = (
+/obj/machinery/telecomms/server/presets/engineering,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"tL" = (
+/obj/structure/table,
+/obj/item/storage/toolbox/electrical{
+	pixel_x = 5;
+	pixel_y = 8
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"tS" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/corner,
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"uc" = (
+/obj/machinery/light/small,
+/obj/structure/table,
+/obj/structure/table,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/amplifier,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
+/obj/item/stock_parts/subspace/transmitter,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"uv" = (
+/obj/effect/spawner/structure/window/reinforced/shutter,
+/obj/structure/cable/yellow,
+/turf/open/floor/plating,
+/area/tcommsat/computer)
+"ux" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/machinery/atmospherics/pipe/layer_manifold,
+/obj/machinery/door/airlock/external{
+	name = "MiniSat External Access";
+	req_access_txt = "65"
+	},
+/turf/open/floor/plating,
+/area/ai_monitored/turret_protected/aisat_interior)
+"uB" = (
+/obj/machinery/telecomms/broadcaster/preset_right{
+	name = "subspace broadcaster B"
+	},
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"uE" = (
+/turf/open/space/basic,
+/area/space/nearstation)
+"uS" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"uW" = (
+/obj/item/twohanded/required/kirbyplants/random,
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"vR" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 10
+	},
+/obj/item/radio/off{
+	pixel_x = 43;
+	pixel_y = -24
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"wa" = (
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4{
+	name = "Waste Ejector"
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/maintenance/department/tcoms)
+"wl" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"wm" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"wp" = (
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"wB" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/red,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"wH" = (
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"wN" = (
+/obj/machinery/telecomms/processor/preset_one,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"xp" = (
+/obj/structure/lattice,
+/obj/structure/lattice,
+/obj/structure/grille,
+/turf/open/space/basic,
+/area/space)
+"xu" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/advanced_airlock_controller{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer2,
+/turf/open/floor/plating,
+/area/ai_monitored/turret_protected/aisat_interior)
+"xw" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
+"xD" = (
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
+	external_pressure_bound = 120;
+	name = "server vent"
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"xO" = (
+/obj/machinery/telecomms/processor/preset_two,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"yl" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "tcomms";
+	name = "Telecommunications server shutters"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/turf/open/floor/plating,
+/area/tcommsat/computer)
+"yB" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior - Starboard";
+	dir = 4;
+	network = list("minisat","ss13")
+	},
+/turf/open/space/basic,
+/area/tcommsat/server)
+"yD" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/yellow/corner,
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"yK" = (
+/obj/item/twohanded/required/kirbyplants/random,
+/obj/effect/turf_decal/trimline/yellow/corner,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"yV" = (
+/obj/structure/chair/office/dark{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"yW" = (
+/obj/machinery/telecomms/bus/preset_one,
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"zr" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"zA" = (
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"zJ" = (
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"zX" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"zZ" = (
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"An" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/machinery/telecomms/message_server/preset,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"As" = (
+/turf/closed/wall/r_wall,
+/area/tcommsat/computer)
+"AH" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"AM" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
+	},
+/obj/machinery/light,
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"Bb" = (
+/obj/machinery/telecomms/server/presets/command,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"By" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"BL" = (
+/obj/machinery/airalarm{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 5
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"BW" = (
+/obj/machinery/airalarm{
+	dir = 4;
+	pixel_x = -24
+	},
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/crystal,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/item/stock_parts/subspace/ansible,
+/obj/structure/table,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"Cd" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on,
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Ch" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"Cp" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "tcomms";
+	name = "Telecommunications server shutters"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/yellow,
+/turf/open/floor/plating,
+/area/tcommsat/computer)
+"CM" = (
+/obj/machinery/telecomms/bus/preset_four,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"Do" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior - Port Fore";
+	dir = 8;
+	network = list("minisat")
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/turf/open/space/basic,
+/area/maintenance/department/tcoms)
+"DG" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/door/airlock/external{
+	name = "MiniSat External Access";
+	req_access_txt = "65"
+	},
+/turf/open/floor/plating,
+/area/ai_monitored/turret_protected/aisat_interior)
+"DH" = (
+/obj/structure/transit_tube/curved/flipped{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Ec" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/white{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/white{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Eh" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Ey" = (
+/obj/machinery/airalarm{
+	pixel_y = 24
+	},
+/obj/effect/turf_decal/trimline/yellow/line{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"EC" = (
+/obj/structure/transit_tube/station{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"EI" = (
+/obj/machinery/power/port_gen/pacman,
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"EQ" = (
+/obj/structure/window/reinforced,
+/obj/structure/transit_tube/curved{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Fk" = (
+/obj/structure/table,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/obj/item/stock_parts/subspace/analyzer,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"Fo" = (
+/obj/machinery/atmospherics/components/unary/tank/air{
+	piping_layer = 2
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"Fv" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"FH" = (
+/obj/structure/filingcabinet,
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"FP" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/door/airlock/hatch{
+	name = "Telecomms Tech Storage";
+	req_access_txt = "61"
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"FQ" = (
+/obj/machinery/telecomms/receiver/preset_right{
+	name = "subspace receiver B"
+	},
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"FR" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc{
+	areastring = "/area/ai_monitored/storage/satellite";
+	name = "MiniSat Maint APC";
+	pixel_y = -23
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/machinery/meter{
+	pixel_x = -5;
+	pixel_y = -3;
+	target_layer = 2
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"Gm" = (
+/obj/item/twohanded/required/kirbyplants/random,
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"Gy" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"GK" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"GP" = (
+/obj/structure/grille,
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space)
+"GZ" = (
+/obj/machinery/computer/teleporter{
+	dir = 1
+	},
+/turf/open/floor/circuit,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Hn" = (
+/obj/machinery/camera{
+	c_tag = "MiniSat Teleporter Room";
+	dir = 4;
+	network = list("ss13","minisat")
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/machinery/airalarm{
+	dir = 4;
+	pixel_x = -24
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Hx" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"Ia" = (
+/obj/machinery/advanced_airlock_controller{
+	dir = 8;
+	pixel_x = 24
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/components/binary/dp_vent_pump/layer2{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Id" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/line,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Ip" = (
+/obj/structure/table,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser/high,
+/obj/item/stock_parts/micro_laser,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/manipulator,
+/obj/item/stock_parts/capacitor,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"Iq" = (
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
+"Iy" = (
+/obj/machinery/doorButtons/airlock_controller{
+	idExterior = "telecomms_airlock_exterior";
+	idInterior = "telecomms_airlock_interior";
+	idSelf = "telecomms_airlock_control";
+	pixel_x = 25;
+	pixel_y = -5
+	},
+/obj/machinery/doorButtons/access_button{
+	idDoor = "telecomms_airlock_exterior";
+	idSelf = "telecomms_airlock_control";
+	pixel_x = 25;
+	pixel_y = 5
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 6
+	},
+/obj/structure/rack,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/clothing/gloves/color/black,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/tank/internals/emergency_oxygen,
+/obj/item/tank/internals/emergency_oxygen,
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"Jf" = (
+/turf/open/space/basic,
+/area/space)
+"Jy" = (
+/obj/machinery/space_heater,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"JF" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "tcomms";
+	name = "Telecommunications server shutters"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plating,
+/area/tcommsat/computer)
+"JQ" = (
+/obj/machinery/atmospherics/pipe/manifold/yellow/hidden{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Kc" = (
+/obj/structure/chair/office/dark,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"Kf" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/machinery/telecomms/hub/preset,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"Kk" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple,
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/yellow/hidden{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Ku" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "tcomms";
+	name = "Telecommunications server shutters"
+	},
+/obj/structure/cable/yellow,
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/open/floor/plating,
+/area/tcommsat/server)
+"KT" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Li" = (
+/obj/machinery/telecomms/bus/preset_three,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"LO" = (
+/obj/machinery/ai_slipper{
+	uses = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"LP" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/machinery/power/apc/tcomms{
+	areastring = "/area/tcommsat/server";
+	dir = 1;
+	name = "Telecomms Server APC";
+	pixel_y = 23
+	},
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"LR" = (
+/obj/effect/turf_decal/tile/green,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"LY" = (
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"Ng" = (
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Nu" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"NS" = (
+/obj/machinery/telecomms/server/presets/security,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"Or" = (
+/obj/machinery/teleport/hub,
+/turf/open/floor/circuit,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Os" = (
+/obj/machinery/ntnet_relay,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"Ot" = (
+/obj/machinery/telecomms/broadcaster/preset_left{
+	name = "subspace broadcaster A"
+	},
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"OH" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/door/firedoor/border_only{
+	dir = 1
+	},
+/obj/machinery/door/firedoor/border_only,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "MiniSat Maintenance";
+	req_access_txt = "65"
+	},
+/turf/open/floor/plasteel/dark,
+/area/maintenance/department/tcoms)
+"Pk" = (
+/obj/machinery/computer/security/telescreen{
+	dir = 8;
+	name = "Telecomms Camera Monitor";
+	network = list("tcomms");
+	pixel_x = 26
+	},
+/obj/machinery/computer/telecomms/traffic{
+	dir = 8;
+	network = "tcommsat"
+	},
+/obj/machinery/button/door{
+	id = "tcomms";
+	name = "Telecommunications server shutters control";
+	pixel_x = 27;
+	pixel_y = 26;
+	req_access_txt = "61"
+	},
+/obj/machinery/light_switch{
+	pixel_x = 27;
+	pixel_y = 36
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"PO" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/purple{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"PX" = (
+/obj/effect/spawner/structure/window/reinforced,
+/turf/open/floor/plating,
+/area/tcommsat/server)
+"Qj" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Qz" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"QA" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/end,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/obj/machinery/light/small,
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"Ro" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple,
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Rs" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"RT" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior - Port Aft";
+	dir = 8;
+	network = list("minisat","ss13")
+	},
+/turf/open/space/basic,
+/area/ai_monitored/turret_protected/aisat_interior)
+"RV" = (
+/obj/machinery/telecomms/bus/preset_two,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"Se" = (
+/obj/machinery/status_display/ai{
+	pixel_y = -32
+	},
+/obj/effect/turf_decal/trimline/yellow/line,
+/turf/open/floor/plasteel/dark,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Sf" = (
+/turf/closed/wall,
+/area/ai_monitored/turret_protected/aisat_interior)
+"Sm" = (
+/obj/machinery/camera{
+	c_tag = "MiniSat - Monitoring room";
+	dir = 8;
+	network = list("minisat","ss13")
+	},
+/obj/machinery/computer/telecomms/server{
+	dir = 8;
+	network = "tcommsat"
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"Tv" = (
+/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on{
+	dir = 4
+	},
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"TF" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"TU" = (
+/obj/structure/transit_tube/diagonal,
+/turf/open/space/basic,
+/area/space/nearstation)
+"Uf" = (
+/obj/structure/transit_tube/curved/flipped{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Ug" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/yellow/filled/corner,
+/obj/effect/turf_decal/trimline/yellow/filled/corner{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"UH" = (
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"UR" = (
+/turf/closed/wall/r_wall,
+/area/maintenance/department/tcoms)
+"UW" = (
+/obj/machinery/telecomms/receiver/preset_left{
+	name = "subspace receiver A"
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"Vh" = (
+/obj/machinery/atmospherics/pipe/manifold/yellow/hidden,
+/obj/machinery/meter{
+	target_layer = 3
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"VJ" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"VM" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_x = -27
+	},
+/obj/machinery/computer/message_monitor{
+	dir = 4
+	},
+/turf/open/floor/plasteel/grimy,
+/area/tcommsat/computer)
+"VP" = (
+/obj/machinery/telecomms/server/presets/service,
+/turf/open/floor/circuit/green/telecomms/mainframe,
+/area/tcommsat/server)
+"Wl" = (
+/obj/structure/transit_tube/curved{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Wv" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line,
+/obj/item/twohanded/required/kirbyplants/random,
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"Ww" = (
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"WV" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/yellow,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Xe" = (
+/obj/effect/turf_decal/trimline/yellow/filled/line{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"Xi" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/purple{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/yellow,
+/obj/effect/turf_decal/tile/yellow{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Xk" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 6
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Xm" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Xn" = (
+/obj/effect/turf_decal/tile/green,
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"XK" = (
+/obj/effect/turf_decal/tile/brown{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/brown{
+	dir = 1
+	},
+/obj/machinery/light,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"XU" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"XV" = (
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior - Fore";
+	dir = 1;
+	network = list("minisat")
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/tcommsat/server)
+"Yg" = (
+/obj/structure/table,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/filter,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/obj/item/stock_parts/subspace/treatment,
+/turf/open/floor/plating,
+/area/maintenance/department/tcoms)
+"Ym" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Yw" = (
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/darkblue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Yy" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 10
+	},
+/turf/open/space/basic,
+/area/maintenance/department/tcoms)
+"Yz" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/camera{
+	c_tag = "MiniSat Exterior - Aft";
+	network = list("minisat","ss13")
+	},
+/turf/open/space/basic,
+/area/tcommsat/server)
+"YG" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Zg" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Zm" = (
+/obj/structure/lattice,
+/obj/structure/transit_tube/junction/flipped{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
+"Zq" = (
+/obj/effect/turf_decal/tile/yellow{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/white{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/white{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark/telecomms,
+/area/tcommsat/server)
+"Zx" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/tcommsat/computer)
+"ZF" = (
+/obj/effect/turf_decal/stripes/end{
+	dir = 1
+	},
+/obj/machinery/doorButtons/access_button{
+	idDoor = "telecomms_airlock_exterior";
+	idSelf = "telecomms_airlock_control";
+	pixel_x = 7;
+	pixel_y = 23
+	},
+/obj/machinery/doorButtons/access_button{
+	idDoor = "telecomms_airlock_interior";
+	idSelf = "telecomms_airlock_control";
+	pixel_x = -23;
+	pixel_y = 6
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/obj/machinery/camera{
+	c_tag = "Telecomms Server Room Access";
+	network = list("ss13","tcomms")
+	},
+/turf/open/floor/plasteel/white,
+/area/tcommsat/computer)
+"ZU" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space/nearstation)
+
+(1,1,1) = {"
+ii
+ii
+ii
+ii
+ii
+ii
+Ym
+hp
+hp
+hp
+hp
+Zm
+hp
+hp
+hp
+hp
+kl
+hp
+Iq
+hp
+hp
+Jf
+Jf
+kV
+Jf
+"}
+(2,1,1) = {"
+ii
+ii
+ii
+ii
+ii
+ii
+Ym
+hp
+Jf
+Jf
+TU
+Jf
+im
+Jf
+Jf
+hp
+kl
+Jf
+Jf
+Jf
+hp
+hp
+Jf
+kV
+Jf
+"}
+(3,1,1) = {"
+ii
+ii
+ii
+ii
+ii
+ii
+Ym
+hp
+Jf
+DH
+Jf
+Jf
+Jf
+Wl
+Jf
+hp
+kl
+Jf
+Jf
+Jf
+hp
+hp
+hp
+kV
+Jf
+"}
+(4,1,1) = {"
+ii
+ii
+ii
+ii
+ii
+ii
+Ym
+hp
+Jf
+dt
+Jf
+Jf
+Jf
+dt
+Jf
+hp
+kl
+Jf
+Jf
+Jf
+hp
+Jf
+Iq
+kV
+Jf
+"}
+(5,1,1) = {"
+ii
+ii
+ii
+ii
+ii
+ii
+Ym
+hp
+Jf
+cJ
+fr
+fr
+fr
+Uf
+Jf
+hp
+kl
+Jf
+Jf
+Jf
+hp
+Jf
+Jf
+Jf
+Jf
+"}
+(6,1,1) = {"
+ii
+ii
+ii
+ii
+ii
+ii
+Ym
+hp
+Jf
+bF
+nq
+EC
+EQ
+xw
+Jf
+hp
+kl
+Jf
+Jf
+Jf
+hp
+kV
+Jf
+Jf
+Jf
+"}
+(7,1,1) = {"
+ii
+ii
+ii
+ii
+ii
+ii
+Ym
+iq
+iq
+iq
+uW
+wH
+yK
+iq
+iq
+iq
+kl
+Jf
+Jf
+hp
+hp
+kV
+Jf
+Jf
+Jf
+"}
+(8,1,1) = {"
+ii
+ii
+ii
+ii
+Xk
+Do
+nv
+ux
+Ia
+DG
+cV
+eZ
+Id
+hC
+xu
+mH
+kl
+RT
+kl
+hp
+Jf
+kV
+Jf
+Jf
+Jf
+"}
+(9,1,1) = {"
+ii
+ii
+ii
+ii
+Ym
+UR
+UR
+UR
+UR
+iq
+iH
+mL
+Se
+iq
+iq
+iq
+iq
+iq
+kl
+hp
+kV
+kV
+kV
+Jf
+Jf
+"}
+(10,1,1) = {"
+ii
+ii
+ii
+ii
+Ym
+UR
+Fk
+BW
+uc
+Sf
+Ey
+LO
+iI
+Sf
+wH
+Hn
+GZ
+iq
+kl
+hp
+kV
+kV
+kV
+Jf
+Jf
+"}
+(11,1,1) = {"
+ii
+ii
+ii
+ii
+Ym
+UR
+Yg
+UH
+Ip
+Sf
+qz
+ej
+lz
+pl
+KT
+qh
+dA
+iq
+kl
+Jf
+Jf
+Jf
+kV
+Jf
+Jf
+"}
+(12,1,1) = {"
+ii
+ii
+Xk
+og
+nv
+UR
+jN
+Rs
+nP
+Sf
+te
+yD
+sy
+Sf
+am
+eh
+Or
+iq
+kl
+kl
+kl
+Jf
+kV
+Jf
+Jf
+"}
+(13,1,1) = {"
+ii
+ii
+pO
+UR
+UR
+UR
+Fo
+FR
+pv
+Sf
+Sf
+hO
+Sf
+Sf
+Sf
+Sf
+Sf
+iq
+As
+As
+bk
+Jf
+kV
+Jf
+Jf
+"}
+(14,1,1) = {"
+ii
+ii
+Ym
+UR
+lL
+Gy
+wm
+rB
+pv
+oH
+LY
+VJ
+Wv
+sT
+rA
+Gm
+VM
+pm
+tk
+As
+kl
+Jf
+kV
+Jf
+Jf
+"}
+(15,1,1) = {"
+ii
+wa
+Yy
+km
+AH
+dj
+dF
+zJ
+OH
+zr
+Hx
+lR
+tS
+FP
+zX
+GK
+zX
+Kc
+cM
+uv
+kl
+hp
+kV
+Jf
+Jf
+"}
+(16,1,1) = {"
+ii
+ii
+Xm
+UR
+Jy
+EI
+pv
+pv
+pv
+wp
+fp
+Zx
+AM
+eB
+FH
+iQ
+Sm
+Pk
+rz
+As
+kl
+hp
+kV
+Jf
+kV
+"}
+(17,1,1) = {"
+ii
+ii
+Xm
+UR
+UR
+UR
+UR
+Tv
+ep
+qk
+LY
+By
+Ch
+kI
+as
+iQ
+As
+As
+As
+As
+kl
+hp
+Jf
+Jf
+kV
+"}
+(18,1,1) = {"
+Eh
+ZU
+Zg
+kl
+kl
+kl
+JF
+vR
+Vh
+BL
+Xe
+Ug
+Iy
+kI
+bH
+yV
+yl
+kl
+kl
+kl
+kl
+hp
+Jf
+hp
+kV
+"}
+(19,1,1) = {"
+Jf
+Jf
+Jf
+Jf
+kl
+kl
+JF
+tL
+pW
+As
+As
+iG
+As
+As
+gv
+io
+Cp
+kl
+kl
+Jf
+Jf
+Jf
+hp
+hp
+kV
+"}
+(20,1,1) = {"
+Jf
+Jf
+Jf
+Jf
+kl
+fg
+fg
+sh
+lI
+fg
+ZF
+hV
+QA
+fg
+sh
+Ku
+fg
+fg
+kl
+Jf
+Jf
+Jf
+Jf
+Jf
+kV
+"}
+(21,1,1) = {"
+Jf
+Jf
+hM
+Jf
+kl
+fg
+fg
+ar
+UW
+fg
+PX
+li
+PX
+fg
+uB
+pt
+fg
+fg
+kl
+Jf
+hM
+Jf
+Jf
+Jf
+Jf
+"}
+(22,1,1) = {"
+Jf
+Jf
+xp
+jT
+kl
+fg
+fg
+Cd
+Kk
+Ro
+hS
+JQ
+WV
+at
+Ec
+Zq
+fg
+fg
+kl
+jT
+hM
+Jf
+Jf
+Jf
+Jf
+"}
+(23,1,1) = {"
+Jf
+Jf
+hM
+Jf
+kl
+fg
+fg
+ak
+yW
+wN
+cf
+Xi
+tB
+ml
+CM
+Nu
+fg
+fg
+kl
+Jf
+hM
+Jf
+Jf
+Jf
+Jf
+"}
+(24,1,1) = {"
+Jf
+Jf
+hM
+Jf
+XV
+fg
+fg
+LP
+PO
+ei
+Ng
+Qz
+LR
+cQ
+Qj
+kC
+fg
+fg
+Yz
+Jf
+hM
+Jf
+Jf
+Jf
+Jf
+"}
+(25,1,1) = {"
+Jf
+Jf
+hM
+Jf
+kl
+fg
+fg
+XU
+NS
+Bb
+zA
+Kf
+Xn
+VP
+pH
+XK
+fg
+fg
+kl
+Jf
+hM
+Jf
+Jf
+Jf
+Jf
+"}
+(26,1,1) = {"
+Jf
+Jf
+hM
+jT
+kl
+fg
+fg
+wB
+Li
+cH
+zZ
+An
+gr
+xO
+RV
+lE
+fg
+fg
+kl
+jT
+hM
+Jf
+Jf
+Jf
+Jf
+"}
+(27,1,1) = {"
+Jf
+Jf
+hM
+Jf
+kl
+fg
+fg
+se
+Ww
+Yw
+xD
+ok
+kg
+uS
+gU
+TF
+fg
+fg
+kl
+Jf
+hM
+Jf
+Jf
+Jf
+Jf
+"}
+(28,1,1) = {"
+Jf
+Jf
+Jf
+Jf
+kl
+fg
+fg
+fg
+Os
+Ot
+YG
+wl
+Fv
+FQ
+eY
+fg
+fg
+fg
+kl
+Jf
+Jf
+Jf
+Jf
+Jf
+Jf
+"}
+(29,1,1) = {"
+Jf
+Jf
+hM
+Jf
+kl
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+kl
+Jf
+GP
+Jf
+Jf
+Jf
+Jf
+"}
+(30,1,1) = {"
+Jf
+Jf
+hM
+jT
+kl
+kl
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+fg
+kl
+kl
+jT
+GP
+Jf
+Jf
+Jf
+Jf
+"}
+(31,1,1) = {"
+Jf
+Jf
+hM
+Jf
+Jf
+kl
+kl
+kl
+kl
+kl
+kl
+yB
+kl
+kl
+kl
+kl
+kl
+kl
+Jf
+Jf
+GP
+Jf
+Jf
+Jf
+Jf
+"}
+(32,1,1) = {"
+Jf
+Jf
+hM
+hM
+Jf
+jT
+Jf
+uE
+uE
+uE
+hp
+uE
+hp
+uE
+uE
+Jf
+Jf
+jT
+Jf
+GP
+GP
+Jf
+Jf
+Jf
+Jf
+"}
+(33,1,1) = {"
+Jf
+Jf
+Jf
+hM
+hM
+hM
+hM
+Jf
+hM
+hM
+hM
+hM
+hM
+hM
+hM
+Jf
+GP
+GP
+GP
+GP
+Jf
+Jf
+Jf
+Jf
+Jf
+"}
