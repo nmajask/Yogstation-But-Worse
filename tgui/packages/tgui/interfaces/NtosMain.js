@@ -28,6 +28,7 @@ export const NtosMain = (props, context) => {
     has_light,
     light_on,
     comp_light_color,
+    has_radio,
   } = data;
   return (
     <NtosWindow
@@ -54,6 +55,11 @@ export const NtosMain = (props, context) => {
               Color:
               <ColorBox ml={1} color={comp_light_color} />
             </Button>
+          </Section>
+        )}
+        {!!has_radio && (
+          <Section title="Internal Radio Configuration">
+            <RadioContent />
           </Section>
         )}
         <Section title="Programs">
