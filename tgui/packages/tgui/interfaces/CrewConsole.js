@@ -101,7 +101,7 @@ export const CrewConsole = (props, context) => {
                     <Table.Cell
                       bold={jobIsHead(sensor.ijob)}
                       color={jobToColor(sensor.ijob)}>
-                      {sensor.name} ({sensor.assignment_title})
+                      {sensor.name} ({sensor.assignment})
                     </Table.Cell>
                     <Table.Cell collapsing textAlign="center">
                       <ColorBox
