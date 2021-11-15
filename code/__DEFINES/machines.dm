@@ -69,6 +69,7 @@
 #define PROGRAM_LAPTOP	(1<<1)
 #define PROGRAM_TABLET	(1<<2)
 #define PROGRAM_PHONE	(1<<3)
+#define PROGRAM_TELESCREEN	(1<<4)
 //Program states
 #define PROGRAM_STATE_KILLED 0
 #define PROGRAM_STATE_BACKGROUND 1
