@@ -1,4 +1,4 @@
-import { useBackend } from '../backend';
+import { useBackend, useLocalState } from '../backend';
 import { Box, Button, ColorBox, Section, Table, Flex } from '../components';
 import { COLORS } from '../constants';
 import { Window } from '../layouts';
@@ -65,19 +65,29 @@ const HealthStat = props => {
 };
 
 export const CrewConsole = (props, context) => {
+  const [
+    originalTitles,
+    setoriginalTitles,
+  ] = useLocalState(context, 'originalTitles', false);
   const { act, data } = useBackend(context);
   const sensors = data.sensors || [];
 
   return (
     <Window
       title="Crew Monitor"
-      width={1400}
+      width={1000}
       height={800}
       resizable>
       <Window.Content scrollable>
         <Flex>
           <Flex.Item>
-            <Section minHeight={90}>
+            <Section minHeight={90} 
+              buttons={(
+                <Button.Checkbox checked={originalTitles} 
+                  onClick={() => setoriginalTitles(!originalTitles)}>
+                  Use Original Job Titles
+                </Button.Checkbox>
+              )}>
               <Table>
                 <Table.Row>
                   <Table.Cell bold>
@@ -101,7 +111,8 @@ export const CrewConsole = (props, context) => {
                     <Table.Cell
                       bold={jobIsHead(sensor.ijob)}
                       color={jobToColor(sensor.ijob)}>
-                      {sensor.name} ({sensor.assignment})
+                      {sensor.name} 
+                      ({!originalTitles ? sensor.assignment_title : sensor.assignment})
                     </Table.Cell>
                     <Table.Cell collapsing textAlign="center">
                       <ColorBox
@@ -109,7 +120,7 @@ export const CrewConsole = (props, context) => {
                           ? healthToColor(
                             sensor.oxydam,
                             sensor.toxdam,
-                            sensor.brutedam,
+                            sensor.burndam,
                             sensor.brutedam) : (
                             sensor.life_status
                               ? HEALTH_COLOR_BY_LEVEL[0]
