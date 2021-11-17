@@ -740,21 +740,35 @@ GLOBAL_LIST_EMPTY(mentor_races)
 		var/should_be_squished = FALSE
 		if(H.wear_suit && ((H.wear_suit.flags_inv & HIDEJUMPSUIT) || (H.wear_suit.body_parts_covered & LEGS))) //Check for snowflake suit
 			var/obj/item/clothing/suit/A = H.wear_suit
-			if(A.mutantrace_variation != MUTANTRACE_VARIATION)
-				should_be_squished = TRUE
-		if(H.w_uniform && (H.w_uniform.body_parts_covered & LEGS)) //Check for snowflake jumpsuit
-			var/obj/item/clothing/under/U = H.w_uniform
-			if(U.mutantrace_variation != MUTANTRACE_VARIATION)
-				should_be_squished = TRUE
-		if(H.shoes)
-			var/obj/item/clothing/shoes/S = H.shoes
-			if(S.mutantrace_variation != MUTANTRACE_VARIATION)
+			if(!(DIGITIGRADE in A.mutantrace_variation))
 				should_be_squished = TRUE
 			if(should_be_squished)
-				S.adjusted = NORMAL_STYLE
+				A.mutantrace_style = FALSE
 			else
-				S.adjusted = DIGITIGRADE_STYLE
+				A.mutantrace_style = DIGITIGRADE
+			A.checkmutantracealt()
+			to_chat(H, "<span class='warning'>Suit: [should_be_squished]</span>")
+		if(H.w_uniform && (H.w_uniform.body_parts_covered & LEGS)) //Check for snowflake jumpsuit
+			var/obj/item/clothing/under/U = H.w_uniform
+			if(!(DIGITIGRADE in U.mutantrace_variation))
+				should_be_squished = TRUE
+			if(should_be_squished)
+				U.mutantrace_style = FALSE
+			else
+				U.mutantrace_style = DIGITIGRADE
+			U.checkmutantracealt()
+			to_chat(H, "<span class='warning'>Uniform: [should_be_squished]</span>")
+		if(H.shoes)
+			var/obj/item/clothing/shoes/S = H.shoes
+			if(!(DIGITIGRADE in S.mutantrace_variation))
+				should_be_squished = TRUE
+			if(should_be_squished)
+				S.mutantrace_style = FALSE
+			else
+				S.mutantrace_style = DIGITIGRADE
+			S.checkmutantracealt()
 			H.update_inv_shoes()
+			to_chat(H, "<span class='warning'>Shoes: [should_be_squished]</span>")
 		if(O.use_digitigrade == FULL_DIGITIGRADE && should_be_squished)
 			O.use_digitigrade = SQUISHED_DIGITIGRADE
 			update_needed = TRUE

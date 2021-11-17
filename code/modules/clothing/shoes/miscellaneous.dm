@@ -465,7 +465,7 @@
 	icon_state = "footwraps"
 	item_state = "footwraps"
 	xenoshoe = EITHER_STYLE // This can be worn by digitigrade or straight legs, or a hybridization thereof (one prosthetic one digitigrade). Xenoshoe variable will default to NO_DIGIT, excluding digitigrade feet.
-	mutantrace_variation = MUTANTRACE_VARIATION // Yes these shoes account for non-straight leg situations, such as jumpskirts
+	mutantrace_variation = list(DIGITIGRADE)
 
 /obj/item/clothing/shoes/xeno_wraps/jackboots // Footwraps woven with security-grade materials, still somewhat inferior to full jackboots.
 	name = "reinforced footwraps"
@@ -478,7 +478,6 @@
 	permeability_coefficient = 0.70 // Fabric is more permeable than boot, but still somewhat resistant
 	// pocket_storage_component_path = /datum/component/storage/concrete/pockets/shoes -- No storage pocket for wraps
 	xenoshoe = EITHER_STYLE // This can be worn by digitigrade or straight legs, or a hybridization thereof (one prosthetic one digitigrade). Xenoshoe variable will default to NO_DIGIT, excluding digitigrade feet.
-	mutantrace_variation = MUTANTRACE_VARIATION // Yes these shoes account for non-straight leg situations, such as jumpskirts
 
 /obj/item/clothing/shoes/xeno_wraps/command  // Not applicable unless 11505 merges - Digitigrade-exclusive shoes for Command positions
 	name = "command footwraps"
@@ -486,4 +485,4 @@
 	icon_state = "footwraps_c"
 	item_state = "footwraps_c"
 	xenoshoe = YES_DIGIT // This is digitigrade leg exclusive
-	mutantrace_variation = MUTANTRACE_VARIATION // Yes these shoes account for non-straight leg situations, such as jumpskirts
+

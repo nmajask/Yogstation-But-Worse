@@ -119,6 +119,7 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	visor_flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	dog_fashion = null
+	mutantrace_variation = list(SNOUT)
 
 /obj/item/clothing/head/helmet/riot/raised/Initialize()
 	. = ..()

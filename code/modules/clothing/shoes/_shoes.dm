@@ -16,7 +16,6 @@
 	var/equipped_before_drop = FALSE
 	var/can_be_bloody = TRUE
 	var/xenoshoe = NO_DIGIT  // Check for if shoes can be worn by straight legs (NO_DIGIT) which is default, both / hybrid (EITHER_STYLE), or digitigrade only (YES_DIGIT)
-	var/mutantrace_variation = NO_MUTANTRACE_VARIATION // Assigns shoes to have variations for if worn clothing doesn't enforce straight legs (such as cursed jumpskirts)
 	var/adjusted = NORMAL_STYLE // Default needed to make the above work
 
 /obj/item/clothing/shoes/suicide_act(mob/living/carbon/user)
@@ -55,16 +54,6 @@
 /obj/item/clothing/shoes/equipped(mob/user, slot)
 	if(adjusted)
 		adjusted = NORMAL_STYLE
-	if(mutantrace_variation && ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(DIGITIGRADE in H.dna.species.species_traits)
-			for(var/X in H.bodyparts)
-				var/obj/item/bodypart/O = X
-				if(!O.use_digitigrade)
-					continue
-				if(O.use_digitigrade == FULL_DIGITIGRADE)
-					adjusted = DIGITIGRADE_STYLE
-		user.update_inv_shoes()
 	. = ..()
 	if(offset && slot_flags & slotdefine2slotbit(slot))
 		user.pixel_y += offset
@@ -102,3 +91,10 @@
 
 /obj/item/proc/negates_gravity()
 	return FALSE
+
+/obj/item/clothing/shoes/checkmutantracealt(mob/user) //Yogs Start: Because of how the files are defined with clothing, this needs to be defined for each type of clothing
+	..()
+	if(ishuman(user))
+		return
+		var/mob/living/carbon/human/H = user
+		H.update_inv_shoes()

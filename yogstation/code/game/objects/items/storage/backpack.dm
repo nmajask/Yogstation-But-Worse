@@ -8,8 +8,8 @@
 
 /obj/item/storage/backpack/holding/build_worn_icon(var/state = "", var/default_layer = 0, var/default_icon_file = null, var/isinhands = FALSE, var/femaleuniform = NO_FEMALE_UNIFORM)
 	state = item_state
-	if(default_icon_file == 'icons/mob/head.dmi')
-		default_icon_file = 'yogstation/icons/mob/head.dmi' // thats a fun dilemma.... how to keep the tg sprites when doing back but do yogs sprites when worn on head.
+	if(default_icon_file == 'icons/mob/clothing/head.dmi')
+		default_icon_file = 'yogstation/icons/mob/clothing/head.dmi' // thats a fun dilemma.... how to keep the tg sprites when doing back but do yogs sprites when worn on head.
 	return ..()
 
 /obj/item/storage/backpack/holding/attackby(obj/item/W, mob/living/user)
@@ -183,7 +183,7 @@
 	name = "snail shell"
 	desc = "You wonder who this came from."
 	icon = 'yogstation/icons/obj/storage.dmi'
-	alternate_worn_icon = 'yogstation/icons/mob/back.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/back.dmi'
 	item_state = "snail_green"
 	icon_state = "snail_green"
 	slowdown = 1
@@ -199,7 +199,7 @@
 	name = "banana backpack"
 	desc = "Is it a backpack made of bananas or a backpack with a banana texture? The world may never know."
 	icon = 'yogstation/icons/obj/storage.dmi'
-	alternate_worn_icon = 'yogstation/icons/mob/back.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/back.dmi'
 	icon_state = "bananabackpack"
 	item_state = "bananabackpack"
 
@@ -207,6 +207,6 @@
 	name = "clown face backpack"
 	desc = "Sometimes there are some things better left off not existing, this is one of them."
 	icon = 'yogstation/icons/obj/storage.dmi'
-	alternate_worn_icon = 'yogstation/icons/mob/back.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/back.dmi'
 	icon_state = "clownfacebackpack"
 	item_state = "clownfacebackpack"

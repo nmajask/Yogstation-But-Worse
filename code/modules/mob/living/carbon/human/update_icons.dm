@@ -121,20 +121,16 @@ There are several things that need to be remembered:
 			t_color = U.icon_state
 		if(U.adjusted == ALT_STYLE)
 			t_color = "[t_color]_d"
-		else if(U.adjusted == DIGITIGRADE_STYLE)
-			t_color = "[t_color]_l"
-		else if(U.adjusted == DIGIALT_STYLE) //Yogs Start: Handles when you are using an alternate style while having digi legs
-			t_color = "[t_color]_d_l" //Yogs End
 
 		var/mutable_appearance/uniform_overlay
 
 		if(dna && dna.species.sexes)
 			var/G = (gender == FEMALE) ? "f" : "m"
 			if(G == "f" && U.fitted != NO_FEMALE_UNIFORM)
-				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/uniform.dmi', isinhands = FALSE, femaleuniform = U.fitted)
+				uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/uniform.dmi', isinhands = FALSE, femaleuniform = U.fitted)
 
 		if(!uniform_overlay)
-			uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/uniform.dmi', isinhands = FALSE)
+			uniform_overlay = U.build_worn_icon(state = "[t_color]", default_layer = UNIFORM_LAYER, default_icon_file = 'icons/mob/clothing/uniform.dmi', isinhands = FALSE)
 
 
 		if(OFFSET_UNIFORM in dna.species.offset_features)
@@ -198,7 +194,7 @@ There are several things that need to be remembered:
 		var/t_state = gloves.item_state
 		if(!t_state)
 			t_state = gloves.icon_state
-		overlays_standing[GLOVES_LAYER] = gloves.build_worn_icon(state = t_state, default_layer = GLOVES_LAYER, default_icon_file = 'icons/mob/hands.dmi')
+		overlays_standing[GLOVES_LAYER] = gloves.build_worn_icon(state = t_state, default_layer = GLOVES_LAYER, default_icon_file = 'icons/mob/clothing/hands.dmi')
 		gloves_overlay = overlays_standing[GLOVES_LAYER]
 		if(OFFSET_GLOVES in dna.species.offset_features)
 			gloves_overlay.pixel_x += dna.species.offset_features[OFFSET_GLOVES][1]
@@ -224,7 +220,7 @@ There are several things that need to be remembered:
 				client.screen += glasses				//Either way, add the item to the HUD
 		update_observer_view(glasses,1)
 		if(!(head && (head.flags_inv & HIDEEYES)) && !(wear_mask && (wear_mask.flags_inv & HIDEEYES)))
-			overlays_standing[GLASSES_LAYER] = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/eyes.dmi')
+			overlays_standing[GLASSES_LAYER] = glasses.build_worn_icon(state = glasses.icon_state, default_layer = GLASSES_LAYER, default_icon_file = 'icons/mob/clothing/eyes.dmi')
 
 		var/mutable_appearance/glasses_overlay = overlays_standing[GLASSES_LAYER]
 		if(glasses_overlay)
@@ -252,7 +248,7 @@ There are several things that need to be remembered:
 				client.screen += ears					//add it to the client's screen
 		update_observer_view(ears,1)
 
-		overlays_standing[EARS_LAYER] = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = 'icons/mob/ears.dmi')
+		overlays_standing[EARS_LAYER] = ears.build_worn_icon(state = ears.icon_state, default_layer = EARS_LAYER, default_icon_file = 'icons/mob/clothing/ears.dmi')
 		var/mutable_appearance/ears_overlay = overlays_standing[EARS_LAYER]
 		if(OFFSET_EARS in dna.species.offset_features)
 			ears_overlay.pixel_x += dna.species.offset_features[OFFSET_EARS][1]
@@ -273,16 +269,12 @@ There are several things that need to be remembered:
 
 	if(shoes)
 		shoes.screen_loc = ui_shoes                    //move the item to the appropriate screen loc
-		var/obj/item/clothing/shoes/S = shoes
-		var/worn_shoes_icon = S.icon_state
-		if(S.adjusted == DIGITIGRADE_STYLE)
-			worn_shoes_icon = "[S.icon_state]_l" // Sets digitgrade version of a shoe if it has it
 
 		if(client && hud_used && hud_used.hud_shown)
 			if(hud_used.inventory_shown)            //if the inventory is open
 				client.screen += shoes                    //add it to client's screen
 		update_observer_view(shoes,1)
-		overlays_standing[SHOES_LAYER] = shoes.build_worn_icon(state = worn_shoes_icon, default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/feet.dmi')
+		overlays_standing[SHOES_LAYER] = shoes.build_worn_icon(state = shoes.icon_state, default_layer = SHOES_LAYER, default_icon_file = 'icons/mob/clothing/feet.dmi')
 		var/mutable_appearance/shoes_overlay = overlays_standing[SHOES_LAYER]
 		if(OFFSET_SHOES in dna.species.offset_features)
 			shoes_overlay.pixel_x += dna.species.offset_features[OFFSET_SHOES][1]
@@ -307,7 +299,7 @@ There are several things that need to be remembered:
 		var/t_state = s_store.item_state
 		if(!t_state)
 			t_state = s_store.icon_state
-		overlays_standing[SUIT_STORE_LAYER]	= mutable_appearance('icons/mob/belt_mirror.dmi', t_state, -SUIT_STORE_LAYER)
+		overlays_standing[SUIT_STORE_LAYER]	= mutable_appearance('icons/mob/clothing/belt_mirror.dmi', t_state, -SUIT_STORE_LAYER)
 		var/mutable_appearance/s_store_overlay = overlays_standing[SUIT_STORE_LAYER]
 		if(OFFSET_S_STORE in dna.species.offset_features)
 			s_store_overlay.pixel_x += dna.species.offset_features[OFFSET_S_STORE][1]
@@ -345,7 +337,7 @@ There are several things that need to be remembered:
 		if(!t_state)
 			t_state = belt.icon_state
 
-		overlays_standing[BELT_LAYER] = belt.build_worn_icon(state = t_state, default_layer = BELT_LAYER, default_icon_file = 'icons/mob/belt.dmi')
+		overlays_standing[BELT_LAYER] = belt.build_worn_icon(state = t_state, default_layer = BELT_LAYER, default_icon_file = 'icons/mob/clothing/belt.dmi')
 		var/mutable_appearance/belt_overlay = overlays_standing[BELT_LAYER]
 		if(OFFSET_BELT in dna.species.offset_features)
 			belt_overlay.pixel_x += dna.species.offset_features[OFFSET_BELT][1]
@@ -365,16 +357,12 @@ There are several things that need to be remembered:
 
 	if(istype(wear_suit, /obj/item/clothing/suit))
 		wear_suit.screen_loc = ui_oclothing
-		var/obj/item/clothing/suit/S = wear_suit
-		var/worn_suit_icon = S.icon_state
-		if(S.adjusted == DIGITIGRADE_STYLE)
-			worn_suit_icon = "[wear_suit.icon_state]_l" // Checks for digitgrade version of a suit if it has it
 		if(client && hud_used && hud_used.hud_shown)
 			if(hud_used.inventory_shown)
 				client.screen += wear_suit
 		update_observer_view(wear_suit,1)
 
-		overlays_standing[SUIT_LAYER] = wear_suit.build_worn_icon(state = worn_suit_icon, default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/suit.dmi')
+		overlays_standing[SUIT_LAYER] = wear_suit.build_worn_icon(state = wear_suit.icon_state, default_layer = SUIT_LAYER, default_icon_file = 'icons/mob/clothing/suit.dmi')
 		var/mutable_appearance/suit_overlay = overlays_standing[SUIT_LAYER]
 		if(OFFSET_SUIT in dna.species.offset_features)
 			suit_overlay.pixel_x += dna.species.offset_features[OFFSET_SUIT][1]
@@ -530,7 +518,18 @@ generate/load female uniform sprites matching all previously decided variables
 		file2use = alternate_worn_icon
 	if(!file2use)
 		file2use = default_icon_file
-
+	//Yogs Start: Handles digialt stuff
+	if(!isinhands && istype(src, /obj/item/clothing))
+		var/obj/item/clothing/clothes = src
+		switch(clothes.mutantrace_style)
+			if(DIGITIGRADE)
+				file2use = replacetext("[file2use]", ".dmi", "_digi.dmi")
+			if(SNOUT)
+				file2use = replacetext("[file2use]", ".dmi", "_snout.dmi")
+		var/icon/booba = file2use
+		file2use = booba
+	//Yogs End
+	
 	//Find a valid layer from variables+arguments
 	var/layer2use
 	if(alternate_worn_layer)
@@ -539,6 +538,7 @@ generate/load female uniform sprites matching all previously decided variables
 		layer2use = default_layer
 
 	var/mob/living/carbon/human/H = loc
+	to_chat(H, "<span class='warning'>[file2use] [state]</span>")
 	var/mutable_appearance/standing
 	if(femaleuniform)
 		if(HAS_TRAIT(H, TRAIT_SKINNY) && (H.underwear == "Nude"))

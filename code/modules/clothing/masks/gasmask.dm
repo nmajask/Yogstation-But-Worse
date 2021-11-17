@@ -10,6 +10,7 @@
 	permeability_coefficient = 0.01
 	flags_cover = MASKCOVERSEYES | MASKCOVERSMOUTH
 	resistance_flags = NONE
+	mutantrace_variation = list(SNOUT)
 
 // **** Welding gas mask ****
 
@@ -41,6 +42,7 @@
 	icon_state = "plaguedoctor"
 	item_state = "gas_mask"
 	armor = list("melee" = 0, "bullet" = 0, "laser" = 2,"energy" = 2, "bomb" = 0, "bio" = 75, "rad" = 0, "fire" = 0, "acid" = 0)
+	mutantrace_variation = list()
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "syndicate mask"

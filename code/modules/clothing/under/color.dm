@@ -1,6 +1,6 @@
 /obj/item/clothing/under/color
 	desc = "A standard issue colored jumpsuit. Variety is the spice of life!"
-	mutantrace_variation = MUTANTRACE_VARIATION
+	mutantrace_variation = list(DIGITIGRADE)
 
 /obj/item/clothing/under/skirt/color
 	body_parts_covered = CHEST|GROIN|ARMS

@@ -16,6 +16,7 @@
 	var/rad_record = 0
 	var/grace_count = 0
 	var/datum/looping_sound/geiger/soundloop
+	mutantrace_variation = list(DIGITIGRADE)
 
 /obj/item/clothing/head/helmet/space/hardsuit/Initialize()
 	. = ..()

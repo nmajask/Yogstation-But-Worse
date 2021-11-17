@@ -149,8 +149,10 @@
 //flags for alternate styles: These are hard sprited so don't set this if you didn't put the effort in
 #define NORMAL_STYLE		0
 #define ALT_STYLE			1
-#define DIGITIGRADE_STYLE 	2
-#define DIGIALT_STYLE       3		//Yogs
+
+//Yogs: flags for differnt icons for different mutant . Used for CLOTHING that have a different version for different leg types. Right now it only suports digi legs
+#define DIGITIGRADE    1
+#define SNOUT		   2
 
 //flags for digitigrade checks related to footwear. Only Human accessible / Both accessible / Only funny leg accessible.
 #define NO_DIGIT			0

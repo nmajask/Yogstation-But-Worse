@@ -14,7 +14,6 @@
 	var/alt_covers_chest = FALSE // for adjusted/rolled-down jumpsuits, FALSE = exposes chest and arms, TRUE = exposes arms only
 	var/obj/item/clothing/accessory/attached_accessory
 	var/mutable_appearance/accessory_overlay
-	var/mutantrace_variation = NO_MUTANTRACE_VARIATION //Are there special sprites for specific situations? Don't use this unless you need to.
 	var/freshly_laundered = FALSE
 	var/dodgy_colours = FALSE
 	tearable = TRUE //all jumpsuits can be torn down and used for cloth in an emergency | yogs
@@ -78,25 +77,9 @@
 		freshly_laundered = FALSE
 		SEND_SIGNAL(user, COMSIG_ADD_MOOD_EVENT, "fresh_laundry", /datum/mood_event/fresh_laundry)
 
-	if(!ishuman(user)) //Yogs Start: Reorganized to reduce repetition
+	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
-	
-	if(mutantrace_variation == MUTANTRACE_VARIATION)
-		var/is_digi = FALSE
-		if(DIGITIGRADE in H.dna.species.species_traits)
-			is_digi = TRUE
-		
-		if(is_digi && !adjusted == ALT_STYLE && mutantrace_variation)
-			adjusted = DIGITIGRADE_STYLE
-		else if(is_digi && adjusted == ALT_STYLE && mutantrace_variation) //Handles when you are using an alternate style while having digi legs
-			adjusted = DIGIALT_STYLE
-		else if(!is_digi && adjusted == DIGITIGRADE_STYLE)
-			adjusted = NORMAL_STYLE
-		else if(!is_digi && adjusted == DIGIALT_STYLE)
-			adjusted = ALT_STYLE
-		H.update_inv_w_uniform()
-//Yogs End
 	if(attached_accessory && slot != SLOT_HANDS)
 		attached_accessory.on_uniform_equip(src, user)
 		if(attached_accessory.above_suit)
@@ -135,7 +118,7 @@
 			var/accessory_color = attached_accessory.item_color
 			if(!accessory_color)
 				accessory_color = attached_accessory.icon_state
-			accessory_overlay = mutable_appearance('icons/mob/accessories.dmi', "[accessory_color]")
+			accessory_overlay = mutable_appearance('icons/mob/clothing/accessories.dmi', "[accessory_color]")
 			accessory_overlay.alpha = attached_accessory.alpha
 			accessory_overlay.color = attached_accessory.color
 
@@ -175,7 +158,7 @@
 	if(freshly_laundered)
 		. += "It looks fresh and clean."
 	if(can_adjust)
-		if(adjusted == ALT_STYLE || adjusted == DIGIALT_STYLE)
+		if(adjusted == ALT_STYLE)
 			. += "Alt-click on [src] to wear it normally."
 		else
 			. += "Alt-click on [src] to wear it casually."
@@ -193,3 +176,14 @@
 				. += "Its vital tracker and tracking beacon appear to be enabled."
 	if(attached_accessory)
 		. += "\A [attached_accessory] is attached to it."
+
+/obj/item/clothing/under/checkmutantracealt(mob/user) //Yogs Start: Cause of how the files are defined with clothing, this needs to be defined for each type of clothing
+	..()
+	if(ishuman(user))
+		return
+		var/mob/living/carbon/human/H = user
+		H.update_inv_w_uniform()
+		H.update_inv_wear_suit()
+
+/obj/item/clothing/under/rank
+	mutantrace_variation = list(DIGITIGRADE)

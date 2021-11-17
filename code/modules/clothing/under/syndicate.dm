@@ -7,7 +7,7 @@
 	has_sensor = NO_SENSORS
 	armor = list("melee" = 10, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 40)
 	alt_covers_chest = TRUE
-	mutantrace_variation = MUTANTRACE_VARIATION
+	mutantrace_variation = list(DIGITIGRADE)
 
 /obj/item/clothing/under/syndicate/tacticool
 	name = "tacticool turtleneck"
@@ -58,4 +58,4 @@
 	can_adjust = FALSE
 	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
 	resistance_flags = NONE
-	mutantrace_variation = NO_MUTANTRACE_VARIATION
+	mutantrace_variation = list()

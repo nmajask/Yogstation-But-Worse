@@ -41,6 +41,9 @@
 	var/tearable //can this particular item be torn down to be used for cloth? | yogs
 	var/tearhealth = 100 //health regarding tearing clothes to get torn cloth | yogs
 
+	var/list/mutantrace_variation // Assigns shoes to have variations for if worn clothing doesn't enforce straight legs (such as cursed jumpskirts)
+	var/mutantrace_style = FALSE //Yogs: used to tell if the clothing os worn by someone with non-human characteristics that effect the clothing and there is an alt for
+
 /obj/item/clothing/Initialize()
 	if(CHECK_BITFIELD(clothing_flags, VOICEBOX_TOGGLABLE))
 		actions_types += /datum/action/item_action/toggle_voice_box
@@ -106,6 +109,7 @@
 	..()
 	if (!istype(user))
 		return
+	checkmutantracealt(user)
 	if(slot_flags & slotdefine2slotbit(slot)) //Was equipped to a valid slot for this item?
 		if (LAZYLEN(user_vars_to_edit))
 			for(var/variable in user_vars_to_edit)
@@ -166,6 +170,19 @@
 		damaged_clothes = 0
 		cut_overlay(damaged_clothes_icons[index], TRUE)
 
+/obj/item/clothing/proc/checkmutantracealt(mob/user)
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+
+		//Digitigrade
+		if(DIGITIGRADE in H.dna.species.species_traits)
+			if(DIGITIGRADE in mutantrace_variation)
+				mutantrace_style = DIGITIGRADE
+
+		//Snout
+		if("snout" in H.dna.species.mutant_bodyparts)
+			if(SNOUT in mutantrace_variation)
+				mutantrace_style = SNOUT
 
 /*
 SEE_SELF  // can see self, no matter what
@@ -179,13 +196,13 @@ BLIND     // can't see anything
 
 /proc/generate_female_clothing(index,t_color,icon,type) //In a shellnut, blends the uniform sprite with a pre-made sprite in uniform.dmi that's mostly white pixels with a few empty ones to trim off the pixels in the empty spots
 	var/icon/female_clothing_icon	= icon(icon, t_color) // and make the uniform the "female" shape. female_s is either the top-only one (for jumpskirts and the like) or the full one (for jumpsuits)
-	var/icon/female_s				= icon('icons/mob/uniform.dmi', "[(type == FEMALE_UNIFORM_FULL) ? "female_full" : "female_top"]")
+	var/icon/female_s				= icon('icons/mob/clothing/uniform.dmi', "[(type == FEMALE_UNIFORM_FULL) ? "female_full" : "female_top"]")
 	female_clothing_icon.Blend(female_s, ICON_MULTIPLY)
 	GLOB.female_clothing_icons[index] = fcopy_rsc(female_clothing_icon) //Then it saves the icon in a global list so it doesn't have to make it again
 
 /proc/generate_skinny_clothing(index,t_color,icon,type) //Works the exact same as above but for skinny people
 	var/icon/skinny_clothing_icon	= icon(icon, t_color)
-	var/icon/skinny_s				= icon('icons/mob/uniform.dmi', "[(type == FEMALE_UNIFORM_FULL) ? "skinny_full" : "skinny_top"]") //Hooks into same check to see if it's eligible
+	var/icon/skinny_s				= icon('icons/mob/clothing/uniform.dmi', "[(type == FEMALE_UNIFORM_FULL) ? "skinny_full" : "skinny_top"]") //Hooks into same check to see if it's eligible
 	skinny_clothing_icon.Blend(skinny_s, ICON_MULTIPLY)
 	GLOB.skinny_clothing_icons[index] = fcopy_rsc(skinny_clothing_icon)
 
@@ -268,20 +285,13 @@ BLIND     // can't see anything
 		to_chat(usr, "<span class='notice'>You adjust the suit back to normal.</span>")
 	if(ishuman(usr))
 		var/mob/living/carbon/human/H = usr
+		checkmutantracealt(usr)
 		H.update_inv_w_uniform()
 		H.update_body()
 
-/obj/item/clothing/under/proc/toggle_jumpsuit_adjust() //Yogs Start: Reworking this to allow for Digialt to function
-	switch(adjusted)
-		if(NORMAL_STYLE)
-			adjusted = ALT_STYLE
-		if(ALT_STYLE)
-			adjusted = NORMAL_STYLE
-		if(DIGITIGRADE_STYLE)
-			adjusted = DIGIALT_STYLE
-		if(DIGIALT_STYLE)
-			adjusted = DIGITIGRADE_STYLE
-	if(adjusted == NORMAL_STYLE || adjusted == DIGIALT_STYLE) //Yogs End
+/obj/item/clothing/under/proc/toggle_jumpsuit_adjust()
+	adjusted = !adjusted
+	if(adjusted)
 		if(fitted != FEMALE_UNIFORM_TOP)
 			fitted = NO_FEMALE_UNIFORM
 		if(!alt_covers_chest) // for the special snowflake suits that expose the chest when adjusted

@@ -1,48 +1,48 @@
 /obj/item/clothing/ears/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/ears.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/ears.dmi'
 	icon = 'yogstation/icons/obj/clothing/ears.dmi'
 
 /obj/item/clothing/glasses/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/eyes.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/eyes.dmi'
 	icon = 'yogstation/icons/obj/clothing/glasses.dmi'
 
 /obj/item/clothing/gloves/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/hands.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/hands.dmi'
 	icon = 'yogstation/icons/obj/clothing/gloves.dmi'
 
 /obj/item/clothing/head/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/head.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/head.dmi'
 	icon = 'yogstation/icons/obj/clothing/hats.dmi'
 
 /obj/item/clothing/neck/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/neck.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/neck.dmi'
 	icon = 'yogstation/icons/obj/clothing/neck.dmi'
 
 /obj/item/clothing/mask/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/mask.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/mask.dmi'
 	icon = 'yogstation/icons/obj/clothing/masks.dmi'
 
 /obj/item
 	var/list/alternate_screams = list()
 
 /obj/item/clothing/shoes/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/feet.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/feet.dmi'
 	icon = 'yogstation/icons/obj/clothing/shoes.dmi'
 
 /obj/item/clothing/suit/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/suit.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/suit.dmi'
 	icon = 'yogstation/icons/obj/clothing/suits.dmi'
 
 /obj/item/clothing/under/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/uniform.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/uniform.dmi'
 	icon = 'yogstation/icons/obj/clothing/uniforms.dmi'
 
 /obj/item/clothing/back/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/back.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/back.dmi'
 	icon = 'yogstation/icons/obj/clothing/back.dmi'
 
 /obj/item/storage/belt/yogs
-	alternate_worn_icon = 'yogstation/icons/mob/belt.dmi'
+	alternate_worn_icon = 'yogstation/icons/mob/clothing/belt.dmi'
 	icon = 'yogstation/icons/obj/clothing/belts.dmi'
 
 /obj/item/clothing/torncloth

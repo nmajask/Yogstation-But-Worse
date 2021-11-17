@@ -4,7 +4,7 @@
 	fitted = NO_FEMALE_UNIFORM
 	can_adjust = FALSE
 	custom_price = 20
-	mutantrace_variation = MUTANTRACE_VARIATION
+	mutantrace_variation = list(DIGITIGRADE)
 
 /obj/item/clothing/under/pants/classicjeans
 	name = "classic jeans"

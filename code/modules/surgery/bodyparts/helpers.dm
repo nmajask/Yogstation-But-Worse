@@ -301,9 +301,9 @@
 			var/obj/item/clothing/under/U = H.w_uniform
 			if(U.mutantrace_variation)
 				if(swap_back)
-					U.adjusted = NORMAL_STYLE
+					U.mutantrace_style = FALSE
 				else
-					U.adjusted = DIGITIGRADE_STYLE
+					U.mutantrace_style = DIGITIGRADE
 				H.update_inv_w_uniform()
 		if(H.shoes && !swap_back)
 			H.dropItemToGround(H.shoes)

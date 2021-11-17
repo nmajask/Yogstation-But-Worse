@@ -22,6 +22,18 @@
 	else
 		UnregisterSignal(M, COMSIG_MOB_SAY)
 
+/*	if(!ishuman(M)) //Yogs Start: Multirace alts
+		return
+	var/mob/living/carbon/human/H = M
+	
+	if(mutantrace_variation == MUTANTRACE_VARIATION)
+		if(DIGITIGRADE in H.dna.species.species_traits)
+			legstyle = DIGITIGRADE_LEGS
+		else
+			legstyle = NORMAL_LEGS
+		H.update_inv_w_uniform()
+	Yogs End*/
+
 /obj/item/clothing/mask/dropped(mob/M)
 	. = ..()
 	UnregisterSignal(M, COMSIG_MOB_SAY)

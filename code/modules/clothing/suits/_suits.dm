@@ -8,7 +8,6 @@
 	var/blood_overlay_type = "suit"
 	var/togglename = null
 	var/suittoggled = FALSE
-	var/mutantrace_variation = NO_MUTANTRACE_VARIATION
 	var/adjusted = NORMAL_STYLE
 
 
@@ -38,8 +37,9 @@
 	if(adjusted)
 		adjusted = NORMAL_STYLE
 
-	if(mutantrace_variation && ishuman(user))
+/obj/item/clothing/suit/checkmutantracealt(mob/user) //Yogs Start: Cause of how the files are defined with clothing, this needs to be defined for each type of clothing
+	..()
+	if(ishuman(user))
+		return
 		var/mob/living/carbon/human/H = user
-		if(DIGITIGRADE in H.dna.species.species_traits)
-			adjusted = DIGITIGRADE_STYLE
-		H.update_inv_w_uniform()
+		H.update_inv_wear_suit()
