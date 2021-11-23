@@ -70,7 +70,6 @@
 		/obj/item/airlock_painter,
 		/obj/item/grenade/chem_grenade/smart_metal_foam,
 		/obj/item/grenade/chem_grenade/metalfoam,
-		/obj/item/storage/bag/construction,
 		/obj/item/handdrill,
 		/obj/item/jawsoflife,
 		/obj/item/shuttle_creator //Yogs: Added this here cause I felt it fits
@@ -191,8 +190,6 @@
 		/obj/item/clothing/glasses,
 		/obj/item/wrench/medical,
 		/obj/item/clothing/mask/muzzle,
-		/obj/item/storage/bag/chemistry,
-		/obj/item/storage/bag/bio,
 		/obj/item/reagent_containers/blood,
 		/obj/item/tank/internals/emergency_oxygen,
 		/obj/item/gun/syringe/syndicate,
