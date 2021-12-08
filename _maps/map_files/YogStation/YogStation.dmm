@@ -20825,6 +20825,28 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/science/lab)
+"bmL" = (
+/obj/structure/table,
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 8
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 2;
+	pixel_y = -7
+	},
+/obj/item/clothing/glasses/hud/health{
+	pixel_x = 3;
+	pixel_y = -12
+	},
+/obj/item/roller{
+	pixel_y = 9
+	},
+/obj/item/roller{
+	pixel_x = 5;
+	pixel_y = 13
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/paramedic)
 "bmS" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
@@ -48675,28 +48697,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/plasteel,
 /area/security/checkpoint/service)
-"nsz" = (
-/obj/structure/table,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 8
-	},
-/obj/item/clothing/glasses/hud/health{
-	pixel_x = 2;
-	pixel_y = -7
-	},
-/obj/item/clothing/glasses/hud/health{
-	pixel_x = 3;
-	pixel_y = -12
-	},
-/obj/item/roller{
-	pixel_y = 9
-	},
-/obj/item/roller/stasis/prototype{
-	pixel_x = 5;
-	pixel_y = 13
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/paramedic)
 "ntm" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -101375,7 +101375,7 @@ vBT
 jVg
 bfK
 iVd
-nsz
+bmL
 lxD
 fDO
 uAL
