@@ -48,6 +48,8 @@
 					/obj/item/clothing/under/griffin = 1,
 					/obj/item/clothing/shoes/griffin = 1,
 					/obj/item/clothing/head/griffin = 1,
+					/obj/item/clothing/head/lobsterhat = 1,
+					/obj/item/clothing/under/lobster = 1,
 					/obj/item/clothing/suit/apron = 1,
 					/obj/item/clothing/under/waiter = 1,
 					/obj/item/clothing/suit/jacket/miljacket = 1,
@@ -210,7 +212,6 @@
 		           /obj/item/skub = 1,
 		           /obj/item/clothing/under/lampskirt = 1,
 		           /obj/item/clothing/under/yogs/soviet_dress_uniform = 1, //yogs start
-		           /obj/item/clothing/under/yogs/enclaveo = 1,
 		           /obj/item/clothing/under/yogs/rycliesuni = 1,
 		           /obj/item/clothing/head/yogs/toad = 1,
 		           /obj/item/clothing/head/helmet/justice = 1,
@@ -243,7 +244,7 @@
 					/obj/item/storage/backpack/captain = 1,
 					/obj/item/storage/backpack/satchel/cap = 1,
 					/obj/item/storage/backpack/duffelbag/captain = 1,
-					/obj/item/clothing/neck/cloak/cap = 1,
+					/obj/item/clothing/neck/yogs/shawl/cap = 1, //Yogs
 					/obj/item/clothing/shoes/sneakers/brown = 1,
 					/obj/item/clothing/under/rank/captain = 1,
 					/obj/item/clothing/under/rank/captain/skirt = 1,
