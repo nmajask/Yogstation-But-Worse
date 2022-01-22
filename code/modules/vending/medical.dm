@@ -22,8 +22,6 @@
 					/obj/item/reagent_containers/syringe/antiviral = 6,
 					/obj/item/reagent_containers/medspray/styptic = 2,
 					/obj/item/reagent_containers/medspray/silver_sulf = 2,
-					/obj/item/sensor_device = 2,
-					/obj/item/pinpointer/crew = 2,
 					/obj/item/healthanalyzer/wound = 4,
 					/obj/item/stack/medical/ointment = 2,
 					/obj/item/stack/medical/suture = 2,

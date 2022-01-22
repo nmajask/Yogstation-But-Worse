@@ -32814,14 +32814,6 @@
 	pixel_y = 5
 	},
 /obj/item/sensor_device,
-/obj/item/pinpointer/crew{
-	pixel_x = -3;
-	pixel_y = 4
-	},
-/obj/item/pinpointer/crew{
-	pixel_x = 2;
-	pixel_y = -2
-	},
 /obj/item/healthanalyzer,
 /turf/open/floor/plasteel/white,
 /area/medical/medbay/central)

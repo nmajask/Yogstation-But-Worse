@@ -173,7 +173,6 @@
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/clothing/suit/armor/vest/det_suit(src)
 	new /obj/item/storage/belt/holster/full(src)
-	new /obj/item/pinpointer/crew(src)
 	new /obj/item/twohanded/binoculars(src)
 	new /obj/item/storage/backpack/duffelbag/clothing/sec/detective(src)
 
@@ -310,8 +309,6 @@
 	new /obj/item/cartridge/medical(src)
 	new /obj/item/radio/headset/headset_medsec(src)
 	new /obj/item/storage/belt/medical(src)
-	new /obj/item/pinpointer/crew(src)
-	new /obj/item/sensor_device(src)
 	new /obj/item/storage/box/bodybags(src)
 	new /obj/item/tank/internals/anesthetic(src)
 	new /obj/item/clothing/mask/breath/medical(src)
