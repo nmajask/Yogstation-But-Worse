@@ -247,6 +247,12 @@
 	},
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
+"bO" = (
+/obj/machinery/modular_computer/console/preset/mining{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/mine/infirmary)
 "bP" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -1525,22 +1531,6 @@
 	},
 /turf/open/floor/plating,
 /area/mine/living_quarters)
-"qX" = (
-/obj/item/radio/intercom{
-	name = "Station Intercom (General)";
-	pixel_x = 29
-	},
-/obj/structure/table,
-/obj/item/storage/lockbox/vialbox/blood{
-	pixel_x = 3;
-	pixel_y = 6
-	},
-/obj/item/hand_labeler{
-	pixel_x = -4;
-	pixel_y = -2
-	},
-/turf/open/floor/plasteel/dark,
-/area/mine/infirmary)
 "rm" = (
 /obj/structure/closet/emcloset/anchored,
 /obj/effect/turf_decal/bot,
@@ -1782,12 +1772,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/infirmary)
-"wb" = (
-/obj/machinery/modular_computer/console/preset/mining{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/mine/infirmary)
 "we" = (
 /obj/structure/table,
 /turf/open/floor/plasteel/freezer,
@@ -2026,6 +2010,17 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
 /turf/open/floor/plasteel/freezer,
 /area/mine/living_quarters)
+"Av" = (
+/obj/structure/table,
+/obj/item/book/random{
+	pixel_x = 1;
+	pixel_y = 3
+	},
+/obj/machinery/light_switch{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel/white,
+/area/mine/infirmary)
 "Ax" = (
 /obj/structure/sign/poster/random{
 	pixel_y = -32
@@ -2201,28 +2196,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/mine/production)
-"BL" = (
-/obj/machinery/button/door{
-	id = "mining1";
-	name = "Mining Emergency Lockdown";
-	pixel_x = -24;
-	pixel_y = -5
-	},
-/obj/machinery/light_switch{
-	pixel_x = -24;
-	pixel_y = 5
-	},
-/obj/structure/table,
-/obj/item/book/manual/wiki/medicine{
-	pixel_x = 1;
-	pixel_y = 2
-	},
-/obj/item/book/random{
-	pixel_x = -2;
-	pixel_y = -2
-	},
-/turf/open/floor/plasteel/dark,
-/area/mine/infirmary)
 "BM" = (
 /obj/structure/extinguisher_cabinet{
 	pixel_y = -32
@@ -2651,6 +2624,28 @@
 	},
 /turf/open/floor/plating/lavaland_baseturf,
 /area/mine/maintenance)
+"Hl" = (
+/obj/machinery/button/door{
+	id = "mining1";
+	name = "Mining Emergency Lockdown";
+	pixel_x = -24;
+	pixel_y = -5
+	},
+/obj/machinery/light_switch{
+	pixel_x = -24;
+	pixel_y = 5
+	},
+/obj/structure/table,
+/obj/item/book/manual/wiki/medicine{
+	pixel_x = 1;
+	pixel_y = 2
+	},
+/obj/item/book/random{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/turf/open/floor/plasteel/dark,
+/area/mine/infirmary)
 "Ho" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -2989,17 +2984,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/infirmary)
-"Nq" = (
-/obj/structure/table,
-/obj/item/book/random{
-	pixel_x = 1;
-	pixel_y = 3
-	},
-/obj/machinery/light_switch{
-	pixel_y = 32
-	},
-/turf/open/floor/plasteel/white,
-/area/mine/infirmary)
 "ND" = (
 /obj/effect/spawner/structure/window/reinforced/shutter,
 /obj/machinery/door/poddoor/preopen{
@@ -3036,6 +3020,22 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/mine/eva)
+"NY" = (
+/obj/item/radio/intercom{
+	name = "Station Intercom (General)";
+	pixel_x = 29
+	},
+/obj/structure/table,
+/obj/item/storage/lockbox/vialbox/blood{
+	pixel_x = 3;
+	pixel_y = 6
+	},
+/obj/item/hand_labeler{
+	pixel_x = -4;
+	pixel_y = -2
+	},
+/turf/open/floor/plasteel/dark,
+/area/mine/infirmary)
 "Oe" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/plasteel/cafeteria,
@@ -4883,7 +4883,7 @@ YH
 wu
 UI
 kD
-Nq
+Av
 Er
 Ch
 kD
@@ -4892,7 +4892,7 @@ fA
 Dy
 fA
 fA
-BL
+Hl
 ez
 ez
 ak
@@ -4935,7 +4935,7 @@ sq
 TI
 Gv
 Fc
-wb
+bO
 ez
 ak
 ak
@@ -4976,7 +4976,7 @@ fA
 fA
 fA
 Cs
-qX
+NY
 ez
 ez
 ak

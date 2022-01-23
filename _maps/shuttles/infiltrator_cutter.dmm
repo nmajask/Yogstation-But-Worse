@@ -912,6 +912,11 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/shuttle/yogs/stealthcruiser)
+"xj" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/plasteel/dark,
+/area/shuttle/yogs/stealthcruiser)
 "xE" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden{
 	dir = 4
@@ -1007,11 +1012,6 @@
 	pixel_y = 3
 	},
 /obj/machinery/light/small,
-/turf/open/floor/plasteel/dark,
-/area/shuttle/yogs/stealthcruiser)
-"Ir" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/computer/crew/syndie,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/yogs/stealthcruiser)
 "Lb" = (
@@ -1311,7 +1311,7 @@ bW
 bW
 bW
 af
-Ir
+xj
 aV
 rY
 bv

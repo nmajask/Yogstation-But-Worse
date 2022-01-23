@@ -22072,23 +22072,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/disposal)
-"aVS" = (
-/obj/machinery/computer/crew,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Chief Medical Officer's Desk";
-	departmentType = 5;
-	name = "Chief Medical Officer RC";
-	pixel_y = 32
-	},
-/turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
 "aVT" = (
 /obj/effect/landmark/xeno_spawn,
 /obj/machinery/camera{
@@ -23683,31 +23666,6 @@
 	},
 /turf/open/floor/plasteel/cafeteria,
 /area/crew_quarters/heads/cmo)
-"aYZ" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/structure/table/glass,
-/obj/item/folder/white,
-/obj/item/stamp/cmo,
-/obj/item/clothing/glasses/hud/health,
-/turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
-"aZa" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/structure/table/glass,
-/obj/item/pen,
-/obj/item/clothing/neck/stethoscope,
-/turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
 "aZb" = (
 /obj/machinery/smartfridge/organ,
 /turf/open/floor/plasteel,
@@ -25257,22 +25215,6 @@
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bcu" = (
-/turf/open/floor/plasteel/dark,
-/area/bridge)
-"bcv" = (
-/obj/effect/turf_decal/tile/green{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/neutral,
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/computer/crew{
-	dir = 8
-	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "bcw" = (
@@ -32877,10 +32819,6 @@
 /area/crew_quarters/heads/hop)
 "bra" = (
 /obj/machinery/computer/cargo,
-/turf/open/floor/wood,
-/area/crew_quarters/heads/hop)
-"brb" = (
-/obj/machinery/computer/crew,
 /turf/open/floor/wood,
 /area/crew_quarters/heads/hop)
 "brc" = (
@@ -51504,18 +51442,6 @@
 /obj/effect/spawner/structure/window/reinforced/shutter,
 /turf/open/floor/plating,
 /area/maintenance/department/medical/central)
-"ccv" = (
-/obj/machinery/computer/crew,
-/obj/item/radio/intercom{
-	freerange = 1;
-	name = "Common Channel";
-	pixel_x = 30
-	},
-/obj/machinery/modular_computer/telescreen/preset/medical{
-	pixel_y = 32
-	},
-/turf/open/floor/plasteel,
-/area/medical/paramedic/a)
 "ccw" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/quantumpad{
@@ -54219,16 +54145,6 @@
 /obj/effect/turf_decal/tile/purple,
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
-"ciq" = (
-/obj/structure/table,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/regular{
-	pixel_x = -3;
-	pixel_y = -3
-	},
-/obj/item/storage/firstaid/toxin,
-/turf/open/floor/plasteel,
-/area/medical/paramedic/a)
 "cir" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
 	dir = 6
@@ -58561,17 +58477,6 @@
 	},
 /turf/open/floor/circuit/telecomms/server,
 /area/science/server)
-"crt" = (
-/obj/structure/closet/secure_closet/paramedic,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/machinery/firealarm{
-	dir = 4;
-	pixel_x = -26
-	},
-/turf/open/floor/plasteel,
-/area/medical/paramedic/a)
 "cru" = (
 /obj/machinery/camera/motion{
 	c_tag = "AI Upload Motion Sensor";
@@ -61899,12 +61804,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/science/xenobiology)
-"cyi" = (
-/obj/machinery/computer/crew{
-	dir = 1
-	},
-/turf/open/floor/plasteel,
-/area/medical/paramedic/a)
 "cyj" = (
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -81267,6 +81166,19 @@
 	},
 /turf/open/floor/plasteel,
 /area/vacant_room/commissary)
+"erm" = (
+/obj/structure/table,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/storage/firstaid/toxin,
+/obj/machinery/modular_computer/telescreen/preset/medical{
+	pixel_y = 32
+	},
+/turf/open/floor/plasteel,
+/area/medical/paramedic/a)
 "erD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/stack/cable_coil/random/five,
@@ -84476,6 +84388,17 @@
 /obj/effect/mapping_helpers/teleport_anchor,
 /turf/open/floor/plasteel,
 /area/engine/atmos)
+"khH" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/table/glass,
+/obj/item/folder/white,
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/heads/cmo)
 "khN" = (
 /obj/structure/closet,
 /obj/machinery/light/small{
@@ -84694,6 +84617,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
+"kxQ" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/structure/table/glass,
+/obj/item/stamp/cmo,
+/obj/item/pen,
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/heads/cmo)
 "kBf" = (
 /obj/structure/closet{
 	name = "Contraband Locker"
@@ -84894,6 +84829,16 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/department/science)
+"kLv" = (
+/obj/structure/closet/secure_closet/paramedic,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/machinery/modular_computer/telescreen/preset/medical{
+	pixel_x = -32
+	},
+/turf/open/floor/plasteel,
+/area/medical/paramedic/a)
 "kNZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light{
@@ -85183,6 +85128,25 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/gravity_generator)
+"lCs" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Chief Medical Officer's Desk";
+	departmentType = 5;
+	name = "Chief Medical Officer RC";
+	pixel_y = 32
+	},
+/obj/structure/table/glass,
+/obj/item/clothing/neck/stethoscope,
+/obj/item/clothing/glasses/hud/health,
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/heads/cmo)
 "lCB" = (
 /obj/machinery/light{
 	dir = 4;
@@ -87478,6 +87442,12 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
+"qbp" = (
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 1
+	},
+/turf/open/floor/plasteel,
+/area/medical/paramedic/a)
 "qbv" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm{
@@ -87603,6 +87573,22 @@
 	},
 /turf/open/floor/wood,
 /area/maintenance/department/chapel)
+"qto" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/bridge)
 "quc" = (
 /obj/effect/turf_decal/tile/yellow{
 	dir = 8
@@ -88393,6 +88379,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/prison)
+"rIm" = (
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/wood,
+/area/crew_quarters/heads/hop)
 "rIK" = (
 /obj/item/twohanded/required/kirbyplants/random,
 /obj/item/radio/intercom{
@@ -89535,6 +89525,18 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/teleporter/hub/bridge)
+"tLZ" = (
+/obj/item/radio/intercom{
+	freerange = 1;
+	name = "Common Channel";
+	pixel_x = 30
+	},
+/obj/machinery/modular_computer/telescreen/preset/medical{
+	pixel_y = 32
+	},
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/plasteel,
+/area/medical/paramedic/a)
 "tMf" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/open/floor/grass,
@@ -89991,12 +89993,6 @@
 	name = "Holodeck Projector Floor"
 	},
 /area/holodeck/perma)
-"uyN" = (
-/obj/structure/closet/secure_closet/paramedic,
-/obj/item/clothing/suit/space/paramedic,
-/obj/item/clothing/head/helmet/space,
-/turf/open/floor/plasteel,
-/area/medical/paramedic/a)
 "uzJ" = (
 /obj/machinery/light{
 	dir = 1;
@@ -90363,6 +90359,16 @@
 /obj/effect/landmark/stationroom/maint/threexthree,
 /turf/template_noop,
 /area/maintenance/department/cargo)
+"vdz" = (
+/obj/structure/closet/secure_closet/paramedic,
+/obj/item/clothing/suit/space/paramedic,
+/obj/item/clothing/head/helmet/space,
+/obj/machinery/firealarm{
+	dir = 4;
+	pixel_x = -26
+	},
+/turf/open/floor/plasteel,
+/area/medical/paramedic/a)
 "veq" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -97400,9 +97406,9 @@ aha
 cVe
 aJh
 aSO
-aVS
+lCs
 aXw
-aYZ
+khH
 bbP
 clY
 bfv
@@ -97659,7 +97665,7 @@ aJh
 aSO
 brN
 aXv
-aZa
+kxQ
 bbQ
 bdB
 boA
@@ -104111,7 +104117,7 @@ bPg
 bEy
 bUS
 aun
-ciq
+erm
 cqn
 crk
 cat
@@ -105141,8 +105147,8 @@ aun
 aun
 cme
 cqn
-crt
-uyN
+kLv
+vdz
 cat
 cat
 aeG
@@ -105909,12 +105915,12 @@ bBY
 aeF
 aeF
 cat
-ccv
+tLZ
 cpy
 cqU
 cqU
 cwG
-cyi
+qbp
 cat
 bZC
 aeF
@@ -127227,7 +127233,7 @@ hxY
 bxV
 riP
 bpU
-brb
+rIm
 bsv
 btT
 bvz
@@ -132613,7 +132619,7 @@ aGm
 ban
 beV
 baZ
-bcv
+qto
 bec
 bft
 bcu

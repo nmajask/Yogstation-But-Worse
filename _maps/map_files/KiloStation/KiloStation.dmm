@@ -3490,36 +3490,6 @@
 /obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plasteel,
 /area/security/warden)
-"ahr" = (
-/obj/machinery/computer/crew{
-	dir = 4
-	},
-/obj/effect/turf_decal/bot,
-/obj/machinery/button/door{
-	id = "brigcelldoor";
-	name = "Cell Blast Door Toggle";
-	pixel_x = -24;
-	pixel_y = -6
-	},
-/obj/machinery/button/door{
-	id = "brigfrontdoor";
-	name = "Front Blast Door Toggle";
-	pixel_x = -24;
-	pixel_y = 6
-	},
-/obj/machinery/requests_console{
-	department = "Security";
-	departmentType = 5;
-	name = "Security RC";
-	pixel_x = -30;
-	pixel_y = -30
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral,
-/turf/open/floor/plasteel/dark,
-/area/security/warden)
 "ahs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
@@ -5920,19 +5890,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/crew_quarters/fitness/recreation)
-"alJ" = (
-/obj/machinery/computer/crew{
-	dir = 4
-	},
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Head of Security's Desk";
-	departmentType = 5;
-	name = "Head of Security RC";
-	pixel_x = -30
-	},
-/turf/open/floor/wood,
-/area/crew_quarters/heads/hos)
 "alK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small{
@@ -8592,17 +8549,6 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/turf/open/floor/plasteel/dark,
-/area/bridge)
-"aqy" = (
-/obj/machinery/computer/crew{
-	dir = 8
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/neutral,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
 "aqz" = (
@@ -85073,6 +85019,25 @@
 	},
 /turf/open/floor/plasteel/dark/telecomms,
 /area/tcommsat/server)
+"etp" = (
+/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/machinery/modular_computer/telescreen/preset/medical{
+	pixel_y = -32
+	},
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/medical/medbay/central)
 "etV" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12";
@@ -86371,27 +86336,6 @@
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/crew_quarters/locker)
-"fPd" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 10
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/effect/turf_decal/tile/blue{
-	dir = 1
-	},
-/obj/machinery/camera{
-	c_tag = "Paramedic Staging";
-	network = list("ss13","medbay")
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/obj/machinery/computer/crew,
-/turf/open/floor/plasteel/showroomfloor,
-/area/medical/paramedic)
 "fPg" = (
 /obj/machinery/door/airlock/external{
 	name = "Labor Camp Shuttle Airlock";
@@ -90755,26 +90699,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/quartermaster/storage)
-"jWy" = (
-/obj/machinery/computer/crew{
-	dir = 1;
-	icon_state = "computer"
-	},
-/obj/effect/turf_decal/bot,
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/neutral{
-	dir = 4
-	},
-/obj/machinery/modular_computer/telescreen/preset/medical{
-	pixel_y = -32
-	},
-/turf/open/floor/plasteel/dark,
-/area/medical/medbay/central)
 "jWG" = (
 /obj/effect/turf_decal/tile/neutral,
 /obj/effect/turf_decal/tile/neutral{
@@ -93826,6 +93750,19 @@
 	},
 /turf/open/floor/plasteel,
 /area/hallway/primary/port)
+"mSn" = (
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Head of Security's Desk";
+	departmentType = 5;
+	name = "Head of Security RC";
+	pixel_x = -30
+	},
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 4
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/heads/hos)
 "mSx" = (
 /obj/structure/sign/warning/nosmoking{
 	pixel_x = 30
@@ -99267,6 +99204,36 @@
 	initial_gas_mix = "n2=100;TEMP=80"
 	},
 /area/ai_monitored/turret_protected/ai)
+"sEJ" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/button/door{
+	id = "brigcelldoor";
+	name = "Cell Blast Door Toggle";
+	pixel_x = -24;
+	pixel_y = -6
+	},
+/obj/machinery/button/door{
+	id = "brigfrontdoor";
+	name = "Front Blast Door Toggle";
+	pixel_x = -24;
+	pixel_y = 6
+	},
+/obj/machinery/requests_console{
+	department = "Security";
+	departmentType = 5;
+	name = "Security RC";
+	pixel_x = -30;
+	pixel_y = -30
+	},
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 4
+	},
+/turf/open/floor/plasteel/dark,
+/area/security/warden)
 "sFw" = (
 /obj/machinery/door/airlock/maintenance{
 	req_access_txt = "12";
@@ -100085,6 +100052,17 @@
 /obj/structure/girder,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
+"twi" = (
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/neutral,
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/bridge)
 "txU" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/effect/turf_decal/tile/blue{
@@ -104275,6 +104253,27 @@
 /obj/machinery/door/firedoor/border_only,
 /turf/open/floor/plasteel/dark,
 /area/maintenance/central)
+"xSf" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 10
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/effect/turf_decal/tile/blue{
+	dir = 1
+	},
+/obj/machinery/camera{
+	c_tag = "Paramedic Staging";
+	network = list("ss13","medbay")
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/plasteel/showroomfloor,
+/area/medical/paramedic)
 "xTw" = (
 /obj/machinery/atmospherics/components/binary/pump,
 /obj/machinery/light/small{
@@ -123232,7 +123231,7 @@ agS
 afV
 cqn
 als
-alJ
+mSn
 fws
 cmP
 cmP
@@ -123705,7 +123704,7 @@ eeQ
 rLS
 wsS
 dMm
-fPd
+xSf
 kkG
 iva
 nWP
@@ -124504,7 +124503,7 @@ aeg
 cdA
 aEz
 oWj
-ahr
+sEJ
 bTr
 bVy
 chT
@@ -125493,7 +125492,7 @@ aQX
 aQb
 aRa
 bfv
-jWy
+etp
 aNn
 aRU
 aXH
@@ -134759,7 +134758,7 @@ isw
 pjH
 brL
 aBU
-aqy
+twi
 aqE
 asg
 aqI

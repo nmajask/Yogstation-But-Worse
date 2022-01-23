@@ -28921,16 +28921,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/bridge)
-"bhj" = (
-/obj/machinery/computer/crew,
-/obj/effect/turf_decal/tile/green{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/green{
-	dir = 4
-	},
-/turf/open/floor/plasteel/dark,
-/area/bridge)
 "bhk" = (
 /obj/machinery/status_display/evac{
 	pixel_y = 32
@@ -75709,15 +75699,6 @@
 /obj/effect/landmark/stationroom/maint/fivexthree,
 /turf/template_noop,
 /area/maintenance/fore)
-"mRj" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/obj/machinery/modular_computer/console/preset/medical{
-	dir = 8
-	},
-/turf/open/floor/plasteel/showroomfloor,
-/area/security/warden)
 "mTv" = (
 /obj/structure/chair/office/dark{
 	dir = 1
@@ -76165,6 +76146,16 @@
 	},
 /turf/open/floor/plating,
 /area/ai_monitored/storage/satellite)
+"nxc" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/paramedic)
 "nxl" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
@@ -79998,6 +79989,15 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/gravity_generator)
+"sOx" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "sPb" = (
 /obj/machinery/vending/coffee,
 /obj/structure/sign/map/left{
@@ -82140,6 +82140,16 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/starboard/secondary)
+"vzu" = (
+/obj/effect/turf_decal/tile/green{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/plasteel/dark,
+/area/bridge)
 "vzA" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -83726,16 +83736,6 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/wood,
 /area/library)
-"xDS" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue,
-/obj/machinery/modular_computer/console/preset/medical{
-	dir = 8
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/paramedic)
 "xFm" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -110394,7 +110394,7 @@ anm
 ajx
 apK
 apw
-mRj
+sOx
 anr
 alW
 asx
@@ -110681,7 +110681,7 @@ aLR
 bcu
 aaf
 bfu
-bhj
+vzu
 bjb
 bjc
 bmA
@@ -110727,7 +110727,7 @@ kRY
 azi
 hOT
 xtC
-xDS
+nxc
 rpb
 azi
 ovq

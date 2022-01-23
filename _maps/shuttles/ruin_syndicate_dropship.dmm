@@ -548,6 +548,22 @@
 /obj/item/clothing/glasses/night,
 /turf/open/floor/mineral/plastitanium,
 /area/shuttle/caravan/syndicate3)
+"OK" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/dark,
+/area/shuttle/caravan/syndicate3)
 "Pt" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
@@ -694,22 +710,6 @@
 "ZJ" = (
 /turf/open/floor/plasteel/dark,
 /area/shuttle/caravan/syndicate3)
-"ZK" = (
-/obj/machinery/computer/crew{
-	dir = 8
-	},
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/turf/open/floor/plasteel/dark,
-/area/shuttle/caravan/syndicate3)
 
 (1,1,1) = {"
 Jv
@@ -833,7 +833,7 @@ ab
 ac
 sb
 rz
-ZK
+OK
 ac
 ai
 "}

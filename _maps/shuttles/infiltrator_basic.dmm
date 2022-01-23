@@ -38,11 +38,6 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/plasteel/dark,
 /area/shuttle/syndicate/bridge)
-"ah" = (
-/obj/machinery/computer/crew/syndie,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/plasteel/dark,
-/area/shuttle/syndicate/bridge)
 "ai" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate,
 /obj/effect/turf_decal/bot_white,
@@ -1327,6 +1322,11 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/syndicate/airlock)
+"Gy" = (
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/plasteel/dark,
+/area/shuttle/syndicate/bridge)
 "In" = (
 /obj/machinery/porta_turret/syndicate/shuttle{
 	dir = 6
@@ -1536,7 +1536,7 @@ aa
 "}
 (7,1,1) = {"
 ae
-ah
+Gy
 ao
 at
 ac
