@@ -20856,6 +20856,21 @@
 "bnc" = (
 /turf/closed/wall/r_wall,
 /area/science/robotics/mechbay)
+"bnd" = (
+/obj/structure/closet/secure_closet/CMO,
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/item/clothing/glasses/hud/health,
+/obj/machinery/camera{
+	c_tag = "Chief Medical Office";
+	network = list("ss13","medbay")
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/heads/cmo)
 "bne" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 8
@@ -28988,22 +29003,6 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
 /area/maintenance/starboard/aft)
-"cbh" = (
-/obj/structure/closet/secure_closet/CMO,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/item/clothing/glasses/hud/health,
-/obj/machinery/camera{
-	c_tag = "Chief Medical Office";
-	network = list("ss13","medbay")
-	},
-/obj/item/sensor_device,
-/turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
 "cbp" = (
 /obj/structure/closet/secure_closet/engineering_chief,
 /obj/machinery/power/apc/highcap/five_k{
@@ -32804,19 +32803,6 @@
 /obj/item/toy/figure/qm,
 /turf/open/floor/plasteel,
 /area/quartermaster/qm)
-"ddu" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 6
-	},
-/obj/structure/rack,
-/obj/item/sensor_device{
-	pixel_x = -3;
-	pixel_y = 5
-	},
-/obj/item/sensor_device,
-/obj/item/healthanalyzer,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/central)
 "ddA" = (
 /obj/effect/turf_decal/trimline/purple/filled/corner,
 /turf/open/floor/plasteel/white,
@@ -38013,16 +37999,6 @@
 	},
 /turf/closed/wall/r_wall,
 /area/security/prison)
-"gGc" = (
-/obj/machinery/computer/crew,
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/bridge)
 "gGd" = (
 /obj/structure/lattice,
 /obj/structure/sign/warning/electricshock,
@@ -39926,6 +39902,24 @@
 	icon_state = "platingdmg3"
 	},
 /area/maintenance/port)
+"hVA" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/requests_console{
+	announcementConsole = 1;
+	department = "Chief Medical Officer's Desk";
+	departmentType = 5;
+	name = "Chief Medical Officer RC";
+	pixel_y = 32
+	},
+/obj/item/toy/figure/cmo,
+/obj/item/twohanded/required/kirbyplants/random,
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/heads/cmo)
 "hVM" = (
 /obj/machinery/power/apc{
 	areastring = "/area/quartermaster/miningdock";
@@ -46576,6 +46570,22 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/xenobiology)
+"mhO" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/machinery/button/door{
+	id = "emt_shutters";
+	name = "Paramedic Staging Area Shutters";
+	pixel_x = 26;
+	pixel_y = 6;
+	req_access_txt = "69"
+	},
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/paramedic)
 "mhS" = (
 /obj/structure/table/reinforced,
 /obj/item/folder/white,
@@ -46950,22 +46960,6 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plasteel/dark,
 /area/tcommsat/computer)
-"muj" = (
-/obj/machinery/computer/crew{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
-/obj/machinery/button/door{
-	id = "emt_shutters";
-	name = "Paramedic Staging Area Shutters";
-	pixel_x = 26;
-	pixel_y = 6;
-	req_access_txt = "69"
-	},
-/turf/open/floor/plasteel/white,
-/area/medical/paramedic)
 "muU" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 1
@@ -49680,6 +49674,16 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
 /area/ai_monitored/storage/satellite)
+"nXm" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 1
+	},
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/plasteel/dark,
+/area/bridge)
 "nXu" = (
 /turf/template_noop,
 /area/maintenance/port)
@@ -53919,10 +53923,6 @@
 /obj/item/reagent_containers/food/drinks/bottle/vodka/badminka,
 /turf/open/floor/plating,
 /area/maintenance/starboard/fore)
-"qAF" = (
-/obj/machinery/computer/crew,
-/turf/open/floor/plasteel/showroomfloor,
-/area/security/warden)
 "qAR" = (
 /obj/structure/cable,
 /obj/structure/cable{
@@ -57235,6 +57235,21 @@
 	},
 /turf/open/floor/plasteel,
 /area/crew_quarters/locker)
+"sDn" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/table/glass,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/central)
 "sDo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -57615,6 +57630,10 @@
 	},
 /turf/open/floor/plasteel,
 /area/storage/primary)
+"sTw" = (
+/obj/machinery/modular_computer/console/preset/medical,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "sUD" = (
 /obj/structure/table,
 /obj/item/phone,
@@ -58875,22 +58894,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/plating,
 /area/maintenance/aft)
-"tIW" = (
-/obj/effect/turf_decal/trimline/blue/filled/line{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 9
-	},
-/obj/structure/table/glass,
-/obj/item/storage/box/masks,
-/obj/item/storage/box/gloves{
-	pixel_x = 3;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/spray/cleaner,
-/turf/open/floor/plasteel/white,
-/area/medical/medbay/central)
 "tIX" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 4
@@ -60617,6 +60620,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/construction/mining/aux_base)
+"uKH" = (
+/obj/effect/turf_decal/trimline/blue/filled/line{
+	dir = 6
+	},
+/obj/structure/rack,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = 5;
+	pixel_y = 3
+	},
+/obj/item/healthanalyzer,
+/turf/open/floor/plasteel/white,
+/area/medical/medbay/central)
 "uKK" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -63191,23 +63206,6 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/plasteel,
 /area/hallway/secondary/entry)
-"wte" = (
-/obj/machinery/computer/crew,
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/machinery/requests_console{
-	announcementConsole = 1;
-	department = "Chief Medical Officer's Desk";
-	departmentType = 5;
-	name = "Chief Medical Officer RC";
-	pixel_y = 32
-	},
-/turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
 "wtu" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -64565,6 +64563,18 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/engineering)
+"xqd" = (
+/obj/effect/turf_decal/tile/blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/plasteel/cafeteria,
+/area/crew_quarters/heads/cmo)
 "xrc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/vending/cola/shamblers/prison{
@@ -65463,20 +65473,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/storage)
-"xUb" = (
-/obj/effect/turf_decal/tile/blue{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue{
-	dir = 8
-	},
-/obj/item/twohanded/required/kirbyplants/random,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
-	dir = 4
-	},
-/obj/item/toy/figure/cmo,
-/turf/open/floor/plasteel/cafeteria,
-/area/crew_quarters/heads/cmo)
 "xUt" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -96711,7 +96707,7 @@ aEs
 alE
 aGK
 aHv
-qAF
+sTw
 agS
 agL
 anq
@@ -98293,7 +98289,7 @@ tKq
 aPR
 aPR
 aPR
-gGc
+nXm
 euq
 hRj
 mUA
@@ -102430,7 +102426,7 @@ lvO
 nYN
 bfK
 cdO
-muj
+mhO
 ctB
 mnl
 cGl
@@ -106270,10 +106266,10 @@ aYV
 aYV
 aYV
 kiy
-wte
+hVA
 bCY
 pve
-xUb
+xqd
 qsL
 bEi
 sxa
@@ -107041,7 +107037,7 @@ aYV
 aYV
 aYV
 kiy
-cbh
+bnd
 pVd
 kUQ
 iQI
@@ -108076,8 +108072,8 @@ wec
 sKm
 bfL
 czn
-tIW
-ddu
+sDn
+uKH
 bon
 bpE
 bon

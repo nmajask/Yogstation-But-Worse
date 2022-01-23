@@ -8200,15 +8200,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/security/brig)
-"asr" = (
-/obj/machinery/computer/crew{
-	dir = 8
-	},
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/turf/open/floor/plasteel/showroomfloor,
-/area/security/warden)
 "ass" = (
 /obj/structure/reagent_dispensers/peppertank{
 	pixel_y = -32
@@ -70291,16 +70282,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/engine/atmos)
-"fhN" = (
-/obj/machinery/computer/crew{
-	dir = 8
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/blue,
-/turf/open/floor/plasteel/white,
-/area/medical/paramedic)
 "fjm" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/bar,
@@ -75728,6 +75709,15 @@
 /obj/effect/landmark/stationroom/maint/fivexthree,
 /turf/template_noop,
 /area/maintenance/fore)
+"mRj" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "mTv" = (
 /obj/structure/chair/office/dark{
 	dir = 1
@@ -83736,6 +83726,16 @@
 /obj/effect/decal/cleanable/cobweb,
 /turf/open/floor/wood,
 /area/library)
+"xDS" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/blue,
+/obj/machinery/modular_computer/console/preset/medical{
+	dir = 8
+	},
+/turf/open/floor/plasteel/white,
+/area/medical/paramedic)
 "xFm" = (
 /obj/machinery/door/airlock/maintenance_hatch,
 /obj/effect/mapping_helpers/airlock/abandoned,
@@ -110394,7 +110394,7 @@ anm
 ajx
 apK
 apw
-asr
+mRj
 anr
 alW
 asx
@@ -110727,7 +110727,7 @@ kRY
 azi
 hOT
 xtC
-fhN
+xDS
 rpb
 azi
 ovq
