@@ -247,12 +247,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
-"bO" = (
-/obj/machinery/modular_computer/console/preset/mining{
-	dir = 1
-	},
-/turf/open/floor/plasteel/dark,
-/area/mine/infirmary)
 "bP" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -1394,6 +1388,14 @@
 /obj/effect/turf_decal/siding/wood/corner,
 /turf/open/floor/plasteel/cafeteria,
 /area/mine/break_room)
+"pm" = (
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
+/obj/machinery/newscaster{
+	pixel_x = 32
+	},
+/turf/open/floor/plasteel/white,
+/area/mine/infirmary)
 "px" = (
 /obj/machinery/door/airlock/maintenance{
 	name = "Mining Station Maintenance";
@@ -2823,6 +2825,25 @@
 /obj/effect/mapping_helpers/airlock/abandoned,
 /turf/open/floor/plating,
 /area/mine/storage)
+"Kb" = (
+/obj/structure/bed,
+/obj/item/bedsheet/medical,
+/obj/machinery/camera{
+	c_tag = "Recovery Room";
+	dir = 8;
+	network = list("mine")
+	},
+/obj/structure/extinguisher_cabinet{
+	pixel_x = 27
+	},
+/turf/open/floor/plasteel/white,
+/area/mine/infirmary)
+"Kd" = (
+/obj/machinery/modular_computer/console/preset/medical/mining{
+	dir = 1
+	},
+/turf/open/floor/plasteel/dark,
+/area/mine/infirmary)
 "Kf" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -3628,17 +3649,6 @@
 /obj/machinery/light,
 /turf/open/floor/plasteel,
 /area/mine/living_quarters)
-"WO" = (
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 30
-	},
-/obj/structure/bed,
-/obj/item/bedsheet/medical,
-/obj/machinery/newscaster{
-	pixel_x = 32
-	},
-/turf/open/floor/plasteel/white,
-/area/mine/infirmary)
 "WT" = (
 /obj/machinery/power/apc{
 	name = "Mining Docking Foyer APC";
@@ -3688,16 +3698,6 @@
 /obj/effect/spawner/structure/window,
 /turf/open/floor/plating,
 /area/mine/break_room)
-"Yy" = (
-/obj/structure/bed,
-/obj/item/bedsheet/medical,
-/obj/machinery/camera{
-	c_tag = "Recovery Room";
-	dir = 8;
-	network = list("mine")
-	},
-/turf/open/floor/plasteel/white,
-/area/mine/infirmary)
 "YA" = (
 /turf/closed/wall,
 /area/mine/storage)
@@ -4935,7 +4935,7 @@ sq
 TI
 Gv
 Fc
-bO
+Kd
 ez
 ak
 ak
@@ -4967,9 +4967,9 @@ YV
 aZ
 FS
 kD
-WO
+pm
 Er
-Yy
+Kb
 kD
 fA
 fA

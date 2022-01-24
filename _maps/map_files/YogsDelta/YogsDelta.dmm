@@ -41196,18 +41196,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/foyer)
-"bnA" = (
-/obj/structure/closet/secure_closet/warden,
-/obj/item/clothing/under/rank/warden/grey,
-/obj/effect/turf_decal/tile/red,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/security/warden)
 "bnB" = (
 /obj/structure/cable/white,
 /obj/effect/spawner/structure/window/reinforced,
@@ -60433,22 +60421,6 @@
 /obj/effect/landmark/start/warden,
 /obj/effect/turf_decal/tile/red{
 	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/security/warden)
-"bPv" = (
-/obj/machinery/computer/secure_data{
-	dir = 8
-	},
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/obj/effect/turf_decal/tile/red,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
 	},
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -121977,28 +121949,6 @@
 	},
 /turf/open/floor/plating,
 /area/quartermaster/storage)
-"kaw" = (
-/obj/machinery/requests_console{
-	department = "Security";
-	name = "Security RC";
-	pixel_x = -32;
-	pixel_y = 32
-	},
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/obj/machinery/modular_computer/console/preset/security,
-/turf/open/floor/plasteel,
-/area/security/warden)
 "kip" = (
 /obj/machinery/atmospherics/components/binary/valve,
 /obj/effect/decal/cleanable/dirt,
@@ -122479,6 +122429,28 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/patients_rooms/room_c)
+"lnP" = (
+/obj/machinery/requests_console{
+	department = "Security";
+	name = "Security RC";
+	pixel_x = -32;
+	pixel_y = 32
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/modular_computer/console/preset/security/warden,
+/turf/open/floor/plasteel,
+/area/security/warden)
 "lpC" = (
 /obj/effect/turf_decal/tile/blue{
 	dir = 1
@@ -123670,25 +123642,6 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/genetics/cloning)
-"nvg" = (
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 1
-	},
-/obj/effect/turf_decal/tile/red,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/effect/turf_decal/tile/red{
-	dir = 8
-	},
-/obj/machinery/modular_computer/console/preset/security{
-	dir = 8
-	},
-/turf/open/floor/plasteel,
-/area/security/warden)
 "nvD" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/holopad,
@@ -123838,6 +123791,16 @@
 	},
 /turf/open/floor/plasteel/white,
 /area/medical/genetics/cloning)
+"nUv" = (
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/security/warden)
 "nWP" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -124632,6 +124595,25 @@
 /obj/machinery/modular_computer/console/preset/mining,
 /turf/open/floor/plasteel/dark,
 /area/bridge)
+"pBf" = (
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 1
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/machinery/computer/secure_data{
+	dir = 8
+	},
+/turf/open/floor/plasteel,
+/area/security/warden)
 "pCm" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment{
@@ -126892,6 +126874,21 @@
 	},
 /turf/open/floor/plating,
 /area/engine/engineering)
+"uwC" = (
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/obj/effect/turf_decal/tile/red,
+/obj/effect/turf_decal/tile/red{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/red{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/warden,
+/obj/item/clothing/under/rank/warden/grey,
+/turf/open/floor/plasteel,
+/area/security/warden)
 "uyl" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 8
@@ -181348,7 +181345,7 @@ bFM
 bxS
 bJz
 bLq
-kaw
+lnP
 bPt
 bRq
 bTf
@@ -181863,13 +181860,13 @@ bzV
 bFM
 bHL
 bNo
-bPv
-nvg
+uwC
+pBf
 bTh
 bVn
 dkw
 bZT
-bnA
+nUv
 bHL
 bxf
 bAX

@@ -11489,13 +11489,6 @@
 	},
 /turf/open/floor/plasteel,
 /area/engine/engine_smes)
-"aHp" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/structure/filingcabinet/chestdrawer,
-/turf/open/floor/plasteel/showroomfloor,
-/area/security/warden)
 "aHr" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -33787,6 +33780,12 @@
 	},
 /turf/open/floor/wood,
 /area/library)
+"dQb" = (
+/obj/machinery/modular_computer/console/preset/security/warden{
+	dir = 8
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "dQG" = (
 /obj/effect/turf_decal/tile/yellow,
 /obj/effect/turf_decal/tile/yellow{
@@ -42126,6 +42125,12 @@
 /obj/item/multitool,
 /turf/open/floor/plasteel/white,
 /area/storage/tech)
+"jlt" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "jlM" = (
 /obj/machinery/atmospherics/pipe/simple/orange/hidden{
 	dir = 8
@@ -44531,10 +44536,6 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/fore/secondary)
-"kNp" = (
-/obj/machinery/modular_computer/console/preset/medical,
-/turf/open/floor/plasteel/showroomfloor,
-/area/security/warden)
 "kNz" = (
 /obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/visible{
@@ -53796,12 +53797,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/science/xenobiology)
-"quK" = (
-/obj/machinery/modular_computer/console/preset/security{
-	dir = 8
-	},
-/turf/open/floor/plasteel/showroomfloor,
-/area/security/warden)
 "quT" = (
 /obj/structure/lattice,
 /obj/structure/grille/broken,
@@ -64815,6 +64810,10 @@
 /obj/machinery/light,
 /turf/open/floor/carpet,
 /area/crew_quarters/cryopods)
+"xzz" = (
+/obj/structure/filingcabinet/chestdrawer,
+/turf/open/floor/plasteel/showroomfloor,
+/area/security/warden)
 "xzG" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -96707,7 +96706,7 @@ aEs
 alE
 aGK
 aHv
-kNp
+agr
 agS
 agL
 anq
@@ -96964,10 +96963,10 @@ oED
 aeM
 aGK
 aIi
-agr
+xzz
 agt
 ayd
-quK
+dQb
 aiL
 ajc
 ajH
@@ -97738,7 +97737,7 @@ ilp
 agt
 agt
 ahA
-aHp
+jlt
 aIF
 ajc
 ajH
