@@ -15,6 +15,14 @@
 	starting_files = list(	new /datum/computer_file/program/secureye)
 	initial_program = /datum/computer_file/program/secureye
 
+// ===== WARDEN CONSOLE =====
+/obj/machinery/modular_computer/console/preset/security/warden
+	console_department = "Security"
+	name = "brig management console"
+	desc = "A stationary computer. This one comes preloaded with security programs and other programs."
+	starting_files = list(	new /datum/computer_file/program/secureye,
+							new /datum/computer_file/program/crew_monitor)
+
 // ===== ENGINEERING CONSOLE =====
 /obj/machinery/modular_computer/console/preset/engineering
 	console_department = "Engineering"
@@ -49,6 +57,28 @@
 	desc = "A stationary computer. This one comes preloaded with medical programs."
 	starting_files = list(	new /datum/computer_file/program/crew_monitor)
 	initial_program = /datum/computer_file/program/crew_monitor
+
+// ===== MINING INFIRMARY CONSOLE =====
+/obj/machinery/modular_computer/console/preset/medical/mining
+	name = "mining infirmary console"
+	desc = "A stationary computer. This one comes preloaded with programs to monitor the lavaland mining opperation and the vitals of those working on it."
+	starting_files = list(	new /datum/computer_file/program/secureye/mining,
+							new /datum/computer_file/program/crew_monitor)
+
+// ===== BRIG INFIRMARY CONSOLE =====
+/obj/machinery/modular_computer/console/preset/medical/brig
+	name = "brig infirmary console"
+	desc = "A stationary computer. This one comes preloaded with programs to monitor officers and their vitals."
+	starting_files = list(	new /datum/computer_file/program/secureye/mining,
+							new /datum/computer_file/program/crew_monitor)
+
+// ===== MINING CONSOLE =====
+/obj/machinery/modular_computer/console/preset/mining
+	console_department = "Supply"
+	name = "mining console"
+	desc = "A stationary computer. This one comes preloaded with programs to monitor the lavaland mining opperation."
+	starting_files = list(	new /datum/computer_file/program/secureye/mining)
+	initial_program = /datum/computer_file/program/secureye/mining
 
 // ===== CARGO CONSOLE =====
 /obj/machinery/modular_computer/console/preset/cargo
