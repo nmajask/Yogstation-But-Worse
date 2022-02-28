@@ -71,11 +71,16 @@
 	return TRUE
 
 /datum/surgery_step/coronary_bypass/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	if(ishuman(target))
+	if(!ishuman(target))
+		return FALSE
+	var/obj/item/organ/heart/heart = target.getorganslot(ORGAN_SLOT_HEART)
+	if(heart)
 		var/mob/living/carbon/human/H = target
+		heart.operated = TRUE
 		display_results(user, target, span_warning("You screw up in attaching the graft, and it tears off, tearing part of the heart!"),
 			span_warning("[user] screws up, causing blood to spurt out of [H]'s chest profusely!"),
 			span_warning("[user] screws up, causing blood to spurt out of [H]'s chest profusely!"))
 		var/obj/item/bodypart/BP = H.get_bodypart(target_zone)
 		BP.generic_bleedstacks += 30
+		return TRUE
 	return FALSE
