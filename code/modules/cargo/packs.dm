@@ -2608,11 +2608,11 @@
 	name = "Modular Personal Digital Assistant Crate"
 	desc = "A create containing five modular PDAs, enough for an entire department."
 	cost = 500
-	contains = list(/obj/item/modular_computer/tablet/pda/preset/basic,
-					/obj/item/modular_computer/tablet/pda/preset/basic,
-					/obj/item/modular_computer/tablet/pda/preset/basic,
-					/obj/item/modular_computer/tablet/pda/preset/basic,
-					/obj/item/modular_computer/tablet/pda/preset/basic)
+	contains = list(/obj/item/modular_computer/pda/preset/basic,
+					/obj/item/modular_computer/pda/preset/basic,
+					/obj/item/modular_computer/pda/preset/basic,
+					/obj/item/modular_computer/pda/preset/basic,
+					/obj/item/modular_computer/pda/preset/basic)
 	crate_name = "pda crate"
 
 /datum/supply_pack/misc/laptop
@@ -2641,11 +2641,11 @@
 	name = "Modular Phone Crate"
 	desc = "A create containing five modular phone computers, enough for an entire department. Does not include games."
 	cost = 4000
-	contains = list(/obj/item/modular_computer/tablet/phone/preset/cheap,
-					/obj/item/modular_computer/tablet/phone/preset/cheap,
-					/obj/item/modular_computer/tablet/phone/preset/cheap,
-					/obj/item/modular_computer/tablet/phone/preset/cheap,
-					/obj/item/modular_computer/tablet/phone/preset/cheap)
+	contains = list(/obj/item/modular_computer/phone/preset/cheap,
+					/obj/item/modular_computer/phone/preset/cheap,
+					/obj/item/modular_computer/phone/preset/cheap,
+					/obj/item/modular_computer/phone/preset/cheap,
+					/obj/item/modular_computer/phone/preset/cheap)
 	crate_name = "phone crate"
 
 /datum/supply_pack/misc/telescreen

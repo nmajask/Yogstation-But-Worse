@@ -21,7 +21,7 @@
 /datum/computer_file/program/computerconfig/ui_data(mob/user)
 	movable = computer
 	var/obj/item/computer_hardware/hard_drive/hard_drive = movable.all_components[MC_HDD]
-	var/obj/item/computer_hardware/battery/battery_module = movable.all_components[MC_CELL]
+	var/obj/item/stock_parts/cell/cell = movable.all_components[MC_CELL]
 	if(!istype(movable))
 		movable = null
 
@@ -34,13 +34,11 @@
 	data["disk_size"] = hard_drive.max_capacity
 	data["disk_used"] = hard_drive.used_capacity
 	data["power_usage"] = movable.last_power_usage
-	data["battery_exists"] = battery_module ? 1 : 0
-	if(battery_module && battery_module.battery)
-		data["battery_rating"] = battery_module.battery.maxcharge
-		data["battery_percent"] = round(battery_module.battery.percent())
-
-	if(battery_module && battery_module.battery)
-		data["battery"] = list("max" = battery_module.battery.maxcharge, "charge" = round(battery_module.battery.charge))
+	data["battery_exists"] = cell ? 1 : 0
+	if(cell)
+		data["battery_rating"] = cell.maxcharge
+		data["battery_percent"] = round(cell.percent())
+		data["battery"] = list("max" = cell.maxcharge, "charge" = round(cell.charge))
 
 	var/list/all_entries[0]
 	for(var/I in movable.all_components)

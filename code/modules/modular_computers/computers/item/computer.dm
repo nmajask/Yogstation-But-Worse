@@ -27,11 +27,18 @@
 	var/icon_state_unpowered = null							// Icon state when the computer is turned off.
 	var/icon_state_powered = null							// Icon state when the computer is turned on.
 	var/icon_state_menu = "menu"							// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
-	var/id_rename = FALSE										// If we should update the name of the computer with the name and job of the stored ID.
+	var/id_rename = FALSE									// If we should update the name of the computer with the name and job of the stored ID.
 	var/icon_state_screensaver = "standby"					// Icon state overlay when the computer is turned off, but not out of power.
 	var/max_hardware_size = 0								// Maximal hardware w_class. Tablets/PDAs have 1, laptops 2, consoles 4.
 	var/steel_sheet_cost = 5								// Amount of steel sheets refunded when disassembling an empty frame of this computer.
+	
+	var/finish_color = null									// What icon should be used for the device.
 	var/overlay_skin = null									// What set of icons should be used for program overlays.
+	var/department_stripe = null							// What icon should be used for the department stripe.
+	var/list/variants = null								// What finish colors are available.
+	var/list/donor_variants = null							// What finish colors are available to donors only.
+	var/has_department_stripes = FALSE						// If this device has department stripes.
+	var/list/available_overlay_skins = list()				// What overlay skins are available, don't include the default skin.
 
 	integrity_failure = 50
 	max_integrity = 100
@@ -75,12 +82,13 @@
 	kill_program(forced = TRUE)
 	STOP_PROCESSING(SSobj, src)
 	for(var/H in all_components)
-		var/obj/item/computer_hardware/CH = all_components[H]
-		if(CH.holder == src)
+		var/obj/item/comp = all_components[H]
+		if(istype(comp, /obj/item/computer_hardware))
+			var/obj/item/computer_hardware/CH = comp
 			CH.on_remove(src)
 			CH.holder = null
 			all_components.Remove(CH.device_type)
-			qdel(CH)
+		qdel(comp)
 	physical = null
 	return ..()
 
@@ -117,11 +125,11 @@
 		return (card_slot2?.try_eject(user) || card_slot?.try_eject(user)) //Try the secondary one first.
 
 
-// Gets IDs/access levels from card slot. Would be useful when/if PDAs would become modular PCs.
+// Gets IDs/access levels from card slot.
 /obj/item/modular_computer/GetAccess()
-	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
-	if(card_slot)
-		return card_slot.GetAccess()
+	var/obj/item/card/id/id = GetID()
+	if(id)
+		return id.GetAccess()
 	return ..()
 
 /obj/item/modular_computer/RemoveID()
@@ -147,24 +155,12 @@
 
 /obj/item/modular_computer/GetID()
 	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
-	if(card_slot)
+	var/obj/item/computer_hardware/card_slot/card_slot2 = all_components[MC_CARD2]
+	if(card_slot && card_slot.GetID())
 		return card_slot.GetID()
+	if(card_slot2 && card_slot2.GetID())
+		return card_slot2.GetID()
 	return ..()
-
-/obj/item/modular_computer/RemoveID()
-	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
-	if(!card_slot)
-		return
-	return card_slot.RemoveID()
-
-/obj/item/modular_computer/InsertID(obj/item/inserting_item)
-	var/obj/item/computer_hardware/card_slot/card_slot = all_components[MC_CARD]
-	if(!card_slot)
-		return FALSE
-	var/obj/item/card/inserting_id = inserting_item.RemoveID()
-	if(!inserting_id)
-		return FALSE
-	return card_slot.try_insert(inserting_id)
 
 /obj/item/modular_computer/MouseDrop(obj/over_object, src_location, over_location)
 	var/mob/M = usr
@@ -224,6 +220,19 @@
 	SSvis_overlays.remove_vis_overlay(physical, physical.managed_vis_overlays)
 	var/program_overlay = ""
 	var/is_broken = obj_integrity <= integrity_failure
+	var/obj/machinery/modular_computer/machine = physical
+	var/obj/item/modular_computer/item = physical
+	if (!isnull(variants))
+		if(!finish_color)
+			finish_color = pick(variants)
+		if(machine)
+			machine.icon_state = "[initial(machine.icon_state)]-[finish_color]"
+			machine.icon_state_unpowered = "[initial(machine.icon_state_unpowered)]-[finish_color]"
+			machine.icon_state_powered = "[initial(machine.icon_state_powered)]-[finish_color]"
+		if(item)
+			item.icon_state = "[initial(item.icon_state)]-[finish_color]"
+			item.icon_state_unpowered = "[initial(item.icon_state_unpowered)]-[finish_color]"
+			item.icon_state_powered = "[initial(item.icon_state_powered)]-[finish_color]"
 	if(overlay_skin)
 		program_overlay = "[overlay_skin]-"
 	if(!enabled)
@@ -241,6 +250,8 @@
 			else
 				program_overlay += icon_state_menu
 
+	if(!isnull(department_stripe))
+		SSvis_overlays.add_vis_overlay(physical, physical.icon, department_stripe, physical.layer, physical.plane, physical.dir)
 	SSvis_overlays.add_vis_overlay(physical, physical.icon, program_overlay, physical.layer, physical.plane, physical.dir)
 	SSvis_overlays.add_vis_overlay(physical, physical.icon, program_overlay, physical.layer, EMISSIVE_PLANE, physical.dir)
 	if(is_broken)
@@ -331,8 +342,7 @@
 		else
 			idle_threads.Remove(P)
 
-	handle_power() // Handles all computer power interaction
-	//check_update_ui_need()
+	handle_power()
 
 /**
   * Displays notification text alongside a soundbeep when requested to by a program.
@@ -534,13 +544,13 @@
 		if(istype(new_part, /obj/item/computer_hardware))
 			var/result = install_component(new_part)
 			if(result == FALSE)
-				CRASH("[src] failed to install starting component for an unknown reason")
+				CRASH("[src] failed to install starting component ([new_part]) for an unknown reason")
 		else if(istype(new_part, /obj/item/stock_parts/cell/computer))
 			var/new_cell = new /obj/item/computer_hardware/battery(src, part)
 			qdel(new_part)
 			var/result = install_component(new_cell)
 			if(result == FALSE)
-				CRASH("[src] failed to install starting cell for an unknown reason")
+				CRASH("[src] failed to install starting cell ([new_part]) for an unknown reason")
 
 /obj/item/modular_computer/proc/install_starting_files()
 	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
@@ -551,7 +561,7 @@
 	for(var/datum/computer_file/file in starting_files)
 		var/result = hard_drive.store_file(file)
 		if(result == FALSE)
-			CRASH("[src] failed to install starting files for an unknown reason")
+			CRASH("[src] failed to install starting files ([file]) for an unknown reason")
 		if(istype(result, initial_program) && istype(result, /datum/computer_file/program))
 			var/datum/computer_file/program/program = result
 			if(program.requires_ntnet && program.network_destination)

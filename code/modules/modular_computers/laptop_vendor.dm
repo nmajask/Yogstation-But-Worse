@@ -11,7 +11,7 @@
 	// The actual laptop/tablet
 	var/obj/item/modular_computer/laptop/fabricated_laptop = null
 	var/obj/item/modular_computer/tablet/fabricated_tablet = null
-	var/obj/item/modular_computer/tablet/phone/fabricated_phone = null
+	var/obj/item/modular_computer/phone/fabricated_phone = null
 
 	// Utility vars
 	var/state = 0 							// 0: Select device type, 1: Select loadout, 2: Payment, 3: Thankyou screen

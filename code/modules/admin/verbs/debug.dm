@@ -373,6 +373,8 @@ GLOBAL_PROTECT(AdminProcCallSpamPrevention)
 			/obj/item/reagent_containers/food/drinks = "DRINK", //longest paths comes first
 			/obj/item/reagent_containers/food = "FOOD",
 			/obj/item/reagent_containers = "REAGENT_CONTAINERS",
+			/obj/item/modular_computer = "MPC_ITEM",
+			/obj/machinery/modular_computer = "MPC_MECH",
 			/obj/machinery/atmospherics = "ATMOS_MECH",
 			/obj/machinery/portable_atmospherics = "PORT_ATMOS",
 			/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/missile_rack = "MECHA_MISSILE_RACK",

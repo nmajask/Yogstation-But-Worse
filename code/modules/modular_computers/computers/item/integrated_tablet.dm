@@ -1,12 +1,14 @@
-/obj/item/modular_computer/tablet/integrated  // Borg Built-in tablet interface
+/obj/item/modular_computer/integrated  // Borg Built-in tablet interface
 	name = "modular interface"
 	icon_state = "tablet-silicon"
-	icon_state_base = "tablet-silicon"
 	icon_state_unpowered = "tablet-silicon"
 	icon_state_powered = "tablet-silicon"
+	icon_state_menu = "menu"
+	id_rename = TRUE
 	hardware_flag = PROGRAM_INTEGRATED
 	has_light = FALSE //tablet light button actually enables/disables the borg lamp
 	comp_light_luminosity = 0
+	interact_sounds = list('sound/machines/computers/pda_click.ogg')
 	variants = null
 	///Ref to the borg we're installed in. Set by the borg during our creation.
 	var/mob/living/silicon/robot/borgo
@@ -15,7 +17,7 @@
 	///IC log that borgs can view in their personal management app
 	var/list/borglog = list()
 
-/obj/item/modular_computer/tablet/integrated/Initialize(mapload)
+/obj/item/modular_computer/integrated/Initialize(mapload)
 	. = ..()
 	vis_flags |= VIS_INHERIT_ID
 	borgo = loc
@@ -24,11 +26,11 @@
 		stack_trace("[type] initialized outside of a borg, deleting.")
 		return INITIALIZE_HINT_QDEL
 
-/obj/item/modular_computer/tablet/integrated/Destroy()
+/obj/item/modular_computer/integrated/Destroy()
 	borgo = null
 	return ..()
 
-/obj/item/modular_computer/tablet/integrated/turn_on(mob/user)
+/obj/item/modular_computer/integrated/turn_on(mob/user)
 	if(borgo?.stat != DEAD)
 		return ..()
 	return FALSE
@@ -43,7 +45,7 @@
   * the new copy (such as due to lack of space), the proc will crash with an error.
   * RoboTact is supposed to be undeletable, so these will create runtime messages.
   */
-/obj/item/modular_computer/tablet/integrated/proc/get_robotact()
+/obj/item/modular_computer/integrated/proc/get_robotact()
 	if(!borgo)
 		return null
 	if(!robotact)
@@ -59,14 +61,14 @@
 	return robotact
 
 //Makes the light settings reflect the borg's headlamp settings
-/obj/item/modular_computer/tablet/integrated/ui_data(mob/user)
+/obj/item/modular_computer/integrated/ui_data(mob/user)
 	. = ..()
 	.["has_light"] = TRUE
 	.["light_on"] = borgo?.lamp_enabled
 	.["comp_light_color"] = borgo?.lamp_color
 
 //Overrides the ui_act to make the flashlight controls link to the borg instead
-/obj/item/modular_computer/tablet/integrated/ui_act(action, params)
+/obj/item/modular_computer/integrated/ui_act(action, params)
 	switch(action)
 		if("PC_toggle_light")
 			if(!borgo)
@@ -91,14 +93,13 @@
 			return TRUE
 	return ..()
 
-/obj/item/modular_computer/tablet/integrated/syndicate
+/obj/item/modular_computer/integrated/syndicate
 	icon_state = "tablet-silicon-syndicate"
-	icon_state_base = "tablet-silicon-syndicate"
 	icon_state_unpowered = "tablet-silicon-syndicate"
 	icon_state_powered = "tablet-silicon-syndicate"
 	device_theme = "syndicate"
 
 
-/obj/item/modular_computer/tablet/integrated/syndicate/Initialize()
+/obj/item/modular_computer/integrated/syndicate/Initialize()
 	. = ..()
 	borgo.lamp_color = COLOR_RED //Syndicate likes it red

@@ -46,8 +46,8 @@
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = SLOT_L_STORE
-	backpack_contents = list(/obj/item/modular_computer/tablet/pda/preset/basic/atmos=1)
+	device_slot = SLOT_L_STORE
+	backpack_contents = list(/obj/item/modular_computer/pda/preset/basic/atmos=1)
 
 /datum/outfit/job/atmos/rig
 	name = "Atmospheric Technician (Hardsuit)"

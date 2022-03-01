@@ -75,6 +75,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/genders = list(MALE, FEMALE, PLURAL)
 	var/list/friendlyGenders = list("Male" = "male", "Female" = "female", "Other" = "plural")
 
+	var/device = "PDA"	// What device the player wants
+	var/static/list/available_devices = list("None", "PDA", "Laptop", "Tablet", "Phone")	// What devices the player can select
+	var/device_color = "random"	// What device color the player wants
+	var/static/list/available_colors = list("random", "red", "blue", "brown", "green", "black", "orange", "white")	// What device colors the player can select
+	var/static/list/donor_colors = list("crimson", "rainbow", "retro", "pipboy", "glass")	// What device colors the player can select if they are a donor
+	var/device_interface = "Default"	// What device interface icons the player wants
+	var/static/list/available_interfaces = list("Default")	// What device interfaces the player can select
+	var/static/list/donor_interfaces = list("Minimal")	// What device interfaces the player can select if they are a donor
+	var/device_stripe = TRUE	// If the player wants department details on their device, if applicable
+
 	var/list/random_locks = list()
 
 	var/list/custom_names = list()
@@ -287,6 +297,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			dat += "<b>Socks:</b><BR><a href ='?_src_=prefs;preference=socks;task=input'>[socks]</a>"
 			dat += "<a href ='?_src_=prefs;preference=socks;task=lock'>[random_locks["socks"] ? "Unlock" : "Lock"]</a><BR>"
+
+			dat += "<b>Device:</b><BR><a href ='?_src_=prefs;preference=device;task=input'>[device]</a>"
 
 			dat += "<b>Backpack:</b><BR><a href ='?_src_=prefs;preference=bag;task=input'>[backbag]</a>"
 			dat += "<b>Jumpsuit:</b><BR><a href ='?_src_=prefs;preference=suit;task=input'>[jumpsuit_style]</a><BR>"
@@ -629,8 +641,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<b>Action Buttons:</b> <a href='?_src_=prefs;preference=action_buttons'>[(buttons_locked) ? "Locked In Place" : "Unlocked"]</a><br>"
 			//dat += "<b>Keybindings:</b> <a href='?_src_=prefs;preference=hotkeys'>[(hotkeys) ? "Hotkeys" : "Default"]</a><br>" // yogs - Custom keybindings
 			dat += "<br>"
-			dat += "<b>PDA Color:</b> <span style='border:1px solid #161616; background-color: [pda_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=pda_color;task=input'>Change</a><BR>"
-			dat += "<b>PDA Style:</b> <a href='?_src_=prefs;task=input;preference=pda_style'>[pda_style]</a><br>"
+			dat += "<b>Device Style:</b> <a href='?_src_=prefs;task=input;preference=device_color'>[device_color]</a><br>"
+			dat += "<b>Device Interface:</b> <a href='?_src_=prefs;task=input;preference=device_interface'>[device_interface]</a><br>"
+			dat += "<b>Device Job Details:</b> <a href='?_src_=prefs;task=input;preference=device_stripe'>[device_stripe ? "Enabled" : "Disabled"]</a><br>"
 			dat += "<b>Skillcape:</b> <a href='?_src_=prefs;task=input;preference=skillcape'>[(skillcape_id != "None") ? "[GLOB.skillcapes[skillcape_id]]" : "None"] </a><br>"
 			dat += "<b>Flare:</b> <a href='?_src_=prefs;task=input;preference=flare'>[flare ? "Enabled" : "Disabled"]</a><br>"
 			dat += "<b>Map:</b> <a href='?_src_=prefs;task=input;preference=map'>[map ? "Enabled" : "Disabled"]</a><br>"
@@ -1537,6 +1550,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("previous_hair_gradient_style")
 					features["gradientstyle"] = previous_list_item(features["gradientstyle"], GLOB.hair_gradients_list)
 
+				if("device")
+					var/new_device = input(user, "Choose your character's starting device:", "Character Preference")  as null|anything in available_devices
+					if(new_device)
+						device = new_device
+
 				if("underwear")
 					var/new_underwear
 					if(gender == MALE)
@@ -1773,14 +1791,22 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						UI_style = pickedui
 						if (parent && parent.mob && parent.mob.hud_used)
 							parent.mob.hud_used.update_ui_style(ui_style2icon(UI_style))
-				if("pda_style")
-					var/pickedPDAStyle = input(user, "Choose your PDA style.", "Character Preference", pda_style)  as null|anything in GLOB.pda_styles
-					if(pickedPDAStyle)
-						pda_style = pickedPDAStyle
-				if("pda_color")
-					var/pickedPDAColor = input(user, "Choose your PDA Interface color.", "Character Preference",pda_color) as color|null
-					if(pickedPDAColor)
-						pda_color = pickedPDAColor
+				if("device_color")
+					var/chooseable_colors = available_colors
+					if(is_donator(user.client))
+						chooseable_colors |= donor_colors
+					var/picked_device_color = input(user, "Choose your device style.", "Character Preference", device_color)  as null|anything in chooseable_colors
+					if(picked_device_color)
+						device_color = picked_device_color
+				if("device_interface")
+					var/chooseable_colors = available_interfaces
+					if(is_donator(user.client))
+						chooseable_colors |= donor_interfaces
+					var/picked_device_interface = input(user, "Choose your PDA Interface color.", "Character Preference", device_interface) as null|anything in chooseable_colors
+					if(picked_device_interface)
+						device_interface = picked_device_interface
+				if("device_stripe")
+					device_stripe = !device_stripe
 				if("skillcape")
 					var/list/selectablecapes = list()
 					var/max_eligable = TRUE
@@ -2063,6 +2089,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.underwear = underwear
 	character.undershirt = undershirt
 	character.socks = socks
+	
+	character.device = device
+	character.device_color = device_color
+	character.device_interface = device_interface
+	character.device_stripe = device_stripe
 
 	character.backbag = backbag
 

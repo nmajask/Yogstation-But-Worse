@@ -13,14 +13,14 @@
 	size = 5
 	tgui_id = "NtosRobotact"
 	///A typed reference to the computer, specifying the borg tablet type
-	var/obj/item/modular_computer/tablet/integrated/tablet
+	var/obj/item/modular_computer/integrated/tablet
 
 /datum/computer_file/program/robotact/Destroy()
 	tablet = null
 	return ..()
 
 /datum/computer_file/program/robotact/run_program(mob/living/user)
-	if(!istype(computer, /obj/item/modular_computer/tablet/integrated))
+	if(!istype(computer, /obj/item/modular_computer/integrated))
 		to_chat(user, "<span class='warning'>A warning flashes across \the [computer]: Device Incompatible.</span>")
 		return FALSE
 	. = ..()

@@ -92,7 +92,7 @@
 	hud_possible = list(ANTAG_HUD, DIAG_STAT_HUD, DIAG_HUD, DIAG_BATT_HUD, DIAG_TRACK_HUD)
 
 	///The reference to the built-in tablet that borgs carry.
-	var/obj/item/modular_computer/tablet/integrated/modularInterface
+	var/obj/item/modular_computer/integrated/modularInterface
 	var/obj/screen/robot/modPC/interfaceButton
 
 	var/list/upgrades = list()
@@ -184,7 +184,7 @@
 
 /mob/living/silicon/robot/proc/create_modularInterface()
 	if(!modularInterface)
-		modularInterface = new /obj/item/modular_computer/tablet/integrated(src)
+		modularInterface = new /obj/item/modular_computer/integrated/(src)
 	modularInterface.layer = ABOVE_HUD_PLANE
 	modularInterface.plane = ABOVE_HUD_PLANE
 
@@ -910,7 +910,7 @@
 
 /mob/living/silicon/robot/modules/syndicate/create_modularInterface()
 	if(!modularInterface)
-		modularInterface = new /obj/item/modular_computer/tablet/integrated/syndicate(src)
+		modularInterface = new /obj/item/modular_computer/integrated//syndicate(src)
 	return ..()
 
 /mob/living/silicon/robot/modules/syndicate/proc/show_playstyle()

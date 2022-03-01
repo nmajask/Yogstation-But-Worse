@@ -1,8 +1,7 @@
 /obj/item/modular_computer/tablet  //Its called tablet for theme of 90ies but actually its a "big smartphone" sized
 	name = "tablet computer"
 	icon = 'icons/obj/modular_tablet.dmi'
-	icon_state = "tablet-red"
-	var/icon_state_base = "tablet"
+	icon_state = "tablet"
 	icon_state_unpowered = "tablet"
 	icon_state_powered = "tablet"
 	icon_state_menu = "menu"
@@ -17,17 +16,8 @@
 	comp_light_luminosity = 2.3 //Same as the PDA
 	interact_sounds = list('sound/machines/computers/pda_click.ogg')
 
-	var/list/variants = list("red","blue","brown","green","black")
-	var/finish_color = null
-
-/obj/item/modular_computer/tablet/update_icon()
-	..()
-	if (!isnull(variants))
-		if(!finish_color)
-			finish_color = pick(variants)
-		icon_state = "[icon_state_base]-[finish_color]"
-		icon_state_unpowered = "[icon_state_base]-[finish_color]"
-		icon_state_powered = "[icon_state_base]-[finish_color]"
+	variants = list("red","blue","brown","green","black","orange","white")
+	donor_variants = list("crimson","rainbow","retro")
 
 
 /obj/item/modular_computer/tablet/syndicate_contract_uplink

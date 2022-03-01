@@ -40,6 +40,13 @@
 	starting_components = machinery_computer.starting_components
 	starting_files = machinery_computer.starting_files
 	initial_program = machinery_computer.initial_program
+	finish_color = machinery_computer.finish_color
+	overlay_skin = machinery_computer.overlay_skin
+	department_stripe = machinery_computer.department_stripe
+	variants = machinery_computer.variants
+	donor_variants = machinery_computer.donor_variants
+	has_department_stripes = machinery_computer.has_department_stripes
+	available_overlay_skins = machinery_computer.available_overlay_skins
 	startup_sound = machinery_computer.startup_sound
 	shutdown_sound = machinery_computer.shutdown_sound
 	interact_sounds = machinery_computer.interact_sounds

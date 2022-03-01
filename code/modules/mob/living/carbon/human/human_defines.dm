@@ -30,6 +30,11 @@
 
 	var/age = 30
 
+	var/device = null	// What device the player wants
+	var/device_color = null	// What device color the player wants
+	var/device_interface = null	// What device interface icons the player wants
+	var/device_stripe = TRUE	// If the player wants department details on their device
+
 	var/underwear = "Nude"	//Which underwear the player wants
 	var/undershirt = "Nude" //Which undershirt the player wants
 	var/socks = "Nude" //Which socks the player wants
