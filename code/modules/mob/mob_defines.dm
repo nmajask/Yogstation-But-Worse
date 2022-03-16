@@ -221,3 +221,6 @@
 	var/datum/client_interface/mock_client
 
 	var/create_area_cooldown
+
+	///Currently possesses a typing indicator icon
+	var/typing_indicator = FALSE
