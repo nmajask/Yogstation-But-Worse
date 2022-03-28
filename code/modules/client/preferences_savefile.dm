@@ -224,6 +224,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	// yogs start - Donor features
 	READ_FILE(S["donor_pda"], donor_pda)
 	READ_FILE(S["donor_hat"], donor_hat)
+	READ_FILE(S["borg_hat"], borg_hat)
 	READ_FILE(S["donor_item"], donor_item)
 	READ_FILE(S["purrbation"], purrbation)
 	READ_FILE(S["yogtoggles"], yogtoggles)
@@ -360,6 +361,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["yogtoggles"], yogtoggles)
 	WRITE_FILE(S["donor_pda"], donor_pda)
 	WRITE_FILE(S["donor_hat"], donor_hat)
+	WRITE_FILE(S["borg_hat"], borg_hat)
 	WRITE_FILE(S["donor_item"], donor_item)
 	WRITE_FILE(S["purrbation"], purrbation)
 
