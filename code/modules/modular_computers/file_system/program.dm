@@ -3,36 +3,24 @@
 	filetype = "PRG"
 	/// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
 	filename = "UnknownProgram"
-	/// List of required accesses to *run* the program.
-	var/required_access = null
-	/// List of required access to download or file host the program
-	var/transfer_access = null
+	filedesc = "Unknown Program"
+	available_on_ntnet = TRUE
 	/// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/program_state = PROGRAM_STATE_KILLED
 	/// Device that runs this program.
 	var/obj/item/modular_computer/computer
-	/// User-friendly name of this program.
-	var/filedesc = "Unknown Program"
-	/// Short description of this program's function.
-	var/extended_desc = "N/A"
-	/// Category in the NTDownloader.
-	var/category = PROGRAM_CATEGORY_MISC
 	/// Program-specific screen icon state
 	var/program_icon_state = null
 	/// Set to 1 for program to require nonstop NTNet connection to run. If NTNet connection is lost program crashes.
 	var/requires_ntnet = FALSE
-	/// Optional, if above is set to 1 checks for specific function of NTNet (currently NTNET_SOFTWAREDOWNLOAD, NTNET_PEERTOPEER, NTNET_SYSTEMCONTROL and NTNET_COMMUNICATION)
-	var/requires_ntnet_feature = 0
+	/// Optional, if above is set to TRUE checks for specific function of NTNet (currently NTNET_SOFTWAREDOWNLOAD, NTNET_PEERTOPEER, NTNET_SYSTEMCONTROL and NTNET_COMMUNICATION)
+	var/requires_ntnet_feature = FALSE
 	/// NTNet status, updated every tick by computer running this program. Don't use this for checks if NTNet works, computers do that. Use this for calculations, etc.
-	var/ntnet_status = 1
+	var/ntnet_status = TRUE
 	/// Bitflags (PROGRAM_CONSOLE, PROGRAM_LAPTOP, PROGRAM_TABLET, PROGRAM_PHONE, PROGRAM_PDA, PROGRAM_TELESCREEN combination) or PROGRAM_ALL
 	var/usage_flags = PROGRAM_ALL
 	/// Optional string that describes what NTNet server/system this program connects to. Used in default logging.
 	var/network_destination = null
-	/// Whether the program can be downloaded from NTNet. Set to 0 to disable.
-	var/available_on_ntnet = 1
-	/// Whether the program can be downloaded from SyndiNet (accessible via emagging the computer). Set to 1 to enable.
-	var/available_on_syndinet = 0
 	/// Name of the tgui interface
 	var/tgui_id
 	/// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /icons/program_icons. Be careful not to use too large images!
@@ -159,9 +147,17 @@
 // This attempts to retrieve header data for UIs. If implementing completely new device of different type than existing ones
 // always include the device here in this proc. This proc basically relays the request to whatever is running the program.
 /datum/computer_file/program/proc/get_header_data()
-	if(computer)
-		return computer.get_header_data()
-	return list()
+	var/data = list()
+	data["Prg_Error"] = FALSE
+	if(!computer)
+		return data
+	data += computer.get_header_data()
+	if(requires_ntnet && !ntnet_status)
+		data["Prg_Error"] = TRUE
+		data["Prg_ErrorName"] = "NETWORK ERROR" 
+		data["Prg_ErrorDesc"] = "NTNet connection lost, please retry. If problem persists contact your system administrator."
+		data["Prg_ErrorIcon"] = "wifi"
+	return data
 
 // This is performed on program startup. May be overridden to add extra logic. Remember to include ..() call. Return 1 on success, 0 on failure.
 // When implementing new program based device, use this to run the program.

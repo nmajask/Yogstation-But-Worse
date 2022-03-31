@@ -1,7 +1,7 @@
 /datum/computer_file/program/radar //generic parent that handles most of the process
 	filename = "genericfinder"
 	filedesc = "debug_finder"
-	category = PROGRAM_CATEGORY_CREW
+	category = PROGRAM_CATEGORY_MED
 	ui_header = "borg_mon.gif" //DEBUG -- new icon before PR
 	program_icon_state = "radarntos"
 	requires_ntnet = TRUE
@@ -270,6 +270,7 @@
 	program_icon_state = "radarsyndicate"
 	extended_desc = "This program allows for tracking of nuclear authorization disks and warheads."
 	requires_ntnet = FALSE
+	transfer_access = PROGRAM_CATEGORY_SYN
 	transfer_access = null
 	available_on_ntnet = FALSE
 	available_on_syndinet = TRUE
@@ -314,6 +315,7 @@
 	filedesc = "Implant Tracker"
 	extended_desc = "This program allows for tracking those implanted with tracking implants."
 	requires_ntnet = TRUE
+	transfer_access = PROGRAM_CATEGORY_SEC
 	transfer_access = ACCESS_BRIG
 	available_on_ntnet = TRUE
 	program_icon = "microchip"

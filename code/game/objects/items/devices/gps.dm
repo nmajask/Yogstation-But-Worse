@@ -96,7 +96,7 @@ GLOBAL_LIST_EMPTY(GPS_list)
 
 	for(var/gps in GLOB.GPS_list)
 		var/obj/item/gps/G = gps
-		if(G.emped || !G.tracking || G == src)
+		if(G == gps || !G.tracking || G?.emped)
 			continue
 		var/turf/pos = get_turf_global(G) // yogs - get_turf_global instead of get_turf
 		if(!pos)

@@ -7,7 +7,7 @@ export const NtosCargo = (props, context) => {
       width={800}
       height={500}
       resizable>
-      <NtosWindow.Content scrollable>
+      <NtosWindow.Content>
         <CargoContent />
       </NtosWindow.Content>
     </NtosWindow>

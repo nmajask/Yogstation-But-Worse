@@ -26,6 +26,13 @@
 	starting_files = list(	new /datum/computer_file/program/crew_monitor)
 	initial_program = /datum/computer_file/program/crew_monitor
 
+// ===== SUPPLY TELESCREEN =====
+/obj/machinery/modular_computer/telescreen/preset/medical
+
+	starting_files = list(	new /datum/computer_file/program/bounty_board,
+							new /datum/computer_file/program/cargo_bounties,
+							new /datum/computer_file/program/budgetorders)
+	initial_program = /datum/computer_file/program/budgetorders
 
 ////////////////
 // Wallframes //

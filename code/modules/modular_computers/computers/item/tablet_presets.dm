@@ -28,6 +28,9 @@
 								/obj/item/computer_hardware/network_card,
 								/obj/item/computer_hardware/card_slot,
 								/obj/item/computer_hardware/printer/mini)
+	starting_files = list(	new /datum/computer_file/program/budgetorders,
+							new /datum/computer_file/program/cargo_bounties,
+							new /datum/computer_file/program/chatclient)
 
 /obj/item/modular_computer/tablet/preset/advanced/atmos //This will be defunct and will be replaced when NtOS PDAs are fully implemented
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
@@ -46,6 +49,12 @@
 								/obj/item/computer_hardware/card_slot,
 								/obj/item/computer_hardware/printer/mini,
 								/obj/item/computer_hardware/card_slot/secondary)
+	starting_files = list(	new /datum/computer_file/program/budgetorders,
+							new /datum/computer_file/program/cargo_bounties,
+							new /datum/computer_file/program/card_mod,
+							new /datum/computer_file/program/crew_manifest,
+							new /datum/computer_file/program/job_management,
+							new /datum/computer_file/program/chatclient)
 
 /// A simple syndicate tablet, used for comms agents
 /obj/item/modular_computer/tablet/preset/syndicate

@@ -145,7 +145,10 @@ const Program = (props, context) => {
               color="good"
               minValue={0}
               maxValue={program.size}
-              value={downloadcompletion} />
+              value={downloadcompletion}
+              onClick={() => act('PRG_stopfiledownload', {
+                filename: program.filename,
+              })} />
           ) || (
             (!program.installed
               && program.compatible
@@ -155,12 +158,10 @@ const Program = (props, context) => {
                 bold
                 icon="download"
                 content="Download"
-                disabled={downloading}
+                color={!!downloading && (program.queued ? 'poor' : 'grey')}
                 tooltipPosition="left"
                 tooltip={!!downloading && ('Awaiting download completion...')}
-                onClick={() => act('PRG_downloadfile', {
-                  filename: program.filename,
-                })} />
+                onClick={program.queued ? (act('PRG_stopfiledownload', {filename: program.filename})) : (() => act('PRG_downloadfile', {filename: program.filename}))} />
             ) || (
               <Button
                 bold

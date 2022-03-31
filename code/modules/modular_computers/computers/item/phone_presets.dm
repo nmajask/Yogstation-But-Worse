@@ -26,6 +26,9 @@
 								/obj/item/computer_hardware/network_card,
 								/obj/item/computer_hardware/card_slot,
 								/obj/item/computer_hardware/printer/mini)
+	starting_files = list(	new /datum/computer_file/program/budgetorders,
+							new /datum/computer_file/program/cargo_bounties,
+							new /datum/computer_file/program/chatclient)
 
 /obj/item/modular_computer/phone/preset/advanced/atmos
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
@@ -42,6 +45,12 @@
 								/obj/item/computer_hardware/network_card,
 								/obj/item/computer_hardware/card_slot,
 								/obj/item/computer_hardware/card_slot/secondary)
+	starting_files = list(	new /datum/computer_file/program/budgetorders,
+							new /datum/computer_file/program/cargo_bounties,
+							new /datum/computer_file/program/card_mod,
+							new /datum/computer_file/program/crew_manifest,
+							new /datum/computer_file/program/job_management,
+							new /datum/computer_file/program/chatclient)
 
 /obj/item/modular_computer/phone/preset/advanced/command/captain
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,

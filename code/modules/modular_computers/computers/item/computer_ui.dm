@@ -165,10 +165,7 @@
 			if(idle_threads.len > PU.max_idle_programs)
 				to_chat(user, span_danger("\The [src] displays a \"Maximal CPU load reached. Unable to run another program.\" error."))
 				return
-
-			if(P.requires_ntnet && !get_ntnet_status(P.requires_ntnet_feature)) // The program requires NTNet connection, but we are not connected to NTNet.
-				to_chat(user, span_danger("\The [src]'s screen shows \"Unable to connect to NTNet. Please retry. If problem persists contact your system administrator.\" warning."))
-				return
+				
 			if(P.run_program(user))
 				active_program = P
 				P.alert_pending = FALSE

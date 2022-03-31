@@ -6,7 +6,7 @@
 
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button } from '../components';
+import { Box, Button, Flex, Icon } from '../components';
 import { Window } from './Window';
 
 export const NtosWindow = (props, context) => {
@@ -20,6 +20,42 @@ export const NtosWindow = (props, context) => {
   } = props;
   const { act, data } = useBackend(context);
   const {
+    Prg_Error,
+  } = data;
+
+  if (Prg_Error) {
+    return (
+      <Window
+        title={title}
+        width={width}
+        height={height}
+        theme={theme}
+        resizable={resizable}>
+      <div className="NtosWindow">
+        <NtosWindowHeader />
+        <NtosWindowError />
+      </div>
+    </Window>
+    );
+  };
+  return (
+    <Window
+      title={title}
+      width={width}
+      height={height}
+      theme={theme}
+      resizable={resizable}>
+      <div className="NtosWindow">
+        <NtosWindowHeader />
+        {children}
+      </div>
+    </Window>
+  );
+};
+
+const NtosWindowHeader = (props, context) => {
+  const { act, data } = useBackend(context);
+  const {
     PC_device_theme,
     PC_batteryicon,
     PC_showbatteryicon,
@@ -29,16 +65,11 @@ export const NtosWindow = (props, context) => {
     PC_stationtime,
     PC_programheaders = [],
     PC_showexitprogram,
+    Prg_Error,
   } = data;
   return (
-    <Window
-      title={title}
-      width={width}
-      height={height}
-      theme={theme}
-      resizable={resizable}>
-      <div className="NtosWindow">
-        <div className="NtosWindow__header NtosHeader">
+    <Fragment>
+      <div className="NtosWindow__header NtosHeader">
           <div className="NtosHeader__left">
             <Box inline bold mr={2}>
               {PC_stationtime}
@@ -119,9 +150,33 @@ export const NtosWindow = (props, context) => {
             )}
           </div>
         </div>
-        {children}
+    </Fragment>
+  );
+};
+
+const NtosWindowError = (props, context) => {
+  const { act, data } = useBackend(context);
+  const {
+    Prg_ErrorName,
+    Prg_ErrorDesc,
+    Prg_ErrorIcon,
+  } = data;
+  return (
+    <Fragment>
+      <div className="NtosWindow__content" align="center">
+        <Flex align="center" justify="space-evenly" direction="column" wrap>
+          <Flex.Item>
+            <Fragment>
+              <Icon name={Prg_ErrorIcon ? Prg_ErrorIcon : "exclamation-triangle"}
+                verticalAlign="middle"
+                size="6"/>
+              <Box fontSize="16px" bold>{Prg_ErrorName ? Prg_ErrorName : "UNKNOWN ERROR"}</Box>
+              <Box fontSize="10px">{Prg_ErrorDesc ? Prg_ErrorDesc : "An unknown error has occered, If problem persists contact your system administrator."}</Box>
+            </Fragment>
+          </Flex.Item>
+        </Flex>
       </div>
-    </Window>
+    </Fragment>
   );
 };
 
@@ -134,3 +189,4 @@ const NtosWindowContent = props => {
 };
 
 NtosWindow.Content = NtosWindowContent;
+NtosWindow.Error = NtosWindowError;

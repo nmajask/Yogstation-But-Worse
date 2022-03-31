@@ -5,11 +5,10 @@
 	filedesc = "SecurEye"
 	ui_header = "borg_mon.gif"
 	program_icon_state = "generic"
-	extended_desc = "This program allows access to standard security camera networks."
+	extended_desc = "This program allows you to access security camera networks that you have access to."
 	requires_ntnet = TRUE
-	transfer_access = ACCESS_SECURITY
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_INTEGRATED // Probably not a good idea to let borgs use this, though im curious how it will pan out
-	size = 10
+	size = 5
 	tgui_id = "NtosSecurEye"
 	program_icon = "eye"
 
@@ -184,6 +183,55 @@
 			camlist["[cam.c_tag]"] = cam
 	return camlist
 
+///////////
+//Moduals//
+///////////
+
+/datum/computer_file/module/secureye
+	var/list/unlocked_networks
+
+/datum/computer_file/module/secureye/general
+	filename = "secbundle"
+	filedesc = "Secureye Station Access Package"
+	extended_desc = "This program package contains access codes to the station's camera network, allowing you to access them using Secureye."
+	size = 20
+	unlocked_networks = list("ss13")
+
+/datum/computer_file/module/secureye/medical
+	filename = "overwatch"
+	filedesc = "Secureye OverWatch Package"
+	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	size = 5
+	unlocked_networks = list("medbay")
+
+/datum/computer_file/module/secureye/engineering
+	filename = "overwatch"
+	filedesc = "Secureye OverWatch Package"
+	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	size = 5
+	unlocked_networks = list("engine")
+
+/datum/computer_file/module/secureye/vault
+	filename = "overwatch"
+	filedesc = "Secureye OverWatch Package"
+	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	size = 5
+	unlocked_networks = list("vault")
+
+/datum/computer_file/module/secureye/mining
+	filename = "overwatch"
+	filedesc = "Secureye OverWatch Package"
+	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	size = 5
+	unlocked_networks = list("mine", "auxbase")
+
+/datum/computer_file/module/secureye/laborcamp
+	filename = "overseer"
+	filedesc = "Secureye OverSeer Package"
+	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	size = 5
+	unlocked_networks = list("mine", "auxbase")
+
 //////////////////
 //Mining Cameras//
 //////////////////
@@ -194,6 +242,7 @@
 	filedesc = "OverWatch"
 	extended_desc = "This program allows access to the mining base camera network."
 	transfer_access = ACCESS_MINING
+	category = PROGRAM_CATEGORY_SUPL
 	size = 5
 	program_icon = "globe"
 
@@ -209,6 +258,7 @@
 	filedesc = "OverSeer"
 	extended_desc = "This program allows access to the labor camp camera network."
 	transfer_access = ACCESS_ARMORY
+	category = PROGRAM_CATEGORY_SEC
 	size = 5
 	program_icon = "dungeon"
 

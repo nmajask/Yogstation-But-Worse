@@ -46,6 +46,8 @@
 #define MC_CHARGE "CHARGE"
 #define MC_AI "AI"
 #define MC_SENSORS "SENSORS"
+#define MC_SIGNALER "SIGNALER"
+#define MC_GPS "GPS"
 
 //NTNet stuff, for modular computers
 									// NTNet module-configuration values. Do not change these. If you need to add another use larger number (5..6..7 etc)
@@ -77,11 +79,14 @@
 #define PROGRAM_STATE_BACKGROUND 1
 #define PROGRAM_STATE_ACTIVE 2
 //Program categories
-#define PROGRAM_CATEGORY_CREW "Crew"
-#define PROGRAM_CATEGORY_ENGI "Engineering"
-#define PROGRAM_CATEGORY_ROBO "Robotics"
-#define PROGRAM_CATEGORY_SUPL "Supply"
-#define PROGRAM_CATEGORY_MISC "Other"
+#define PROGRAM_CATEGORY_SYN	"Syndicate"
+#define PROGRAM_CATEGORY_COM	"Command"
+#define PROGRAM_CATEGORY_SEC	"Security"
+#define PROGRAM_CATEGORY_MED	"Medical"
+#define PROGRAM_CATEGORY_ENGI	"Engineering"
+#define PROGRAM_CATEGORY_SCI	"Science"
+#define PROGRAM_CATEGORY_SUPL	"Supply"
+#define PROGRAM_CATEGORY_MISC	"Other"
 
 #define FIREDOOR_OPEN 1
 #define FIREDOOR_CLOSED 2

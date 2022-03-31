@@ -13,7 +13,8 @@
 	tgui_id = "NtosNetDownloader"
 	program_icon = "download"
 
-	var/datum/computer_file/program/downloaded_file = null
+	var/datum/computer_file/downloaded_file = null
+	var/list/queued_files = list()
 	var/hacked_download = FALSE
 	var/download_completion = 0 //GQ of downloaded data.
 	var/download_netspeed = 0
@@ -23,10 +24,13 @@
 	var/list/main_repo
 	var/list/antag_repo
 
-	var/list/show_categories = list(
-		PROGRAM_CATEGORY_CREW,
+	var/static/list/show_categories = list(
+		PROGRAM_CATEGORY_SYN,
+		PROGRAM_CATEGORY_COM,
+		PROGRAM_CATEGORY_SEC,
+		PROGRAM_CATEGORY_MED,
 		PROGRAM_CATEGORY_ENGI,
-		PROGRAM_CATEGORY_ROBO,
+		PROGRAM_CATEGORY_SCI,
 		PROGRAM_CATEGORY_SUPL,
 		PROGRAM_CATEGORY_MISC,
 	)
@@ -42,43 +46,56 @@
 		return FALSE
 	emagged = TRUE
 	return TRUE
+
 /datum/computer_file/program/ntnetdownload/proc/begin_file_download(filename)
-	if(downloaded_file)
+	if(downloaded_file && (filename in queued_files))
 		return FALSE
 
-	var/datum/computer_file/program/PRG = SSnetworks.station_network.find_ntnet_file_by_name(filename)
+	var/datum/computer_file/file = SSnetworks.station_network.find_ntnet_file_by_name(filename)
 
-	if(!PRG || !istype(PRG))
+	if(!file || !istype(file))
 		return FALSE
 
 	// Attempting to download antag only program, but without having emagged/syndicate computer. No.
-	if(PRG.available_on_syndinet && !emagged)
+	if(file.available_on_syndinet && !emagged)
 		return FALSE
 
 	var/obj/item/computer_hardware/hard_drive/hard_drive = computer.all_components[MC_HDD]
 
-	if(!computer || !hard_drive || !hard_drive.can_store_file(PRG))
+	if(!computer || !hard_drive || !hard_drive.can_store_file(file))
 		return FALSE
+	
+	if(downloaded_file)
+		LAZYADD(queued_files, filename)
+		return TRUE
 
 	ui_header = "downloader_running.gif"
 
-	if(PRG in main_repo)
-		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from NTNet Software Repository.")
+	if(file in main_repo)
+		generate_network_log("Began downloading file [file.filename].[file.filetype] from NTNet Software Repository.")
 		hacked_download = FALSE
-	else if(PRG in antag_repo)
-		generate_network_log("Began downloading file **ENCRYPTED**.[PRG.filetype] from unspecified server.")
+	else if(file in antag_repo)
+		generate_network_log("Began downloading file **ENCRYPTED**.[file.filetype] from unspecified server.")
 		hacked_download = TRUE
 	else
-		generate_network_log("Began downloading file [PRG.filename].[PRG.filetype] from unspecified server.")
+		generate_network_log("Began downloading file [file.filename].[file.filetype] from unspecified server.")
 		hacked_download = FALSE
 
-	downloaded_file = PRG.clone()
+	downloaded_file = file.clone()
+	if(queued_files && (file.filename in queued_files))
+		LAZYREMOVE(queued_files, file.filename)
 
 /datum/computer_file/program/ntnetdownload/proc/abort_file_download()
 	if(!downloaded_file)
 		return
 	generate_network_log("Aborted download of file [hacked_download ? "**ENCRYPTED**" : "[downloaded_file.filename].[downloaded_file.filetype]"].")
 	downloaded_file = null
+	if(queued_files && queued_files.len)
+		for(var/queued_file in queued_files)
+			if(begin_file_download(queued_file))
+				break
+			else
+				LAZYREMOVE(queued_files, queued_file)
 	download_completion = 0
 	ui_header = "downloader_finished.gif"
 
@@ -90,7 +107,14 @@
 	if(!computer || !hard_drive || !hard_drive.store_file(downloaded_file))
 		// The download failed
 		downloaderror = "I/O ERROR - Unable to save file. Check whether you have enough free space on your hard drive and whether your hard drive is properly connected. If the issue persists contact your system administrator for assistance."
+	computer.play_ping()
 	downloaded_file = null
+	if(queued_files && queued_files.len)
+		for(var/queued_file in queued_files)
+			if(begin_file_download(queued_file))
+				break
+			else
+				LAZYREMOVE(queued_files, queued_file)
 	download_completion = 0
 	ui_header = "downloader_finished.gif"
 
@@ -117,8 +141,18 @@
 	computer.play_interact_sound()
 	switch(action)
 		if("PRG_downloadfile")
-			if(!downloaded_file)
-				begin_file_download(params["filename"])
+			begin_file_download(params["filename"])
+			return TRUE
+		if("PRG_stopfiledownload")
+			if(downloaded_file.filename == params["filename"])
+				download_completion = 0
+				download_netspeed = 0
+				downloaded_file = null
+				downloaderror = ""
+				if(queued_files && queued_files.len)
+					begin_file_download(queued_files[1])
+			else if(params["filename"] in queued_files)
+				LAZYREMOVE(queued_files, params["filename"])
 			return TRUE
 		if("PRG_reseterror")
 			if(downloaderror)
@@ -169,6 +203,7 @@
 			"fileinfo" = P.extended_desc,
 			"category" = P.category,
 			"installed" = !!hard_drive.find_file_by_name(P.filename),
+			"queued" = queued_files && (P.filename in queued_files),
 			"compatible" = check_compatibility(P),
 			"size" = P.size,
 			"access" = emagged && P.available_on_syndinet ? TRUE : P.can_run(user,transfer = 1, access = access),
