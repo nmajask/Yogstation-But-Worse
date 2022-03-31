@@ -253,7 +253,7 @@
 			else
 				program_overlay += icon_state_menu
 
-	if(!isnull(department_stripe))
+	if(department_stripe)
 		SSvis_overlays.add_vis_overlay(physical, physical.icon, department_stripe, physical.layer, physical.plane, physical.dir)
 	SSvis_overlays.add_vis_overlay(physical, physical.icon, program_overlay, physical.layer, physical.plane, physical.dir)
 	SSvis_overlays.add_vis_overlay(physical, physical.icon, program_overlay, physical.layer, EMISSIVE_PLANE, physical.dir)

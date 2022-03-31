@@ -2584,6 +2584,7 @@
 #include "code\modules\modular_computers\file_system\programs\antagonist\contract_uplink.dm"
 #include "code\modules\modular_computers\file_system\programs\antagonist\dos.dm"
 #include "code\modules\modular_computers\file_system\programs\antagonist\revelation.dm"
+#include "code\modules\modular_computers\file_system\programs\antagonist\uplink.dm"
 #include "code\modules\modular_computers\hardware\_hardware.dm"
 #include "code\modules\modular_computers\hardware\ai_slot.dm"
 #include "code\modules\modular_computers\hardware\battery_module.dm"

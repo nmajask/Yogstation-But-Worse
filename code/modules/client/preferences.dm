@@ -75,15 +75,24 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/genders = list(MALE, FEMALE, PLURAL)
 	var/list/friendlyGenders = list("Male" = "male", "Female" = "female", "Other" = "plural")
 
-	var/device = "PDA"	// What device the player wants
-	var/static/list/available_devices = list("None", "PDA", "Laptop", "Tablet", "Phone")	// What devices the player can select
-	var/device_color = "random"	// What device color the player wants
-	var/static/list/available_colors = list("random", "red", "blue", "brown", "green", "black", "orange", "white")	// What device colors the player can select
-	var/static/list/donor_colors = list("crimson", "rainbow", "retro", "pipboy", "glass")	// What device colors the player can select if they are a donor
-	var/device_interface = "Default"	// What device interface icons the player wants
-	var/static/list/available_interfaces = list("Default")	// What device interfaces the player can select
-	var/static/list/donor_interfaces = list("Minimal")	// What device interfaces the player can select if they are a donor
-	var/device_stripe = TRUE	// If the player wants department details on their device, if applicable
+	//What device the player wants
+	var/device = DEVICE_PDA	
+	//What devices the player can select
+	var/static/list/available_devices = list(DEVICE_NONE, DEVICE_PDA, DEVICE_LAPTOP, DEVICE_TABLET, DEVICE_PHONE)
+	//What device color the player wants
+	var/device_color = "random"
+	//What device colors the player can select
+	var/static/list/available_colors = list("Random" = "random", "Red" = "red", "Blue" = "blue", "Brown" = "brown", "Green" = "green", "Black" = "black", "Orange" = "orange", "White" = "white")
+	//What device colors the player can select if they are a donor
+	var/static/list/donor_colors = list("Crimson" = "crimson", "Rainbow" = "rainbow", "Retro" = "retro", "Pipboy" = "pipboy", "Glass" = "glass")
+	//What device interface icons the player wants
+	var/device_interface = "Default"
+	//What device interfaces the player can select
+	var/static/list/available_interfaces = list("Default" = "Default")
+	//What device interfaces the player can select if they are a donor
+	var/static/list/donor_interfaces = list("Minimal" = "minimal")
+	//If the player wants department details on their device, if applicable
+	var/device_stripe = TRUE
 
 	var/list/random_locks = list()
 
@@ -1800,14 +1809,14 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					if(is_donator(user.client))
 						chooseable_colors |= donor_colors
 					var/picked_device_color = input(user, "Choose your device style.", "Character Preference", device_color)  as null|anything in chooseable_colors
-					if(picked_device_color)
+					if(picked_device_color && (picked_device_color in chooseable_colors))
 						device_color = picked_device_color
 				if("device_interface")
 					var/chooseable_colors = available_interfaces
 					if(is_donator(user.client))
 						chooseable_colors |= donor_interfaces
 					var/picked_device_interface = input(user, "Choose your PDA Interface color.", "Character Preference", device_interface) as null|anything in chooseable_colors
-					if(picked_device_interface)
+					if(picked_device_interface && (picked_device_interface in chooseable_colors))
 						device_interface = picked_device_interface
 				if("device_stripe")
 					device_stripe = !device_stripe
@@ -2095,8 +2104,10 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.socks = socks
 	
 	character.device = device
-	character.device_color = device_color
-	character.device_interface = device_interface
+	var/list/all_colors = available_colors + donor_colors
+	character.device_color = all_colors?[device_color]
+	var/list/all_interfaces = available_interfaces + donor_interfaces
+	character.device_interface = all_interfaces?[device_interface]
 	character.device_stripe = device_stripe
 
 	character.backbag = backbag

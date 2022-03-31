@@ -53,6 +53,32 @@
 	..()
 	store_file(new/datum/computer_file/program/ntnet_dos(src))
 
+/obj/item/computer_hardware/hard_drive/portable/syndicate/uplink
+	var/starting_tc = 0
+
+/obj/item/computer_hardware/hard_drive/portable/syndicate/uplink/Initialize(mapload, _owner)
+	. = ..()
+	AddComponent(/datum/component/uplink, _owner, TRUE, FALSE, null, starting_tc)
+	var/datum/computer_file/program/uplink/uplink_file = store_file(new/datum/computer_file/program/uplink(src))
+	var/datum/component/uplink/uplink = GetComponent(/datum/component/uplink)
+	uplink.open_on_interact = FALSE
+	uplink_file.uplink = uplink
+/*
+/obj/item/computer_hardware/hard_drive/portable/syndicate/uplink/install_default_programs()
+	..()
+*/
+/obj/item/computer_hardware/hard_drive/portable/syndicate/uplink/preloaded
+	starting_tc = 10
+
+/obj/item/computer_hardware/hard_drive/portable/syndicate/uplink/debug
+	starting_tc = 9000
+
+/obj/item/computer_hardware/hard_drive/portable/syndicate/uplink/debug/Initialize(mapload, _owner)
+	..()
+	var/datum/component/uplink/uplink = GetComponent(/datum/component/uplink)
+	uplink.debug = TRUE
+	uplink.name = "debug uplink"
+
 //////////////
 //Trap Disks//
 //////////////

@@ -956,7 +956,7 @@
 	materials = list(/datum/material/iron = 450, /datum/material/glass = 190)
 	build_path = /obj/item/conveyor_switch_construct
 	category = list("initial", "Construction")
-
+/*
 /datum/design/laptop
 	name = "Laptop Frame"
 	id = "laptop"
@@ -972,6 +972,7 @@
 	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000)
 	build_path = /obj/item/modular_computer/tablet
 	category = list("initial","Miscellaneous")
+*/
 
 /datum/design/slime_scanner
 	name = "Slime Scanner"

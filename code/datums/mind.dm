@@ -300,12 +300,12 @@
 		return
 
 	var/list/all_contents = traitor_mob.GetAllContents()
-	var/obj/item/pda/PDA = locate() in all_contents
+	var/obj/item/modular_computer/device = locate() in all_contents
 	var/obj/item/radio/R = locate() in all_contents
 	var/obj/item/pen/P
 
-	if (PDA) // Prioritize PDA pen, otherwise the pocket protector pens will be chosen, which causes numerous ahelps about missing uplink
-		P = locate() in PDA
+	if (device) // Prioritize PDA pen, otherwise the pocket protector pens will be chosen, which causes numerous ahelps about missing uplink
+		P = locate() in device
 	if (!P) // If we couldn't find a pen in the PDA, or we didn't even have a PDA, do it the old way
 		P = locate() in all_contents
 		if(!P) // I do not have a pen.
@@ -322,7 +322,7 @@
 	if(traitor_mob.client && traitor_mob.client.prefs)
 		switch(traitor_mob.client.prefs.uplink_spawn_loc)
 			if(UPLINK_PDA)
-				uplink_loc = PDA
+				uplink_loc = device.all_components?[MC_HDD]
 				if(!uplink_loc)
 					uplink_loc = R
 				if(!uplink_loc)
@@ -330,13 +330,13 @@
 			if(UPLINK_RADIO)
 				uplink_loc = R
 				if(!uplink_loc)
-					uplink_loc = PDA
+					uplink_loc = device.all_components?[MC_HDD]
 				if(!uplink_loc)
 					uplink_loc = P
 			if(UPLINK_PEN)
 				uplink_loc = P
 				if(!uplink_loc)
-					uplink_loc = PDA
+					uplink_loc = device.all_components?[MC_HDD]
 				if(!uplink_loc)
 					uplink_loc = R
 
@@ -353,8 +353,8 @@
 		if(!silent)
 			if(uplink_loc == R)
 				to_chat(traitor_mob, "[employer] has cunningly disguised a Syndicate Uplink as your [R.name]. Simply dial the frequency [format_frequency(U.unlock_code)] to unlock its hidden features.")
-			else if(uplink_loc == PDA)
-				to_chat(traitor_mob, "[employer] has cunningly disguised a Syndicate Uplink as your [PDA.name]. Simply enter the code \"[U.unlock_code]\" into the ringtone select to unlock its hidden features.")
+			else if(uplink_loc == device.all_components?[MC_HDD])
+				to_chat(traitor_mob, "[employer] has cunningly disguised a Syndicate Uplink as your [device.name]. Simply enter the code \"[U.unlock_code]\" into the ringtone select to unlock its hidden features.")
 			else if(uplink_loc == P)
 				to_chat(traitor_mob, "[employer] has cunningly disguised a Syndicate Uplink as your [P.name]. Simply twist the top of the pen [english_list(U.unlock_code)] from its starting position to unlock its hidden features.")
 

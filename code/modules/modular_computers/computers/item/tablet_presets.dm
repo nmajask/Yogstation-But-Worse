@@ -1,3 +1,9 @@
+/*
+/	Tablets are middle-of-the-line computers that are more versitile than PDAs, but are not as portable
+/
+/	Available to: Specialized Station Jobs (Quartermaster, Doctors, Engineers, Scientists, Security Officers)
+*/
+
 // This is literally the worst possible cheap tablet
 /obj/item/modular_computer/tablet/preset/cheap
 	desc = "A low-end tablet often seen among low ranked station personnel."

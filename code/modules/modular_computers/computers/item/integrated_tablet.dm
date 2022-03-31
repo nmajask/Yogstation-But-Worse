@@ -6,6 +6,7 @@
 	icon_state_menu = "menu"
 	id_rename = TRUE
 	hardware_flag = PROGRAM_INTEGRATED
+	max_hardware_size = WEIGHT_CLASS_SMALL
 	has_light = FALSE //tablet light button actually enables/disables the borg lamp
 	comp_light_luminosity = 0
 	interact_sounds = list('sound/machines/computers/pda_click.ogg')

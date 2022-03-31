@@ -118,6 +118,7 @@
 			update_icon()
 			if(user && istype(user))
 				ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+				return TRUE
 
 		if("PC_killprogram")
 			var/prog = params["name"]
@@ -132,6 +133,7 @@
 			play_interact_sound()
 			P.kill_program(forced = TRUE)
 			to_chat(user, span_notice("Program [P.filename].[P.filetype] with PID [rand(100,999)] has been killed."))
+			return TRUE
 
 		if("PC_runprogram")
 			var/prog = params["name"]
@@ -205,29 +207,29 @@
 			switch(param)
 				if("removable storage disk")
 					var/obj/item/computer_hardware/hard_drive/portable/portable_drive = all_components[MC_SDD]
-					if(!portable_drive)
+					if(!portable_drive || !uninstall_component(portable_drive, usr))
 						return
-					if(uninstall_component(portable_drive, usr))
-						user.put_in_hands(portable_drive)
-						playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50)
+					user.put_in_hands(portable_drive)
+					playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50)
+					return TRUE
 				if("intelliCard")
 					var/obj/item/computer_hardware/ai_slot/intelliholder = all_components[MC_AI]
-					if(!intelliholder)
+					if(!intelliholder || !intelliholder.try_eject(user))
 						return
-					if(intelliholder.try_eject(user))
-						playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50)
+					playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50)
+					return TRUE
 				if("ID")
 					var/obj/item/computer_hardware/card_slot/cardholder = all_components[MC_CARD]
-					if(!cardholder)
+					if(!cardholder || !cardholder.try_eject(user))
 						return
-					cardholder.try_eject(user)
 					playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50)
+					return TRUE
 				if("secondary RFID card")
 					var/obj/item/computer_hardware/card_slot/cardholder = all_components[MC_CARD2]
-					if(!cardholder)
+					if(!cardholder || !cardholder.try_eject(user))
 						return
-					cardholder.try_eject(user)
 					playsound(src, 'sound/machines/terminal_insert_disc.ogg', 50)
+					return TRUE
 
 
 		else

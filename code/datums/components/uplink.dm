@@ -28,6 +28,8 @@ GLOBAL_LIST_EMPTY(uplinks)
 	var/failsafe_code
 	var/debug = FALSE
 	var/compact_mode = FALSE
+	//If the uplink opens when the holder is interacted with while it is unlocked
+	var/open_on_interact = TRUE
 
 	var/list/previous_attempts
 
@@ -113,7 +115,7 @@ GLOBAL_LIST_EMPTY(uplinks)
 	qdel(I)
 
 /datum/component/uplink/proc/interact(datum/source, mob/user)
-	if(locked)
+	if(!open_on_interact || locked)
 		return
 	active = TRUE
 	if(user)

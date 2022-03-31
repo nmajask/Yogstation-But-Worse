@@ -45,7 +45,6 @@
 	jobtype = /datum/job/rd
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/pda/heads/rd
 	ears = /obj/item/radio/headset/heads/rd
 	glasses = /obj/item/clothing/glasses/hud/diagnostic/sunglasses
 	uniform = /obj/item/clothing/under/rank/research_director
@@ -55,7 +54,7 @@
 	suit = /obj/item/clothing/suit/toggle/labcoat
 	l_hand = /obj/item/clipboard
 	l_pocket = /obj/item/laser_pointer
-	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/phone/preset/advanced/command=1) //yogs - removes sci budget
+	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1) //yogs - removes sci budget
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
