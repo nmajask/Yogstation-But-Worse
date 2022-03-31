@@ -37,7 +37,6 @@
 	name = "Shaft Miner"
 	jobtype = /datum/job/mining
 
-	belt = /obj/item/pda/shaftminer
 	ears = /obj/item/radio/headset/headset_cargo/mining
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	gloves = /obj/item/clothing/gloves/color/black

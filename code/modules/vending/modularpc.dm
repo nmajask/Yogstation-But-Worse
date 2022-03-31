@@ -5,7 +5,7 @@
 	icon_deny = "modularpc-deny"
 	product_ads = "Get your gamer gear!;The best GPUs for all of your space-crypto needs!;The most robust cooling!;The finest RGB in space!"
 	vend_reply = "Game on!"
-	products = list(/obj/item/modular_computer/tablet/pda = 6,
+	products = list(/obj/item/modular_computer/pda = 6,
 					/obj/item/modular_computer/laptop = 4,
 					/obj/item/computer_hardware/hard_drive = 4,
 					/obj/item/computer_hardware/hard_drive/small = 4,
@@ -18,7 +18,7 @@
 					/obj/item/computer_hardware/card_slot = 4,
 					/obj/item/computer_hardware/sensorpackage = 4)
 	premium = list(/obj/item/modular_computer/tablet = 3,
-					/obj/item/modular_computer/tablet/phone = 2,
+					/obj/item/modular_computer/phone = 2,
 					/obj/item/computer_hardware/card_slot/secondary = 2,
 					/obj/item/computer_hardware/ai_slot = 2,
 					/obj/item/computer_hardware/printer/mini = 2,

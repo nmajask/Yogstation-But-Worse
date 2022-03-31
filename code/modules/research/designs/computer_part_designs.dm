@@ -2,6 +2,45 @@
 ///////////Computer Parts///////////////
 ////////////////////////////////////////
 
+// Devices
+
+/datum/design/device/laptop
+	name = "Laptop"
+	id = "laptop"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 100, /datum/material/gold = 100)
+	build_path = /obj/item/modular_computer/laptop
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/device/pda
+	name = "PDA"
+	id = "pda"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 400, /datum/material/glass = 100)
+	build_path = /obj/item/modular_computer/pda
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/device/tablet
+	name = "Tablet"
+	id = "tablet"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 1000, /datum/material/glass = 500, /datum/material/gold = 300, /datum/material/diamond = 100)
+	build_path = /obj/item/modular_computer/tablet
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/device/phone
+	name = "Phone"
+	id = "phone"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 2000, /datum/material/glass = 1000, /datum/material/gold = 500, /datum/material/diamond = 200, /datum/material/bluespace = 100)
+	build_path = /obj/item/modular_computer/phone
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
+// Disks
 /datum/design/disk/normal
 	name = "Hard Disk Drive"
 	id = "hdd_basic"
@@ -141,12 +180,21 @@
 	category = list("Computer Parts")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
-// Mini printer
+// Printers
+/datum/design/printer
+	name = "Printer"
+	id = "printer"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 600)
+	build_path = /obj/item/computer_hardware/printer
+	category = list("Computer Parts")
+	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
+
 /datum/design/miniprinter
 	name = "Miniprinter"
 	id = "miniprinter"
 	build_type = PROTOLATHE
-	materials = list(/datum/material/iron = 600)
+	materials = list(/datum/material/iron = 400, /datum/material/glass = 100, /datum/material/silver=50)
 	build_path = /obj/item/computer_hardware/printer/mini
 	category = list("Computer Parts")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
@@ -253,6 +301,7 @@
 	category = list("Computer Parts")
 	departmental_flags = DEPARTMENTAL_FLAG_SCIENCE | DEPARTMENTAL_FLAG_ENGINEERING
 
+// Other
 /datum/design/sensorpackage
 	name = "Sensor Package"
 	id = "sensorpackage"

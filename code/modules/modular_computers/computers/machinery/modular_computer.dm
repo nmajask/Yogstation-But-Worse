@@ -19,7 +19,6 @@
 	var/icon_state_powered = null						// Icon state when the computer is turned on.
 	var/screen_icon_state_menu = "menu"					// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
 	var/screen_icon_screensaver = "standby"				// Icon state overlay when the computer is powered, but not 'switched on'.
-	var/overlay_skin = null		
 	var/max_hardware_size = 0							// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
 	var/steel_sheet_cost = 10							// Amount of steel sheets refunded when disassembling an empty frame of this computer.
 	var/light_strength = 0								// Light luminosity when turned on
@@ -30,6 +29,15 @@
 	var/list/starting_components = list()
 	var/list/starting_files = list()
 	var/datum/computer_file/program/initial_program
+	
+	// Skins
+	var/finish_color = null									// What icon should be used for the device.
+	var/overlay_skin = null									// What set of icons should be used for program overlays.
+	var/department_stripe = null							// What icon should be used for the department stripe.
+	var/list/variants = null								// What finish colors are available.
+	var/list/donor_variants = null							// What finish colors are available to donors only.
+	var/has_department_stripes = FALSE						// If this device has department stripes.
+	var/list/available_overlay_skins = list()				// What overlay skins are available, don't include the default skin.
 
 	// Interaction Sounds
 	var/sound/startup_sound = 'sound/machines/computers/computer_start.ogg'

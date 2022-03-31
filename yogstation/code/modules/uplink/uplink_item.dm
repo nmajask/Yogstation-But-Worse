@@ -83,6 +83,14 @@
 	cost = 5
 	surplus = 10
 
+/datum/uplink_item/device_tools/uplink_disk
+	name = "Syndicate Uplink Disk"
+	desc = "A disk containing a hidden encrypted transmitter that allows computers to access the Syndix Blackmarket Network. Has no telecrystals and must be charged by the use of physical telecrystals."
+	item = /obj/item/computer_hardware/hard_drive/portable/syndicate/uplink
+	cost = 1
+	surplus = 0
+	restricted = TRUE
+
 /datum/uplink_item/device_tools/ntnet_dos
 	name = "DoS Traffic Generator Disk"
 	desc = "An advanced script in a portable disk that can perform denial of service attacks against NTNet quantum relays. \

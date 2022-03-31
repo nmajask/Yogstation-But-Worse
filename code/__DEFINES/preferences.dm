@@ -79,6 +79,12 @@
 #define ENG_DEPT_SUPPLY "Supply"
 #define ENG_DEPT_SERVICE "Service"
 
+#define DEVICE_NONE "None"
+#define DEVICE_PDA "PDA"
+#define DEVICE_LAPTOP "Laptop"
+#define DEVICE_TABLET "Tablet"
+#define DEVICE_PHONE "Phone"
+
 // Playtime tracking system, see jobs_exp.dm
 #define EXP_TYPE_LIVING			"Living"
 #define EXP_TYPE_CREW			"Crew"

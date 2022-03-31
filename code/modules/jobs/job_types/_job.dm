@@ -208,7 +208,6 @@
 	uniform = /obj/item/clothing/under/color/grey
 	id = /obj/item/card/id
 	ears = /obj/item/radio/headset
-	belt = /obj/item/pda
 	back = /obj/item/storage/backpack
 	shoes = /obj/item/clothing/shoes/sneakers/black
 	box = /obj/item/storage/box/survival
@@ -219,7 +218,13 @@
 
 	var/uniform_skirt = null
 
-	var/pda_slot = SLOT_BELT
+	var/list/device_types = list(DEVICE_NONE = /obj/item/storage/wallet/random,
+								 DEVICE_PDA = /obj/item/modular_computer/pda/preset/basic,
+								 DEVICE_LAPTOP = /obj/item/modular_computer/laptop/preset/civillian,
+								 DEVICE_TABLET = /obj/item/modular_computer/tablet/preset/cheap,
+								 DEVICE_PHONE = /obj/item/modular_computer/tablet/preset/cheap)
+	var/department_stripe
+
 	var/alt_shoes = /obj/item/clothing/shoes/xeno_wraps // Default digitgrade shoes assignment variable
 	var/alt_shoes_s = /obj/item/clothing/shoes/xeno_wraps/jackboots // Digitigrade shoes for Sec assignment variable
 	var/alt_shoes_c = /obj/item/clothing/shoes/xeno_wraps/command // command footwraps.
@@ -244,8 +249,25 @@
 	if (H.jumpsuit_style == PREF_SKIRT && uniform_skirt)
 		uniform = uniform_skirt
 
+	if(!department_stripe)
+		if(IS_COMMAND(H))
+			department_stripe = "department-command"
+		else if(IS_SECURITY(H))
+			department_stripe = "department-sec"
+		else if(IS_ENGINEERING(H))
+			department_stripe = "department-engi"
+		else if(IS_MEDICAL(H))
+			department_stripe = "department-sci"
+		else if(IS_SCIENCE(H))
+			department_stripe = "department-med"
+		else if(IS_CARGO(H))
+			department_stripe = "department-supply"
+		else
+			department_stripe = "department-civilian"
+
 	if (isplasmaman(H) && !(visualsOnly)) //this is a plasmaman fix to stop having two boxes
 		box = null
+
 	if(DIGITIGRADE in H.dna.species.species_traits)
 		if(IS_COMMAND(H)) // command gets snowflake shoes too.
 			shoes = alt_shoes_c
@@ -286,14 +308,23 @@
 				break
 		H.sec_hud_set_ID()
 
-	var/obj/item/pda/PDA = H.get_item_by_slot(pda_slot)
-	if(istype(PDA))
-		PDA.owner = H.real_name
-		if(H.mind?.role_alt_title)
-			PDA.ownjob = H.mind.role_alt_title
-		else
-			PDA.ownjob = J.title
-		PDA.update_label()
+	var/device_path = device_types[H.device]
+	var/obj/item/device = new device_path()
+
+	if(!(H.equip_to_slot_if_possible(device, ITEM_SLOT_BELT, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_L_STORE, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_R_STORE, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_S_STORE, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_IN_BACKPACK, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_HANDS, FALSE, TRUE)))
+		CRASH("Failed to equip [device] to [H]")
+
+	if(device && device.is_modular_computer())
+		var/obj/item/modular_computer/modular_device = device
+		modular_device.finish_color = ((!H.device_color == "random" || (H.device_color in modular_device.variants) || (H.device_color in modular_device.donor_variants)) ? H.device_color : null)
+		modular_device.overlay_skin = ((!H.device_color == "Default" || (H.device_interface in modular_device.available_overlay_skins)) ? H.device_interface : null)
+		modular_device.department_stripe = ((H.device_stripe && modular_device.has_department_stripes && !isnull(department_stripe)) ? department_stripe : null)
+		modular_device.update_icon()
 
 /datum/outfit/job/get_chameleon_disguise_info()
 	var/list/types = ..()

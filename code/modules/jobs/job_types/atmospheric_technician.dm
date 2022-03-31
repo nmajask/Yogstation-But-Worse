@@ -36,18 +36,16 @@
 	jobtype = /datum/job/atmos
 
 	belt = /obj/item/storage/belt/utility/atmostech
-	l_pocket = /obj/item/pda/atmos
+	l_pocket = /obj/item/analyzer
 	ears = /obj/item/radio/headset/headset_eng
 	uniform = /obj/item/clothing/under/rank/atmospheric_technician
 	uniform_skirt = /obj/item/clothing/under/rank/atmospheric_technician/skirt
-	r_pocket = /obj/item/analyzer
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
-	pda_slot = SLOT_L_STORE
-	backpack_contents = list(/obj/item/modular_computer/tablet/pda/preset/basic/atmos=1)
+	backpack_contents = list(/obj/item/modular_computer/pda/preset/advanced/atmos=1)
 
 /datum/outfit/job/atmos/rig
 	name = "Atmospheric Technician (Hardsuit)"

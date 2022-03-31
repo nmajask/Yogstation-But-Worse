@@ -1,13 +1,21 @@
-/obj/item/modular_computer/tablet/pda
+/obj/item/modular_computer/pda
 	name = "\improper PDA"
 	icon = 'icons/obj/modular_pda.dmi'
-	icon_state = "pda-red"
-	icon_state_base = "pda"
+	icon_state = "pda"
 	icon_state_unpowered = "pda"
 	icon_state_powered = "pda"
+	icon_state_menu = "menu"
+	id_rename = TRUE
 	hardware_flag = PROGRAM_PDA
 	max_hardware_size = WEIGHT_CLASS_TINY
 	w_class = WEIGHT_CLASS_SMALL
 	max_bays = 1
 	steel_sheet_cost = 1
+	slot_flags = ITEM_SLOT_BELT
+	has_light = TRUE //LED flashlight!
+	comp_light_luminosity = 2.3 //Same as the PDA
+	interact_sounds = list('sound/machines/computers/pda_click.ogg')
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
+	variants = list("red","blue","brown","green","black","orange","white")
+	donor_variants = list("crimson", "rainbow", "retro", "pipboy", "glass")
+	available_overlay_skins = list("Minimal")

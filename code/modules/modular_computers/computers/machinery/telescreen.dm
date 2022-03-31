@@ -14,6 +14,9 @@
 	steel_sheet_cost = 10
 	interact_sounds = list('sound/machines/computers/pda_click.ogg')
 
+	variants = list("red","blue","brown","green","black","orange","white")
+	donor_variants = list("crimson","rainbow")
+
 /obj/machinery/modular_computer/telescreen/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(W.tool_behaviour == TOOL_CROWBAR)
 		if(cpu.all_components.len)
