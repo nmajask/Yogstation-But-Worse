@@ -257,9 +257,9 @@
 		else if(IS_ENGINEERING(H))
 			department_stripe = "department-engi"
 		else if(IS_MEDICAL(H))
-			department_stripe = "department-sci"
-		else if(IS_SCIENCE(H))
 			department_stripe = "department-med"
+		else if(IS_SCIENCE(H))
+			department_stripe = "department-sci"
 		else if(IS_CARGO(H))
 			department_stripe = "department-supply"
 		else
@@ -323,7 +323,7 @@
 		var/obj/item/modular_computer/modular_device = device
 		modular_device.finish_color = ((!H.device_color == "random" || (H.device_color in modular_device.variants) || (H.device_color in modular_device.donor_variants)) ? H.device_color : null)
 		modular_device.overlay_skin = ((!H.device_color == "Default" || (H.device_interface in modular_device.available_overlay_skins)) ? H.device_interface : null)
-		modular_device.department_stripe = ((H.device_stripe && modular_device.has_department_stripes && !isnull(department_stripe)) ? department_stripe : null)
+		modular_device.department_stripe = ((H.device_stripe && modular_device.has_department_stripes && department_stripe) ? department_stripe : null)
 		modular_device.update_icon()
 
 /datum/outfit/job/get_chameleon_disguise_info()

@@ -48,7 +48,7 @@
 	return TRUE
 
 /datum/computer_file/program/ntnetdownload/proc/begin_file_download(filename)
-	if(downloaded_file && (filename in queued_files))
+	if(downloaded_file)
 		return FALSE
 
 	var/datum/computer_file/file = SSnetworks.station_network.find_ntnet_file_by_name(filename)
@@ -64,10 +64,6 @@
 
 	if(!computer || !hard_drive || !hard_drive.can_store_file(file))
 		return FALSE
-	
-	if(downloaded_file)
-		LAZYADD(queued_files, filename)
-		return TRUE
 
 	ui_header = "downloader_running.gif"
 
@@ -82,20 +78,12 @@
 		hacked_download = FALSE
 
 	downloaded_file = file.clone()
-	if(queued_files && (file.filename in queued_files))
-		LAZYREMOVE(queued_files, file.filename)
 
 /datum/computer_file/program/ntnetdownload/proc/abort_file_download()
 	if(!downloaded_file)
 		return
 	generate_network_log("Aborted download of file [hacked_download ? "**ENCRYPTED**" : "[downloaded_file.filename].[downloaded_file.filetype]"].")
 	downloaded_file = null
-	if(queued_files && queued_files.len)
-		for(var/queued_file in queued_files)
-			if(begin_file_download(queued_file))
-				break
-			else
-				LAZYREMOVE(queued_files, queued_file)
 	download_completion = 0
 	ui_header = "downloader_finished.gif"
 
@@ -109,12 +97,6 @@
 		downloaderror = "I/O ERROR - Unable to save file. Check whether you have enough free space on your hard drive and whether your hard drive is properly connected. If the issue persists contact your system administrator for assistance."
 	computer.play_ping()
 	downloaded_file = null
-	if(queued_files && queued_files.len)
-		for(var/queued_file in queued_files)
-			if(begin_file_download(queued_file))
-				break
-			else
-				LAZYREMOVE(queued_files, queued_file)
 	download_completion = 0
 	ui_header = "downloader_finished.gif"
 
@@ -141,18 +123,8 @@
 	computer.play_interact_sound()
 	switch(action)
 		if("PRG_downloadfile")
-			begin_file_download(params["filename"])
-			return TRUE
-		if("PRG_stopfiledownload")
-			if(downloaded_file.filename == params["filename"])
-				download_completion = 0
-				download_netspeed = 0
-				downloaded_file = null
-				downloaderror = ""
-				if(queued_files && queued_files.len)
-					begin_file_download(queued_files[1])
-			else if(params["filename"] in queued_files)
-				LAZYREMOVE(queued_files, params["filename"])
+			if(!downloaded_file)
+				begin_file_download(params["filename"])
 			return TRUE
 		if("PRG_reseterror")
 			if(downloaderror)
@@ -203,7 +175,6 @@
 			"fileinfo" = P.extended_desc,
 			"category" = P.category,
 			"installed" = !!hard_drive.find_file_by_name(P.filename),
-			"queued" = queued_files && (P.filename in queued_files),
 			"compatible" = check_compatibility(P),
 			"size" = P.size,
 			"access" = emagged && P.available_on_syndinet ? TRUE : P.can_run(user,transfer = 1, access = access),

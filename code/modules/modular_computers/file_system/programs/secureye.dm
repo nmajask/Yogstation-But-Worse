@@ -183,6 +183,39 @@
 			camlist["[cam.c_tag]"] = cam
 	return camlist
 
+//////////////////
+//Mining Cameras//
+//////////////////
+
+///A program that allows you to view the cameras on the Mining Base
+/datum/computer_file/program/secureye/mining
+	filename = "overwatch"
+	filedesc = "OverWatch"
+	extended_desc = "This program allows access to the mining base camera network."
+	transfer_access = ACCESS_MINING
+	category = PROGRAM_CATEGORY_SUPL
+	size = 5
+	program_icon = "globe"
+
+	network = list("mine", "auxbase")
+
+//////////////////////
+//Labor Camp Cameras//
+//////////////////////
+
+///A program that allows you to view the cameras on the Labor Camp
+/datum/computer_file/program/secureye/laborcamp
+	filename = "overseer"
+	filedesc = "OverSeer"
+	extended_desc = "This program allows access to the labor camp camera network."
+	transfer_access = ACCESS_ARMORY
+	category = PROGRAM_CATEGORY_SEC
+	size = 5
+	program_icon = "dungeon"
+
+	network = list("labor")
+
+/* WIP solution to having 500 programs all doing the same thing
 ///////////
 //Moduals//
 ///////////
@@ -231,35 +264,4 @@
 	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
 	size = 5
 	unlocked_networks = list("mine", "auxbase")
-
-//////////////////
-//Mining Cameras//
-//////////////////
-
-///A program that allows you to view the cameras on the Mining Base
-/datum/computer_file/program/secureye/mining
-	filename = "overwatch"
-	filedesc = "OverWatch"
-	extended_desc = "This program allows access to the mining base camera network."
-	transfer_access = ACCESS_MINING
-	category = PROGRAM_CATEGORY_SUPL
-	size = 5
-	program_icon = "globe"
-
-	network = list("mine", "auxbase")
-
-//////////////////////
-//Labor Camp Cameras//
-//////////////////////
-
-///A program that allows you to view the cameras on the Labor Camp
-/datum/computer_file/program/secureye/laborcamp
-	filename = "overseer"
-	filedesc = "OverSeer"
-	extended_desc = "This program allows access to the labor camp camera network."
-	transfer_access = ACCESS_ARMORY
-	category = PROGRAM_CATEGORY_SEC
-	size = 5
-	program_icon = "dungeon"
-
-	network = list("labor")
+*/
