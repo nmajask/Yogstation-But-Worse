@@ -528,6 +528,11 @@
 
 	..()
 
+/obj/item/modular_computer/talk_into(atom/movable/M, message, channel, list/spans, datum/language/language, list/message_mods)
+	var/obj/item/computer_hardware/microphone/radio/radio = all_components[MC_MIC]
+	if(radio)
+		return radio.internal_radio.talk_into(M, message, channel, spans, language, message_mods)
+
 // Used by processor to relay qdel() to machinery type.
 /obj/item/modular_computer/proc/relay_qdel()
 	return

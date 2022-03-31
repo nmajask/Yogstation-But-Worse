@@ -66,6 +66,10 @@
 				IDJob = stored_title,
 			)
 
+	var/obj/item/computer_hardware/microphone/radio/radio = all_components[MC_MIC]
+	if(radio)
+		data["has_radio"] = TRUE
+		data |= radio.internal_radio.ui_data(user)
 	data["removable_media"] = list()
 	if(all_components[MC_SDD])
 		data["removable_media"] += "removable storage disk"
@@ -96,6 +100,9 @@
 	if(..())
 		return
 	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
+	var/obj/item/computer_hardware/microphone/radio/radio = all_components[MC_MIC]
+	var/obj/item/radio/internal_radio = radio?.internal_radio
+
 	switch(action)
 		if("PC_exit")
 			play_interact_sound()
@@ -231,6 +238,54 @@
 
 		else
 			return
+		//Start Radio Stuff
+		if("frequency")
+			if(internal_radio)
+				if(internal_radio.freqlock)
+					return
+				var/tune
+				var/adjust = text2num(params["adjust"])
+				adjust -= internal_radio.frequency / 10
+
+				if(adjust)
+					tune = internal_radio.frequency + adjust * 10
+					internal_radio.set_frequency(sanitize_frequency(tune, internal_radio.freerange))
+				else if(text2num(tune) != null)
+					tune = tune * 10
+					internal_radio.set_frequency(sanitize_frequency(tune, internal_radio.freerange))
+		if("listen")
+			if(internal_radio)
+				internal_radio.listening = !internal_radio.listening
+				return
+		if("broadcast")
+			if(internal_radio)
+				internal_radio.broadcasting = !internal_radio.broadcasting
+				return
+		if("channel")
+			if(internal_radio)
+				var/channel = params["channel"]
+				if(!(channel in internal_radio.channels))
+					return
+				if(internal_radio.channels[channel] & internal_radio.FREQ_LISTENING)
+					internal_radio.channels[channel] &= ~internal_radio.FREQ_LISTENING
+				else
+					internal_radio.channels[channel] |= internal_radio.FREQ_LISTENING
+				return
+		if("command")
+			if(internal_radio)
+				internal_radio.use_command = !internal_radio.use_command
+				return
+		if("subspace")
+			if(internal_radio)
+				if(internal_radio.subspace_switchable)
+					internal_radio.subspace_transmission = !internal_radio.subspace_transmission
+					if(!internal_radio.subspace_transmission)
+						internal_radio.channels = list()
+					else
+						internal_radio.recalculateChannels()
+					return
+		//End Radio Stuff
+
 
 /obj/item/modular_computer/ui_host()
 	if(physical)
