@@ -128,6 +128,8 @@
 					return
 				mecha.occupant.last_bumped = world.time
 			if(mecha.occupant && (src.allowed(mecha.occupant) || src.check_access_list(mecha.operation_req_access)))
+				var/username = get_username(mecha.occupant)
+				machinelog(string = "Door opened[username ? " by [username]":""]")
 				open()
 			else
 				do_animate("deny")
@@ -139,6 +141,8 @@
 			return
 		if(check_access(I))
 			open()
+			var/username = get_username(I)
+			machinelog(string = "Door opened[username ? " by [username]":""]")
 		else
 			do_animate("deny")
 		return
@@ -165,6 +169,8 @@
 
 	if(density && !(obj_flags & EMAGGED))
 		if(allowed(user))
+			var/username = get_username(user)
+			machinelog(string = "Door opened[username ? " by [username]":""]")
 			open()
 		else
 			do_animate("deny")
@@ -189,8 +195,12 @@
 		user = null //so allowed(user) always succeeds
 	if(allowed(user))
 		if(density)
+			var/username = get_username(user)
+			machinelog(string = "Door opened[username ? " by [username]":""]")
 			open()
 		else
+			var/username = get_username(user)
+			machinelog(string = "Door closed[username ? " by [username]":""]")
 			close()
 		return TRUE
 	if(density)
@@ -247,7 +257,7 @@
 	else if(I.tool_behaviour == TOOL_WELDER)
 		try_to_weld(I, user)
 		return 1
-	else if(!(I.item_flags & NOBLUDGEON) && user.a_intent != INTENT_HARM)
+	else if(!(I.item_flags & NOBLUDGEON) && user.a_intent != INTENT_HARM && I.GetID())
 		try_to_activate_door(user)
 		return 1
 	return ..()

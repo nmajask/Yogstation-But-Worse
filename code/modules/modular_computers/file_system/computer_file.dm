@@ -18,6 +18,7 @@
 	// UID of this file
 	var/uid
 	var/static/file_uid = 0
+	var/can_print = FALSE
 
 	// File Downloading
 	/// List of required accesses to *open* this program.
@@ -58,3 +59,19 @@
 		temp.filename = filename
 	temp.filetype = filetype
 	return temp
+
+/datum/computer_file/proc/calculate_size()
+	return
+
+/datum/computer_file/proc/get_contents()
+	return
+
+/datum/computer_file/proc/get_all_contents()
+	var/list/contents = get_contents()
+	var/list/all_contents = contents
+	for(var/datum/computer_file/file in contents)
+		all_contents |= file.get_all_contents()
+	return all_contents
+
+/datum/computer_file/proc/print(var/drop = FALSE)
+	return
