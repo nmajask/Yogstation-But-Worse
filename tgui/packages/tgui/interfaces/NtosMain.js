@@ -13,7 +13,6 @@ export const NtosMain = (props, context) => {
     removable_media = [],
     login = [],
     cardholder,
-    has_radio,
   } = data;
   return (
     <NtosWindow
@@ -61,11 +60,6 @@ export const NtosMain = (props, context) => {
                 Assignment: {login.IDJob}
               </Table.Row>
             </Table>
-          </Section>
-        )}
-        {!!has_radio && (
-          <Section title="Internal Radio Configuration">
-            <RadioContent />
           </Section>
         )}
         {!!removable_media.length && (

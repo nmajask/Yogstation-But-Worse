@@ -16,6 +16,7 @@
 					/obj/item/computer_hardware/processor_unit = 4,
 					/obj/item/computer_hardware/processor_unit/small = 4,
 					/obj/item/computer_hardware/card_slot = 4,
+					/obj/item/computer_hardware/microphone/radio = 4,
 					/obj/item/computer_hardware/sensorpackage = 4)
 	premium = list(/obj/item/modular_computer/tablet = 3,
 					/obj/item/modular_computer/phone = 2,
@@ -23,7 +24,8 @@
 					/obj/item/computer_hardware/ai_slot = 2,
 					/obj/item/computer_hardware/printer/mini = 2,
 					/obj/item/computer_hardware/recharger/APC = 2,
-				   /obj/item/computer_hardware/radio_card = 2)
+					/obj/item/computer_hardware/signaler_card = 2,
+					/obj/item/computer_hardware/gps_card = 2)
 	refill_canister = /obj/item/vending_refill/modularpc
 	default_price = 30
 	extra_price = 250

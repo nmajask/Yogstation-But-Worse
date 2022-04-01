@@ -25,7 +25,7 @@
 
 /datum/computer_file/program/signaler/ui_data(mob/user)
 	var/list/data = get_header_data()
-	var/obj/item/computer_hardware/radio_card/sensor = computer?.get_modular_computer_part(MC_SIGNALER)
+	var/obj/item/computer_hardware/signaler_card/sensor = computer?.get_modular_computer_part(MC_SIGNALER)
 	if(!sensor?.check_functionality())
 		data["Prg_Error"] = TRUE
 		data["Prg_ErrorName"] = "MISSING FILE ERROR" 
@@ -40,7 +40,7 @@
 	. = ..()
 	if(.)
 		return
-	var/obj/item/computer_hardware/radio_card/sensor = computer?.get_modular_computer_part(MC_SIGNALER)
+	var/obj/item/computer_hardware/signaler_card/sensor = computer?.get_modular_computer_part(MC_SIGNALER)
 	if(!(sensor?.check_functionality()))
 		playsound(src, 'sound/machines/scanbuzz.ogg', 100, FALSE)
 		return
