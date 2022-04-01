@@ -468,12 +468,14 @@
 	if(!all_components.len)
 		to_chat(user, "<span class='warning'>This device doesn't have any components installed.</span>")
 		return
-	var/list/component_names = list()
+	var/list/components = list()
 	for(var/h in all_components)
 		var/obj/item/computer_hardware/H = all_components[h]
-		component_names.Add(H.name)
+		if(!H.removable)
+			continue
+		components[H] = image(H)
 
-	var/choice = input(user, "Which component do you want to uninstall?", "Computer maintenance", null) as null|anything in sortList(component_names)
+	var/choice = show_radial_menu(user, physical, components, tooltips = TRUE)
 
 	if(!choice)
 		return
@@ -487,6 +489,7 @@
 		return
 
 	uninstall_component(H, user)
+	tool.play_tool_sound(physical)
 	return
 
 

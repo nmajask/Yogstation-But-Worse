@@ -266,7 +266,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	menuoptions			= SANITIZE_LIST(menuoptions)
 	be_special			= SANITIZE_LIST(be_special)
 	device_color		= sanitize_inlist(device_color, available_colors | donor_colors, initial(pda_style))
-	device_interface	= sanitize_inlist(device_interface, available_interfaces, initial(device_interface))
+	device_interface	= sanitize_inlist(device_interface, available_interfaces | donor_interfaces, initial(device_interface))
 	skillcape       	= sanitize_integer(skillcape, 1, 82, initial(skillcape))
 	skillcape_id		= sanitize_text(skillcape_id, initial(skillcape_id))
 

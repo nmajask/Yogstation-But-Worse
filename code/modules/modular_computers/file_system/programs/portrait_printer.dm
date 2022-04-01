@@ -42,10 +42,6 @@
 	if(!printer)
 		to_chat(usr, span_notice("Hardware error: A printer is required to print a canvas."))
 		return
-	if(printer.stored_paper < CANVAS_PAPER_COST)
-		to_chat(usr, span_notice("Printing error: Your printer needs at least [CANVAS_PAPER_COST] paper to print a canvas."))
-		return
-	printer.stored_paper -= CANVAS_PAPER_COST
 
 	//canvas printing!
 	var/list/tab2key = list(TAB_PUBLIC = "public")

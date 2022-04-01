@@ -477,7 +477,7 @@
 			if(!justzap)
 				if(shock(user, 100))
 					justzap = TRUE
-					addtimer(VARSET_CALLBACK(src, justzap, FALSE) , 10)
+					addtimer(VARSET_CALLBACK(src, justzap, FALSE) , 1 SECONDS)
 					return
 			else
 				return
@@ -543,12 +543,12 @@
 				updateDialog()
 			cont = TRUE
 	spawnPowerRestoreRunning = FALSE
-	machinelog(string = "Power has been restored")
+	machinelog("Power has been restored")
 	updateDialog()
 	update_icon()
 
 /obj/machinery/door/airlock/proc/loseMainPower()
-	machinelog(string = "Warning: Main power is offline")
+	machinelog("Warning: Main power is offline")
 	if(secondsMainPowerLost <= 0)
 		secondsMainPowerLost = 60
 		if(secondsBackupPowerLost < 10)
@@ -559,7 +559,7 @@
 	update_icon()
 
 /obj/machinery/door/airlock/proc/loseBackupPower()
-	machinelog(string = "Warning: Backup power is offline")
+	machinelog("Warning: Backup power is offline")
 	if(secondsBackupPowerLost < 60)
 		secondsBackupPowerLost = 60
 	if(!spawnPowerRestoreRunning)
@@ -583,7 +583,7 @@
 	if(!prob(prb))
 		return FALSE //you lucked out, no shock for you
 	do_sparks(5, TRUE, src)
-	machinelog(string = "Warning: Unexpected power draw detected")
+	machinelog("Warning: Unexpected power draw detected")
 	var/check_range = TRUE
 	if(electrocute_mob(user, get_area(src), src, 1, check_range))
 		shockCooldown = world.time + 10
@@ -835,7 +835,7 @@
 	if(!aiHacking)
 		aiHacking = TRUE
 		to_chat(user, "Airlock AI control has been blocked. Beginning fault-detection.")
-		machinelog(string = "Diagnostics subrutines activated by NULL")
+		machinelog("Diagnostics subrutines activated by NULL")
 		sleep(50)
 		if(canAIControl(user))
 			to_chat(user, "Alert cancelled. Airlock control has been restored without our assistance.")
@@ -858,7 +858,7 @@
 			aiHacking = FALSE
 			return
 		to_chat(user, "Upload access confirmed. Loading control program into airlock software.")
-		machinelog(string = "File transfer initiated by NULL")
+		machinelog("File transfer initiated by NULL")
 		sleep(170)
 		if(canAIControl(user))
 			to_chat(user, "Alert cancelled. Airlock control has been restored without our assistance.")
@@ -869,12 +869,12 @@
 			aiHacking = FALSE
 			return
 		to_chat(user, "Transfer complete. Forcing airlock to execute program.")
-		machinelog(string = "Execution of NULL initiated by NULL")
+		machinelog("Execution of NULL initiated by NULL")
 		sleep(50)
 		//disable blocked control
 		aiControlDisabled = AI_WIRE_HACKED
-		machinelog(string = "WARNING: SECURITY FAULT DETECTED")
-		machinelog(string = "Access granted to NULL")
+		machinelog("WARNING: SECURITY FAULT DETECTED")
+		machinelog("Access granted to NULL")
 		to_chat(user, "Receiving control information from airlock.")
 		sleep(10)
 		//bring up airlock dialog
@@ -1083,7 +1083,7 @@
 				if(!justzap)
 					if(shock(user, 100))
 						justzap = TRUE
-						addtimer(VARSET_CALLBACK(src, justzap, FALSE) , 10)
+						addtimer(VARSET_CALLBACK(src, justzap, FALSE) , 1 SECONDS)
 						return
 			if(!hasPower())
 				return
@@ -1366,7 +1366,7 @@
 			closeOther.close()
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
-		machinelog(string = "Motor calibration fault detected, attempting recalibration")
+		machinelog("Motor calibration fault detected, attempting recalibration")
 
 	if(autoclose)
 		autoclose_in(normalspeed ? 150 : 15)
@@ -1418,7 +1418,7 @@
 		playsound(src, doorClose, 30, TRUE)
 	else
 		playsound(src, 'sound/machines/airlockforced.ogg', 30, TRUE)
-		machinelog(string = "Motor calibration fault detected, attempting recalibration")
+		machinelog("Motor calibration fault detected, attempting recalibration")
 
 	var/obj/structure/window/killthis = (locate(/obj/structure/window) in get_turf(src))
 	if(killthis)
@@ -1492,13 +1492,13 @@
 	if(!operating && density && hasPower() && !(obj_flags & EMAGGED))
 		operating = TRUE
 		update_icon(AIRLOCK_EMAG, 1)
-		machinelog(string = "Execution of DOORJACK.PRG initiated by SCREW YOU NT")
-		machinelog(string = "Warning: Identification card scanner not detected")
+		machinelog("Execution of DOORJACK.PRG initiated by SCREW YOU NT")
+		machinelog("Warning: Identification card scanner not detected")
 		sleep(6)
 		if(QDELETED(src))
 			return
 		operating = FALSE
-		machinelog(string = "WARNING: SECURITY FAULT DETECTED")
+		machinelog("WARNING: SECURITY FAULT DETECTED")
 		if(!open())
 			update_icon(AIRLOCK_CLOSED, 1)
 		obj_flags |= EMAGGED
@@ -1533,17 +1533,17 @@
 /obj/machinery/door/airlock/hostile_lockdown(mob/origin)
 	// Must be powered and have working AI wire.
 	if(canAIControl(src) && !stat)
-		machinelog(string = "WARNING: SECURITY FAULT DETECTED")
-		machinelog(string = "Access granted to NULL")
+		machinelog("WARNING: SECURITY FAULT DETECTED")
+		machinelog("Access granted to NULL")
 		locked = FALSE //For airlocks that were bolted open.
 		safe = FALSE //DOOR CRUSH
-		machinelog(string = "Lifeform safety measures disabled by NULL")
+		machinelog("Lifeform safety measures disabled by NULL")
 		close()
-		machinelog(string = "Door closed by NULL")
+		machinelog("Door closed by NULL")
 		bolt() //Bolt it!
-		machinelog(string = "Bolts dropped by NULL")
+		machinelog("Bolts dropped by NULL")
 		set_electrified(MACHINE_ELECTRIFIED_PERMANENT)  //Shock it!
-		machinelog(string = "Electrification enabled permanently by NULL]")
+		machinelog("Electrification enabled permanently by NULL]")
 		if(origin)
 			LAZYADD(shockedby, "\[[time_stamp()]\] [key_name(origin)]")
 
@@ -1555,8 +1555,8 @@
 		set_electrified(MACHINE_NOT_ELECTRIFIED)
 		open()
 		safe = TRUE
-		machinelog(string = "System reboot complete")
-		machinelog(string = "Security fault cleared")
+		machinelog("System reboot complete")
+		machinelog("Security fault cleared")
 
 
 /obj/machinery/door/airlock/proc/on_break()
@@ -1734,7 +1734,7 @@
 			. = TRUE
 		if("idscan-toggle")
 			aiDisabledIdScanner = !aiDisabledIdScanner
-			machinelog(string = "Identification card scanner [aiDisabledIdScanner ? "enabled":"disabled"][username ? " by [username]":""]")
+			machinelog("Identification card scanner [aiDisabledIdScanner ? "enabled":"disabled"][username ? " by [username]":""]")
 			. = TRUE
 		if("emergency-toggle")
 			toggle_emergency(usr)
@@ -1744,16 +1744,16 @@
 			. = TRUE
 		if("light-toggle")
 			lights = !lights
-			machinelog(string = "Lights [lights ? "enabled":"disabled"][username ? " by [username]":""]")
+			machinelog("Lights [lights ? "enabled":"disabled"][username ? " by [username]":""]")
 			update_icon()
 			. = TRUE
 		if("safe-toggle")
 			safe = !safe
-			machinelog(string = "Lifeform safety measures [safe ? "enabled":"disabled"][username ? " by [username]":""]")
+			machinelog("Lifeform safety measures [safe ? "enabled":"disabled"][username ? " by [username]":""]")
 			. = TRUE
 		if("speed-toggle")
 			normalspeed = !normalspeed
-			machinelog(string = "Motor speed [normalspeed ? "increased":"decreased"][username ? " by [username]":""]")
+			machinelog("Motor speed [normalspeed ? "increased":"decreased"][username ? " by [username]":""]")
 			. = TRUE
 		if("open-close")
 			user_toggle_open(usr)
@@ -1771,7 +1771,7 @@
 		set_electrified(MACHINE_NOT_ELECTRIFIED, user)
 		to_chat(user, "Door un-electrified.") //yogs
 		var/username = get_username(user)
-		machinelog(string = "Electrification disabled[username ? " by [username]":""]")
+		machinelog("Electrification disabled[username ? " by [username]":""]")
 
 /obj/machinery/door/airlock/proc/shock_temp(mob/user)
 	if(!user_allowed(user))
@@ -1781,7 +1781,7 @@
 	else
 		set_electrified(MACHINE_DEFAULT_ELECTRIFY_TIME, user)
 		var/username = get_username(user)
-		machinelog(string = "Electrification enabled for [MACHINE_DEFAULT_ELECTRIFY_TIME][username ? " by [username]":""]")
+		machinelog("Electrification enabled for [MACHINE_DEFAULT_ELECTRIFY_TIME] deciseconds[username ? " by [username]":""]")
 
 /obj/machinery/door/airlock/proc/shock_perm(mob/user)
 	if(!user_allowed(user))
@@ -1792,7 +1792,7 @@
 		set_electrified(MACHINE_ELECTRIFIED_PERMANENT, user)
 		to_chat(user, "Door electrified") //yogs
 		var/username = get_username(user)
-		machinelog(string = "Electrification enabled permanently[username ? " by [username]":""]")
+		machinelog("Electrification enabled permanently[username ? " by [username]":""]")
 
 /obj/machinery/door/airlock/proc/toggle_bolt(mob/user)
 	if(!user_allowed(user))
@@ -1807,18 +1807,18 @@
 		else
 			unbolt()
 			to_chat(user, "Door bolts raised.")
-			machinelog(string = "Bolts raised[username ? " by [username]":""]")
+			machinelog("Bolts raised[username ? " by [username]":""]")
 	else
 		bolt()
 		to_chat(user, "Door bolts dropped.")
-		machinelog(string = "Bolts dropped[username ? " by [username]":""]")
+		machinelog("Bolts dropped[username ? " by [username]":""]")
 
 /obj/machinery/door/airlock/proc/toggle_emergency(mob/user)
 	if(!user_allowed(user))
 		return
 	emergency = !emergency
 	var/username = get_username(user)
-	machinelog(string = "Emergency access [emergency ? "activated":"deactivated"][username ? " by [username]":""]")
+	machinelog("Emergency access [emergency ? "activated":"deactivated"][username ? " by [username]":""]")
 	update_icon()
 
 /obj/machinery/door/airlock/proc/user_toggle_open(mob/user)
@@ -1831,10 +1831,10 @@
 		to_chat(user, text("The door bolts are down!"))
 	else if(!density)
 		close()
-		machinelog(string = "Door closed[username ? " by [username]":""]")
+		machinelog("Door closed[username ? " by [username]":""]")
 	else
 		open()
-		machinelog(string = "Door opened[username ? " by [username]":""]")
+		machinelog("Door opened[username ? " by [username]":""]")
 
 /obj/machinery/door/airlock/proc/blow_charge()
 	panel_open = TRUE

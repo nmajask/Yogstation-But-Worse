@@ -19,4 +19,4 @@
 	has_department_stripes = TRUE
 	variants = list("red","blue","brown","green","black","orange","white")
 	donor_variants = list("crimson", "rainbow", "retro", "pipboy", "glass")
-	available_overlay_skins = list("Minimal")
+	available_overlay_skins = list("minimal")

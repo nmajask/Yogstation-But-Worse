@@ -250,9 +250,7 @@
 		uniform = uniform_skirt
 
 	if(!department_stripe)
-		if(IS_COMMAND(H))
-			department_stripe = "department-command"
-		else if(IS_SECURITY(H))
+		if(IS_SECURITY(H))
 			department_stripe = "department-sec"
 		else if(IS_ENGINEERING(H))
 			department_stripe = "department-engi"
@@ -262,6 +260,8 @@
 			department_stripe = "department-sci"
 		else if(IS_CARGO(H))
 			department_stripe = "department-supply"
+		else if(IS_COMMAND(H))
+			department_stripe = "department-command"
 		else
 			department_stripe = "department-civilian"
 

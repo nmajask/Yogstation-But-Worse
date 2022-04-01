@@ -654,13 +654,13 @@ Class Procs:
 
 // Adds an entry to the internal log
 
-/obj/machinery/proc/machinelog(var/string = "", var/time_override = null, var/overwright = TRUE)
+/obj/machinery/proc/machinelog(var/string = "", var/time_override = null, var/overwrite = TRUE)
 	if(!has_logs)
 		stack_trace("Machine [src] ( [type] ) tried to make a log even though it doesnt have one.")
 		return
 	if(!internal_log)
 		internal_log = new
-	internal_log.addentry(string = string, time_override = time_override, overwright = overwright)
+	internal_log.addentry(string = string, time_override = time_override, overwrite = overwrite)
 
 // Transfers the log to the given computer, with all of the theatrics included
 
