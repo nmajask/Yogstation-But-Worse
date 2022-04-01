@@ -9,6 +9,9 @@
 		return TRUE
 	return FALSE
 
+/obj/item/computer_hardware/recharger/proc/get_powernet()
+	return
+
 /obj/item/computer_hardware/recharger/process()
 	..()
 	var/obj/item/computer_hardware/battery/battery_module = holder.all_components[MC_CELL]
@@ -46,6 +49,13 @@
 			return TRUE
 	return FALSE
 
+/obj/item/computer_hardware/recharger/APC/get_powernet() //keep in sync with /obj/machinery/computer/monitor's version
+	var/area/A = get_area(holder.physical)
+	var/obj/machinery/power/apc/apc = A.get_apc()
+	var/obj/machinery/power/terminal/terminal = apc.terminal
+	if(terminal && terminal.powernet)
+		return terminal.powernet
+
 /obj/item/computer_hardware/recharger/wired
 	name = "wired power connector"
 	desc = "A power connector that recharges connected device from nearby power wire. Incompatible with portable computers."
@@ -77,6 +87,16 @@
 
 	return FALSE
 
+/obj/item/computer_hardware/recharger/wired/get_powernet() //keep in sync with /obj/machinery/computer/monitor's version
+	if(!ismachinery(holder.physical) || !holder.physical.anchored)
+		return
+	var/obj/machinery/M = holder.physical
+	var/turf/T = M.loc
+	var/obj/structure/cable/C = T.get_cable_node()
+
+	if(C && C.powernet)
+		return C.powernet
+
 /// This recharger exists only in borg built-in tablets. I would have tied it to the borg's cell but
 /// the program that displays laws should always be usable, and the exceptions were starting to pile.
 /obj/item/computer_hardware/recharger/cyborg
@@ -98,3 +118,18 @@
 
 /obj/item/computer_hardware/recharger/lambda/use_power(amount, charging=0)
 	return TRUE
+
+/obj/item/computer_hardware/recharger/APC/get_powernet() //keep in sync with /obj/machinery/computer/monitor's version
+	if(ismachinery(holder.physical) && holder.physical.anchored)
+		var/obj/machinery/M = holder.physical
+		var/turf/T = M.loc
+		var/obj/structure/cable/C = T.get_cable_node()
+
+		if(C && C.powernet)
+			return C.powernet
+
+	var/area/A = get_area(holder.physical)
+	var/obj/machinery/power/apc/apc = A.get_apc()
+	var/obj/machinery/power/terminal/terminal = apc.terminal
+	if(terminal && terminal.powernet)
+		return terminal.powernet

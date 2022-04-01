@@ -16,6 +16,7 @@
 	comp_light_luminosity = 2.3 //Same as the PDA
 	interact_sounds = list('sound/machines/computers/pda_click.ogg')
 
+	has_department_stripes = TRUE
 	variants = list("red","blue","brown","green","black","orange","white")
 	donor_variants = list("crimson","rainbow","retro")
 

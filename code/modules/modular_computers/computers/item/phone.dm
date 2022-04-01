@@ -16,5 +16,6 @@
 	comp_light_luminosity = 2.3 //Same as the PDA
 	interact_sounds = list('sound/machines/computers/pda_click.ogg')
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
+	has_department_stripes = TRUE
 	variants = list("red","blue","brown","green","black","orange","white")
 	donor_variants = list("crimson", "rainbow", "retro")

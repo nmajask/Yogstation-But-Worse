@@ -8,7 +8,7 @@
 	extended_desc = "This program connects to sensors around the station to provide information about electrical systems"
 	ui_header = "power_norm.gif"
 	transfer_access = ACCESS_ENGINE
-	usage_flags = PROGRAM_CONSOLE | PROGRAM_TELESCREEN
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TELESCREEN
 	requires_ntnet = 0
 	network_destination = "power monitoring system"
 	size = 9
@@ -16,8 +16,7 @@
 	program_icon = "plug"
 
 	var/has_alert = 0
-	var/obj/structure/cable/attached_wire
-	var/obj/machinery/power/apc/local_apc
+	var/datum/powernet/powernet
 	var/list/history = list()
 	var/record_size = 60
 	var/record_interval = 50
@@ -26,35 +25,17 @@
 
 /datum/computer_file/program/power_monitor/run_program(mob/living/user)
 	. = ..(user)
-	search()
 	history["supply"] = list()
 	history["demand"] = list()
 
 
 /datum/computer_file/program/power_monitor/process_tick()
-	if(!get_powernet())
-		search()
-	else
+	if(get_powernet())
 		record()
 
-/datum/computer_file/program/power_monitor/proc/search() //keep in sync with /obj/machinery/computer/monitor's version
-	var/turf/T = get_turf(computer)
-	attached_wire = locate(/obj/structure/cable) in T
-	if(attached_wire)
-		return
-	var/area/A = get_area(computer) //if the computer isn't directly connected to a wire, attempt to find the APC powering it to pull it's powernet instead
-	if(!A)
-		return
-	local_apc = A.get_apc()
-	if(!local_apc)
-		return
-	if(!local_apc.terminal) //this really shouldn't happen without badminnery.
-		local_apc = null
-
 /datum/computer_file/program/power_monitor/proc/get_powernet() //keep in sync with /obj/machinery/computer/monitor's version
-	if(attached_wire || (local_apc && local_apc.terminal))
-		return attached_wire ? attached_wire.powernet : local_apc.terminal.powernet
-	return FALSE
+	var/obj/item/computer_hardware/recharger/recharger = computer.all_components[MC_CHARGE]
+	return recharger.get_powernet()
 
 /datum/computer_file/program/power_monitor/proc/record() //keep in sync with /obj/machinery/computer/monitor's version
 	if(world.time >= next_record)
