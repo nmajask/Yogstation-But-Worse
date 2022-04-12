@@ -2954,14 +2954,6 @@
 	},
 /turf/open/floor/plasteel/dark,
 /area/mine/infirmary)
-"ML" = (
-/obj/structure/table,
-/obj/item/book/manual/wiki/surgery{
-	pixel_x = 5
-	},
-/obj/item/storage/backpack/duffelbag/med/surgery,
-/turf/open/floor/plasteel/dark,
-/area/mine/infirmary)
 "MO" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/structure/cable{
@@ -3668,6 +3660,17 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/mine/maintenance)
+"Xs" = (
+/obj/structure/table,
+/obj/item/book/manual/wiki/surgery{
+	pixel_x = 5
+	},
+/obj/item/storage/backpack/duffelbag/med/surgery,
+/obj/machinery/vending/wallmed{
+	pixel_x = 29
+	},
+/turf/open/floor/plasteel/dark,
+/area/mine/infirmary)
 "XC" = (
 /turf/open/floor/plating,
 /area/mine/storage)
@@ -5012,7 +5015,7 @@ kD
 kD
 xv
 sC
-ML
+Xs
 oU
 TQ
 kD

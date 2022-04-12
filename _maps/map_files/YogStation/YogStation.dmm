@@ -66176,7 +66176,7 @@
 /obj/machinery/power/apc{
 	areastring = "/area/science/xenobiology";
 	name = "Xenobiology APC";
-	pixel_y = -32
+	pixel_y = -23
 	},
 /obj/structure/cable,
 /turf/open/floor/plasteel/white,
