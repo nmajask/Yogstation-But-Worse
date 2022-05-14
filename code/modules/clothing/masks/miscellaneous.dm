@@ -16,6 +16,16 @@
 			return
 	..()
 
+/obj/item/clothing/mask/muzzle/tape
+	name = "tape muzzle"
+	icon_state = "tape"
+	
+/obj/item/clothing/mask/muzzle/tape/attack_self(mob/user)
+	..()
+	user.visible_message(span_notice("You take apart [src]."), span_notice("[user] takes apart [src]."))
+	new /obj/item/stack/tape(user.drop_location())
+	qdel(src)
+
 /obj/item/clothing/mask/surgical
 	name = "sterile mask"
 	desc = "A sterile mask designed to help prevent the spread of diseases."
@@ -338,3 +348,12 @@
 			message = replacetextEx(message,regex(capitalize(key),"g"), "[capitalize(value)]")
 			message = replacetextEx(message,regex(key,"g"), "[value]")
 	speech_args[SPEECH_MESSAGE] = trim(message)
+
+/obj/item/clothing/mask/rmask
+	name = "dusty mask"
+	desc = "A face is nothing, it’s what’s inside that matters."
+	icon_state = "rmask"
+	item_state = "rmaks"
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR
+	clothing_flags = MASKINTERNALS
+	flags_cover = MASKCOVERSEYES

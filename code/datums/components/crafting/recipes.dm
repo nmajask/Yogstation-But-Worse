@@ -37,19 +37,6 @@
 	subcategory = CAT_WEAPON
 	always_availible = FALSE
 
-/datum/crafting_recipe/makeshiftlasrifle
-	name = "makeshift laser rifle"
-	result = /obj/item/gun/energy/laser/makeshiftlasrifle
-	reqs = list(/obj/item/stack/cable_coil = 15,
-				/obj/item/weaponcrafting/stock = 1,
-				/obj/item/pipe = 1,
-				/obj/item/light/bulb = 1,
-				/obj/item/stock_parts/cell = 1)
-	tools = list(/obj/item/screwdriver)
-	time = 12 SECONDS
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-
 /datum/crafting_recipe/knifeboxing
 	name = "Knife-boxing Gloves"
 	result = /obj/item/clothing/gloves/knifeboxing
@@ -82,6 +69,20 @@
 	time = 1.5 SECONDS
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
+
+/datum/crafting_recipe/pipebomb
+	name = "Pipe Bomb"
+	result = /obj/item/grenade/pipebomb
+	reqs = list(/datum/reagent/fuel = 50,
+				/obj/item/stack/cable_coil = 1,
+				/obj/item/assembly/igniter = 1,
+				/obj/item/pipe = 1,
+				/obj/item/assembly/mousetrap = 1)
+	tools = list(TOOL_WELDER, TOOL_WRENCH, TOOL_WIRECUTTER)
+	time = 1.5 SECONDS
+	category = CAT_WEAPONRY
+	subcategory = CAT_WEAPON
+	always_availible = FALSE 	//This was such a bad idea
 
 /datum/crafting_recipe/strobeshield
 	name = "Strobe Shield"
@@ -166,6 +167,24 @@
 	result = /obj/item/melee/chainofcommand/tailwhip/kitty
 	reqs = list(/obj/item/organ/tail/cat = 1,
 	            /obj/item/stack/cable_coil = 1)
+	time = 4 SECONDS
+	category = CAT_WEAPONRY
+	subcategory = CAT_WEAPON
+
+/datum/crafting_recipe/greatruinousknife
+	name = "Great Ruinous Knife"
+	result = /obj/item/kitchen/knife/ritual/holy/strong
+	reqs = list(/obj/item/kitchen/knife/ritual/holy = 1,
+	            /obj/item/stack/sheet/ruinous_metal = 1)
+	time = 4 SECONDS
+	category = CAT_WEAPONRY
+	subcategory = CAT_WEAPON
+
+/datum/crafting_recipe/bloodyruinousknife
+	name = "Blood Soaked Ruinous Knife"
+	result = /obj/item/kitchen/knife/ritual/holy/strong/blood
+	reqs = list(/obj/item/kitchen/knife/ritual/holy/strong = 1,
+	            /obj/item/stack/sheet/runed_metal = 1)
 	time = 4 SECONDS
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -281,6 +300,7 @@
 	time = 1 SECONDS
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
+	always_availible = FALSE
 
 /datum/crafting_recipe/pulseslug
 	name = "Pulse Slug Shell"
@@ -325,12 +345,12 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_AMMO
 
-/datum/crafting_recipe/laserslug
-	name = "Laser Slug Shell"
-	result = /obj/item/ammo_casing/shotgun/laserslug
+/datum/crafting_recipe/laserbuckshot
+	name = "Laser Buckshot Shell"
+	result = /obj/item/ammo_casing/shotgun/laserbuckshot
 	reqs = list(/obj/item/ammo_casing/shotgun/techshell = 1,
 				/obj/item/stock_parts/capacitor/adv = 1,
-				/obj/item/stock_parts/micro_laser/high = 1)
+				/obj/item/stock_parts/micro_laser/high = 2)
 	tools = list(TOOL_SCREWDRIVER)
 	time = 0.5 SECONDS
 	category = CAT_WEAPONRY
@@ -425,6 +445,26 @@
 	time = 10 SECONDS
 	category = CAT_MISC
 
+/datum/crafting_recipe/ghetto_heart
+	name = "Makeshift Heart"
+	result = /obj/item/organ/heart/ghetto
+	reqs = list(/obj/item/reagent_containers/food/drinks/soda_cans = 1,
+				/obj/item/stack/cable_coil = 3,
+				/obj/item/weaponcrafting/receiver = 1, //it recieves the blood
+				/obj/item/reagent_containers/hypospray/medipen/pumpup = 1)
+	tools = list(TOOL_WIRECUTTER, TOOL_WELDER)
+	time = 15 SECONDS
+	category = CAT_MISC
+
+/datum/crafting_recipe/ghetto_lungs
+	name = "Makeshift Lungs"
+	result = /obj/item/organ/lungs/ghetto
+	reqs = list(/obj/item/tank/internals/emergency_oxygen = 2,
+				/obj/item/weaponcrafting/receiver = 1) //it recieves the oxygen
+	tools = list(TOOL_WELDER)
+	time = 15 SECONDS
+	category = CAT_MISC
+
 /datum/crafting_recipe/mousetrap
 	name = "Mouse Trap"
 	result = /obj/item/assembly/mousetrap
@@ -449,14 +489,14 @@
 		/obj/item/flashlight = 2,
 		/obj/item/restraints/handcuffs/cable = 1
 	)
-	category = CAT_MISC
+	category = CAT_ROBOT
 
 /datum/crafting_recipe/paperframes
 	name = "Paper Frames"
 	result = /obj/item/stack/sheet/paperframes/five
 	time = 1 SECONDS
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 5, /obj/item/paper = 5)
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/naturalpaper
 	name = "Hand-Pressed Paper"
@@ -476,57 +516,58 @@
 	name = "Black Carpet"
 	reqs = list(/obj/item/stack/tile/carpet = 50, /obj/item/toy/crayon/black = 1)
 	result = /obj/item/stack/tile/carpet/black/fifty
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/garbage_bin
 	name = "Garbage Bin"
 	reqs = 	list(/obj/item/stack/sheet/metal = 3)
 	result = /obj/structure/closet/crate/bin
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/showercurtain
 	name = "Shower Curtains"
 	reqs = 	list(/obj/item/stack/sheet/cloth = 2, /obj/item/stack/sheet/plastic = 2, /obj/item/stack/rods = 1)
 	result = /obj/structure/curtain
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/shower
 	name = "Shower"
 	reqs = 	list(/obj/item/stack/rods = 4, /obj/item/stack/sheet/metal = 1)
 	result = /obj/machinery/shower
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 	time = 15 SECONDS
 
 /datum/crafting_recipe/sink
 	name = "Sink"
 	reqs = 	list(/obj/item/stack/rods = 1, /obj/item/stack/sheet/metal = 4)
 	result = /obj/structure/sink
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/toilet // best moment of my life - Hopek 2020
 	name = "Toilet"
 	reqs = 	list(/obj/item/stack/sheet/metal = 5, /obj/item/reagent_containers/glass/bucket = 1)
 	result = /obj/structure/toilet
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/extendohand
 	name = "Extendo-Hand"
 	reqs = list(/obj/item/bodypart/r_arm/robot = 1, /obj/item/clothing/gloves/boxing = 1)
 	result = /obj/item/extendohand
-	category = CAT_MISC
+	category = CAT_WEAPONRY
+	subcategory = CAT_WEAPON
 
 /datum/crafting_recipe/cloth_curtain
 	name = "Curtains"
 	reqs = 	list(/obj/item/stack/sheet/cloth = 2, /obj/item/stack/rods = 1)
 	result = /obj/structure/cloth_curtain
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/secure_closet
 	name = "Secure Closet"
 	reqs = list(/obj/item/stack/sheet/metal = 5, /obj/item/stack/cable_coil = 10, /obj/item/electronics/airlock = 1)
 	parts = list(/obj/item/electronics/airlock = 1)
 	result = /obj/structure/closet/secure_closet
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/shutters
 	name = "Mechanical Shutter"
@@ -534,7 +575,7 @@
 	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 10 SECONDS
 	result = /obj/machinery/door/poddoor/shutters/preopen
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/blastdoor
 	name = "Blastdoor"
@@ -542,7 +583,7 @@
 	tools = list(TOOL_WELDER, TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	time = 20 SECONDS
 	result = /obj/machinery/door/poddoor/preopen
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/chemical_payload
 	name = "Chemical Payload (C4)"
@@ -577,6 +618,14 @@
 	reqs = list(/obj/item/stack/sheet/bone = 6)
 	category = CAT_PRIMAL
 
+/datum/crafting_recipe/tribalcoat
+	name = "Tribal Coat"
+	result = /obj/item/clothing/suit/armor/tribalcoat
+	time = 3 SECONDS
+	reqs = list(/obj/item/stack/sheet/leather = 2,
+			/obj/item/stack/sheet/bone = 2)
+	category = CAT_PRIMAL
+
 /datum/crafting_recipe/bonetalisman
 	name = "Bone Talisman"
 	result = /obj/item/clothing/accessory/talisman
@@ -591,6 +640,13 @@
 	time = 2 SECONDS
 	reqs = list(/obj/item/stack/sheet/bone = 2,
 				 /obj/item/stack/sheet/animalhide/goliath_hide = 1)
+	category = CAT_PRIMAL
+
+/datum/crafting_recipe/resinband
+	name = "Resin armband"
+	result = /obj/item/clothing/accessory/resinband
+	time = 2 SECONDS
+	reqs = list(/obj/item/stack/sheet/ashresin = 3)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/bracers
@@ -617,7 +673,7 @@
 
 /datum/crafting_recipe/resincrown
 	name = "Resin Crown"
-	result = /obj/item/clothing/head/crown/resin 
+	result = /obj/item/clothing/head/crown/resin
 	time = 4 SECONDS
 	reqs = list(/obj/item/stack/sheet/ashresin = 2,
 		/obj/item/stack/sheet/mineral/mythril = 1)
@@ -628,7 +684,7 @@
 	result = /obj/item/clothing/suit/hooded/cloak/goliath
 	time = 5 SECONDS
 	reqs = list(/obj/item/stack/sheet/leather = 2,
-				/obj/item/stack/sheet/sinew = 2,
+				/obj/item/stack/sheet/sinew = 1,
 				/obj/item/stack/sheet/animalhide/goliath_hide = 2) //it takes 4 goliaths to make 1 cloak if the plates are skinned
 	category = CAT_PRIMAL
 
@@ -644,9 +700,9 @@
 	name = "Pathfinder Kasa"
 	result = /obj/item/clothing/head/helmet/kasa
 	time = 5 SECONDS
-	reqs = list(/obj/item/stack/sheet/bone = 12,
-				/obj/item/stack/sheet/sinew = 12,
-				/obj/item/stack/sheet/animalhide/weaver_chitin = 12)
+	reqs = list(/obj/item/stack/sheet/bone = 8,
+				/obj/item/stack/sheet/sinew = 4,
+				/obj/item/stack/sheet/animalhide/weaver_chitin = 10) //3 spiders assuming you get leather from one
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/pathcloak
@@ -654,7 +710,7 @@
 	result = /obj/item/clothing/suit/armor/pathfinder
 	time = 5 SECONDS
 	reqs = list(/obj/item/clothing/suit/hooded/cloak/goliath = 1,
-				/obj/item/stack/sheet/animalhide/goliath_hide = 4, //2 plates for the cloak plus 4 here plus 3 for plating the armor = 9 total
+				/obj/item/stack/sheet/animalhide/goliath_hide = 2, //2 plates for the cloak plus 2 here plus 3 for plating the armor = 7 total
 				/obj/item/stack/sheet/sinew = 6)
 	category = CAT_PRIMAL
 
@@ -662,8 +718,8 @@
 	name = "Pathfinder Treads"
 	result = /obj/item/clothing/shoes/pathtreads
 	time = 5 SECONDS
-	reqs = list(/obj/item/stack/sheet/sinew = 12,
-				/obj/item/stack/sheet/animalhide/weaver_chitin = 16)
+	reqs = list(/obj/item/stack/sheet/sinew = 2,
+				/obj/item/stack/sheet/animalhide/weaver_chitin = 2)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/bonesword
@@ -698,6 +754,27 @@
 	reqs = list(/obj/item/stack/sheet/bone = 10,
 				/obj/item/stack/sheet/sinew = 2,
 				/obj/item/stack/sheet/animalhide/carpdragon = 5)
+	category = CAT_PRIMAL
+
+/datum/crafting_recipe/sinewbelt
+	name = "Sinew Belt"
+	result = /obj/item/storage/belt/mining/primitive
+	time = 5 SECONDS
+	reqs = list(/obj/item/stack/sheet/sinew = 4)
+	category = CAT_PRIMAL
+
+/datum/crafting_recipe/medpouchcloth
+	name = "Cloth Medicinal Pouch"
+	result = /obj/item/storage/bag/medpouch
+	time = 5 SECONDS
+	reqs = list(/obj/item/stack/sheet/cloth = 3)
+	category = CAT_PRIMAL
+
+/datum/crafting_recipe/medpouchleather //whatever material tickles your fancy.
+	name = "Leather Medicinal Pouch"
+	result = /obj/item/storage/bag/medpouch
+	time = 5 SECONDS
+	reqs = list(/obj/item/stack/sheet/leather = 1)
 	category = CAT_PRIMAL
 
 /datum/crafting_recipe/firebrand
@@ -740,10 +817,10 @@
 
 /datum/crafting_recipe/chitinspear
 	name = "Chitin Spear"
-	result = /obj/item/twohanded/chitinspear //take a bonespear, reinforce it with some chitin and resin, profit?
+	result = /obj/item/twohanded/bonespear/chitinspear //take a bonespear, reinforce it with some chitin and resin, profit?
 	time = 7.5 SECONDS
 	reqs = list(/obj/item/twohanded/bonespear = 1,
-				/obj/item/stack/sheet/sinew = 4,
+				/obj/item/stack/sheet/sinew = 3,
 				/obj/item/stack/sheet/ashresin = 1,
 				/obj/item/stack/sheet/animalhide/weaver_chitin = 6)
 	category = CAT_PRIMAL
@@ -768,6 +845,13 @@
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 3)
 	result = /obj/item/reagent_containers/glass/bucket/wooden
 	category = CAT_PRIMAL
+
+/datum/crafting_recipe/cleanleather
+	name = "Clean Leather"
+	result = /obj/item/stack/sheet/wetleather
+	reqs = list(/obj/item/stack/sheet/hairlesshide = 1, /datum/reagent/water = 20)
+	time = 10 SECONDS //its pretty hard without the help of a washing machine.
+	category = CAT_MISC
 
 /datum/crafting_recipe/headpike
 	name = "Spike Head (Glass Spear)"
@@ -804,7 +888,7 @@
 				  /obj/item/stack/tile/plasteel = 1,
 				  /obj/item/stack/cable_coil = 2,
 				  /obj/item/assembly/igniter = 1)
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 
 /datum/crafting_recipe/rcl
@@ -836,7 +920,7 @@
 		        /obj/item/stack/sheet/mineral/wood = 20,
 		        /obj/item/stack/cable_coil = 10)
 	tools = list(TOOL_SCREWDRIVER, TOOL_WRENCH, TOOL_WELDER)
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/aitater
 	name = "intelliTater"
@@ -870,7 +954,7 @@
 	name = "Urinal"
 	reqs = 	list(/obj/item/stack/sheet/metal = 4 , /obj/item/pipe = 2)
 	result = /obj/structure/urinal
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 /datum/crafting_recipe/paint/crayon
 	name = "Paint"
@@ -911,7 +995,7 @@
 				/obj/item/grenade/gas_crystal/pluonium_crystal = 1,
 				/obj/item/grenade/gas_crystal/healium_crystal = 1
 				)
-	category = CAT_MISC
+	category = CAT_STRUCTURES
 
 // Shank - Makeshift weapon that can embed on throw
 /datum/crafting_recipe/shank
@@ -923,3 +1007,11 @@
 	time = 10
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
+
+/datum/crafting_recipe/tape
+	name = "tape"
+	reqs = list(/obj/item/stack/sheet/cloth = 1,
+				/datum/reagent/consumable/caramel = 5)
+	result = /obj/item/stack/tape
+	time = 1
+	category = CAT_MISC

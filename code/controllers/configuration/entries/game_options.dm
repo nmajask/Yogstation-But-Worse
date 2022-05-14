@@ -118,6 +118,8 @@
 
 /datum/config_entry/flag/protect_assistant_from_antagonist	//If assistants can be traitor/cult/other
 
+/datum/config_entry/flag/protect_heads_from_antagonist	//If heads can be traitor/cult/other
+
 /datum/config_entry/flag/enforce_human_authority	//If non-human species are barred from joining as a head of staff
 
 /datum/config_entry/flag/allow_latejoin_antagonists	// If late-joining players can be traitor/changeling
@@ -317,6 +319,11 @@
 	value_mode = VALUE_MODE_NUM
 	splitter = ","
 
+/datum/config_entry/keyed_list/ion_law_weight
+	key_mode = KEY_MODE_TEXT
+	value_mode = VALUE_MODE_NUM
+	splitter = ","
+
 /datum/config_entry/number/max_law_len
 	config_entry_value = 1024
 
@@ -395,6 +402,10 @@
 
 /datum/config_entry/number/monkeycap
 	config_entry_value = 64
+	min_val = 0
+
+/datum/config_entry/number/ratcap
+	default = 64
 	min_val = 0
 
 /datum/config_entry/flag/dynamic_config_enabled

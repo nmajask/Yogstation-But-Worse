@@ -13,7 +13,7 @@
 	program_icon_state = "id"
 	extended_desc = "Program for programming employee ID cards to access parts of the station."
 	transfer_access = ACCESS_HEADS
-	requires_ntnet = 0
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_PHONE
 	size = 8
 	tgui_id = "NtosCard"
 	program_icon = "id-card"
@@ -207,17 +207,15 @@
 				if(is_centcom)
 					new_access = get_centcom_access(target)
 				else
-					var/datum/job/job
-					for(var/jobtype in subtypesof(/datum/job))
-						var/datum/job/J = new jobtype
-						if(J.title == target)
-							job = J
-							break
+					var/datum/job/job = SSjob.GetJob(target)
 					if(!job)
 						to_chat(user, span_warning("No class exists for this job: [target]"))
 						return
 					new_access = job.get_access()
-				target_id_card.access -= get_all_centcom_access() + get_all_accesses()
+					if(target_id_card.registered_account)
+						target_id_card.registered_account.account_job = job
+
+				target_id_card.access = list()
 				target_id_card.access |= new_access
 				target_id_card.originalassignment = target
 				target_id_card.assignment = target
@@ -354,6 +352,7 @@
 			data["id_rank"] = id_card.assignment ? id_card.assignment : "Unassigned"
 			data["id_owner"] = id_card.registered_name ? id_card.registered_name : "-----"
 			data["access_on_card"] = id_card.access
+			data["id_age"] = id_card.registered_age
 
 	return data
 

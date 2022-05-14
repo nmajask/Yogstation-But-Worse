@@ -381,11 +381,15 @@
 /obj/item/projectile/magic/spellblade
 	name = "blade energy"
 	icon_state = "lavastaff"
-	damage = 15
+	damage = 20
 	damage_type = BURN
 	flag = "magic"
 	dismemberment = 50
 	nodamage = FALSE
+
+/obj/item/projectile/magic/spellblade/weak
+	damage = 15
+	dismemberment = 20
 
 /obj/item/projectile/magic/arcane_barrage
 	name = "arcane bolt"
@@ -612,7 +616,7 @@
 /obj/item/projectile/magic/aoe/lightning
 	name = "lightning bolt"
 	icon_state = "tesla_projectile"	//Better sprites are REALLY needed and appreciated!~
-	damage = 15
+	damage = 25
 	damage_type = BURN
 	nodamage = FALSE
 	speed = 0.3

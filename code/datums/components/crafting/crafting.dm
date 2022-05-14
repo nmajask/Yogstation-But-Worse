@@ -20,9 +20,11 @@
 					CAT_WEAPON,
 					CAT_AMMO,
 				),
+				CAT_TOOLS = CAT_NONE,
 				CAT_ROBOT = CAT_NONE,
 				CAT_MISC = CAT_NONE,
 				CAT_PRIMAL = CAT_NONE,
+				CAT_STRUCTURES = CAT_NONE,
 				CAT_FOOD = list(
 					CAT_BREAD,
 					CAT_BURGER,
@@ -109,6 +111,8 @@
 	for(var/obj/item/I in get_environment(user))
 		if(I.flags_1 & HOLOGRAM_1)
 			continue
+		if(I.status_traits && HAS_TRAIT(I,TRAIT_NODROP))
+			continue
 		if(istype(I, /obj/item/stack))
 			var/obj/item/stack/S = I
 			.["other"][I.type] += S.amount
@@ -157,6 +161,8 @@
 /datum/component/personal_crafting/proc/construct_item(mob/user, datum/crafting_recipe/R)
 	var/list/contents = get_surroundings(user)
 	var/send_feedback = 1
+	if(HAS_TRAIT(user, TRAIT_CRAFTY))
+		R.time *= 0.75
 	if(check_contents(R, contents))
 		if(check_tools(user, R, contents))
 			if(do_after(user, R.time, target = user))

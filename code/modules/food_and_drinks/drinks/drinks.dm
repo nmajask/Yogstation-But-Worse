@@ -121,6 +121,12 @@
 	I.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0))
 	B.icon = I
 	B.name = "broken [name]"
+	if(ranged)
+		var/matrix/M = matrix(B.transform)
+		M.Turn(rand(-170, 170))
+		B.transform = M
+		B.pixel_x = rand(-12, 12)
+		B.pixel_y = rand(-12, 12)
 	if(prob(33))
 		var/obj/item/shard/S = new(drop_location())
 		target.Bumped(S)
@@ -306,6 +312,12 @@
 	B.force = 0
 	B.throwforce = 0
 	B.desc = "A carton with the bottom half burst open. Might give you a papercut."
+	if(ranged)
+		var/matrix/M = matrix(B.transform)
+		M.Turn(rand(-170, 170))
+		B.transform = M
+		B.pixel_x = rand(-12, 12)
+		B.pixel_y = rand(-12, 12)
 	transfer_fingerprints_to(B)
 	qdel(src)
 	target.Bumped(B)
@@ -570,3 +582,40 @@
 	icon_state = "honeysoda_can"
 	list_reagents = list(/datum/reagent/consumable/buzz_fuzz = 25, /datum/reagent/consumable/honey = 5)
 	foodtype = SUGAR | JUNKFOOD
+
+/obj/item/reagent_containers/food/drinks/soda_cans/mystery
+	name = "Mystery Fizz"
+	desc = "Delicious soda with the added flair of mystery flavor! Note, Fizzfazz Inc. not liable for any damages caused by drinking this product."
+	icon_state = "mysterysoda"
+	var/static/list/descs = list("The entire label seems to just be a legal disclaimer.","The label reads off over 200 possible flavors."\
+	, "The date on the cap reads off that the bottle expired a decade ago...")
+
+/obj/item/reagent_containers/food/drinks/soda_cans/mystery/Initialize()
+	list_reagents = list(get_random_reagent_id() = 30)
+	. = ..()
+	if(prob(20))
+		desc = pick(descs)
+
+/obj/item/reagent_containers/food/drinks/colocup
+	name = "colo cup"
+	desc = "A cheap, mass produced style of cup, typically used at parties. They never seem to come out red, for some reason..."
+	icon = 'icons/obj/drinks.dmi'
+	icon_state = "colocup"
+	lefthand_file = 'icons/mob/inhands/misc/food_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/misc/food_righthand.dmi'
+	item_state = "colocup"
+	custom_materials = list(/datum/material/plastic = 1000)
+	possible_transfer_amounts = list(5, 10, 15, 20)
+	volume = 20
+	amount_per_transfer_from_this = 5
+	isGlass = FALSE
+	/// Allows the lean sprite to display upon crafting
+	var/random_sprite = TRUE
+
+
+/obj/item/reagent_containers/food/drinks/colocup/Initialize()
+	.=..()
+	pixel_x = rand(-4,4)
+	pixel_y = rand(-4,4)
+	if (random_sprite)
+		icon_state = "colocup[rand(0, 6)]"

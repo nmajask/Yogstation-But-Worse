@@ -19,6 +19,8 @@
 	name = "Brig turnstile"
 	//Seccies and brig phys may always pass, either way.
 	req_one_access = list(ACCESS_SEC_DOORS)
+	max_integrity = 400 /// Made of damn good steel
+	damage_deflection = 21 /// Same as airlocks!
 	
 /obj/machinery/turnstile/Initialize()
 	. = ..()
@@ -35,7 +37,7 @@
 		flick("operate", src)
 		playsound(src,'sound/items/ratchet.ogg',50,0,3)
 		return TRUE
-	else if (!isliving(mover))
+	else if (!isliving(mover) && !istype(mover, /obj/vehicle/ridden/wheelchair))
 		flick("deny", src)
 		playsound(src,'sound/machines/deniedbeep.ogg',50,0,3)
 		return FALSE
@@ -44,7 +46,15 @@
 	if(!allowed && mover.pulledby)
 		allowed = allowed(mover.pulledby)
 
-	if(get_dir(loc, mover.loc) == dir || allowed) //Make sure looking at appropriate border, loc is first so the turnstyle faces the mover
+	if(istype(mover, /obj/vehicle/ridden/wheelchair))
+		for(var/mob/living/rider in mover.buckled_mobs)
+			if(allowed(rider) && !mover.pulledby) //defer to the above dragging code if we are being dragged
+				allowed = TRUE
+	var/is_handcuffed = FALSE
+	if(iscarbon(mover))
+		var/mob/living/carbon/C = mover
+		is_handcuffed = C.handcuffed
+	if((get_dir(loc, mover.loc) == dir && !is_handcuffed) || allowed) //Make sure looking at appropriate border, loc is first so the turnstyle faces the mover
 		flick("operate", src)
 		playsound(src,'sound/items/ratchet.ogg',50,0,3)
 		return TRUE

@@ -55,7 +55,7 @@
 	strip_delay = 80
 
 /obj/item/clothing/suit/armor/hos/trenchcoat
-	name = "armored trenchoat"
+	name = "armored trenchcoat"
 	desc = "A trenchcoat enhanced with a special lightweight kevlar. The epitome of tactical plainclothes."
 	icon_state = "hostrench"
 	item_state = "hostrench"
@@ -140,13 +140,23 @@
 	armor = list("melee" = 35, "bullet" = 25, "laser" = 25, "energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50, "wound" = 10)
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS
 
+/obj/item/clothing/suit/armor/tribalcoat
+	name = "tribal coat"
+	desc = "A light yet tough leather coat reinforced with bone pauldrons."
+	icon_state = "tribalcoat"
+	item_state = "tribalcoat"
+	blood_overlay_type = "armor"
+	armor = list("melee" = 25, "bullet" = 25, "laser" = 25, "energy" = 10, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50, "wound" = 10)
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	resistance_flags = FLAMMABLE
+
 /obj/item/clothing/suit/armor/pathfinder
 	name = "pathfinder cloak"
 	desc = "A thick cloak woven from sinew and hides meant to protect its wearer from hazardous weather."
 	allowed = list(/obj/item/flashlight, /obj/item/tank/internals, /obj/item/pickaxe, /obj/item/twohanded/spear, /obj/item/twohanded/bonespear, /obj/item/organ/regenerative_core/legion, /obj/item/kitchen/knife/combat/bone, /obj/item/kitchen/knife/combat/survival)
 	icon_state = "pathcloak"
 	item_state = "pathcloak"
-	armor = list("melee" = 35, "bullet" = 20, "laser" = 20, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50, "wound" = 15)
+	armor = list("melee" = 35, "bullet" = 25, "laser" = 25, "energy" = 10, "bomb" = 50, "bio" = 0, "rad" = 0, "fire" = 50, "acid" = 50, "wound" = 15)
 	resistance_flags = FIRE_PROOF
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	heat_protection = CHEST|GROIN|LEGS|ARMS
@@ -157,7 +167,7 @@
 
 /obj/item/clothing/suit/armor/pathfinder/Initialize()
 	. = ..()
-	AddComponent(/datum/component/armor_plate, null, null, list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 5)) //maximum armor 65/35/35/25
+	AddComponent(/datum/component/armor_plate, null, null, list("melee" = 10, "bullet" = 5, "laser" = 5, "energy" = 5)) //maximum armor 65/40/40/25
 
 /obj/item/clothing/suit/armor/bulletproof
 	name = "bulletproof armor"

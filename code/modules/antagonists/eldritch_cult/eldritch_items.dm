@@ -14,10 +14,12 @@
 	if(!target)
 		to_chat(user,span_warning("No target could be found. Put the living heart on the rune and use the rune to recieve a target."))
 		return
-	var/dist = get_dist(user.loc,target.loc)
-	var/dir = get_dir(user.loc,target.loc)
+	var/turf/userturf = get_turf(user)
+	var/turf/targetturf = get_turf(target)
+	var/dist = get_dist(userturf,targetturf)
+	var/dir = get_dir(userturf,targetturf)
 
-	if(user.z != target.z)
+	if(userturf.z != targetturf.z)
 		to_chat(user,span_warning("[target.real_name] is ... vertical to you?"))
 	else
 		switch(dist)
@@ -31,7 +33,7 @@
 				to_chat(user,span_warning("[target.real_name] is beyond our reach."))
 
 	if(target.stat == DEAD)
-		to_chat(user,span_warning("[target.real_name] is dead. Bring them onto a transmutation rune!"))
+		to_chat(user,span_warning("[target.real_name] is dead. Bring them to a transmutation rune!"))
 
 /datum/action/innate/heretic_shatter
 	name = "Shattering Offer"

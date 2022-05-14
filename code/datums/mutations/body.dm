@@ -228,8 +228,6 @@
 	text_lose_indication = span_notice("Your skin feels soft again...")
 	difficulty = 18
 	instability = 30
-	var/brutemodbefore
-	var/burnmodbefore
 
 /datum/mutation/human/thickskin/on_acquiring(mob/living/carbon/human/owner)
 	. = ..()
@@ -252,6 +250,24 @@
 	text_lose_indication = span_notice("You feel fairly weak.")
 	difficulty = 12
 	instability = 10
+	power_coeff = 1		//Yogs start - Strength makes you punch harder
+
+/datum/mutation/human/strong/on_acquiring(mob/living/carbon/human/owner)
+	if(..())
+		return
+	var/strength_punchpower = GET_MUTATION_POWER(src) * 2 - 1 //Normally +1, strength chromosome increases it to +2
+	owner.dna.species.punchdamagelow += strength_punchpower
+	owner.dna.species.punchdamagehigh += strength_punchpower
+	owner.dna.species.punchstunthreshold += strength_punchpower //So we dont change the stun chance
+
+/datum/mutation/human/strong/on_losing(mob/living/carbon/human/owner)
+	if(..())
+		return
+	var/strength_punchpower = GET_MUTATION_POWER(src) * 2 - 1
+	owner.dna.species.punchdamagelow -= strength_punchpower
+	owner.dna.species.punchdamagehigh -= strength_punchpower
+	owner.dna.species.punchstunthreshold -= strength_punchpower
+//Yogs end
 
 /datum/mutation/human/insulated
 	name = "Insulated"
@@ -321,7 +337,7 @@
 		owner.visible_message(warpmessage, span_userdanger("You feel a wave of nausea as you fall through reality!"))
 		var/warpdistance = rand(10,15) * GET_MUTATION_POWER(src)
 		do_teleport(owner, get_turf(owner), warpdistance, channel = TELEPORT_CHANNEL_FREE)
-		owner.adjust_disgust(GET_MUTATION_SYNCHRONIZER(src) * (warpchance * warpdistance))
+		owner.adjust_disgust(GET_MUTATION_SYNCHRONIZER(src) * (warpchance * warpdistance) * 0.2)
 		warpchance = 0
 		owner.visible_message(span_danger("[owner] appears out of nowhere!"))
 	else

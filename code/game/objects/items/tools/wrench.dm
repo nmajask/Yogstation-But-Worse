@@ -12,6 +12,8 @@
 	w_class = WEIGHT_CLASS_SMALL
 	usesound = 'sound/items/ratchet.ogg'
 	materials = list(/datum/material/iron=150)
+	drop_sound = 'sound/items/handling/wrench_drop.ogg'
+	pickup_sound =  'sound/items/handling/wrench_pickup.ogg'
 
 	attack_verb = list("bashed", "battered", "bludgeoned", "whacked")
 	tool_behaviour = TOOL_WRENCH
@@ -39,7 +41,7 @@
 	name = "alien wrench"
 	desc = "A polarized wrench. It causes anything placed between the jaws to turn."
 	icon = 'icons/obj/abductor.dmi'
-	icon_state = "wrench"
+	icon_state = "wrench_alien"
 	usesound = 'sound/effects/empulse.ogg'
 	toolspeed = 0.1
 
@@ -78,5 +80,19 @@
 		return
 
 	user.dust()
+
+/obj/item/wrench/makeshift
+	name = "makeshift wrench"
+	desc = "A crude, self-wrought wrench with common uses. Can be found in your hand."
+	icon = 'icons/obj/improvised.dmi'
+	icon_state = "wrench_makeshift"
+	toolspeed = 0.5
+
+/obj/item/wrench/makeshift/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	..()
+	if(prob(5))
+		to_chat(user, span_danger("[src] crumbles apart in your hands!"))
+		qdel(src)
+		return
 
 	return OXYLOSS

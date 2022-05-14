@@ -1,6 +1,7 @@
 /obj/item/deployablemine
 	name = "deployable mine"
 	desc = "An unarmed landmine. It can be planted to arm it."
+	icon = 'icons/obj/misc.dmi'
 	icon_state = "uglymine"
 	var/mine_type = /obj/effect/mine
 	var/arming_time = 3 SECONDS
@@ -81,7 +82,6 @@
 	desc = "Better stay away from that thing."
 	density = FALSE
 	anchored = TRUE
-	icon = 'icons/obj/items_and_weapons.dmi'
 	icon_state = "uglymine"
 	var/triggered = 0
 	var/smartmine = FALSE
@@ -263,7 +263,7 @@
 /obj/effect/mine/pickup/bloodbath
 	name = "Red Orb"
 	desc = "You feel angry just looking at it."
-	duration = 1200 //2min
+	duration = 2 MINUTES //2min
 	color = "#FF0000"
 
 /obj/effect/mine/pickup/bloodbath/mineEffect(mob/living/carbon/victim)

@@ -163,7 +163,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 					ijob = 80
 
 				if (nanite_sensors || U.sensor_mode >= SENSOR_LIVING)
-					life_status = (!H.stat ? TRUE : FALSE)
+					life_status = H.stat < DEAD
 				else
 					life_status = null
 
@@ -181,7 +181,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 				if (nanite_sensors || U.sensor_mode >= SENSOR_COORDS)
 					if (!pos)
 						pos = get_turf(H)
-					area = get_area_name(H, TRUE)
+					area = get_area_name(H, TRUE, is_sensor = TRUE)
 					pos_x = pos.x
 					pos_y = pos.y
 				else
