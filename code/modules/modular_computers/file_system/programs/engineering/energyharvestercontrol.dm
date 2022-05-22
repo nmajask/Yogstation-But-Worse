@@ -10,7 +10,7 @@
 	network_destination = "energy harvester controller"
 	size = 1
 	tgui_id = "NtosEnergyHarvesterController"
-	program_icon = "charging-station"
+	file_icon = "charging-station"
 
 	var/status
 	var/obj/item/energy_harvester/moneysink

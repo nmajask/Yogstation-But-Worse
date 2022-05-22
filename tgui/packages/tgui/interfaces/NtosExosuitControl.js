@@ -1,7 +1,7 @@
-import { GpsContent } from './Gps';
+import { ExosuitControlConsoleContent } from './ExosuitControlConsole';
 import { NtosWindow } from '../layouts';
 
-export const NtosGps = (props, context) => {
+export const NtosExosuitControl = (props, context) => {
   const { PC_device_theme } = data;
   return (
     <NtosWindow
@@ -9,7 +9,7 @@ export const NtosGps = (props, context) => {
       height={700}
       theme={PC_device_theme}>
       <NtosWindow.Content>
-        <GpsContent />
+        <ExosuitControlConsoleContent />
       </NtosWindow.Content>
     </NtosWindow>
   );

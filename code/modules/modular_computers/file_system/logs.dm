@@ -1,5 +1,6 @@
 /datum/computer_file/log
 	filetype = "LOG"
+	file_icon = "file-code"
 	can_print = TRUE
 
 	var/list/entries = list()

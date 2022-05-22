@@ -7,6 +7,8 @@
 	var/filedesc = "Unknown File"
 	/// Short description of this file's function.
 	var/extended_desc = "N/A"
+	/// Font Awesome icon to use as this file's icon in the modular computer main menu. Defaults to a basic program maximize window icon if not overridden.
+	var/file_icon = "file"
 	// File size in GQ. Integers only!
 	var/size = 1											
 	// Holder that contains this file.

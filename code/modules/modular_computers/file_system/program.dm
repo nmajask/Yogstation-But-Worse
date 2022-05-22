@@ -4,6 +4,7 @@
 	/// File name. FILE NAME MUST BE UNIQUE IF YOU WANT THE PROGRAM TO BE DOWNLOADABLE FROM NTNET!
 	filename = "UnknownProgram"
 	filedesc = "Unknown Program"
+	file_icon = "window-maximize-o"
 	available_on_ntnet = TRUE
 	/// PROGRAM_STATE_KILLED or PROGRAM_STATE_BACKGROUND or PROGRAM_STATE_ACTIVE - specifies whether this program is running.
 	var/program_state = PROGRAM_STATE_KILLED
@@ -25,8 +26,6 @@
 	var/tgui_id
 	/// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /icons/program_icons. Be careful not to use too large images!
 	var/ui_header = null
-	/// Font Awesome icon to use as this program's icon in the modular computer main menu. Defaults to a basic program maximize window icon if not overridden.
-	var/program_icon = "window-maximize-o"
 	/// Whether this program can send alerts while minimized or closed. Used to show a mute button per program in the file manager
 	var/alert_able = FALSE
 	/// Whether the user has muted this program's ability to send alerts.

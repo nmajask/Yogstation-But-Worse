@@ -8,7 +8,7 @@
 	requires_ntnet = TRUE
 	size = 3
 	tgui_id = "NtosCargoBounties"
-	program_icon = "file-invoice-dollar"
+	file_icon = "file-invoice-dollar"
 	var/static/datum/bank_account/cargocash
 
 /datum/computer_file/program/cargo_bounties/New()

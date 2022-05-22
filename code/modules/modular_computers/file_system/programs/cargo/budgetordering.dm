@@ -5,10 +5,10 @@
 	extended_desc = "A request network that utilizes the Nanotrasen Ordering network to purchase supplies using a department budget account."
 	category = PROGRAM_CATEGORY_SUPL
 	requires_ntnet = TRUE
-	usage_flags = PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_PHONE | PROGRAM_TELESCREEN | PROGRAM_INTEGRATED
+	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_PHONE | PROGRAM_TELESCREEN | PROGRAM_INTEGRATED
 	size = 20 
 	tgui_id = "NtosCargo"
-	program_icon = "shopping-cart"
+	file_icon = "shopping-cart"
 	///Are you actually placing orders with it?
 	var/requestonly = TRUE
 	///Can the tablet see or buy illegal stuff?

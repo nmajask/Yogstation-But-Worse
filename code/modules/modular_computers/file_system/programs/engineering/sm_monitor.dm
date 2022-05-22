@@ -10,7 +10,7 @@
 	network_destination = "supermatter monitoring system"
 	size = 5
 	tgui_id = "NtosSupermatterMonitor"
-	program_icon = "radiation"
+	file_icon = "radiation"
 	alert_able = TRUE
 
 	var/last_status = SUPERMATTER_INACTIVE

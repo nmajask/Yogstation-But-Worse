@@ -483,7 +483,7 @@
 	if(!Adjacent(user))
 		return
 
-	var/obj/item/computer_hardware/H = find_hardware_by_name(choice)
+	var/obj/item/computer_hardware/H = choice
 
 	if(!H)
 		return

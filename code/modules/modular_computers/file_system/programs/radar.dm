@@ -220,7 +220,7 @@
 	requires_ntnet = TRUE
 	transfer_access = ACCESS_MEDICAL
 	available_on_ntnet = TRUE
-	program_icon = "street-view"
+	file_icon = "street-view"
 
 /datum/computer_file/program/radar/lifeline/find_atom()
 	return locate(selected) in GLOB.carbon_list
@@ -275,7 +275,7 @@
 	available_on_ntnet = FALSE
 	available_on_syndinet = TRUE
 	tgui_id = "NtosRadarSyndicate"
-	program_icon = "radiation"
+	file_icon = "radiation"
 	arrowstyle = "ntosradarpointerS.png"
 	pointercolor = "red"
 
@@ -318,7 +318,7 @@
 	transfer_access = PROGRAM_CATEGORY_SEC
 	transfer_access = ACCESS_BRIG
 	available_on_ntnet = TRUE
-	program_icon = "microchip"
+	file_icon = "microchip"
 
 /datum/computer_file/program/radar/implant/find_atom()
 	return locate(selected) in GLOB.mob_living_list

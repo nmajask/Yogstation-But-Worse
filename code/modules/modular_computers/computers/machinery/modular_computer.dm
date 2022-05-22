@@ -25,7 +25,7 @@
 	var/base_active_power_usage = 100					// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
 	var/base_idle_power_usage = 10						// Power usage when the computer is idle and screen is off (currently only applies to laptops)
 	
-	// Stuff for presets
+	// Presets
 	var/list/starting_components = list()
 	var/list/starting_files = list()
 	var/datum/computer_file/program/initial_program

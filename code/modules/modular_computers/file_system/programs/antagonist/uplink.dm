@@ -7,7 +7,7 @@
 	size = 20
 	available_on_ntnet = FALSE
 	tgui_id = "NtosUplink"
-	program_icon = "gem"
+	file_icon = "gem"
 	var/datum/component/uplink/uplink
 
 /datum/computer_file/program/uplink/clone()

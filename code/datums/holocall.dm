@@ -217,6 +217,14 @@
 	var/list/entries = list()
 	var/language = /datum/language/common //Initial language, can be changed by HOLORECORD_LANGUAGE entries
 
+/datum/holorecord/proc/Copy()
+	var/datum/holorecord/new_recording = ..()
+	new_recording.caller_name = caller_name
+	new_recording.caller_name = caller_image
+	new_recording.entries = entries
+	new_recording.language = language
+	return new_recording
+
 /datum/holorecord/proc/set_caller_image(mob/user)
 	var/olddir = user.dir
 	user.setDir(SOUTH)

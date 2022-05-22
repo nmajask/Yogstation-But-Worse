@@ -7,7 +7,7 @@
 	available_on_ntnet = FALSE
 	undeletable = TRUE
 	tgui_id = "NtosFileManager"
-	program_icon = "folder"
+	file_icon = "folder"
 
 	var/open_file
 	var/error
@@ -94,6 +94,7 @@
 				silenced = binary.alert_silenced
 			files += list(list(
 				"name" = F.filename,
+				"icon" = F.file_icon,
 				"type" = F.filetype,
 				"size" = F.size,
 				"undeletable" = F.undeletable,
@@ -107,6 +108,7 @@
 			for(var/datum/computer_file/F in RHDD.stored_files)
 				usbfiles += list(list(
 					"name" = F.filename,
+					"icon" = F.file_icon,
 					"type" = F.filetype,
 					"size" = F.size,
 					"undeletable" = F.undeletable

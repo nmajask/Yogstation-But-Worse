@@ -9,7 +9,7 @@
 	available_on_ntnet = FALSE
 	available_on_syndinet = TRUE
 	tgui_id = "NtosRevelation"
-	program_icon = "magnet"
+	file_icon = "magnet"
 
 	var/armed = 0
 

@@ -10,7 +10,7 @@
 	network_destination = "robotics control network"
 	size = 12
 	tgui_id = "NtosRoboControl"
-	program_icon = "robot"
+	file_icon = "robot"
 
 	///Number of simple robots on-station.
 	var/botcount = 0

@@ -83,7 +83,7 @@
 		if(P in idle_threads)
 			running = TRUE
 
-		data["programs"] += list(list("name" = P.filename, "desc" = P.filedesc, "running" = running, "icon" = P.program_icon, "alert" = P.alert_pending))
+		data["programs"] += list(list("name" = P.filename, "desc" = P.filedesc, "running" = running, "icon" = P.file_icon, "alert" = P.alert_pending))
 
 	data["has_light"] = has_light
 	data["light_on"] = light_on

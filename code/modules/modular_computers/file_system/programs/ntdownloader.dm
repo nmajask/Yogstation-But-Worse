@@ -11,7 +11,7 @@
 	available_on_ntnet = 0
 	ui_header = "downloader_finished.gif"
 	tgui_id = "NtosNetDownloader"
-	program_icon = "download"
+	file_icon = "download"
 
 	var/datum/computer_file/downloaded_file = null
 	var/list/queued_files = list()
@@ -169,7 +169,7 @@
 		if(!(P.category in program_categories))
 			program_categories.Add(P.category)
 		data["programs"] += list(list(
-			"icon" = P.program_icon,
+			"icon" = P.file_icon,
 			"filename" = P.filename,
 			"filedesc" = P.filedesc,
 			"fileinfo" = P.extended_desc,

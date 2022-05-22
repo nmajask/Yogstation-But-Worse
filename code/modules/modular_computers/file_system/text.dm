@@ -1,5 +1,6 @@
 /datum/computer_file/text
 	filetype = "TEX"
+	file_icon = "file-alt"
 	can_print = TRUE
 
 	var/name = "New File"

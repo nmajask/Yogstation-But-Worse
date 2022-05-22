@@ -6,7 +6,7 @@
 	requires_ntnet = FALSE
 	size = 1
 	tgui_id = "NtosRadio"
-	program_icon = "walkie-talkie"
+	file_icon = "microphone"
 
 /datum/computer_file/program/radio/ui_data(mob/user)
 	var/list/data = get_header_data()

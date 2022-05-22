@@ -17,6 +17,10 @@
 	variants = list("red","blue","brown","green","black","orange","white")
 	donor_variants = list("crimson","rainbow")
 
+/obj/machinery/computer/security/telescreen/entertainment/Initialize()
+	. = ..()
+	RegisterSignal(src, COMSIG_CLICK, .proc/BigClick)
+
 /obj/machinery/modular_computer/telescreen/attackby(var/obj/item/W as obj, var/mob/user as mob)
 	if(W.tool_behaviour == TOOL_CROWBAR)
 		if(cpu.all_components.len)
@@ -28,6 +32,9 @@
 		qdel(src)
 		return
 	..()
+
+/obj/machinery/modular_computer/telescreen/proc/BigClick()
+	interact(usr)
 
 /obj/item/wallframe/telescreen
 	name = "\improper telescreen frame"

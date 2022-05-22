@@ -11,7 +11,7 @@
 	network_destination = "cyborg remote monitoring"
 	size = 5
 	tgui_id = "NtosCyborgRemoteMonitor"
-	program_icon = "project-diagram"
+	file_icon = "project-diagram"
 	var/emagged = FALSE ///Bool of if this app has already been emagged
 	var/list/loglist = list() ///A list to copy a borg's IC log list into
 	var/mob/living/silicon/robot/DL_source ///reference of a borg if we're downloading a log, or null if not.

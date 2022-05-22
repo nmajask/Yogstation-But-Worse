@@ -6,7 +6,7 @@
 
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button, Flex, Icon } from '../components';
+import { Box, Button, Modal, Icon } from '../components';
 import { Window } from './Window';
 
 export const NtosWindow = (props, context) => {
@@ -164,17 +164,13 @@ const NtosWindowError = (props, context) => {
   return (
     <Fragment>
       <div className="NtosWindow__content" align="center">
-        <Flex align="center" justify="space-evenly" direction="column" wrap>
-          <Flex.Item>
-            <Fragment>
-              <Icon name={Prg_ErrorIcon ? Prg_ErrorIcon : "exclamation-triangle"}
-                verticalAlign="middle"
-                size="6"/>
-              <Box fontSize="16px" bold>{Prg_ErrorName ? Prg_ErrorName : "UNKNOWN ERROR"}</Box>
-              <Box fontSize="10px">{Prg_ErrorDesc ? Prg_ErrorDesc : "An unknown error has occered, If problem persists contact your system administrator."}</Box>
-            </Fragment>
-          </Flex.Item>
-        </Flex>
+        <Modal>
+          <Icon name={Prg_ErrorIcon ? Prg_ErrorIcon : "exclamation-triangle"}
+            verticalAlign="middle"
+            size="6"/>
+          <Box fontSize="16px" bold>{Prg_ErrorName ? Prg_ErrorName : "UNKNOWN ERROR"}</Box>
+          <Box fontSize="10px">{Prg_ErrorDesc ? Prg_ErrorDesc : "An unknown error has occered, If problem persists contact your system administrator."}</Box>
+        </Modal>
       </div>
     </Fragment>
   );

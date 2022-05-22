@@ -10,9 +10,6 @@ export const SecurityConsole = (props, context) => {
     logged_in,
     username,
     has_access,
-    active_general_record,
-    min_age,
-    max_age,
     screen } = data;
   const { theme = 'ntos' } = props;
 
@@ -81,15 +78,7 @@ export const SecurityConsole = (props, context) => {
     return (
       <Window resizable width={775} height={500} theme={theme}>
         <Window.Content scrollable>
-          <Section title="Records Maintenance" buttons={(
-            <Button icon="backward" onClick={() => act("back")}>
-              Back
-            </Button>
-          )}>
-            <Button icon="trash" color="bad" onClick={() => act("delete_records")}>
-              Delete All Records
-            </Button>
-          </Section>
+          <SecurityConsoleMaintenance />
         </Window.Content>
       </Window>
     );
@@ -99,310 +88,7 @@ export const SecurityConsole = (props, context) => {
     return (
       <Window resizable width={775} height={500} theme={theme}>
         <Window.Content scrollable>
-          {data.special_message && (
-            <NoticeBox>
-              {data.special_message}
-            </NoticeBox>
-          )}
-          <Section title="General Record" buttons={(
-            <Fragment>
-              <Button icon="print" onClick={() => act("print_record")}>Print Full Record</Button>
-              <Button icon="trash" color="bad"
-                onClick={() => act("delete_general_record_and_security")}>
-                Delete Both Records
-              </Button>
-              <Button icon="sign-out-alt" color="bad" onClick={() => act("log_out")}>
-                Log Out
-              </Button>
-              <Button icon="backward" onClick={() => act("back")}>Back</Button>
-            </Fragment>
-          )}>
-            {active_general_record && (
-              <Flex>
-                <LabeledList>
-                  <LabeledList.Item label="Name">
-                    <Button onClick={() => act("edit_field", {
-                      field: "name",
-                    })}>
-                      {data.active_record.name}
-                    </Button>
-                  </LabeledList.Item>
-                  <LabeledList.Item label="ID">
-                    <Button onClick={() => act("edit_field", {
-                      field: "id",
-                    })}>
-                      {data.active_record.id}
-                    </Button>
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Gender">
-                    <Button onClick={() => act("edit_field", {
-                      field: "gender",
-                    })}>
-                      {data.active_record.gender}
-                    </Button>
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Age">
-                    <NumberInput value={data.active_record.age} minValue={min_age}
-                      maxValue={max_age}
-                      onChange={(e, value) => act("edit_field", {
-                        field: "age",
-                        field_value: value,
-                      })} />
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Species">
-                    <Button onClick={() => act("edit_field", {
-                      field: "species",
-                    })}>
-                      {data.active_record.species}
-                    </Button>
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Rank">
-                    <Button onClick={() => act("edit_field", {
-                      field: "rank",
-                    })}>
-                      {data.active_record.rank}
-                    </Button>
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Fingerprint">
-                    <Button onClick={() => act("edit_field", {
-                      field: "fingerprint",
-                    })}>
-                      {data.active_record.fingerprint}
-                    </Button>
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Physical Status">
-                    {data.active_record.p_stat}
-                  </LabeledList.Item>
-                  <LabeledList.Item label="Mental Status">
-                    {data.active_record.m_stat}
-                  </LabeledList.Item>
-                </LabeledList>
-                <Box>
-                  <img src={data.active_record.front_image}
-                    width="180px" height="200px"
-                    style={`-ms-interpolation-mode: nearest-neighbor`} />
-                  <Button icon="print" mr="2px" fluid onClick={() => act("edit_field", {
-                    field: "print_photo_front",
-                  })}>
-                    Print
-                  </Button>
-                </Box>
-                <Box>
-                  <img src={data.active_record.side_image}
-                    width="180px" height="200px"
-                    style={`-ms-interpolation-mode: nearest-neighbor`} />
-                  <Button icon="print" ml="2px" fluid onClick={() => act("edit_field", {
-                    field: "print_photo_side",
-                  })}>
-                    Print
-                  </Button>
-                </Box>
-
-
-              </Flex>
-            ) || (
-              <NoticeBox>General Record Lost!</NoticeBox>
-            )}
-
-          </Section>
-          <Section title="Security Record" buttons={(
-            <Fragment>
-              <Button icon="print" onClick={() => act("print_poster")}>Print Wanted Poster</Button>
-              <Button icon="print" onClick={() => act("print_missing")}>
-                Print Missing Poster
-              </Button>
-              <Button icon="trash" color="bad" onClick={() => act("delete_security_record")}>
-                Delete Security Record
-              </Button>
-            </Fragment>
-          )}>
-            {data.active_record.criminal_status && (
-              <Fragment>
-                <LabeledList>
-                  <LabeledList.Item label="Criminal Status">
-                    <Button backgroundColor={data.active_record.recordColor}
-                      onClick={() => act("edit_field", {
-                        field: "criminal_status",
-                      })}>
-
-                      {data.active_record.criminal_status}
-                    </Button>
-                  </LabeledList.Item>
-                </LabeledList>
-                <Section title="Citations" buttons={(
-                  <Button color="good" icon="plus" onClick={() => act("edit_field", {
-                    field: "citation_add",
-                  })}>
-                    Add Citation
-                  </Button>
-                )}>
-                  <Table>
-                    <TableRow color="label">
-                      <TableCell>
-                        Crime
-                      </TableCell>
-                      <TableCell>
-                        Fine
-                      </TableCell>
-                      <TableCell>
-                        Author
-                      </TableCell>
-                      <TableCell>
-                        Time Added
-                      </TableCell>
-                      <TableCell>
-                        Amount Due
-                      </TableCell>
-                      <TableCell collapsing>
-                        Delete
-                      </TableCell>
-                    </TableRow>
-                    {data.active_record.citations
-                    && data.active_record.citations.map(crime => (
-                      <TableRow key={crime.id}>
-                        <TableCell>
-                          {crime.name}
-                        </TableCell>
-                        <TableCell>
-                          {crime.fine} credits
-                        </TableCell>
-                        <TableCell>
-                          {crime.author}
-                        </TableCell>
-                        <TableCell>
-                          {crime.time}
-                        </TableCell>
-                        <TableCell>
-                          {crime.status}
-                        </TableCell>
-                        <TableCell collapsing>
-                          <Button color="bad" onClick={() => act("edit_field", {
-                            field: "citation_delete",
-                            id: crime.id,
-                          })}>Delete
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </Table>
-                </Section>
-                <Section title="Crimes" buttons={(
-                  <Button color="good" icon="plus" onClick={() => act("edit_field", {
-                    field: "crime_add",
-                  })}>
-                    Add Crime
-                  </Button>
-                )}>
-                  <Table>
-                    <TableRow color="label">
-                      <TableCell>
-                        Crime
-                      </TableCell>
-                      <TableCell>
-                        Details
-                      </TableCell>
-                      <TableCell>
-                        Author
-                      </TableCell>
-                      <TableCell>
-                        Time Added
-                      </TableCell>
-                      <TableCell collapsing>
-                        Delete
-                      </TableCell>
-                    </TableRow>
-                    {data.active_record.crimes
-                    && data.active_record.crimes.map(crime => (
-                      <TableRow key={crime.id}>
-                        <TableCell>
-                          {crime.name}
-                        </TableCell>
-                        <TableCell>
-                          {crime.details}
-                        </TableCell>
-                        <TableCell>
-                          {crime.author}
-                        </TableCell>
-                        <TableCell>
-                          {crime.time}
-                        </TableCell>
-                        <TableCell collapsing>
-                          <Button color="bad" onClick={() => act("edit_field", {
-                            field: "crime_delete",
-                            id: crime.id,
-                          })}>Delete
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </Table>
-                </Section>
-                <Section title="Comments" buttons={(
-                  <Button color="good" icon="plus" onClick={() => act("edit_field", {
-                    field: "comment_add",
-                  })}>
-                    Add Comment
-                  </Button>
-                )}>
-                  <Table>
-                    <TableRow color="label">
-                      <TableCell>
-                        Comment
-                      </TableCell>
-                      <TableCell>
-                        Author
-                      </TableCell>
-                      <TableCell>
-                        Time Added
-                      </TableCell>
-                      <TableCell collapsing>
-                        Delete
-                      </TableCell>
-                    </TableRow>
-                    {data.active_record.comments
-                    && data.active_record.comments.map(comment => (
-                      <TableRow key={comment.id}>
-                        <TableCell>
-                          {comment.content}
-                        </TableCell>
-                        <TableCell>
-                          {comment.author}
-                        </TableCell>
-                        <TableCell>
-                          {comment.time}
-                        </TableCell>
-                        <TableCell collapsing>
-                          <Button color="bad" onClick={() => act("edit_field", {
-                            field: "comment_delete",
-                            id: comment.id,
-                          })}>Delete
-                          </Button>
-                        </TableCell>
-                      </TableRow>
-                    ))}
-                  </Table>
-                </Section>
-
-
-                <LabeledList>
-                  <LabeledList.Item label="Important Notes">
-                    <Button onClick={() => act("edit_field", {
-                      field: "edit_note",
-                    })}>
-                      {data.active_record.notes}
-                    </Button>
-                  </LabeledList.Item>
-                </LabeledList>
-              </Fragment>
-            ) || (
-              <Fragment>
-                <NoticeBox>Security Record Lost!</NoticeBox>
-                <Button icon="plus" color="good" onClick={() => act("new_record")}>
-                  Create Security Record
-                </Button>
-              </Fragment>
-            )}
-          </Section>
+          <SecurityConsoleRecord />
         </Window.Content>
       </Window>
     );
@@ -411,6 +97,354 @@ export const SecurityConsole = (props, context) => {
   return (
     <Window resizable width={775} height={500} theme={theme}>
       <Window.Content scrollable>
+          <SecurityConsoleRecordList />
+      </Window.Content>
+    </Window>
+  );
+};
+
+export const SecurityConsoleMaintenance = (props, context) => {
+  const { act } = useBackend(context);
+
+  return (
+
+    <Section title="Records Maintenance" buttons={(
+      <Button icon="backward" onClick={() => act("back")}>
+        Back
+      </Button>
+    )}>
+      <Button icon="trash" color="bad" onClick={() => act("delete_records")}>
+        Delete All Records
+      </Button>
+    </Section>
+  );
+  }
+
+export const SecurityConsoleRecord = (props, context) => {
+  const { act, data } = useBackend(context);
+  const {
+    active_general_record,
+    min_age,
+    max_age} = data;
+
+  return (
+    <Fragment>
+      {data.special_message && (
+        <NoticeBox>
+          {data.special_message}
+        </NoticeBox>
+      )}
+      <Section title="General Record" buttons={(
+        <Fragment>
+          <Button icon="print" onClick={() => act("print_record")}>Print Full Record</Button>
+          <Button icon="trash" color="bad"
+            onClick={() => act("delete_general_record_and_security")}>
+            Delete Both Records
+          </Button>
+          <Button icon="sign-out-alt" color="bad" onClick={() => act("log_out")}>
+            Log Out
+          </Button>
+          <Button icon="backward" onClick={() => act("back")}>Back</Button>
+        </Fragment>
+      )}>
+        {active_general_record && (
+          <Flex>
+            <LabeledList>
+              <LabeledList.Item label="Name">
+                <Button onClick={() => act("edit_field", {
+                  field: "name",
+                })}>
+                  {data.active_record.name}
+                </Button>
+              </LabeledList.Item>
+              <LabeledList.Item label="ID">
+                <Button onClick={() => act("edit_field", {
+                  field: "id",
+                })}>
+                  {data.active_record.id}
+                </Button>
+              </LabeledList.Item>
+              <LabeledList.Item label="Gender">
+                <Button onClick={() => act("edit_field", {
+                  field: "gender",
+                })}>
+                  {data.active_record.gender}
+                </Button>
+              </LabeledList.Item>
+              <LabeledList.Item label="Age">
+                <NumberInput value={data.active_record.age} minValue={min_age}
+                  maxValue={max_age}
+                  onChange={(e, value) => act("edit_field", {
+                    field: "age",
+                    field_value: value,
+                  })} />
+              </LabeledList.Item>
+              <LabeledList.Item label="Species">
+                <Button onClick={() => act("edit_field", {
+                  field: "species",
+                })}>
+                  {data.active_record.species}
+                </Button>
+              </LabeledList.Item>
+              <LabeledList.Item label="Rank">
+                <Button onClick={() => act("edit_field", {
+                  field: "rank",
+                })}>
+                  {data.active_record.rank}
+                </Button>
+              </LabeledList.Item>
+              <LabeledList.Item label="Fingerprint">
+                <Button onClick={() => act("edit_field", {
+                  field: "fingerprint",
+                })}>
+                  {data.active_record.fingerprint}
+                </Button>
+              </LabeledList.Item>
+              <LabeledList.Item label="Physical Status">
+                {data.active_record.p_stat}
+              </LabeledList.Item>
+              <LabeledList.Item label="Mental Status">
+                {data.active_record.m_stat}
+              </LabeledList.Item>
+            </LabeledList>
+            <Box>
+              <img src={data.active_record.front_image}
+                width="180px" height="200px"
+                style={`-ms-interpolation-mode: nearest-neighbor`} />
+              <Button icon="print" mr="2px" fluid onClick={() => act("edit_field", {
+                field: "print_photo_front",
+              })}>
+                Print
+              </Button>
+            </Box>
+            <Box>
+              <img src={data.active_record.side_image}
+                width="180px" height="200px"
+                style={`-ms-interpolation-mode: nearest-neighbor`} />
+              <Button icon="print" ml="2px" fluid onClick={() => act("edit_field", {
+                field: "print_photo_side",
+              })}>
+                Print
+              </Button>
+            </Box>
+
+
+          </Flex>
+        ) || (
+          <NoticeBox>General Record Lost!</NoticeBox>
+        )}
+
+      </Section>
+      <Section title="Security Record" buttons={(
+        <Fragment>
+          <Button icon="print" onClick={() => act("print_poster")}>Print Wanted Poster</Button>
+          <Button icon="print" onClick={() => act("print_missing")}>
+            Print Missing Poster
+          </Button>
+          <Button icon="trash" color="bad" onClick={() => act("delete_security_record")}>
+            Delete Security Record
+          </Button>
+        </Fragment>
+      )}>
+        {data.active_record.criminal_status && (
+          <Fragment>
+            <LabeledList>
+              <LabeledList.Item label="Criminal Status">
+                <Button backgroundColor={data.active_record.recordColor}
+                  onClick={() => act("edit_field", {
+                    field: "criminal_status",
+                  })}>
+
+                  {data.active_record.criminal_status}
+                </Button>
+              </LabeledList.Item>
+            </LabeledList>
+            <Section title="Citations" buttons={(
+              <Button color="good" icon="plus" onClick={() => act("edit_field", {
+                field: "citation_add",
+              })}>
+                Add Citation
+              </Button>
+            )}>
+              <Table>
+                <TableRow color="label">
+                  <TableCell>
+                    Crime
+                  </TableCell>
+                  <TableCell>
+                    Fine
+                  </TableCell>
+                  <TableCell>
+                    Author
+                  </TableCell>
+                  <TableCell>
+                    Time Added
+                  </TableCell>
+                  <TableCell>
+                    Amount Due
+                  </TableCell>
+                  <TableCell collapsing>
+                    Delete
+                  </TableCell>
+                </TableRow>
+                {data.active_record.citations
+                && data.active_record.citations.map(crime => (
+                  <TableRow key={crime.id}>
+                    <TableCell>
+                      {crime.name}
+                    </TableCell>
+                    <TableCell>
+                      {crime.fine} credits
+                    </TableCell>
+                    <TableCell>
+                      {crime.author}
+                    </TableCell>
+                    <TableCell>
+                      {crime.time}
+                    </TableCell>
+                    <TableCell>
+                      {crime.status}
+                    </TableCell>
+                    <TableCell collapsing>
+                      <Button color="bad" onClick={() => act("edit_field", {
+                        field: "citation_delete",
+                        id: crime.id,
+                      })}>Delete
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </Table>
+            </Section>
+            <Section title="Crimes" buttons={(
+              <Button color="good" icon="plus" onClick={() => act("edit_field", {
+                field: "crime_add",
+              })}>
+                Add Crime
+              </Button>
+            )}>
+              <Table>
+                <TableRow color="label">
+                  <TableCell>
+                    Crime
+                  </TableCell>
+                  <TableCell>
+                    Details
+                  </TableCell>
+                  <TableCell>
+                    Author
+                  </TableCell>
+                  <TableCell>
+                    Time Added
+                  </TableCell>
+                  <TableCell collapsing>
+                    Delete
+                  </TableCell>
+                </TableRow>
+                {data.active_record.crimes
+                && data.active_record.crimes.map(crime => (
+                  <TableRow key={crime.id}>
+                    <TableCell>
+                      {crime.name}
+                    </TableCell>
+                    <TableCell>
+                      {crime.details}
+                    </TableCell>
+                    <TableCell>
+                      {crime.author}
+                    </TableCell>
+                    <TableCell>
+                      {crime.time}
+                    </TableCell>
+                    <TableCell collapsing>
+                      <Button color="bad" onClick={() => act("edit_field", {
+                        field: "crime_delete",
+                        id: crime.id,
+                      })}>Delete
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </Table>
+            </Section>
+            <Section title="Comments" buttons={(
+              <Button color="good" icon="plus" onClick={() => act("edit_field", {
+                field: "comment_add",
+              })}>
+                Add Comment
+              </Button>
+            )}>
+              <Table>
+                <TableRow color="label">
+                  <TableCell>
+                    Comment
+                  </TableCell>
+                  <TableCell>
+                    Author
+                  </TableCell>
+                  <TableCell>
+                    Time Added
+                  </TableCell>
+                  <TableCell collapsing>
+                    Delete
+                  </TableCell>
+                </TableRow>
+                {data.active_record.comments
+                && data.active_record.comments.map(comment => (
+                  <TableRow key={comment.id}>
+                    <TableCell>
+                      {comment.content}
+                    </TableCell>
+                    <TableCell>
+                      {comment.author}
+                    </TableCell>
+                    <TableCell>
+                      {comment.time}
+                    </TableCell>
+                    <TableCell collapsing>
+                      <Button color="bad" onClick={() => act("edit_field", {
+                        field: "comment_delete",
+                        id: comment.id,
+                      })}>Delete
+                      </Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </Table>
+            </Section>
+
+
+            <LabeledList>
+              <LabeledList.Item label="Important Notes">
+                <Button onClick={() => act("edit_field", {
+                  field: "edit_note",
+                })}>
+                  {data.active_record.notes}
+                </Button>
+              </LabeledList.Item>
+            </LabeledList>
+          </Fragment>
+        ) || (
+          <Fragment>
+            <NoticeBox>Security Record Lost!</NoticeBox>
+            <Button icon="plus" color="good" onClick={() => act("new_record")}>
+              Create Security Record
+            </Button>
+          </Fragment>
+        )}
+      </Section>
+    </Fragment>
+  );
+}
+
+export const SecurityConsoleRecordList = (props, context) => {
+  const { act, data } = useBackend(context);
+
+  const [searchText, setSearchText] = useLocalState(context, "searchText", "");
+
+  return (
+    <Fragment>
+
         {data.special_message && (
           <NoticeBox>
             {data.special_message}
@@ -531,7 +565,6 @@ export const SecurityConsole = (props, context) => {
             )}
           </Table>
         </Section>
-      </Window.Content>
-    </Window>
+    </Fragment>
   );
-};
+}

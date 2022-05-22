@@ -1,17 +1,17 @@
-/datum/computer_file/program/logviewer
-	filename = "logviewer"
-	filedesc = "Thinktronic Log Viewer"
+/datum/computer_file/program/file_editor
+	filename = "fileeditor"
+	filedesc = "Thinktronic File Editor"
+	file_icon = "folder-open"
 	category = PROGRAM_CATEGORY_MISC
 	program_icon_state = "comm_monitor"
-	extended_desc = "This program monitors stationwide NTNet network, provides access to logging systems, and allows for configuration changes"
+	extended_desc = "This program allows for viewing, editing, and saving standard file formats"
 	size = 5
 	available_on_ntnet = TRUE
-	tgui_id = "NtosLogViewer"
-	program_icon = "file-alt"
+	tgui_id = "NtosFileEditor"
 
-	var/datum/computer_file/log/activelog
+	var/datum/computer_file/activefile
 
-/datum/computer_file/program/logviewer/ui_act(action, params)
+/datum/computer_file/program/file_editor/ui_act(action, params)
 	if(..())
 		return
 
@@ -20,32 +20,26 @@
 	switch(action)
 		if("PRG_Print")
 			if(!HDD)
-				to_chat(usr, span_danger("\The [src] displays a \"How the fuck did this happen? PLEASE make a bug report if you see this.\" error."))
 				return
 			if(!printer)
-				to_chat(usr, span_danger("\The [src] displays a \"No printer found. Unable to print file.\" error."))
 				return
 			var/datum/computer_file/F = HDD.find_file_by_name(params["name"])
 			if(!F || !istype(F))
-				to_chat(usr, span_danger("\The [src] displays a \"No file found. Unable to print file.\" error."))
 				return
 			if(printer.print_file(F) && computer)
 				computer.play_ping()
 		if("PRG_Open")
 			if(!HDD)
-				to_chat(usr, span_danger("\The [src] displays a \"How the fuck did this happen? PLEASE make a bug report if you see this.\" error."))
 				return
 			var/datum/computer_file/F = HDD.find_file_by_name(params["name"])
 			if(!F || !istype(F))
-				to_chat(usr, span_danger("\The [src] displays a \"No file found. Unable to view file.\" error."))
 				return
-			if(!istype(F, /datum/computer_file/log))
-				to_chat(usr, span_danger("\The [src] displays a \"Incorrect file type. Unable to view file.\" error."))
+			if(!istype(F, /datum/computer_file))
 				return
-			activelog = F
+			activefile = F
 			return TRUE
 
-/datum/computer_file/program/logviewer/ui_data(mob/user)
+/datum/computer_file/program/file_editor/ui_data(mob/user)
 	if(!SSnetworks.station_network)
 		return
 	var/list/data = get_header_data()
@@ -65,9 +59,8 @@
 			"openable" = viewable,
 		))
 		data["files"] = files
-	data["Log"] = list()
-	data["hasactivefile"] = FALSE
-	if(activelog)
-		data["Log"] = activelog.formatfile(FALSE)
-		data["hasactivefile"] = TRUE
+	if(istype(activefile, /datum/computer_file/log))
+		var/datum/computer_file/log/log = activefile
+		data["fileData"] = log.formatfile(FALSE)
+		data["fileType"] = "Log"
 	return data

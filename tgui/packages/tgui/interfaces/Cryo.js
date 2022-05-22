@@ -8,18 +8,22 @@ const damageTypes = [
   {
     label: "Brute",
     type: "bruteLoss",
-  },
-  {
-    label: "Respiratory",
-    type: "oxyLoss",
-  },
-  {
-    label: "Toxin",
-    type: "toxLoss",
+    color: 'red',
   },
   {
     label: "Burn",
     type: "fireLoss",
+    color: 'orange',
+  },
+  {
+    label: "Toxin",
+    type: "toxLoss",
+    color: 'green',
+  },
+  {
+    label: "Respiratory",
+    type: "oxyLoss",
+    color: 'blue',
   },
 ];
 
@@ -72,7 +76,8 @@ const CryoContent = (props, context) => {
                   key={damageType.id}
                   label={damageType.label}>
                   <ProgressBar
-                    value={data.occupant[damageType.type]/100}>
+                    value={data.occupant[damageType.type]/100}
+                    color={damageType.color}>
                     <AnimatedNumber
                       value={data.occupant[damageType.type]} />
                   </ProgressBar>

@@ -9,7 +9,7 @@
 	network_destination = "alarm monitoring network"
 	size = 5
 	tgui_id = "NtosStationAlertConsole"
-	program_icon = "bell"
+	file_icon = "bell"
 
 	var/has_alert = 0
 

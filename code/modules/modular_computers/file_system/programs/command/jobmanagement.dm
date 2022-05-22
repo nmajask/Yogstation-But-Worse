@@ -8,7 +8,7 @@
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_PHONE
 	size = 4
 	tgui_id = "NtosJobManager"
-	program_icon = "address-book"
+	file_icon = "address-book"
 
 	var/change_position_cooldown = 30
 	//Jobs you cannot open new positions for

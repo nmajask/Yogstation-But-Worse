@@ -12,7 +12,7 @@
 	network_destination = "tracking program"
 	size = 5
 	tgui_id = "NtosCrewMonitor"
-	program_icon = "heartbeat"
+	file_icon = "heartbeat"
 	var/program_icon_state_alarm = "crew-red"
 	var/alarm = FALSE
 

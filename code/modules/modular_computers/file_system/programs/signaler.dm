@@ -6,7 +6,7 @@
 	extended_desc = "A small built-in frequency app that sends out signaller signals with the appropriate hardware."
 	size = 2
 	tgui_id = "NtosSignaler"
-	program_icon = "satellite-dish"
+	file_icon = "satellite-dish"
 	usage_flags = PROGRAM_TABLET | PROGRAM_LAPTOP
 	///What is the saved signal frequency?
 	var/signal_frequency = FREQ_SIGNALER

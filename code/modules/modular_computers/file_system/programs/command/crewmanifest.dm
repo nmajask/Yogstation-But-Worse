@@ -8,7 +8,7 @@
 	requires_ntnet = FALSE
 	size = 4
 	tgui_id = "NtosCrewManifest"
-	program_icon = "clipboard-list"
+	file_icon = "clipboard-list"
 
 /datum/computer_file/program/crew_manifest/ui_static_data(mob/user)
 	var/list/data = list()

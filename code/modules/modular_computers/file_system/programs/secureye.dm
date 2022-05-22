@@ -10,7 +10,7 @@
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_INTEGRATED // Probably not a good idea to let borgs use this, though im curious how it will pan out
 	size = 5
 	tgui_id = "NtosSecurEye"
-	program_icon = "eye"
+	file_icon = "eye"
 
 	var/list/network = list("ss13")
 	var/obj/machinery/camera/active_camera
@@ -195,7 +195,7 @@
 	transfer_access = ACCESS_MINING
 	category = PROGRAM_CATEGORY_SUPL
 	size = 5
-	program_icon = "globe"
+	file_icon = "globe"
 
 	network = list("mine", "auxbase")
 
@@ -211,7 +211,7 @@
 	transfer_access = ACCESS_ARMORY
 	category = PROGRAM_CATEGORY_SEC
 	size = 5
-	program_icon = "dungeon"
+	file_icon = "dungeon"
 
 	network = list("labor")
 

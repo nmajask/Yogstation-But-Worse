@@ -2,6 +2,7 @@
 
 /datum/computer_file/picture
 	filetype = "PIC"
+	file_icon = "file-image"
 	can_print = TRUE
 
 	var/datum/picture/stored_picture

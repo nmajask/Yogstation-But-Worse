@@ -11,7 +11,7 @@
 	ui_header = "ntnrc_idle.gif"
 	available_on_ntnet = 1
 	tgui_id = "NtosNetChat"
-	program_icon = "comment-alt"
+	file_icon = "comment-alt"
 
 	var/last_message				// Used to generate the toolbar icon
 	var/username

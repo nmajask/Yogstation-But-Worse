@@ -20,18 +20,22 @@ export const Sleeper = (props, context) => {
     {
       label: 'Brute',
       type: 'bruteLoss',
+      color: 'red',
     },
     {
       label: 'Burn',
       type: 'fireLoss',
+      color: 'orange',
     },
     {
       label: 'Toxin',
       type: 'toxLoss',
+      color: 'green',
     },
     {
       label: 'Oxygen',
       type: 'oxyLoss',
+      color: 'blue',
     },
   ];
 
@@ -70,7 +74,7 @@ export const Sleeper = (props, context) => {
                       value={occupant[type.type]}
                       minValue={0}
                       maxValue={occupant.maxHealth}
-                      color="bad" />
+                      color={type.color} />
                   </LabeledList.Item>
                 ))}
                 <LabeledList.Item

@@ -2,7 +2,7 @@ import { useBackend } from '../backend';
 import { Box, Button, Flex, Section, Table } from '../components';
 import { NtosWindow } from '../layouts';
 
-export const NtosLogViewer = (props, context) => {
+export const NtosFileEditor = (props, context) => {
   const { act, data } = useBackend(context);
   const { PC_device_theme } = data;
   return (
@@ -14,7 +14,7 @@ export const NtosLogViewer = (props, context) => {
   );
 };
 
-export const NtosLogViewerContent = (props, context) => {
+export const NtosFileEditorContent = (props, context) => {
   const { act, data } = useBackend(context);
   const { files, hasactivefile, Log } = data;
   return (

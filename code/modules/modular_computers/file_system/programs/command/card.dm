@@ -16,7 +16,7 @@
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_LAPTOP | PROGRAM_TABLET | PROGRAM_PHONE
 	size = 8
 	tgui_id = "NtosCard"
-	program_icon = "id-card"
+	file_icon = "id-card"
 
 	var/is_centcom = FALSE
 	var/minor = FALSE

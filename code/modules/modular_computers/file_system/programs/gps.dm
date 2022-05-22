@@ -6,7 +6,7 @@
 	requires_ntnet = FALSE
 	size = 3
 	tgui_id = "NtosGps"
-	program_icon = "globe"
+	file_icon = "globe"
 
 /datum/computer_file/program/gps/run_program(mob/living/user)
 	. = ..()

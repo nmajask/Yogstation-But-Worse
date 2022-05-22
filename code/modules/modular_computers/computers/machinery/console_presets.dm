@@ -12,7 +12,8 @@
 	console_department = "Security"
 	name = "security console"
 	desc = "A stationary computer. This one comes preloaded with security programs."
-	starting_files = list(	new /datum/computer_file/program/secureye)
+	starting_files = list(	new /datum/computer_file/program/security_record,
+							new /datum/computer_file/program/secureye)
 	initial_program = /datum/computer_file/program/secureye
 
 // ===== WARDENS CONSOLE =====
@@ -20,7 +21,8 @@
 	console_department = "Security"
 	name = "brig console"
 	desc = "A stationary computer. This one comes preloaded with security programs."
-	starting_files = list(	new /datum/computer_file/program/secureye,
+	starting_files = list(	new /datum/computer_file/program/security_record,
+							new /datum/computer_file/program/secureye,
 							new /datum/computer_file/program/budgetorders,
 							new /datum/computer_file/program/crew_monitor)
 	initial_program = /datum/computer_file/program/secureye
@@ -166,7 +168,8 @@
 							new /datum/computer_file/program/card_mod,
 							new /datum/computer_file/program/ntnetmonitor,
 							new /datum/computer_file/program/aidiag,
-							new /datum/computer_file/program/robocontrol)
+							new /datum/computer_file/program/robocontrol,
+							new /datum/computer_file/program/mecha_monitor)
 
 // ===== CMO =====
 /obj/machinery/modular_computer/console/preset/command/cmo
