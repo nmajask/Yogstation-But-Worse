@@ -39,8 +39,9 @@
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
 
-	id = /obj/item/card/id/silver
-	l_pocket = /obj/item/pinpointer/crew
+	id_type = /obj/item/card/id/silver
+
+	belt = /obj/item/storage/belt/medical/chief/full
 	ears = /obj/item/radio/headset/heads/cmo
 	uniform = /obj/item/clothing/under/rank/chief_medical_officer
 	uniform_skirt = /obj/item/clothing/under/rank/chief_medical_officer/skirt
@@ -57,6 +58,8 @@
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 	chameleon_extras = list(/obj/item/gun/syringe, /obj/item/stamp/cmo)
+
+	pda_slot = SLOT_L_STORE
 
 /datum/outfit/job/cmo/hardsuit
 	name = "Chief Medical Officer (Hardsuit)"

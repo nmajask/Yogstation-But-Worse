@@ -48,7 +48,8 @@
 	name = "Head of Personnel"
 	jobtype = /datum/job/hop
 
-	id = /obj/item/card/id/silver
+	id_type = /obj/item/card/id/silver
+
 	ears = /obj/item/radio/headset/heads/hop
 	uniform = /obj/item/clothing/under/rank/head_of_personnel
 	uniform_skirt = /obj/item/clothing/under/rank/head_of_personnel/skirt

@@ -199,6 +199,7 @@ export const CargoCatalog = (props, context) => {
                       tooltipPosition="left"
                       onClick={() => act('add', {
                         id: pack.id,
+                        self_paid: self_paid,
                       })}>
                       {formatMoney((self_paid && !pack.goody) || app_cost
                         ? Math.round(pack.cost * 1.1)
@@ -293,7 +294,7 @@ const CargoCartButtons = (props, context) => {
     can_approve_requests,
   } = data;
   const cart = data.cart || [];
-  const total = cart.reduce((total, entry) => total + entry.cost, 0);
+  const total = cart.reduce((total, entry) => total + (entry.paid ? entry.cost : 0), 0);
   if (requestonly || !can_send || !can_approve_requests) {
     return null;
   }
@@ -354,7 +355,7 @@ const CargoCart = (props, context) => {
                 )}
               </Table.Cell>
               <Table.Cell collapsing textAlign="right">
-                {formatMoney(entry.cost)} cr
+                {formatMoney(entry.paid ? Math.round(entry.cost * 1.1) : entry.cost)} cr
               </Table.Cell>
               {can_approve_requests &&(
                 <Table.Cell collapsing>

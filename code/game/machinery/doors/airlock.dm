@@ -1270,7 +1270,7 @@
 
 	if(istype(I, /obj/item/jawsoflife))
 		if(isElectrified())
-			shock(user,100)//it's like sticking a forck in a power socket
+			shock(user,100)//it's like sticking a fork in a power socket
 			return
 
 		if(!density)//already open

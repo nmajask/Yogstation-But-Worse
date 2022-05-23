@@ -30,6 +30,8 @@
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
+	pda_type = /obj/item/pda/bar
+
 	glasses = /obj/item/clothing/glasses/sunglasses/reagent
 	ears = /obj/item/radio/headset/headset_srv
 	uniform = /obj/item/clothing/under/rank/bartender
