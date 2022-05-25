@@ -50,13 +50,17 @@
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1) //yogs - removes eng budget
 	glasses = /obj/item/clothing/glasses/meson/sunglasses
 
+	device_types = list(DEVICE_NONE = /obj/item/storage/wallet/random,
+						DEVICE_PDA = /obj/item/modular_computer/pda/preset/advanced/command/ce,
+						DEVICE_LAPTOP = /obj/item/modular_computer/laptop/preset/advanced/command/ce,
+						DEVICE_TABLET = /obj/item/modular_computer/tablet/preset/advanced/command/ce,
+						DEVICE_PHONE = /obj/item/modular_computer/phone/preset/advanced/command/ce)
+
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel/eng
 	duffelbag = /obj/item/storage/backpack/duffelbag/engineering
 	box = /obj/item/storage/box/engineer
 	chameleon_extras = /obj/item/stamp/ce
-
-	pda_slot = SLOT_L_STORE
 
 /datum/outfit/job/ce/rig
 	name = "Chief Engineer (Hardsuit)"

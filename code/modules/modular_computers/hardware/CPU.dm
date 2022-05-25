@@ -47,3 +47,11 @@
 	w_class = WEIGHT_CLASS_TINY
 	power_usage = 25
 	max_idle_programs = 0
+
+/obj/item/computer_hardware/processor_unit/admin
+	name = "admin microprocessor"
+	desc = "A microprocessor that uses the power of something called a \"bus\" to run limitless amounts of programs."
+	icon_state = "cpu_super"
+	w_class = WEIGHT_CLASS_TINY
+	power_usage = 0
+	max_idle_programs = INFINITY

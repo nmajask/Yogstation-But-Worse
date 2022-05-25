@@ -39,6 +39,14 @@
 	..()
 	store_file(new/datum/computer_file/program/radar/implant(src))
 
+/obj/item/computer_hardware/hard_drive/portable/secureye_modules
+	name = "Implant Tracker data disk"
+	desc = "A removable disk containing a copy of the Implant Tracker program."
+
+/obj/item/computer_hardware/hard_drive/portable/implant_tracker/install_default_programs()
+	..()
+	/datum/computer_file/module/secureye
+
 ///////////////////
 //Syndicate Disks//
 ///////////////////
@@ -108,3 +116,23 @@
 /obj/item/computer_hardware/hard_drive/portable/syndicate/trap/on_remove(obj/item/modular_computer/MC, mob/user)
 	trigger()
 	..()
+
+
+////////////////
+// Admin Disk //
+////////////////
+
+/obj/item/computer_hardware/hard_drive/portable/admin
+	name = "admin data disk"
+	desc = "A removable disk capable of downloading new files for debugging."
+	icon_state = "datadisksyndicate"
+	max_capacity = INFINITY
+
+/obj/item/computer_hardware/hard_drive/portable/admin/attack_self(mob/user)
+	var/file_list = typesof(/datum/computer_file)
+	var/datum/computer_file/choice = input(user, "Pick File To Add:", "Debug File Download", file_list) as null|anything in file_list
+	if(ispath(choice))
+		var/datum/computer_file/new_file = store_file(new choice())
+		to_chat(span_notice(istype(new_file) ? "Successfuly downloaded [new_file]" : "Failed to download [choice]"))
+
+	

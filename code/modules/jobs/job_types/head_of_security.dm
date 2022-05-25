@@ -57,7 +57,13 @@
 	suit_store = /obj/item/gun/energy/e_gun
 	r_pocket = /obj/item/assembly/flash/handheld
 	l_pocket = /obj/item/restraints/handcuffs
-	backpack_contents = list(/obj/item/melee/baton/loaded=1) //yogs - removed departmental budget ID //come here often?
+	backpack_contents = list(/obj/item/melee/baton/loaded=1) //yogs - removed departmental budget ID //come here often? // Yeah
+
+	device_types = list(DEVICE_NONE = /obj/item/storage/wallet/random,
+						DEVICE_PDA = /obj/item/modular_computer/pda/preset/advanced/command/hos,
+						DEVICE_LAPTOP = /obj/item/modular_computer/laptop/preset/advanced/command/hos,
+						DEVICE_TABLET = /obj/item/modular_computer/tablet/preset/advanced/command/hos,
+						DEVICE_PHONE = /obj/item/modular_computer/phone/preset/advanced/command/hos)
 
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec

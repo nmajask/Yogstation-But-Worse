@@ -1,4 +1,5 @@
-/datum/computer_file/holorecord
+/*
+/datum/computer_file/audiorecord
 	filetype = "AUD"
 	file_icon = "file-video"
 	var/datum/holorecord/recording
@@ -35,3 +36,4 @@
 	new_paper.info = t1
 	new_paper.update_icon()
 	return new_paper
+*/

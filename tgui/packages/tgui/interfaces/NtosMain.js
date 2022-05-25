@@ -6,6 +6,7 @@ export const NtosMain = (props, context) => {
   const { act, data } = useBackend(context);
   const {
     device_theme,
+    title,
     programs = [],
     has_light,
     light_on,
@@ -16,9 +17,7 @@ export const NtosMain = (props, context) => {
   } = data;
   return (
     <NtosWindow
-      title={device_theme === 'syndicate'
-        && 'Syndix Main Menu'
-        || 'NtOS Main Menu'}
+      title={title}
       theme={device_theme}
       width={400}
       height={500}

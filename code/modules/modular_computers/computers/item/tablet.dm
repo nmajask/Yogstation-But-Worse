@@ -24,9 +24,6 @@
 /obj/item/modular_computer/tablet/syndicate_contract_uplink
 	name = "contractor tablet"
 	icon = 'icons/obj/contractor_tablet.dmi'
-	icon_state = "tablet"
-	icon_state_unpowered = "tablet"
-	icon_state_powered = "tablet"
 	icon_state_menu = "assign"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_ID | ITEM_SLOT_BELT
@@ -37,7 +34,7 @@
 /obj/item/modular_computer/tablet/nukeops
 	comp_light_luminosity = 6.3
 	finish_color = "red"
-	device_theme = "syndicate"
+	device_theme = MPCTHEME_SYNDIX
 	light_color = COLOR_RED
 
 /obj/item/modular_computer/tablet/nukeops/emag_act(mob/user)

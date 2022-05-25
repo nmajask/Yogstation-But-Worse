@@ -57,6 +57,12 @@
 	l_pocket = /obj/item/laser_pointer
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1) //yogs - removes sci budget
 
+	device_types = list(DEVICE_NONE = /obj/item/storage/wallet/random,
+						DEVICE_PDA = /obj/item/modular_computer/pda/preset/advanced/command/rd,
+						DEVICE_LAPTOP = /obj/item/modular_computer/laptop/preset/advanced/command/rd,
+						DEVICE_TABLET = /obj/item/modular_computer/tablet/preset/advanced/command/rd,
+						DEVICE_PHONE = /obj/item/modular_computer/phone/preset/advanced/command/rd)
+
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel/tox
 

@@ -52,6 +52,12 @@
 	head = /obj/item/clothing/head/caphat
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/station_charter=1, /obj/item/gun/energy/e_gun=1, /obj/item/modular_computer/phone/preset/advanced/command=1) //yogs - adds egun/removes civ budget
 
+	device_types = list(DEVICE_NONE = /obj/item/storage/wallet/random,
+						DEVICE_PDA = /obj/item/modular_computer/pda/preset/advanced/command/captain,
+						DEVICE_LAPTOP = /obj/item/modular_computer/laptop/preset/advanced/command/captain,
+						DEVICE_TABLET = /obj/item/modular_computer/tablet/preset/advanced/command/captain,
+						DEVICE_PHONE = /obj/item/modular_computer/phone/preset/advanced/command/captain)
+
 	backpack = /obj/item/storage/backpack/captain
 	satchel = /obj/item/storage/backpack/satchel/cap
 	duffelbag = /obj/item/storage/backpack/duffelbag/captain

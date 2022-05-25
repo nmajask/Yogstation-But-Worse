@@ -14,7 +14,7 @@
 	var/datum/computer_file/holorecord/temp = ..()
 	temp.recording = recording.Copy()
 	return temp
-
+/*
 // Calculates file size from amount of characters in saved string
 /datum/computer_file/holorecord/calculate_size()
 	if(stored_picture)
@@ -27,3 +27,4 @@
 	name = photo.name
 	description = photo.desc
 	calculate_size()
+*/

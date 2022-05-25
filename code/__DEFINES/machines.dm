@@ -89,6 +89,10 @@
 #define PROGRAM_CATEGORY_SCI	"Science"
 #define PROGRAM_CATEGORY_SUPL	"Supply"
 #define PROGRAM_CATEGORY_MISC	"Other"
+//MPC themes
+#define MPCTHEME_NTOS			"ntos"
+#define MPCTHEME_SYNDIX			"syndicate"
+#define MPCTHEME_ABDUCTORWARE	"abductor"
 
 #define FIREDOOR_OPEN 1
 #define FIREDOOR_CLOSED 2

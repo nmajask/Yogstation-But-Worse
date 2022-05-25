@@ -53,13 +53,17 @@
 	glasses = /obj/item/clothing/glasses/hud/health/sunglasses
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1) //yogs - removes med budget
 
+	device_types = list(DEVICE_NONE = /obj/item/storage/wallet/random,
+						DEVICE_PDA = /obj/item/modular_computer/pda/preset/advanced/command/cmo,
+						DEVICE_LAPTOP = /obj/item/modular_computer/laptop/preset/advanced/command/cmo,
+						DEVICE_TABLET = /obj/item/modular_computer/tablet/preset/advanced/command/cmo,
+						DEVICE_PHONE = /obj/item/modular_computer/phone/preset/advanced/command/cmo)
+
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel/med
 	duffelbag = /obj/item/storage/backpack/duffelbag/med
 
 	chameleon_extras = list(/obj/item/gun/syringe, /obj/item/stamp/cmo)
-
-	pda_slot = SLOT_L_STORE
 
 /datum/outfit/job/cmo/hardsuit
 	name = "Chief Medical Officer (Hardsuit)"

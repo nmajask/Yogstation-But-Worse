@@ -198,3 +198,11 @@
 	max_capacity = 32
 	icon_state = "ssd_micro"
 	w_class = WEIGHT_CLASS_TINY
+
+/obj/item/computer_hardware/hard_drive/admin
+	name = "micro solid state drive"
+	desc = "A microscopic SSD that uses the power of something called a \"bus\" to store limitless amounts of files."
+	power_usage = 0
+	max_capacity = INFINITY
+	icon_state = "ssd_micro"
+	w_class = WEIGHT_CLASS_TINY

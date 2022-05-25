@@ -58,4 +58,10 @@
 	backpack_contents = list(/obj/item/storage/box/ids=1,\
 		/obj/item/melee/classic_baton/telescopic=1, /obj/item/modular_computer/phone/preset/advanced/command=1) //yogs - removes serv budget
 
+	device_types = list(DEVICE_NONE = /obj/item/storage/wallet/random,
+						DEVICE_PDA = /obj/item/modular_computer/pda/preset/advanced/command/hop,
+						DEVICE_LAPTOP = /obj/item/modular_computer/laptop/preset/advanced/command/hop,
+						DEVICE_TABLET = /obj/item/modular_computer/tablet/preset/advanced/command/hop,
+						DEVICE_PHONE = /obj/item/modular_computer/phone/preset/advanced/command/hop)
+
 	chameleon_extras = list(/obj/item/gun/energy/e_gun, /obj/item/stamp/hop)

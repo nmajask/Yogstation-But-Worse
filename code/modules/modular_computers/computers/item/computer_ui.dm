@@ -36,10 +36,12 @@
 	if (!ui)
 		var/headername
 		switch(device_theme)
-			if("ntos")
+			if(MPCTHEME_NTOS)
 				headername = "NtOS Main Menu"
-			if("syndicate")
+			if(MPCTHEME_SYNDIX)
 				headername = "Syndix Main Menu"
+			if(MPCTHEME_ABDUCTORWARE)
+				headername = "Abductorware Main Menu"
 		ui = new(user, src, "NtosMain", headername, 400, 500)
 		if(ui.open())
 			ui.send_asset(get_asset_datum(/datum/asset/simple/headers))
@@ -48,6 +50,12 @@
 /obj/item/modular_computer/ui_data(mob/user)
 	var/list/data = get_header_data()
 	data["device_theme"] = device_theme
+	data["title"] = "NtOS Main Menu"
+	switch(device_theme)
+		if(MPCTHEME_SYNDIX)
+			data["title"] = "Syndix Main Menu"
+		if(MPCTHEME_ABDUCTORWARE)
+			data["title"] = "Abductorware Main Menu"
 	data["login"] = list()
 	var/obj/item/computer_hardware/card_slot/cardholder = all_components[MC_CARD]
 	data["cardholder"] = FALSE

@@ -7,7 +7,7 @@
 
 	var/enabled = FALSE										// Whether the computer is turned on.
 	var/screen_on = TRUE									// Whether the computer is active/opened/it's screen is on.
-	var/device_theme = "ntos"								// Sets the theme for the main menu, hardware config, and file browser apps. Overridden by certain non-NT devices.
+	var/device_theme = MPCTHEME_NTOS						// Sets the theme for the main menu, hardware config, and file browser apps. Overridden by certain non-NT devices.
 	var/datum/computer_file/program/active_program = null	// A currently active program running on the computer.
 	var/hardware_flag = 0									// A flag that describes this device type
 	var/last_power_usage = 0
@@ -270,7 +270,6 @@
 	. = ..()
 	update_icon()
 
-
 /obj/item/modular_computer/proc/update_label()
 	var/obj/item/card/id/stored_id = GetID()
 	if(id_rename && stored_id)
@@ -465,6 +464,16 @@
 	enabled = FALSE
 	update_icon()
 	playsound(loc, shutdown_sound, get_clamped_volume(), FALSE, -1)
+
+/obj/item/modular_computer/proc/get_all_files()
+	var/file_list = list()
+	var/obj/item/computer_hardware/hard_drive/HDD = all_components[MC_HDD]
+	var/obj/item/computer_hardware/hard_drive/SDD = all_components[MC_SDD]
+	if(istype(HDD))
+		file_list |= HDD.stored_files
+	if(istype(SDD))
+		file_list |= SDD.stored_files
+	return file_list
 
 /obj/item/modular_computer/screwdriver_act(mob/user, obj/item/tool)
 	if(!all_components.len)

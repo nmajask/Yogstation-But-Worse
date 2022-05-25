@@ -12,7 +12,7 @@
 	tgui_id = "NtosSecurEye"
 	file_icon = "eye"
 
-	var/list/network = list("ss13")
+	var/list/network = list()
 	var/obj/machinery/camera/active_camera
 	/// The turf where the camera was last updated.
 	var/turf/last_camera_turf
@@ -165,6 +165,13 @@
 
 // Returns the list of cameras accessible from this computer
 /datum/computer_file/program/secureye/proc/get_available_cameras()
+	var/list/new_network = initial(network)
+	var/list/all_files = computer.get_all_files()
+	for(var/datum/computer_file/module/secureye/module in all_files)
+		for(var/mod_network in module.unlocked_networks)
+			if(!(mod_network in new_network))
+				new_network += mod_network
+	network = new_network
 	var/list/L = list()
 	for (var/obj/machinery/camera/cam in GLOB.cameranet.cameras)
 		if(!(is_station_level(cam.z) || is_mining_level(cam.z) || !isnull(cam.built_in)))//Only show station cameras.
@@ -183,39 +190,7 @@
 			camlist["[cam.c_tag]"] = cam
 	return camlist
 
-//////////////////
-//Mining Cameras//
-//////////////////
 
-///A program that allows you to view the cameras on the Mining Base
-/datum/computer_file/program/secureye/mining
-	filename = "overwatch"
-	filedesc = "OverWatch"
-	extended_desc = "This program allows access to the mining base camera network."
-	transfer_access = ACCESS_MINING
-	category = PROGRAM_CATEGORY_SUPL
-	size = 5
-	file_icon = "globe"
-
-	network = list("mine", "auxbase")
-
-//////////////////////
-//Labor Camp Cameras//
-//////////////////////
-
-///A program that allows you to view the cameras on the Labor Camp
-/datum/computer_file/program/secureye/laborcamp
-	filename = "overseer"
-	filedesc = "OverSeer"
-	extended_desc = "This program allows access to the labor camp camera network."
-	transfer_access = ACCESS_ARMORY
-	category = PROGRAM_CATEGORY_SEC
-	size = 5
-	file_icon = "dungeon"
-
-	network = list("labor")
-
-/* WIP solution to having 500 programs all doing the same thing
 ///////////
 //Moduals//
 ///////////
@@ -224,44 +199,43 @@
 	var/list/unlocked_networks
 
 /datum/computer_file/module/secureye/general
-	filename = "secbundle"
-	filedesc = "Secureye Station Access Package"
+	filename = "secwatch"
+	filedesc = "Secureye SecWatch Package"
 	extended_desc = "This program package contains access codes to the station's camera network, allowing you to access them using Secureye."
-	size = 20
+	size = 5
 	unlocked_networks = list("ss13")
 
 /datum/computer_file/module/secureye/medical
-	filename = "overwatch"
-	filedesc = "Secureye OverWatch Package"
+	filename = "medwatch"
+	filedesc = "Secureye MedWatch Package"
 	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
-	size = 5
+	size = 2
 	unlocked_networks = list("medbay")
 
 /datum/computer_file/module/secureye/engineering
-	filename = "overwatch"
-	filedesc = "Secureye OverWatch Package"
+	filename = "engiwatch"
+	filedesc = "Secureye EngiWatch Package"
 	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
-	size = 5
+	size = 2
 	unlocked_networks = list("engine")
 
 /datum/computer_file/module/secureye/vault
-	filename = "overwatch"
-	filedesc = "Secureye OverWatch Package"
+	filename = "vaulteye"
+	filedesc = "Secureye VaultEye Package"
 	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
-	size = 5
+	size = 2
 	unlocked_networks = list("vault")
 
 /datum/computer_file/module/secureye/mining
 	filename = "overwatch"
 	filedesc = "Secureye OverWatch Package"
 	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
-	size = 5
+	size = 2
 	unlocked_networks = list("mine", "auxbase")
 
 /datum/computer_file/module/secureye/laborcamp
 	filename = "overseer"
 	filedesc = "Secureye OverSeer Package"
 	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
-	size = 5
+	size = 2
 	unlocked_networks = list("mine", "auxbase")
-*/

@@ -80,24 +80,24 @@
 	starting_files = list(	new /datum/computer_file/program/bounty_board,
 							new /datum/computer_file/program/cargo_bounties,
 							new /datum/computer_file/program/budgetorders,
-							new /datum/computer_file/program/secureye/mining)
+							new /datum/computer_file/program/secureye)
 
 // ===== MINING CONSOLE =====
 /obj/machinery/modular_computer/console/preset/mining
 	console_department = "Supply"
 	name = "mining console"
 	desc = "A stationary computer. This one comes preloaded with programs to monitor the lavaland mining opperation."
-	starting_files = list(	new /datum/computer_file/program/secureye/mining)
-	initial_program = /datum/computer_file/program/secureye/mining
+	starting_files = list(	new /datum/computer_file/program/secureye)
+	initial_program = /datum/computer_file/program/secureye
 
 // ===== MINING MEDIC CONSOLE =====
 /obj/machinery/modular_computer/console/preset/mining
 	console_department = "Supply"
 	name = "mining medic console"
 	desc = "A stationary computer. This one comes preloaded with programs to monitor the lavaland mining opperation."
-	starting_files = list(	new /datum/computer_file/program/secureye/mining,
+	starting_files = list(	new /datum/computer_file/program/secureye,
 							new /datum/computer_file/program/crew_monitor)
-	initial_program = /datum/computer_file/program/secureye/mining
+	initial_program = /datum/computer_file/program/secureye
 
 // ===== COMMAND CONSOLE =====
 /obj/machinery/modular_computer/console/preset/command
@@ -127,7 +127,7 @@
 							new /datum/computer_file/program/bounty_board,
 							new /datum/computer_file/program/cargo_bounties,
 							new /datum/computer_file/program/budgetorders,
-							new /datum/computer_file/program/secureye/mining)
+							new /datum/computer_file/program/secureye)
 
 // ===== HoS =====
 /obj/machinery/modular_computer/console/preset/command/hos

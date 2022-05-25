@@ -53,6 +53,7 @@
 							new /datum/computer_file/program/chatclient)
 
 /obj/item/modular_computer/phone/preset/advanced/command/captain
+	desc = "A high-end tablet often seen among command staff. This one seems to be outfitted for the captain."
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
 								/obj/item/stock_parts/cell/computer,
 								/obj/item/computer_hardware/hard_drive/small,
@@ -61,7 +62,8 @@
 								/obj/item/computer_hardware/card_slot/secondary,
 								/obj/item/computer_hardware/sensorpackage)
 
-/obj/item/modular_computer/phone/preset/advanced/command/personel
+/obj/item/modular_computer/phone/preset/advanced/command/hop
+	desc = "A high-end tablet often seen among command staff. This one seems to be outfitted for the head of personel."
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
 								/obj/item/stock_parts/cell/computer,
 								/obj/item/computer_hardware/hard_drive/small,
@@ -70,7 +72,8 @@
 								/obj/item/computer_hardware/card_slot/secondary,
 								/obj/item/computer_hardware/sensorpackage)
 
-/obj/item/modular_computer/phone/preset/advanced/command/security
+/obj/item/modular_computer/phone/preset/advanced/command/hos
+	desc = "A high-end tablet often seen among command staff. This one seems to be outfitted for the head of security."
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
 								/obj/item/stock_parts/cell/computer,
 								/obj/item/computer_hardware/hard_drive/small,
@@ -79,7 +82,8 @@
 								/obj/item/computer_hardware/card_slot/secondary,
 								/obj/item/computer_hardware/sensorpackage)
 
-/obj/item/modular_computer/phone/preset/advanced/command/medical
+/obj/item/modular_computer/phone/preset/advanced/command/ce
+	desc = "A high-end tablet often seen among command staff. This one seems to be outfitted for the chief engineer."
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
 								/obj/item/stock_parts/cell/computer,
 								/obj/item/computer_hardware/hard_drive/small,
@@ -88,7 +92,8 @@
 								/obj/item/computer_hardware/card_slot/secondary,
 								/obj/item/computer_hardware/sensorpackage)
 
-/obj/item/modular_computer/phone/preset/advanced/command/science
+/obj/item/modular_computer/phone/preset/advanced/command/cmo
+	desc = "A high-end tablet often seen among command staff. This one seems to be outfitted for the chief medical officer."
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
 								/obj/item/stock_parts/cell/computer,
 								/obj/item/computer_hardware/hard_drive/small,
@@ -97,7 +102,8 @@
 								/obj/item/computer_hardware/card_slot/secondary,
 								/obj/item/computer_hardware/sensorpackage)
 
-/obj/item/modular_computer/phone/preset/advanced/command/engineering
+/obj/item/modular_computer/phone/preset/advanced/command/rd
+	desc = "A high-end tablet often seen among command staff. This one seems to be outfitted for the research director."
 	starting_components = list( /obj/item/computer_hardware/processor_unit/small,
 								/obj/item/stock_parts/cell/computer,
 								/obj/item/computer_hardware/hard_drive/small,

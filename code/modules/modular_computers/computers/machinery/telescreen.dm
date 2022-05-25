@@ -17,7 +17,7 @@
 	variants = list("red","blue","brown","green","black","orange","white")
 	donor_variants = list("crimson","rainbow")
 
-/obj/machinery/computer/security/telescreen/entertainment/Initialize()
+/obj/machinery/modular_computer/telescreen/Initialize()
 	. = ..()
 	RegisterSignal(src, COMSIG_CLICK, .proc/BigClick)
 

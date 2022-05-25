@@ -411,7 +411,7 @@
 	mask = /obj/item/clothing/mask/gas/syndicate
 	belt = /obj/item/storage/belt/utility/chief/admin/full
 	gloves = /obj/item/clothing/gloves/combat
-	id = /obj/item/card/id/ert/debug
+	id = /obj/item/modular_computer/tablet/admin
 	glasses = /obj/item/clothing/glasses/meson/night
 	ears = /obj/item/radio/headset/headset_cent/commander
 	back = /obj/item/storage/backpack/holding
@@ -429,3 +429,15 @@
 		/obj/item/dnainjector/hulkmut=1,\
 		/obj/item/storage/box/materials=1,\
 		/obj/item/modular_computer/tablet/preset/syndicate=1)
+
+/datum/outfit/debug/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(visualsOnly)
+		return
+
+	var/obj/item/modular_computer/tablet/mpc = id
+	var/obj/item/card/id/W = new /obj/item/card/id/ert/debug()
+	W.assignment = "Debug Operative"
+	W.originalassignment = "Death Commando"
+	W.registered_name = H.name
+	W.update_label(W.registered_name, W.assignment)
+	mpc.InsertID(W)

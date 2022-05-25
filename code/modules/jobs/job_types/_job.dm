@@ -318,14 +318,10 @@
 
 	var/device_path = device_types[H.device]
 	var/obj/item/device = new device_path()
-
-	if(!(H.equip_to_slot_if_possible(device, ITEM_SLOT_BELT, FALSE, TRUE) || \
-		H.equip_to_slot_if_possible(device, SLOT_L_STORE, FALSE, TRUE) || \
-		H.equip_to_slot_if_possible(device, SLOT_R_STORE, FALSE, TRUE) || \
-		H.equip_to_slot_if_possible(device, SLOT_S_STORE, FALSE, TRUE) || \
-		H.equip_to_slot_if_possible(device, SLOT_IN_BACKPACK, FALSE, TRUE) || \
-		H.equip_to_slot_if_possible(device, SLOT_HANDS, FALSE, TRUE)))
-		CRASH("Failed to equip [device] to [H]")
+	if(H.id_in_pda)
+		device.InsertID(C)
+	else // just in case you hate change
+		H.equip_to_slot_if_possible(C, SLOT_WEAR_ID)
 
 	if(device && device.is_modular_computer())
 		var/obj/item/modular_computer/modular_device = device
@@ -333,6 +329,15 @@
 		modular_device.overlay_skin = ((!H.device_color == "Default" || (H.device_interface in modular_device.available_overlay_skins)) ? H.device_interface : null)
 		modular_device.department_stripe = ((H.device_stripe && modular_device.has_department_stripes && department_stripe) ? department_stripe : null)
 		modular_device.update_icon()
+
+	if(!(H.equip_to_slot_if_possible(device, SLOT_WEAR_ID) || \
+		H.equip_to_slot_if_possible(device, ITEM_SLOT_BELT, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_L_STORE, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_R_STORE, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_S_STORE, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_IN_BACKPACK, FALSE, TRUE) || \
+		H.equip_to_slot_if_possible(device, SLOT_HANDS, FALSE, TRUE)))
+		CRASH("Failed to equip [device] to [H]")
 
 /*
 	var/obj/item/pda/PDA = new pda_type()
