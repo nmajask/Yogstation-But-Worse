@@ -31,6 +31,7 @@
 	overlay_skin = machinery_computer.overlay_skin
 	hardware_flag = machinery_computer.hardware_flag
 	max_hardware_size = machinery_computer.max_hardware_size
+	max_bays = machinery_computer.max_bays
 	steel_sheet_cost = machinery_computer.steel_sheet_cost
 	obj_integrity = machinery_computer.obj_integrity
 	max_integrity = machinery_computer.max_integrity

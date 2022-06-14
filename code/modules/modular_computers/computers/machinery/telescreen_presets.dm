@@ -18,6 +18,13 @@
 							new /datum/computer_file/program/supermatter_monitor)
 	initial_program = /datum/computer_file/program/alarm_monitor
 
+/obj/machinery/modular_computer/telescreen/preset/engineering/camera
+	starting_files = list(	new /datum/computer_file/program/alarm_monitor,
+							new /datum/computer_file/program/supermatter_monitor,
+							new /datum/computer_file/program/secureye,
+							new /datum/computer_file/module/secureye/engineering)
+	initial_program = /datum/computer_file/program/alarm_monitor
+
 // ===== MEDICAL TELESCREEN =====
 /obj/machinery/modular_computer/telescreen/preset/medical
 	finish_color = "white"
@@ -36,6 +43,14 @@
 							new /datum/computer_file/program/budgetorders)
 	initial_program = /datum/computer_file/program/budgetorders
 
+/obj/machinery/modular_computer/telescreen/preset/supply/qm
+	starting_files = list(	new /datum/computer_file/program/bounty_board,
+							new /datum/computer_file/program/cargo_bounties,
+							new /datum/computer_file/program/secureye,
+							new /datum/computer_file/module/secureye/mining,
+							new /datum/computer_file/module/secureye/vault)
+	initial_program = /datum/computer_file/program/secureye
+
 // ===== CIVILIAN TELESCREEN =====
 /obj/machinery/modular_computer/telescreen/preset/civilian
 	finish_color = "black"
@@ -43,6 +58,21 @@
 
 	starting_files = list(	new /datum/computer_file/program/portrait_printer)
 	initial_program = /datum/computer_file/program/portrait_printer
+
+// ===== CAMERA TELESCREENS =====
+/obj/machinery/modular_computer/telescreen/preset/camera
+	starting_files = list(	new /datum/computer_file/program/secureye)
+	initial_program = /datum/computer_file/program/secureye
+	
+/obj/machinery/modular_computer/telescreen/preset/camera/medical
+	starting_files = list(	new /datum/computer_file/program/secureye,
+							new /datum/computer_file/module/secureye/medical)
+	initial_program = /datum/computer_file/program/secureye
+	
+/obj/machinery/modular_computer/telescreen/preset/command/security
+	starting_files = list(	new /datum/computer_file/program/secureye,
+							new /datum/computer_file/module/secureye/general)
+	initial_program = /datum/computer_file/program/secureye
 
 ////////////////
 // Wallframes //

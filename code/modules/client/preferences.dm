@@ -2172,7 +2172,6 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.device_color = all_colors?[device_color]
 	var/list/all_interfaces = available_interfaces + donor_interfaces
 	character.device_interface = all_interfaces?[device_interface]
-	message_admins(character.device_interface)
 	character.device_stripe = device_stripe
 
 	character.backbag = backbag

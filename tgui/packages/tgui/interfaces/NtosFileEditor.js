@@ -8,7 +8,7 @@ export const NtosFileEditor = (props, context) => {
   return (
     <NtosWindow resizable theme={PC_device_theme}>
       <NtosWindow.Content>
-        <NtosLogViewerContent />
+        <NtosFileEditorContent />
       </NtosWindow.Content>
     </NtosWindow>
   );
@@ -66,21 +66,23 @@ export const NtosFileEditorContent = (props, context) => {
           </NtosWindow.Content>
         </Section>
       </Flex.Item>
-      <Flex.Item>
-        <Section
-          backgroundColor="black"
-          height={32}>
-          <NtosWindow.Content scrollable mt={0}>
-            {Log.map(logentry => (
-              <Box
-                mb={1}
-                key={logentry}>
-                <font color="green">{logentry}</font>
-              </Box>
-            ))}
-          </NtosWindow.Content>
-        </Section>
-      </Flex.Item>
+      {!!Log && (
+        <Flex.Item>
+          <Section
+            backgroundColor="black"
+            height={32}>
+            <NtosWindow.Content scrollable mt={0}>
+              {Log.map(logentry => (
+                <Box
+                  mb={1}
+                  key={logentry}>
+                  <font color="green">{logentry}</font>
+                </Box>
+              ))}
+            </NtosWindow.Content>
+          </Section>
+        </Flex.Item>
+      )}
     </Flex>
   );
 };

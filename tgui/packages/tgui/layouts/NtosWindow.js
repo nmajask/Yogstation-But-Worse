@@ -6,7 +6,7 @@
 
 import { resolveAsset } from '../assets';
 import { useBackend } from '../backend';
-import { Box, Button, Modal, Icon } from '../components';
+import { Box, Button, Modal, Icon, Flex } from '../components';
 import { Window } from './Window';
 
 export const NtosWindow = (props, context) => {
@@ -65,7 +65,6 @@ const NtosWindowHeader = (props, context) => {
     PC_stationtime,
     PC_programheaders = [],
     PC_showexitprogram,
-    Prg_Error,
   } = data;
   return (
     <Fragment>
@@ -77,11 +76,12 @@ const NtosWindowHeader = (props, context) => {
             <Box inline italic mr={2} opacity={0.33}>
               {PC_device_theme === 'ntos' && 'NtOS'}
               {PC_device_theme === 'syndicate' && 'Syndix'}
+              {PC_device_theme === 'abductor' && 'Abductorware'}
             </Box>
           </div>
           <div className="NtosHeader__right">
             {PC_programheaders.map(header => (
-              <Box key={header.icon} inline mr={1}>
+              <Box key={header.icon} inline mr={1} tooltip={header.tooltip} tooltipPosition="bottom">
                 <img
                   className="NtosHeader__icon"
                   src={resolveAsset(header.icon)} />
@@ -165,6 +165,40 @@ const NtosWindowError = (props, context) => {
     <Fragment>
       <div className="NtosWindow__content" align="center">
         <Modal>
+          <Flex textAlign="center">
+            <Flex.Item>
+              <Button
+                width="52px"
+                lineHeight="22px"
+                color="transparent"
+                icon="window-minimize-o"
+                tooltip="Minimize"
+                tooltipPosition="bottom"
+                onClick={() => act('PC_minimize')} />
+            </Flex.Item>
+            <Flex.Item>
+              <Button
+                mr="-3px"
+                width="52px"
+                lineHeight="22px"
+                color="transparent"
+                icon="window-close-o"
+                tooltip="Close"
+                tooltipPosition="bottom-left"
+                onClick={() => act('PC_exit')} />
+            </Flex.Item>
+            <Flex.Item>
+              <Button
+                mr="-3px"
+                width="52px"
+                lineHeight="22px"
+                color="transparent"
+                icon="power-off"
+                tooltip="Power off"
+                tooltipPosition="bottom-left"
+                onClick={() => act('PC_shutdown')} />
+            </Flex.Item>
+          </Flex>
           <Icon name={Prg_ErrorIcon ? Prg_ErrorIcon : "exclamation-triangle"}
             verticalAlign="middle"
             size="6"/>

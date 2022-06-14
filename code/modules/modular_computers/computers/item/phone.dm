@@ -1,7 +1,7 @@
 /obj/item/modular_computer/phone  //Yes, I know the other comment said that the tablet is meant to be like a large phone, please ignore that
 	name = "phone computer"
 	icon = 'icons/obj/modular_phone.dmi'
-	icon_state = "phone-red"
+	icon_state = "phone"
 	icon_state_unpowered = "phone"
 	icon_state_powered = "phone"
 	icon_state_menu = "menu"

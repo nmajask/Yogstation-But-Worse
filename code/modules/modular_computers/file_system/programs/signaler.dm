@@ -2,18 +2,21 @@
 	filename = "signaler"
 	filedesc = "SignalCommander"
 	category = PROGRAM_CATEGORY_MISC
-	program_icon_state = "signal"
+	program_icon_state = "signaler"
 	extended_desc = "A small built-in frequency app that sends out signaller signals with the appropriate hardware."
 	size = 2
 	tgui_id = "NtosSignaler"
 	file_icon = "satellite-dish"
-	usage_flags = PROGRAM_TABLET | PROGRAM_LAPTOP
 	///What is the saved signal frequency?
 	var/signal_frequency = FREQ_SIGNALER
 	/// What is the saved signal code?
 	var/signal_code = DEFAULT_SIGNALER_CODE
 	/// Radio connection datum used by signalers.
 	var/datum/radio_frequency/radio_connection
+	/// List of possable colors for the program.
+	var/static/list/label_colors = list("green", "blue", "red", "cyan", "yellow")
+	/// Current selected color.
+	var/label_color = "green"
 
 /datum/computer_file/program/signaler/run_program(mob/living/user)
 	. = ..()
@@ -34,6 +37,7 @@
 	data["code"] = signal_code
 	data["minFrequency"] = MIN_FREE_FREQ
 	data["maxFrequency"] = MAX_FREE_FREQ
+	data["color"] = label_color
 	return data
 
 /datum/computer_file/program/signaler/ui_act(action, list/params)
@@ -63,20 +67,20 @@
 			else
 				signal_code = initial(signal_code)
 			. = TRUE
+		if("color")
+			var/idx = label_colors.Find(label_color)
+			if(idx == label_colors.len || idx == 0)
+				idx = 1
+			else
+				idx++
+			label_color = label_colors[idx]
+			program_icon_state = "[initial(program_icon_state)]_[label_color]"
+			computer?.update_icon()
 
 /datum/computer_file/program/signaler/proc/signal()
 	if(!radio_connection)
 		return
-
-	var/time = time2text(world.realtime,"hh:mm:ss")
-	var/turf/T = get_turf(src)
-
-	var/logging_data
-	if(usr)
-		logging_data = "[time] <B>:</B> [usr.key] used [src] @ location ([T.x],[T.y],[T.z]) <B>:</B> [format_frequency(signal_frequency)]/[signal_code]"
-		GLOB.lastsignalers.Add(logging_data)
-
-	var/datum/signal/signal = new(list("code" = signal_code), logging_data = logging_data)
+	var/datum/signal/signal = new(list("code" = signal_code))
 	radio_connection.post_signal(src, signal)
 
 /datum/computer_file/program/signaler/proc/set_frequency(new_frequency)

@@ -6,8 +6,10 @@
 
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 5
-	var/hardware_flag = 0								// A flag that describes this device type
-	var/last_power_usage = 0							// Power usage during last tick
+	/// A flag that describes this device type
+	var/hardware_flag = 0								
+	/// Power usage during last tick
+	var/last_power_usage = 0							
 
 	// Modular computers can run on various devices. Each DEVICE (Laptop, Console, Tablet,..)
 	// must have it's own DMI file. Icon states must be called exactly the same in all files, but may look differently
@@ -15,15 +17,26 @@
 
 	icon = null
 	icon_state = null
-	var/icon_state_unpowered = null						// Icon state when the computer is turned off.
-	var/icon_state_powered = null						// Icon state when the computer is turned on.
-	var/screen_icon_state_menu = "menu"					// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
-	var/screen_icon_screensaver = "standby"				// Icon state overlay when the computer is powered, but not 'switched on'.
-	var/max_hardware_size = 0							// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
-	var/steel_sheet_cost = 10							// Amount of steel sheets refunded when disassembling an empty frame of this computer.
-	var/light_strength = 0								// Light luminosity when turned on
-	var/base_active_power_usage = 100					// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
-	var/base_idle_power_usage = 10						// Power usage when the computer is idle and screen is off (currently only applies to laptops)
+	/// Icon state when the computer is turned off.
+	var/icon_state_unpowered = null						
+	/// Icon state when the computer is turned on.
+	var/icon_state_powered = null						
+	/// Icon state overlay when the computer is turned on, but no program is loaded that would override the screen.
+	var/screen_icon_state_menu = "menu"					
+	/// Icon state overlay when the computer is powered, but not 'switched on'.
+	var/screen_icon_screensaver = "standby"				
+	/// Maximal hardware size. Currently, tablets have 1, laptops 2 and consoles 3. Limits what hardware types can be installed.
+	var/max_hardware_size = 0							
+	/// Amount of steel sheets refunded when disassembling an empty frame of this computer.
+	var/steel_sheet_cost = 10							
+	/// Light luminosity when turned on
+	var/light_strength = 0								
+	/// Power usage when the computer is open (screen is active) and can be interacted with. Remember hardware can use power too.
+	var/base_active_power_usage = 100					
+	/// Power usage when the computer is idle and screen is off (currently only applies to laptops)
+	var/base_idle_power_usage = 10						
+	/// Number of total expansion bays this computer has available.
+	var/max_bays = 0
 	
 	// Presets
 	var/list/starting_components = list()
@@ -31,20 +44,27 @@
 	var/datum/computer_file/program/initial_program
 	
 	// Skins
-	var/finish_color = null									// What icon should be used for the device.
-	var/overlay_skin = null									// What set of icons should be used for program overlays.
-	var/department_stripe = null							// What icon should be used for the department stripe.
-	var/list/variants = null								// What finish colors are available.
-	var/list/donor_variants = null							// What finish colors are available to donors only.
-	var/has_department_stripes = FALSE						// If this device has department stripes.
-	var/list/available_overlay_skins = list()				// What overlay skins are available, don't include the default skin.
+	/// What icon should be used for the device.
+	var/finish_color = null
+	/// What set of icons should be used for program overlays.
+	var/overlay_skin = null
+	/// What icon should be used for the department stripe.
+	var/department_stripe = null
+	/// What finish colors are available.
+	var/list/variants = null
+	/// What finish colors are available to donors only.
+	var/list/donor_variants = null
+	/// If this device has department stripes.
+	var/has_department_stripes = FALSE
+	/// What overlay skins are available, don't include the default skin.
+	var/list/available_overlay_skins = list()
 
 	// Interaction Sounds
 	var/sound/startup_sound = 'sound/machines/computers/computer_start.ogg'
 	var/sound/shutdown_sound = 'sound/machines/computers/computer_end.ogg'
 	var/list/interact_sounds = list('sound/machines/computers/keypress1.ogg', 'sound/machines/computers/keypress2.ogg', 'sound/machines/computers/keypress3.ogg', 'sound/machines/computers/keypress4.ogg', 'sound/machines/computers/keystroke1.ogg', 'sound/machines/computers/keystroke2.ogg', 'sound/machines/computers/keystroke3.ogg', 'sound/machines/computers/keystroke4.ogg')
-
-	var/obj/item/modular_computer/processor/cpu = null				// CPU that handles most logic while this type only handles power and other specific things.
+	/// CPU that handles most logic while this type only handles power and other specific things.
+	var/obj/item/modular_computer/processor/cpu = null
 
 /obj/machinery/modular_computer/Initialize()
 	. = ..()
@@ -94,7 +114,7 @@
 		cpu.name = name
 		cpu.process()
 
-// Used in following function to reduce copypaste
+/// Used in following function to reduce copypaste
 /obj/machinery/modular_computer/proc/power_failure(malfunction = 0)
 	var/obj/item/computer_hardware/battery/battery_module = cpu.all_components[MC_CELL]
 	if(cpu && cpu.enabled) // Shut down the computer

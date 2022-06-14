@@ -133,6 +133,6 @@
 	var/datum/computer_file/choice = input(user, "Pick File To Add:", "Debug File Download", file_list) as null|anything in file_list
 	if(ispath(choice))
 		var/datum/computer_file/new_file = store_file(new choice())
-		to_chat(span_notice(istype(new_file) ? "Successfuly downloaded [new_file]" : "Failed to download [choice]"))
+		to_chat(span_notice("[istype(new_file) ? "Successfuly downloaded [new_file]" : "Failed to download [choice]"]"))
 
 	

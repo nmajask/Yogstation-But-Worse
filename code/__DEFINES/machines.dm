@@ -89,7 +89,7 @@
 #define PROGRAM_CATEGORY_SCI	"Science"
 #define PROGRAM_CATEGORY_SUPL	"Supply"
 #define PROGRAM_CATEGORY_MISC	"Other"
-//MPC themes
+//MPC themes  If you plan on adding to/changing these, please also update tgui/packages/tgui/layouts/NtosWindow.js
 #define MPCTHEME_NTOS			"ntos"
 #define MPCTHEME_SYNDIX			"syndicate"
 #define MPCTHEME_ABDUCTORWARE	"abductor"

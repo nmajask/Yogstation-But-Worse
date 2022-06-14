@@ -66,6 +66,7 @@
 		return FALSE
 
 	ui_header = "downloader_running.gif"
+	ui_header_tooltip = "[file.filedesc] - 0QB/[file.size]QB"
 
 	if(file in main_repo)
 		generate_network_log("Began downloading file [file.filename].[file.filetype] from NTNet Software Repository.")
@@ -83,6 +84,7 @@
 	if(!downloaded_file)
 		return
 	generate_network_log("Aborted download of file [hacked_download ? "**ENCRYPTED**" : "[downloaded_file.filename].[downloaded_file.filetype]"].")
+	ui_header_tooltip = "[downloaded_file.filedesc] - Aborted"
 	downloaded_file = null
 	download_completion = 0
 	ui_header = "downloader_finished.gif"
@@ -96,6 +98,7 @@
 		// The download failed
 		downloaderror = "I/O ERROR - Unable to save file. Check whether you have enough free space on your hard drive and whether your hard drive is properly connected. If the issue persists contact your system administrator for assistance."
 	computer.play_ping()
+	ui_header_tooltip = "[downloaded_file.filedesc] - Completed"
 	downloaded_file = null
 	download_completion = 0
 	ui_header = "downloader_finished.gif"
@@ -116,6 +119,7 @@
 		if(3)
 			download_netspeed = NTNETSPEED_ETHERNET
 	download_completion += download_netspeed
+	ui_header_tooltip = "[downloaded_file.filedesc] - [download_completion]QB/[downloaded_file.size]QB"
 
 /datum/computer_file/program/ntnetdownload/ui_act(action, params)
 	if(..())

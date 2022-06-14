@@ -26,6 +26,8 @@
 	var/tgui_id
 	/// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /icons/program_icons. Be careful not to use too large images!
 	var/ui_header = null
+	/// Text that appears when hovering over the header.
+	var/ui_header_tooltip = null
 	/// Whether this program can send alerts while minimized or closed. Used to show a mute button per program in the file manager
 	var/alert_able = FALSE
 	/// Whether the user has muted this program's ability to send alerts.
@@ -52,12 +54,12 @@
 	temp.usage_flags = usage_flags
 	return temp
 
-// Relays icon update to the computer.
+/// Relays icon update to the computer.
 /datum/computer_file/program/proc/update_computer_icon()
 	if(computer)
 		computer.update_icon()
 
-// Attempts to create a log in global ntnet datum. Returns 1 on success, 0 on fail.
+/// Attempts to create a log in global ntnet datum. Returns 1 on success, 0 on fail.
 /datum/computer_file/program/proc/generate_network_log(text)
 	if(computer)
 		return computer.add_log(text)
@@ -90,7 +92,7 @@
 		return computer.get_ntnet_status(specific_action)
 	return FALSE
 
-// Called by Process() on device that runs us, once every tick.
+/// Called by Process() on device that runs us, once every tick.
 /datum/computer_file/program/proc/process_tick()
 	return TRUE
 
@@ -143,8 +145,8 @@
 		to_chat(user, "<span class='danger'>\The [computer] flashes an \"Access Denied\" warning.</span>")
 	return FALSE
 
-// This attempts to retrieve header data for UIs. If implementing completely new device of different type than existing ones
-// always include the device here in this proc. This proc basically relays the request to whatever is running the program.
+/// This attempts to retrieve header data for UIs. If implementing completely new device of different type than existing ones
+/// always include the device here in this proc. This proc basically relays the request to whatever is running the program.
 /datum/computer_file/program/proc/get_header_data()
 	var/data = list()
 	data["Prg_Error"] = FALSE
@@ -158,8 +160,8 @@
 		data["Prg_ErrorIcon"] = "wifi"
 	return data
 
-// This is performed on program startup. May be overridden to add extra logic. Remember to include ..() call. Return 1 on success, 0 on failure.
-// When implementing new program based device, use this to run the program.
+/// This is performed on program startup. May be overridden to add extra logic. Remember to include ..() call. Return 1 on success, 0 on failure.
+/// When implementing new program based device, use this to run the program.
 /datum/computer_file/program/proc/run_program(mob/living/user)
 	if(can_run(user, 1))
 		if(requires_ntnet && network_destination)
@@ -182,7 +184,7 @@
 /datum/computer_file/program/proc/run_emag()
 	return FALSE
 
-// Use this proc to kill the program. Designed to be implemented by each program if it requires on-quit logic, such as the NTNRC client.
+/// Use this proc to kill the program. Designed to be implemented by each program if it requires on-quit logic, such as the NTNRC client.
 /datum/computer_file/program/proc/kill_program(forced = FALSE)
 	program_state = PROGRAM_STATE_KILLED
 	if(network_destination)
@@ -200,6 +202,7 @@
 		ui = new(user, src, tgui_id, filedesc)
 		if(ui.open())
 			ui.send_asset(get_asset_datum(/datum/asset/simple/headers))
+
 // CONVENTIONS, READ THIS WHEN CREATING NEW PROGRAM AND OVERRIDING THIS PROC:
 // Topic calls are automagically forwarded from NanoModule this program contains.
 // Calls beginning with "PRG_" are reserved for programs handling.

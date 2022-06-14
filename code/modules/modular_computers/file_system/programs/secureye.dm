@@ -165,12 +165,12 @@
 
 // Returns the list of cameras accessible from this computer
 /datum/computer_file/program/secureye/proc/get_available_cameras()
-	var/list/new_network = initial(network)
+	var/list/new_network = list()
 	var/list/all_files = computer.get_all_files()
 	for(var/datum/computer_file/module/secureye/module in all_files)
 		for(var/mod_network in module.unlocked_networks)
 			if(!(mod_network in new_network))
-				new_network += mod_network
+				new_network |= mod_network
 	network = new_network
 	var/list/L = list()
 	for (var/obj/machinery/camera/cam in GLOB.cameranet.cameras)
@@ -202,40 +202,58 @@
 	filename = "secwatch"
 	filedesc = "Secureye SecWatch Package"
 	extended_desc = "This program package contains access codes to the station's camera network, allowing you to access them using Secureye."
+	available_on_ntnet = TRUE
+	file_icon = "eye"
 	size = 5
 	unlocked_networks = list("ss13")
+	transfer_access = ACCESS_SECURITY
 
 /datum/computer_file/module/secureye/medical
 	filename = "medwatch"
 	filedesc = "Secureye MedWatch Package"
-	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	extended_desc = "This program package contains access codes to the medbay camera network, allowing you to access them using Secureye."
+	available_on_ntnet = TRUE
+	file_icon = "eye"
 	size = 2
 	unlocked_networks = list("medbay")
+	transfer_access = ACCESS_CMO
 
 /datum/computer_file/module/secureye/engineering
 	filename = "engiwatch"
 	filedesc = "Secureye EngiWatch Package"
-	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	extended_desc = "This program package contains access codes to the engineering camera network, allowing you to access them using Secureye."
+	available_on_ntnet = TRUE
+	file_icon = "eye"
 	size = 2
 	unlocked_networks = list("engine")
+	transfer_access = ACCESS_CE
 
 /datum/computer_file/module/secureye/vault
 	filename = "vaulteye"
 	filedesc = "Secureye VaultEye Package"
-	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	extended_desc = "This program package contains access codes to the vault camera network, allowing you to access them using Secureye."
+	available_on_ntnet = TRUE
+	file_icon = "eye"
 	size = 2
 	unlocked_networks = list("vault")
+	transfer_access = ACCESS_VAULT
 
 /datum/computer_file/module/secureye/mining
 	filename = "overwatch"
 	filedesc = "Secureye OverWatch Package"
 	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	available_on_ntnet = TRUE
+	file_icon = "eye"
 	size = 2
 	unlocked_networks = list("mine", "auxbase")
+	transfer_access = ACCESS_MINING
 
 /datum/computer_file/module/secureye/laborcamp
 	filename = "overseer"
 	filedesc = "Secureye OverSeer Package"
-	extended_desc = "This program package contains access codes to the mining base camera network, allowing you to access them using Secureye."
+	extended_desc = "This program package contains access codes to the labor camp camera network, allowing you to access them using Secureye."
+	available_on_ntnet = TRUE
+	file_icon = "eye"
 	size = 2
 	unlocked_networks = list("mine", "auxbase")
+	transfer_access = ACCESS_ARMORY

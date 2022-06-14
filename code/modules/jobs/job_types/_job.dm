@@ -328,7 +328,6 @@
 		modular_device.finish_color = ((!H.device_color == "random" || (H.device_color in modular_device.variants) || (H.device_color in modular_device.donor_variants)) ? H.device_color : null)
 		modular_device.overlay_skin = ((!H.device_color == "Default" || (H.device_interface in modular_device.available_overlay_skins)) ? H.device_interface : null)
 		modular_device.department_stripe = ((H.device_stripe && modular_device.has_department_stripes && department_stripe) ? department_stripe : null)
-		modular_device.update_icon()
 
 	if(!(H.equip_to_slot_if_possible(device, SLOT_WEAR_ID) || \
 		H.equip_to_slot_if_possible(device, ITEM_SLOT_BELT, FALSE, TRUE) || \
@@ -338,6 +337,8 @@
 		H.equip_to_slot_if_possible(device, SLOT_IN_BACKPACK, FALSE, TRUE) || \
 		H.equip_to_slot_if_possible(device, SLOT_HANDS, FALSE, TRUE)))
 		CRASH("Failed to equip [device] to [H]")
+	
+	device.update_icon()
 
 /*
 	var/obj/item/pda/PDA = new pda_type()

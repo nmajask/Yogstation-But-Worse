@@ -34,7 +34,6 @@
 
 	ui = SStgui.try_update_ui(user, src, ui)
 	if (!ui)
-		var/headername
 		switch(device_theme)
 			if(MPCTHEME_NTOS)
 				headername = "NtOS Main Menu"
@@ -50,12 +49,7 @@
 /obj/item/modular_computer/ui_data(mob/user)
 	var/list/data = get_header_data()
 	data["device_theme"] = device_theme
-	data["title"] = "NtOS Main Menu"
-	switch(device_theme)
-		if(MPCTHEME_SYNDIX)
-			data["title"] = "Syndix Main Menu"
-		if(MPCTHEME_ABDUCTORWARE)
-			data["title"] = "Abductorware Main Menu"
+	data["title"] = headername
 	data["login"] = list()
 	var/obj/item/computer_hardware/card_slot/cardholder = all_components[MC_CARD]
 	data["cardholder"] = FALSE
@@ -119,7 +113,7 @@
 			if(!active_program || !all_components[MC_CPU])
 				return
 			
-			play_interact_sound()
+			//play_interact_sound()
 			idle_threads.Add(active_program)
 			active_program.program_state = PROGRAM_STATE_BACKGROUND // Should close any existing UIs
 

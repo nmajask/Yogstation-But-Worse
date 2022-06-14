@@ -3,11 +3,10 @@
 	name = "personal computer"
 	desc = "A bulky computer designed for personal use."
 
-	icon = 'icons/obj/modular_laptop.dmi'
-	icon_state = "laptop-closed"
-	icon_state_powered = "laptop"
-	icon_state_unpowered = "laptop-off"
-	icon_state_menu = "menu"
+	icon = 'icons/obj/modular_computer.dmi'
+	icon_state = "computer"
+	icon_state_powered = "computer"
+	icon_state_unpowered = "computer"
 
 	hardware_flag = PROGRAM_LAPTOP
 	max_hardware_size = WEIGHT_CLASS_NORMAL
