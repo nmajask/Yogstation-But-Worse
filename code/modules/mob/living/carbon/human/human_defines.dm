@@ -29,11 +29,14 @@
 	var/lip_color = "white"
 
 	var/age = 30
-
-	var/device = null	// What device the player wants
-	var/device_color = null	// What device color the player wants
-	var/device_interface = null	// What device interface icons the player wants
-	var/device_stripe = TRUE	// If the player wants department details on their device
+	/// What device the player wants
+	var/device = DEVICE_NONE
+	/// What device color the player wants	
+	var/device_color = null	
+	/// What device interface icons the player wants
+	var/device_interface = null	
+	/// If the player wants department details on their device
+	var/device_stripe = TRUE	
 
 	var/underwear = "Nude"	//Which underwear the player wants
 	var/undershirt = "Nude" //Which undershirt the player wants

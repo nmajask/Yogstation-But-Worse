@@ -165,8 +165,13 @@ const NtosWindowError = (props, context) => {
     <Fragment>
       <div className="NtosWindow__content" align="center">
         <Modal>
-          <Flex textAlign="center">
-            <Flex.Item>
+          <Icon name={Prg_ErrorIcon ? Prg_ErrorIcon : "exclamation-triangle"}
+            verticalAlign="middle"
+            size="6"/>
+          <Box fontSize="16px" bold>{Prg_ErrorName ? Prg_ErrorName : "UNKNOWN ERROR"}</Box>
+          <Box fontSize="10px">{Prg_ErrorDesc ? Prg_ErrorDesc : "An unknown error has occered, If problem persists contact your system administrator."}</Box>
+          <Flex align="center">
+            <Flex.Item >
               <Button
                 width="52px"
                 lineHeight="22px"
@@ -199,11 +204,6 @@ const NtosWindowError = (props, context) => {
                 onClick={() => act('PC_shutdown')} />
             </Flex.Item>
           </Flex>
-          <Icon name={Prg_ErrorIcon ? Prg_ErrorIcon : "exclamation-triangle"}
-            verticalAlign="middle"
-            size="6"/>
-          <Box fontSize="16px" bold>{Prg_ErrorName ? Prg_ErrorName : "UNKNOWN ERROR"}</Box>
-          <Box fontSize="10px">{Prg_ErrorDesc ? Prg_ErrorDesc : "An unknown error has occered, If problem persists contact your system administrator."}</Box>
         </Modal>
       </div>
     </Fragment>

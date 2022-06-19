@@ -316,8 +316,10 @@
 				break
 		H.sec_hud_set_ID()
 
-	var/device_path = device_types[H.device]
-	var/obj/item/device = new device_path()
+	var/obj/item/device_path = device_types?[H.device]
+	var/obj/item/device
+	if(ispath(device_path))
+		device = new device_path()
 	if(H.id_in_pda)
 		device.InsertID(C)
 	else // just in case you hate change
