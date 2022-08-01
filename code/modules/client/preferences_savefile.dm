@@ -5,7 +5,7 @@
 //	You do not need to raise this if you are adding new values that have sane defaults.
 //	Only raise this value when changing the meaning/format/name/layout of an existing value
 //	where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX	35
+#define SAVEFILE_VERSION_MAX	37
 
 /*
 SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Carn
@@ -49,6 +49,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			be_special += "Ragin Mages"
 	if (current_version < 35)
 		toggles |= SOUND_ALT
+	if (current_version < 37)
+		chat_toggles |= CHAT_TYPING_INDICATOR
 	return
 
 /datum/preferences/proc/update_character(current_version, savefile/S)
@@ -220,7 +222,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["flare"], flare)
 	READ_FILE(S["bar_choice"], bar_choice)
 	READ_FILE(S["show_credits"], show_credits)
-
+	READ_FILE(S["alternative_announcers"] , disable_alternative_announcers)
+	
 	// yogs start - Donor features
 	READ_FILE(S["donor_pda"], donor_pda)
 	READ_FILE(S["donor_hat"], donor_hat)
@@ -230,6 +233,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["yogtoggles"], yogtoggles)
 
 	READ_FILE(S["accent"], accent) // Accents, too!
+
+	READ_FILE(S["mood_tail_wagging"], mood_tail_wagging)
 	// yogs end
 
 	//try to fix any outdated data if necessary
@@ -276,6 +281,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	map					= sanitize_integer(map, FALSE, TRUE, initial(map))
 	flare				= sanitize_integer(flare, FALSE, TRUE, initial(flare))
 	bar_choice			= sanitize_text(bar_choice, initial(bar_choice))
+	disable_alternative_announcers	= sanitize_integer(disable_alternative_announcers, FALSE, TRUE, initial(disable_alternative_announcers))
 
 	var/bar_sanitize = FALSE
 	for(var/A in GLOB.potential_box_bars)
@@ -356,6 +362,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["map"], map)
 	WRITE_FILE(S["flare"], flare)
 	WRITE_FILE(S["bar_choice"], bar_choice)
+	WRITE_FILE(S["alternative_announcers"], disable_alternative_announcers)
 
 	// yogs start - Donor features & Yogstoggle
 	WRITE_FILE(S["yogtoggles"], yogtoggles)
@@ -366,6 +373,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["purrbation"], purrbation)
 
 	WRITE_FILE(S["accent"], accent) // Accents, too!
+	
+	WRITE_FILE(S["mood_tail_wagging"], mood_tail_wagging)
 	// yogs end
 
 	save_keybindings(S) // yogs - Custom keybindings

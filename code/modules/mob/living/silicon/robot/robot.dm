@@ -13,7 +13,6 @@
 
 	var/custom_name = ""
 	var/braintype = "Cyborg"
-	var/obj/item/robot_suit/robot_suit = null ///Used for deconstruction to remember what the borg was constructed out of..
 	var/obj/item/mmi/mmi = null
 
 	var/throwcooldown = FALSE /// Used to determine cooldown for spin.
@@ -95,6 +94,9 @@
 	var/obj/item/modular_computer/tablet/integrated/modularInterface
 	var/obj/screen/robot/modPC/interfaceButton
 
+	///Flash resistance
+	var/sensor_protection = FALSE
+
 	var/list/upgrades = list()
 
 	var/expansion_count = 0
@@ -103,7 +105,7 @@
 	var/list/blacklisted_hats = list( ///Hats that don't really work on borgos
 	/obj/item/clothing/head/helmet/space/santahat,
 	/obj/item/clothing/head/welding,
-	/obj/item/clothing/head/mob_holder, ///I am so very upset that this breaks things
+	/obj/item/clothing/mob_holder, ///I am so very upset that this breaks things
 	/obj/item/clothing/head/helmet/space,
 	)
 
@@ -205,6 +207,7 @@
 			to_chat(src, span_boldannounce("Oops! Something went very wrong, your MMI was unable to receive your mind. You have been ghosted. Please make a bug report so we can fix this bug."))
 			ghostize()
 			stack_trace("Borg MMI lacked a brainmob")
+		mmi.beginReboot()
 		mmi = null
 	if(modularInterface)
 		QDEL_NULL(modularInterface)
@@ -443,7 +446,7 @@
 		if (getFireLoss() > 0 || getToxLoss() > 0)
 			if(src == user)
 				to_chat(user, span_notice("You start fixing yourself..."))
-				if(!do_after(user, 5 SECONDS, target = src))
+				if(!do_after(user, 5 SECONDS, src))
 					return
 			if (coil.use(1))
 				adjustFireLoss(-30)
@@ -508,7 +511,7 @@
 			return
 		else
 			to_chat(user, span_notice("You start to unfasten [src]'s securing bolts..."))
-			if(W.use_tool(src, user, 50, volume=50) && !cell)
+			if(W.use_tool(src, user, 5 SECONDS, volume=50) && !cell)
 				user.visible_message("[user] deconstructs [src]!", span_notice("You unfasten the securing bolts, and [src] falls to pieces!"))
 				deconstruct()
 
@@ -683,7 +686,7 @@
 		else
 			add_overlay("ov-opencover -c")
 	if(hat)
-		var/mutable_appearance/head_overlay = hat.build_worn_icon(state = hat.icon_state, default_layer = 20, default_icon_file = 'icons/mob/head.dmi')
+		var/mutable_appearance/head_overlay = hat.build_worn_icon(default_layer = 20, default_icon_file = 'icons/mob/clothing/head/head.dmi')
 		head_overlay.pixel_y += hat_offset
 		add_overlay(head_overlay)
 	update_fire()
@@ -809,29 +812,9 @@
 
 /mob/living/silicon/robot/proc/deconstruct()
 	var/turf/T = get_turf(src)
-	if (robot_suit)
-		robot_suit.forceMove(T)
-		robot_suit.l_leg.forceMove(T)
-		robot_suit.l_leg = null
-		robot_suit.r_leg.forceMove(T)
-		robot_suit.r_leg = null
-		new /obj/item/stack/cable_coil(T, robot_suit.chest.wired)
-		robot_suit.chest.forceMove(T)
-		robot_suit.chest.wired = 0
-		robot_suit.chest = null
-		robot_suit.l_arm.forceMove(T)
-		robot_suit.l_arm = null
-		robot_suit.r_arm.forceMove(T)
-		robot_suit.r_arm = null
-		robot_suit.head.forceMove(T)
-		robot_suit.head.flash1.forceMove(T)
-		robot_suit.head.flash1.burn_out()
-		robot_suit.head.flash1 = null
-		robot_suit.head.flash2.forceMove(T)
-		robot_suit.head.flash2.burn_out()
-		robot_suit.head.flash2 = null
-		robot_suit.head = null
-		robot_suit.update_icon()
+	if(istype(module, /obj/item/robot_module/janitor))
+		new /obj/vehicle/ridden/janicart(T) // Janiborg deconstructs into a janicart. So brave.
+		new /obj/item/key/janitor(T)
 	else
 		new /obj/item/robot_suit(T)
 		new /obj/item/bodypart/l_leg/robot(T)
@@ -845,9 +828,9 @@
 		for(b=0, b!=2, b++)
 			var/obj/item/assembly/flash/handheld/F = new /obj/item/assembly/flash/handheld(T)
 			F.burn_out()
-	if (cell) //Sanity check.
-		cell.forceMove(T)
-		cell = null
+		if (cell) //Sanity check.
+			cell.forceMove(T)
+			cell = null
 	qdel(src)
 
 /mob/living/silicon/robot/modules
@@ -896,6 +879,8 @@
 	lawupdate = FALSE
 	scrambledcodes = TRUE // These are rogue borgs.
 	ionpulse = TRUE
+	sensor_protection = TRUE	//Your funny lightbulb won't save you now. Prepare to die!
+
 	var/playstyle_string = "<span class='big bold'>You are a Syndicate assault cyborg!</span><br>\
 							<b>You are armed with powerful offensive tools to aid you in your mission: help the operatives secure the nuclear authentication disk. \
 							Your cyborg LMG will slowly produce ammunition from your power supply, and your operative pinpointer will find and locate fellow nuclear operatives. \
@@ -923,6 +908,7 @@
 
 /mob/living/silicon/robot/modules/syndicate/medical
 	icon_state = "synd_medical"
+	sensor_protection = FALSE	//Not a direct combat module like the assault borg (usually)
 	playstyle_string = "<span class='big bold'>You are a Syndicate medical cyborg!</span><br>\
 						<b>You are armed with powerful medical tools to aid you in your mission: help the operatives secure the nuclear authentication disk. \
 						Your hypospray will produce Restorative Nanites, a wonder-drug that will heal most types of bodily damages, including clone and brain damage. It also produces morphine for offense. \
@@ -933,6 +919,7 @@
 
 /mob/living/silicon/robot/modules/syndicate/saboteur
 	icon_state = "synd_engi"
+	sensor_protection = FALSE	//DEFINITELY not a direct combat module
 	playstyle_string = "<span class='big bold'>You are a Syndicate saboteur cyborg!</span><br>\
 						<b>You are armed with robust engineering tools to aid you in your mission: help the operatives secure the nuclear authentication disk. \
 						Your destination tagger will allow you to stealthily traverse the disposal network across the station \
@@ -1006,7 +993,12 @@
 	if(!client)
 		return
 	if(stat == DEAD)
-		sight = (SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		if(SSmapping.level_trait(z, ZTRAIT_NOXRAY))
+			sight = null
+		else if(is_secret_level(z))
+			sight = initial(sight)
+		else
+			sight = (SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		see_in_dark = 8
 		see_invisible = SEE_INVISIBLE_OBSERVER
 		return
@@ -1043,6 +1035,10 @@
 
 	if(see_override)
 		see_invisible = see_override
+
+	if(SSmapping.level_trait(z, ZTRAIT_NOXRAY))
+		sight = null
+
 	sync_lighting_plane_alpha()
 
 /mob/living/silicon/robot/update_stat()
@@ -1271,7 +1267,7 @@
 			return
 	M.visible_message(span_warning("[M] begins to [M == usr ? "climb onto" : "be buckled to"] [src]..."))
 	var/_target = usr == M ? src : M
-	if(!do_after(usr, 0.75 SECONDS, target = _target))
+	if(!do_after(usr, 0.75 SECONDS, _target))
 		M.visible_message(span_boldwarning("[M] was prevented from buckling to [src]!"))
 		return
 
@@ -1357,3 +1353,6 @@
 	var/datum/computer_file/program/robotact/program = modularInterface.get_robotact()
 	if(program)
 		program.force_full_update()
+
+/mob/living/silicon/robot/get_eye_protection() 
+	return sensor_protection

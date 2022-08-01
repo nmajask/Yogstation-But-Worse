@@ -159,7 +159,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 
 	//The component to add when swimming
 	var/swimming_component = /datum/component/swimming
-	
+
 ///////////
 // PROCS //
 ///////////
@@ -635,7 +635,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 				standing+=hair_overlay
 				//var/mutable_appearance/pod_flower = mutable_appearance(GLOB.pod_flower_list[H.dna.features["pod_flower"]].icon, GLOB.pod_flower_list[H.dna.features["pod_flower"]].icon_state, -HAIR_LAYER)
 				S = GLOB.pod_flower_list[H.dna.features["pod_flower"]]
-				if(S)					
+				if(S)
 					var/flower_state = S.icon_state
 					var/flower_file = S.icon
 					// flower_overlay.icon = flower_file
@@ -649,10 +649,10 @@ GLOBAL_LIST_EMPTY(mentor_races)
 								flower_overlay.color = "#[fixed_mut_color]"
 							else
 								flower_overlay.color = "#" + hair_color
-						else		
+						else
 							flower_overlay.color = "#" + H.facial_hair_color
 					flower_overlay.alpha = hair_alpha
-					standing += flower_overlay			
+					standing += flower_overlay
 	if(standing.len)
 		H.overlays_standing[HAIR_LAYER] = standing
 
@@ -803,7 +803,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	if("dome" in mutant_bodyparts)
 		if(!H.dna.features["dome"] || H.dna.features["dome"] == "None" || H.head && (H.head.flags_inv & HIDEHAIR) || (H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || !HD || HD.status == BODYPART_ROBOTIC)
 			bodyparts_to_add -= "dome"
-	
+
 	if("ethereal_mark" in mutant_bodyparts)
 		if((H.wear_mask && (H.wear_mask.flags_inv & HIDEEYES)) || (H.head && (H.head.flags_inv & HIDEEYES)) || !HD || HD.status == BODYPART_ROBOTIC)
 			bodyparts_to_add -= "ethereal_mark"
@@ -811,7 +811,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	if("pod_hair" in mutant_bodyparts)
 		if((H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || (H.head && (H.head.flags_inv & HIDEHAIR)) || !HD || HD.status == BODYPART_ROBOTIC)
 			bodyparts_to_add -= "pod_hair"
-	
+
 	if("pod_flower" in mutant_bodyparts)
 		if((H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || (H.head && (H.head.flags_inv & HIDEHAIR)) || !HD || HD.status == BODYPART_ROBOTIC)
 			bodyparts_to_add -= "pod_flower"
@@ -985,7 +985,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 		if(BODY_ADJ_LAYER)
 			return "ADJ"
 		if(BODY_FRONT_LAYER)
-			return "FRONT"	
+			return "FRONT"
 
 /datum/species/proc/spec_life(mob/living/carbon/human/H)
 	if(HAS_TRAIT(H, TRAIT_NOBREATH))
@@ -1201,7 +1201,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	if(!I.equip_delay_self || bypass_equip_delay_self)
 		return TRUE
 	H.visible_message(span_notice("[H] start putting on [I]..."), span_notice("You start putting on [I]..."))
-	return do_after(H, I.equip_delay_self, target = H)
+	return do_after(H, I.equip_delay_self, H)
 
 /datum/species/proc/before_equip_job(datum/job/J, mob/living/carbon/human/H)
 	return
@@ -1219,7 +1219,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 /datum/species/proc/check_species_weakness(obj/item, mob/living/attacker)
 	return 0 //This is not a boolean, it's the multiplier for the damage that the user takes from the item.It is added onto the check_weakness value of the mob, and then the force of the item is multiplied by this value
 
-////////
+	////////
 	//LIFE//
 	////////
 
@@ -1250,6 +1250,8 @@ GLOBAL_LIST_EMPTY(mentor_races)
 			hunger_rate *= max(0.5, 1 - 0.002 * mood.sanity) //0.85 to 0.75
 		if(HAS_TRAIT(H, TRAIT_EAT_LESS))
 			hunger_rate *= 0.75 //hunger rate reduced by about 25%
+		if(HAS_TRAIT(H, TRAIT_EAT_MORE))
+			hunger_rate *= 3 //hunger rate tripled
 		// Whether we cap off our satiety or move it towards 0
 		if(H.satiety > MAX_SATIETY)
 			H.satiety = MAX_SATIETY
@@ -1352,12 +1354,15 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	gravity = H.has_gravity()
 
 	if(!HAS_TRAIT(H, TRAIT_IGNORESLOWDOWN) && gravity)
+		// Clothing slowdown
 		if(H.wear_suit)
 			. += H.wear_suit.slowdown
 		if(H.shoes)
 			. += H.shoes.slowdown
 		if(H.back)
 			. += H.back.slowdown
+		if(H.head)
+			. += H.head.slowdown
 		for(var/obj/item/I in H.held_items)
 			if(I.item_flags & SLOWS_WHILE_IN_HAND)
 				. += I.slowdown
@@ -1420,7 +1425,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 			log_combat(user, target, "shaken")
 		return 1
 	else
-		var/we_breathe = !HAS_TRAIT(user, TRAIT_NOBREATH)
+		var/we_breathe = !HAS_TRAIT_FROM(user, TRAIT_NOBREATH, SPECIES_TRAIT)
 		var/we_lung = user.getorganslot(ORGAN_SLOT_LUNGS)
 
 		if(we_breathe && we_lung)
@@ -1460,23 +1465,23 @@ GLOBAL_LIST_EMPTY(mentor_races)
 		switch(atk_verb)//this code is really stupid but some genius apparently made "claw" and "slash" two attack types but also the same one so it's needed i guess
 			if(ATTACK_EFFECT_KICK)
 				user.do_attack_animation(target, ATTACK_EFFECT_KICK)
-			if(ATTACK_EFFECT_SLASH || ATTACK_EFFECT_CLAW)//smh
+			if(ATTACK_EFFECT_SLASH, ATTACK_EFFECT_CLAW)//smh
 				user.do_attack_animation(target, ATTACK_EFFECT_CLAW)
 			if(ATTACK_EFFECT_SMASH)
 				user.do_attack_animation(target, ATTACK_EFFECT_SMASH)
 			else
 				user.do_attack_animation(target, ATTACK_EFFECT_PUNCH)
 
-		var/damage = rand(user.dna.species.punchdamagelow, user.dna.species.punchdamagehigh)
+		var/damage = rand(user.get_punchdamagelow(), user.get_punchdamagehigh())
 
 		var/obj/item/bodypart/affecting = target.get_bodypart(ran_zone(user.zone_selected))
 
 		var/miss_chance = 100//calculate the odds that a punch misses entirely. considers stamina and brute damage of the puncher. punches miss by default to prevent weird cases
-		if(user.dna.species.punchdamagelow)
+		if(user.get_punchdamagelow())
 			if(atk_verb == ATTACK_EFFECT_KICK) //kicks never miss (provided your species deals more than 0 damage)
 				miss_chance = 0
 			else
-				miss_chance = min((user.dna.species.punchdamagehigh/user.dna.species.punchdamagelow) + user.getStaminaLoss() + (user.getBruteLoss()*0.5), 100) //old base chance for a miss + various damage. capped at 100 to prevent weirdness in prob()
+				miss_chance = min((user.get_punchdamagelow()/user.get_punchdamagehigh()) + user.getStaminaLoss() + (user.getBruteLoss()*0.5), 100) //old base chance for a miss + various damage. capped at 100 to prevent weirdness in prob()
 
 		if(!damage || !affecting || prob(miss_chance))//future-proofing for species that have 0 damage/weird cases where no zone is targeted
 			playsound(target.loc, user.dna.species.miss_sound, 25, 1, -1)
@@ -1485,7 +1490,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 			log_combat(user, target, "attempted to punch")
 			return FALSE
 
-		var/armor_block = target.run_armor_check(affecting, "melee")
+		var/armor_block = target.run_armor_check(affecting, MELEE)
 
 		playsound(target.loc, user.dna.species.attack_sound, 25, 1, -1)
 
@@ -1507,7 +1512,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 			target.apply_damage(damage*1.5, STAMINA, affecting, armor_block)
 			log_combat(user, target, "punched")
 
-		if((target.stat != DEAD) && damage >= user.dna.species.punchstunthreshold)
+		if((target.stat != DEAD) && damage >= user.get_punchstunthreshold())
 			target.visible_message(span_danger("[user] has knocked  [target] down!"), \
 							span_userdanger("[user] has knocked [target] down!"), null, COMBAT_MESSAGE_RANGE)
 			var/knockdown_duration = 40 + (target.getStaminaLoss() + (target.getBruteLoss()*0.5))*0.8 //50 total damage = 40 base stun + 40 stun modifier = 80 stun duration, which is the old base duration
@@ -1558,7 +1563,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 				shove_blocked = TRUE
 
 		if(target.IsKnockdown() && !target.IsParalyzed())
-			var/armor_block = target.run_armor_check(affecting, "melee", "Your armor prevents your fall!", "Your armor softens your fall!")
+			var/armor_block = target.run_armor_check(affecting, MELEE, "Your armor prevents your fall!", "Your armor softens your fall!")
 			target.apply_effect(SHOVE_CHAIN_PARALYZE, EFFECT_PARALYZE, armor_block)
 			target.visible_message(span_danger("[user.name] kicks [target.name] onto their side!"),
 				span_danger("[user.name] kicks you onto your side!"), null, COMBAT_MESSAGE_RANGE)
@@ -1678,7 +1683,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	hit_area = affecting.name
 	var/def_zone = affecting.body_zone
 
-	var/armor_block = H.run_armor_check(affecting, "melee", span_notice("Your armor has protected your [hit_area]."), span_notice("Your armor has softened a hit to your [hit_area]."),I.armour_penetration)
+	var/armor_block = H.run_armor_check(affecting, MELEE, span_notice("Your armor has protected your [hit_area]."), span_notice("Your armor has softened a hit to your [hit_area]."),I.armour_penetration)
 	armor_block = min(90,armor_block) //cap damage reduction at 90%
 	var/Iforce = I.force //to avoid runtimes on the forcesay checks at the bottom. Some items might delete themselves if you drop them. (stunning yourself, ninja swords)
 	var/Iwound_bonus = I.wound_bonus
