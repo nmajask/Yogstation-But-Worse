@@ -972,3 +972,15 @@
 
 /obj/item/twohanded/bamboospear/update_icon()
 	icon_state = "bamboo_spear[wielded]"
+
+/*
+ * Nullglass Spear
+ */
+/obj/item/twohanded/spear/nullglass
+	name = "nullglass spear"
+	icon_state = "spearnull0"
+	icon_prefix = "spearnull"
+	var/psi_stress = 0
+
+/obj/item/twohanded/spear/nullglass/disrupts_psionics()
+	return src

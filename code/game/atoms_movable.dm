@@ -987,3 +987,6 @@
 	animate(I, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 0.3 SECONDS, transform = M, easing = CUBIC_EASING)
 	sleep(0.1 SECONDS)
 	animate(I, alpha = 0, transform = matrix(), time = 0.1 SECONDS)
+
+/atom/movable/proc/do_simple_ranged_interaction(mob/user)
+	return FALSE

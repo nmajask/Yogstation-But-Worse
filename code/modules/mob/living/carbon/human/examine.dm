@@ -306,7 +306,7 @@
 			if(stun_absorption[i]["end_time"] > world.time && stun_absorption[i]["examine_message"])
 				msg += "[t_He] [t_is][stun_absorption[i]["examine_message"]]\n"
 
-	if(!glasses && mind && mind.has_antag_datum(ANTAG_DATUM_THRALL))
+	if(!glasses && mind && mind.has_antag_datum(ANTAG_DATUM_SHADOWTHRALL))
 		if(getorganslot(ORGAN_SLOT_EYES))
 			msg += "[t_His] eyes seem unnaturally dark and soulless.\n" // I'VE BECOME SO NUMB, I CAN'T FEEL YOU THERE
 		else
@@ -561,7 +561,7 @@
 		msg += "[t_He] [p_do()]n't seem all there.\n"
 
 
-	if(!glasses && mind && mind.has_antag_datum(ANTAG_DATUM_THRALL))
+	if(!glasses && mind && mind.has_antag_datum(ANTAG_DATUM_SHADOWTHRALL))
 		msg += "[t_His] eyes seem unnaturally dark and soulless.\n" // I'VE BECOME SO NUMB, I CAN'T FEEL YOU THERE
 
 	if (length(msg))

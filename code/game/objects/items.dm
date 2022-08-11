@@ -407,6 +407,11 @@ GLOBAL_DATUM_INIT(welding_sparks, /mutable_appearance, mutable_appearance('icons
 			R.activate_module(src)
 			R.hud_used.update_robot_modules_display()
 
+/obj/item/do_simple_ranged_interaction(mob/user)
+	if(user)
+		attack_self(user)
+	return TRUE
+
 /obj/item/proc/GetDeconstructableContents()
 	return GetAllContents() - src
 

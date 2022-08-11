@@ -184,11 +184,13 @@
 /datum/outfit/ert/commander/inquisitor
 	name = "Inquisition Commander"
 	suit = /obj/item/clothing/suit/space/hardsuit/ert/paranormal
-	belt = /obj/item/nullrod/scythe/talking/chainsword
+	belt = /obj/item/claymore/nullglass
 	suit_store = /obj/item/gun/energy/e_gun
 	mask = /obj/item/clothing/mask/gas/sechailer
 	backpack_contents = list(
 		/obj/item/storage/box/engineer=1,
+		/obj/item/gun/ballistic/revolver/nullglass=1,
+		/obj/item/ammo_box/a357/nullglass=1,
 		/obj/item/assembly/flash/handheld=1,
 		/obj/item/grenade/flashbang=1,
 		/obj/item/reagent_containers/spray/pepper=1
