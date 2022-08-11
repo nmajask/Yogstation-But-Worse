@@ -10,9 +10,15 @@
 	brutemod = 1.70
 	burnmod = 0.60
 	species_language_holder = /datum/language_holder/skrell
+	exotic_bloodtype = "C" // Copper blood
+
 	latency_chance = 99.9
 	starting_psi_level = PSI_RANK_OPERANT
-	exotic_bloodtype = "C" // Copper blood
+
+	disliked_food = SUGAR | VEGETABLES
+	liked_food = MEAT | GRILLED | SEAFOOD | MICE
+
+	mutantlungs = /obj/item/organ/lungs/skrell
 	mutant_brain = /obj/item/organ/brain/skrell
 	mutant_heart = /obj/item/organ/heart/skrell
 	mutanteyes = /obj/item/organ/eyes/skrell
