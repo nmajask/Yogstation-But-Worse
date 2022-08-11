@@ -15,8 +15,9 @@
 	latency_chance = 99.9
 	starting_psi_level = PSI_RANK_OPERANT
 
-	disliked_food = SUGAR | VEGETABLES
-	liked_food = MEAT | GRILLED | SEAFOOD | MICE
+	toxic_food = FRIED | PINEAPPLE
+	disliked_food = MEAT | GRAIN
+	liked_food = FRUIT
 
 	mutantlungs = /obj/item/organ/lungs/skrell
 	mutant_brain = /obj/item/organ/brain/skrell
