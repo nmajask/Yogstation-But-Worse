@@ -40,6 +40,7 @@
 	H.dna.features["ethereal_mark"] = pick(GLOB.ethereal_mark_list)
 	H.dna.features["pod_hair"] = pick(GLOB.pod_hair_list)
 	H.dna.features["pod_flower"] = GLOB.pod_flower_list[H.dna.features["pod_hair"]]
+	H.dna.features["skrell_hair"] = pick(GLOB.skrell_hair_list)
 
 	H.update_body()
 	H.update_hair()

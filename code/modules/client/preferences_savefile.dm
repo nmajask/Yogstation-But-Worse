@@ -456,6 +456,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	READ_FILE(S["feature_ipc_screen"], features["ipc_screen"])
 	READ_FILE(S["feature_ipc_antenna"], features["ipc_antenna"])
 	READ_FILE(S["feature_ipc_chassis"], features["ipc_chassis"])
+	READ_FILE(S["feature_skrell_hair"], features["skrell_hair"])
 
 	READ_FILE(S["persistent_scars"], persistent_scars)
 	if(!CONFIG_GET(flag/join_with_mutant_humans))
@@ -562,6 +563,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	features["ipc_screen"]	= sanitize_inlist(features["ipc_screen"], GLOB.ipc_screens_list)
 	features["ipc_antenna"]	 = sanitize_inlist(features["ipc_antenna"], GLOB.ipc_antennas_list)
 	features["ipc_chassis"]	 = sanitize_inlist(features["ipc_chassis"], GLOB.ipc_chassis_list)
+	features["skrell_hair"]	 = sanitize_inlist(features["skrell_hair"], GLOB.skrell_hair_list)
 
 	persistent_scars = sanitize_integer(persistent_scars)
 
@@ -629,6 +631,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	WRITE_FILE(S["feature_ipc_screen"]			, features["ipc_screen"])
 	WRITE_FILE(S["feature_ipc_antenna"]			, features["ipc_antenna"])
 	WRITE_FILE(S["feature_ipc_chassis"]			, features["ipc_chassis"])
+	WRITE_FILE(S["feature_skrell_hair"]			, features["skrell_hair"])
 
 	//Custom names
 	for(var/custom_name_id in GLOB.preferences_custom_names)

@@ -2633,3 +2633,16 @@
 /datum/sprite_accessory/pod_flower/vine
 	name = "Vine"
 	icon_state = "pod_flower_vine"
+
+// Skrell hair
+/datum/sprite_accessory/skrell_hair
+	icon = 'icons/mob/mutant_bodyparts.dmi'
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/skrell_hair/short
+	name = "Short"
+	icon_state = "short"
+
+/datum/sprite_accessory/skrell_hair/long
+	name = "Long"
+	icon_state = "long"

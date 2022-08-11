@@ -90,6 +90,8 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_antennas, GLOB.ipc_antennas_list)
 	if(!GLOB.ipc_chassis_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/ipc_chassis, GLOB.ipc_chassis_list)
+	if(!GLOB.skrell_hair_list.len)
+		init_sprite_accessory_subtypes(/datum/sprite_accessory/skrell_hair, GLOB.skrell_hair_list)
 
 	//For now we will always return none for tail_human and ears.		this shit was unreadable if you do somethign like this make it at least readable
 	return(list(
@@ -117,7 +119,8 @@
 		"pod_hair" = pick(GLOB.pod_hair_list),
 		"ipc_screen" = pick(GLOB.ipc_screens_list),
 		"ipc_antenna" = pick(GLOB.ipc_antennas_list),
-		"ipc_chassis" = pick(GLOB.ipc_chassis_list)
+		"ipc_chassis" = pick(GLOB.ipc_chassis_list),
+		"skrell_hair" = pick(GLOB.skrell_hair_list)
 	))
 
 /proc/random_hair_style(gender)

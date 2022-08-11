@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/skin_tone = "caucasian1"		//Skin color
 	var/eye_color = "000"				//Eye color
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
-	var/list/features = list("mcolor" = "FFF", "gradientstyle" = "None", "gradientcolor" = "000", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "tail_polysmorph" = "Polys", "teeth" = "None", "dome" = "None", "dorsal_tubes" = "No", "ethereal_mark" = "None", "pod_hair" = "Cabbage", "pod_flower" = "Cabbage", "ipc_screen" = "Blue", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)")
+	var/list/features = list("mcolor" = "FFF", "gradientstyle" = "None", "gradientcolor" = "000", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "tail_polysmorph" = "Polys", "teeth" = "None", "dome" = "None", "dorsal_tubes" = "No", "ethereal_mark" = "None", "pod_hair" = "Cabbage", "pod_flower" = "Cabbage", "ipc_screen" = "Blue", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)", "skrell_hair" = "Short")
 	var/list/genders = list(MALE, FEMALE, PLURAL)
 	var/list/friendlyGenders = list("Male" = "male", "Female" = "female", "Other" = "plural")
 
@@ -648,6 +648,19 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				dat += "<h3>Chassis Style</h3>"
 
 				dat += "<a href='?_src_=prefs;preference=ipc_chassis;task=input'>[features["ipc_chassis"]]</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("skrell_hair" in pref_species.default_features)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Head Vegitation Style</h3>"
+				dat += "<a href='?_src_=prefs;preference=skrell_hair;task=input'>[features["skrell_hair"]]</a>"
+				dat += "<a href ='?_src_=prefs;preference=skrell_hair;task=lock'>[random_locks["skrell_hair"] ? "Unlock" : "Lock"]</a><BR>"
 
 				mutant_category++
 				if(mutant_category >= MAX_MUTANT_ROWS)
@@ -1483,6 +1496,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						"dome" = 1,
 						"dorsal_tubes" = 1,
 						"ethereal_mark" = 1,
+						"skrell_hair" = 1
 					)
 				if("gender")
 					random_locks["random_locks"] = gender
@@ -1840,6 +1854,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 					if(new_ipc_chassis)
 						features["ipc_chassis"] = new_ipc_chassis
+
+				if("skrell_hair")
+					var/new_skrell_hair = input(user, "Choose your character's \"hair\" style:", "Character Preference") as null|anything in GLOB.skrell_hair_list
+					if(new_skrell_hair)
+						features["skrell_hair"] = new_skrell_hair
+
 				if("s_tone")
 					var/new_s_tone = input(user, "Choose your character's skin-tone:", "Character Preference")  as null|anything in GLOB.skin_tones
 					if(new_s_tone)

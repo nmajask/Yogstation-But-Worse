@@ -794,7 +794,6 @@ GLOBAL_LIST_EMPTY(mentor_races)
 		if(H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT))
 			bodyparts_to_add -= "tail_human"
 
-
 	if("waggingtail_human" in mutant_bodyparts)
 		if(H.wear_suit && (H.wear_suit.flags_inv & HIDEJUMPSUIT))
 			bodyparts_to_add -= "waggingtail_human"
@@ -870,6 +869,10 @@ GLOBAL_LIST_EMPTY(mentor_races)
 			bodyparts_to_add -= "pod_flower"
 		if(H.dna.features["pod_flower"] != H.dna.features["pod_hair"])
 			H.dna.features["pod_flower"] = H.dna.features["pod_hair"]
+	
+	if("skrell_hair" in mutant_bodyparts)
+		if((H.wear_mask && (H.wear_mask.flags_inv & HIDEHAIR)) || (H.head && (H.head.flags_inv & HIDEHAIR)) || !HD || HD.status == BODYPART_ROBOTIC)
+			bodyparts_to_add -= "skrell_hair"
 
 	//Digitigrade legs are stuck in the phantom zone between true limbs and mutant bodyparts. Mainly it just needs more agressive updating than most limbs.
 	var/update_needed = FALSE
@@ -971,6 +974,8 @@ GLOBAL_LIST_EMPTY(mentor_races)
 					S = GLOB.ipc_antennas_list[H.dna.features["ipc_antenna"]]
 				if("ipc_chassis")
 					S = GLOB.ipc_chassis_list[H.dna.features["ipc_chassis"]]
+				if("skrell_hair")
+					S = GLOB.skrell_hair_list[H.dna.features["skrell_hair"]]
 			if(!S || S.icon_state == "none")
 				continue
 
