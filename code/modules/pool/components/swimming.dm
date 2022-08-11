@@ -102,6 +102,9 @@
 		var/mob/living/carbon/C = victim
 		if(C.get_breath_from_internal(0)) //check if we have internals on
 			return
+		var/obj/item/organ/lungs/lungs = C.getorganslot(ORGAN_SLOT_LUNGS)
+		if(istype(lungs) && lungs.breath_water == TRUE)
+			return
 	return (!(victim.mobility_flags & MOBILITY_STAND)) && (!HAS_TRAIT(victim, TRAIT_NOBREATH))
 
 /datum/component/swimming/proc/drown(mob/living/victim)

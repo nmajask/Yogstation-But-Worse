@@ -273,3 +273,11 @@
 		owner.heal_overall_damage(15, 15, 0, BODYPART_ORGANIC)
 		if(owner.reagents.get_reagent_amount(/datum/reagent/medicine/ephedrine) < 20)
 			owner.reagents.add_reagent(/datum/reagent/medicine/ephedrine, 10)
+
+/obj/item/organ/heart/skrell
+	name = "skrell heart"
+	desc = "A fragile but efficient heart."
+	icon_state = "heart_skrell"
+	maxHealth = 0.75 * STANDARD_ORGAN_THRESHOLD
+	organ_efficiency = 1.1
+	operated = TRUE	// No corinary to bypass

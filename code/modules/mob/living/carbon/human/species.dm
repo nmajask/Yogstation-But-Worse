@@ -161,6 +161,8 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	var/obj/item/organ/tongue/mutanttongue = /obj/item/organ/tongue
 	///the tail, if any
 	var/obj/item/organ/tail/mutanttail = null
+	///the special appendix, if any
+	var/obj/item/organ/appendix/mutantappendix = /obj/item/organ/appendix
 
 	///The special liver, if any
 	var/obj/item/organ/liver/mutantliver
@@ -322,7 +324,10 @@ GLOBAL_LIST_EMPTY(mentor_races)
 		appendix.Remove(C,1)
 		QDEL_NULL(appendix)
 	if(should_have_appendix && !appendix)
-		appendix = new()
+		if(mutantappendix)
+			appendix = new mutantappendix()
+		else
+			appendix = new()
 		appendix.Insert(C)
 
 	if(tail && (!should_have_tail || replace_current))

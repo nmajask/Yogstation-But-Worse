@@ -49,8 +49,10 @@
 		return pick('sound/voice/hiss1.ogg','sound/voice/hiss2.ogg','sound/voice/hiss3.ogg','sound/voice/hiss4.ogg')
 
 /datum/emote/living/carbon/hiss/can_run_emote(mob/living/user, status_check = TRUE, intentional)
+	if(!..())
+		return FALSE
 	if(!ishuman(user))
-		return
+		return FALSE
 	var/mob/living/carbon/human/H = user
 	var/obj/item/organ/tongue/T = H.getorganslot(ORGAN_SLOT_TONGUE)
 	return is_type_in_list(T, viable_tongues)
@@ -94,6 +96,8 @@
 	cooldown = 10 SECONDS
 
 /datum/emote/living/carbon/meow/can_run_emote(mob/living/user, status_check = TRUE, intentional)
+	if(!..())
+		return FALSE
 	return iscatperson(user)
 
 /datum/emote/living/carbon/meow/get_sound(mob/living/user)
@@ -108,6 +112,8 @@
 	sound = 'sound/voice/rattled.ogg'
 
 /datum/emote/living/carbon/rattle/can_run_emote(mob/living/user, status_check = TRUE, intentional)
+	if(!..())
+		return FALSE
 	return isskeleton(user)
 	
 /datum/emote/living/carbon/human/pale
@@ -290,3 +296,45 @@
 
 /datum/emote/living/carbon/human/robot_tongue/clown/sad/run_emote(mob/living/user)
 	return 'sound/misc/sadtrombone.ogg'
+
+
+// Skrell Emotes //
+
+/datum/emote/living/carbon/human/warble
+	key = "warble"
+	key_third_person = "warbles"
+	message = "warbles!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+
+/datum/emote/living/carbon/human/warble/get_sound(mob/living/user)
+	return 'sound/voice/skrell/warbles.ogg'
+
+/datum/emote/living/carbon/human/warble/can_run_emote(mob/living/user, status_check = TRUE, intentional)
+	if(!..())
+		return FALSE
+	return isskrell(user)
+
+/datum/emote/living/carbon/hiss/can_run_emote(mob/living/user, status_check = TRUE, intentional)
+	if(!..())
+		return FALSE
+	if(!ishuman(user))
+		return FALSE
+	var/mob/living/carbon/human/H = user
+	var/obj/item/organ/tongue/T = H.getorganslot(ORGAN_SLOT_TONGUE)
+	return is_type_in_list(T, viable_tongues)
+
+/datum/emote/living/carbon/human/trills
+	key = "trills"
+	key_third_person = "trills!"
+	message = "trills!"
+	emote_type = EMOTE_AUDIBLE
+	vary = TRUE
+
+/datum/emote/living/carbon/human/trills/get_sound(mob/living/user)
+	return 'sound/voice/skrell/trills.ogg'
+
+/datum/emote/living/carbon/human/trills/can_run_emote(mob/living/user, status_check = TRUE, intentional)
+	if(!..())
+		return FALSE
+	return isskrell(user)

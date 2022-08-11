@@ -135,3 +135,10 @@
 			owner.toxloss += 15
 		if(2)
 			owner.toxloss += 5 
+
+/obj/item/organ/liver/skrell
+	name = "skrell liver"
+	icon_state = "liver_skrell"
+	alcohol_tolerance = 5
+	toxTolerance = 10 //can shrug off up to 10u of toxins.
+	toxLethality = 0.8 * LIVER_DEFAULT_TOX_LETHALITY //20% less damage than a normal liver

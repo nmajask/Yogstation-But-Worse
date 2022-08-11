@@ -35,6 +35,12 @@
 /datum/reagent/blood/on_new(list/data)
 	if(istype(data))
 		SetViruses(src, data)
+	if(data && data["blood_type"] == "C")
+		color = "#7fe7ce"
+		taste_description = "copper"
+	else
+		color = initial(color)
+		taste_description = initial(taste_description)
 
 /datum/reagent/blood/on_merge(list/mix_data)
 	if(data && mix_data)

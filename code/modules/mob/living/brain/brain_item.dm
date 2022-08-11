@@ -266,6 +266,12 @@
 			owner.adjustOrganLoss(ORGAN_SLOT_BRAIN, 25)
 			to_chat(owner, "<span class='warning'>Alert: Posibrain damaged.</span>") 
 
+/obj/item/organ/brain/skrell
+	name = "skrell brain"
+	desc = "A fragile brain with an inate psionic energy."
+	icon_state = "brain-skrell"
+	decay_factor = STANDARD_ORGAN_DECAY	* 0.9
+	
 
 ////////////////////////////////////TRAUMAS////////////////////////////////////////
 

@@ -65,6 +65,8 @@
 
 	var/crit_stabilizing_reagent = /datum/reagent/medicine/epinephrine
 
+	var/breath_water = FALSE //whether this organ allows the user to breath under water
+
 
 /obj/item/organ/lungs/proc/check_breath(datum/gas_mixture/breath, mob/living/carbon/human/H)
 	if(H.status_flags & GODMODE)
@@ -558,3 +560,30 @@
 	heat_level_1_threshold = 500
 	heat_level_2_threshold = 800
 	heat_level_3_threshold = 1400
+
+/obj/item/organ/lungs/skrell
+	name = "skrell lungs"
+	icon_state = "lungs-skrell"
+	safe_toxins_max = 40
+	safe_co2_max = 40
+
+	cold_message = "You can't stand the freezing cold with every breath you take!"
+	cold_level_1_threshold = 248
+	cold_level_2_threshold = 220
+	cold_level_3_threshold = 170
+	cold_level_1_damage = COLD_GAS_DAMAGE_LEVEL_2
+	cold_level_2_damage = COLD_GAS_DAMAGE_LEVEL_2
+	cold_level_3_damage = COLD_GAS_DAMAGE_LEVEL_3
+	cold_damage_type = BRUTE
+
+
+	hot_message = "You can't stand the searing heat with every breath you take!"
+	heat_level_1_threshold = 318
+	heat_level_2_threshold = 348
+	heat_level_3_threshold = 1000
+	heat_level_1_damage = HEAT_GAS_DAMAGE_LEVEL_2
+	heat_level_2_damage = HEAT_GAS_DAMAGE_LEVEL_2
+	heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
+	heat_damage_type = BURN
+
+	breath_water = TRUE

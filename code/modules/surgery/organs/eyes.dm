@@ -407,3 +407,9 @@
 	desc = "Eyes from a polysmorph, capable of retaining slightly more vision in low light environments"
 	lighting_alpha = LIGHTING_PLANE_ALPHA_NV_TRAIT
 	see_in_dark = 5
+
+/obj/item/organ/eyes/skrell
+	name = "skrell eyes"
+	desc = "Large eyes that seem to have increased sensitivity to bright light, with no improvement to low light vision."
+	icon_state = "skrell_eyeballs"
+	flash_protect = -1

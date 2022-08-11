@@ -231,3 +231,20 @@
 	var/datum/component/crawl/vomit/B = M.GetComponent(/datum/component/crawl/vomit)
 	if(B)
 		B.RemoveComponent()
+
+/obj/item/organ/stomach/skrell
+	name = "skrell primary stomach"
+	icon_state = "stomach-skrell"
+
+/obj/item/organ/stomach/skrell/second
+	name = "skrell secondary stomach"
+	icon_state = "appendix-skrell"
+	zone = BODY_ZONE_PRECISE_GROIN
+	slot = ORGAN_SLOT_APPENDIX
+	desc = "A smaller, secondary stomach for skrell."
+
+	healing_factor = STANDARD_ORGAN_HEALING * 0.5
+	low_threshold_passed = span_info("Your lower right abdomen flashes with pain before subsiding.")
+	high_threshold_passed = span_warning("An explosion of pain erupts in your lower right abdomen!")
+	high_threshold_cleared = span_info("The pain in your abdomen has subsided.")
+	low_threshold_cleared = span_info("The last bouts of pain in your lower right abdomen have died out.")

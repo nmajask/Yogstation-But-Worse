@@ -30,7 +30,8 @@
 		/datum/language/darkspawn, //also yogs
 		/datum/language/encrypted,
 		/datum/language/felinid,
-		/datum/language/english
+		/datum/language/english,
+		/datum/language/skrell
 	))
 
 /obj/item/organ/tongue/Initialize(mapload)
