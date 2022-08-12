@@ -11,6 +11,7 @@
 	burnmod = 0.60
 	species_language_holder = /datum/language_holder/skrell
 	exotic_bloodtype = "C" // Copper blood
+	payday_modifier = 0.8
 
 	latency_chance = 99.9
 	starting_psi_level = PSI_RANK_OPERANT
@@ -26,3 +27,5 @@
 	mutantappendix = /obj/item/organ/stomach/skrell/second
 	mutantliver = /obj/item/organ/liver/skrell
 	mutantstomach = /obj/item/organ/stomach/skrell
+
+	face_icon = 'icons/mob/species/polysmorph/face.dmi'
