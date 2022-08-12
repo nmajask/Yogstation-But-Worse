@@ -211,6 +211,12 @@
 	cut_overlays()
 	. = ..()
 	if(dropped) //certain overlays only appear when the limb is being detached from its owner.
+		var/face_icon = 'icons/mob/human_face.dmi'
+
+		var/mob/living/carbon/human/H = C
+		var/datum/species/S = H?.dna.species
+		if(istype(S))
+			face_icon = S.face_icon
 
 		if(status != BODYPART_ROBOTIC || yogs_draw_robot_hair) //having a robotic head hides certain features. //yogs -- preternis hair
 			//facial hair
@@ -232,7 +238,7 @@
 					debrain_overlay.icon = 'icons/mob/animal_parts.dmi'
 					debrain_overlay.icon_state = "debrained_larva"
 				else if(!(NOBLOOD in species_flags_list))
-					debrain_overlay.icon = 'icons/mob/human_face.dmi'
+					debrain_overlay.icon = face_icon
 					debrain_overlay.icon_state = "debrained"
 				. += debrain_overlay
 			else
@@ -246,12 +252,12 @@
 
 		// lipstick
 		if(lip_style)
-			var/image/lips_overlay = image('icons/mob/human_face.dmi', "lips_[lip_style]", -BODY_LAYER, SOUTH)
+			var/image/lips_overlay = image(face_icon, "lips_[lip_style]", -BODY_LAYER, SOUTH)
 			lips_overlay.color = lip_color
 			. += lips_overlay
 
 		// eyes
-		var/image/eyes_overlay = image('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER, SOUTH)
+		var/image/eyes_overlay = image(face_icon, "eyes_missing", -BODY_LAYER, SOUTH)
 		. += eyes_overlay
 		if(eyes)
 			eyes_overlay.icon_state = eyes.eye_icon_state

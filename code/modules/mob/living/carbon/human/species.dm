@@ -168,6 +168,9 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	var/obj/item/organ/stomach/mutantstomach
 	var/override_float = FALSE
 
+	//The file the contains this species face icons
+	var/face_icon = 'icons/mob/human_face.dmi'
+
 	///Bitflag that controls what in game ways can select this species as a spawnable source. Think magic mirror and pride mirror, slime extract, ERT etc, see defines in __DEFINES/mobs.dm, defaults to NONE, so people actually have to think about it
 	var/changesource_flags = NONE
 
@@ -583,7 +586,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 		var/mutable_appearance/gradient_overlay = mutable_appearance(layer = -HAIR_LAYER)
 		if(!hair_hidden && !H.getorgan(/obj/item/organ/brain)) //Applies the debrained overlay if there is no brain
 			if(!(NOBLOOD in species_traits))
-				hair_overlay.icon = 'icons/mob/human_face.dmi'
+				hair_overlay.icon = face_icon
 				hair_overlay.icon_state = "debrained"
 
 		else if(H.hair_style && (HAIR in species_traits))
@@ -704,7 +707,7 @@ GLOBAL_LIST_EMPTY(mentor_races)
 	if(HD && !(HAS_TRAIT(H, TRAIT_HUSK)))
 		// lipstick
 		if(H.lip_style && (LIPS in species_traits))
-			var/mutable_appearance/lip_overlay = mutable_appearance('icons/mob/human_face.dmi', "lips_[H.lip_style]", -BODY_LAYER)
+			var/mutable_appearance/lip_overlay = mutable_appearance(face_icon, "lips_[H.lip_style]", -BODY_LAYER)
 			lip_overlay.color = H.lip_color
 			if(OFFSET_FACE in H.dna.species.offset_features)
 				lip_overlay.pixel_x += H.dna.species.offset_features[OFFSET_FACE][1]
@@ -714,11 +717,9 @@ GLOBAL_LIST_EMPTY(mentor_races)
 		// eyes
 		if(!(NOEYESPRITES in species_traits))
 			var/obj/item/organ/eyes/E = H.getorganslot(ORGAN_SLOT_EYES)
-			var/mutable_appearance/eye_overlay
-			if(!E)
-				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', "eyes_missing", -BODY_LAYER)
-			else
-				eye_overlay = mutable_appearance('icons/mob/human_face.dmi', E.eye_icon_state, -BODY_LAYER)
+			var/mutable_appearance/eye_overlay = mutable_appearance(face_icon, "eyes_missing", -BODY_LAYER)
+			if(istype(E))
+				eye_overlay.icon_state = E.eye_icon_state
 			if((EYECOLOR in species_traits) && E)
 				eye_overlay.color = "#" + H.eye_color
 			if(OFFSET_FACE in H.dna.species.offset_features)
