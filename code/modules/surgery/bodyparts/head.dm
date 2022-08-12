@@ -213,9 +213,9 @@
 	if(dropped) //certain overlays only appear when the limb is being detached from its owner.
 		var/face_icon = 'icons/mob/human_face.dmi'
 
-		var/mob/living/carbon/human/H = C
-		var/datum/species/S = H?.dna.species
-		if(istype(S))
+		if(ishuman(owner))
+			var/mob/living/carbon/human/H = owner
+			var/datum/species/S = H?.dna.species
 			face_icon = S.face_icon
 
 		if(status != BODYPART_ROBOTIC || yogs_draw_robot_hair) //having a robotic head hides certain features. //yogs -- preternis hair
