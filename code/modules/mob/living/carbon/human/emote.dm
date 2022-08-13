@@ -325,7 +325,7 @@
 	return is_type_in_list(T, viable_tongues)
 
 /datum/emote/living/carbon/human/trills
-	key = "trills"
+	key = "trill"
 	key_third_person = "trills!"
 	message = "trills!"
 	emote_type = EMOTE_AUDIBLE
