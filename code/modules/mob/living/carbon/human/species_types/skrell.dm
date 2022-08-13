@@ -1,14 +1,15 @@
 /datum/species/skrell
 	name = "Skrell"
 	id = "skrell"
+	damage_overlay_type = "skrell"
 	default_color = "#4B4B4B"
 	species_traits = list(MUTCOLORS,EYECOLOR,LIPS,HAS_FLESH,HAS_BONE,NO_SLIP_WHEN_WALKING)
 	default_features = list("skrell_hair" = "Short")
 	mutant_bodyparts = list("skrell_hair")
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	say_mod = "warbles"
-	brutemod = 1.70
-	burnmod = 0.60
+	brutemod = 1.7
+	burnmod = 0.6
 	species_language_holder = /datum/language_holder/skrell
 	exotic_bloodtype = "C" // Copper blood
 	payday_modifier = 0.8
@@ -28,4 +29,4 @@
 	mutantliver = /obj/item/organ/liver/skrell
 	mutantstomach = /obj/item/organ/stomach/skrell
 
-	face_icon = 'icons/mob/species/polysmorph/face.dmi'
+	face_icon = 'icons/mob/species/skrell/face.dmi'

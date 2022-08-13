@@ -2646,3 +2646,11 @@
 /datum/sprite_accessory/skrell_hair/long
 	name = "Long"
 	icon_state = "long"
+
+/datum/sprite_accessory/skrell_hair/single
+	name = "Single"
+	icon_state = "single"
+
+/datum/sprite_accessory/skrell_hair/twin
+	name = "Twin"
+	icon_state = "twin"

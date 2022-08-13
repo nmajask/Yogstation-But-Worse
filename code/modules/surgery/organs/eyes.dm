@@ -233,6 +233,9 @@
 /obj/item/organ/eyes/robotic/glow/Initialize()
 	. = ..()
 	mob_overlay = image('icons/mob/human_face.dmi', "eyes_glow_gs")
+	if(ishuman(owner))
+		var/mob/living/carbon/human/HMN = owner
+		mob_overlay.icon = HMN.dna.species.face_icon
 
 /obj/item/organ/eyes/robotic/glow/Destroy()
 	terminate_effects()

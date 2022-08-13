@@ -658,7 +658,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
 
-				dat += "<h3>Head Vegitation Style</h3>"
+				dat += "<h3>Hair Style</h3>"
 				dat += "<a href='?_src_=prefs;preference=skrell_hair;task=input'>[features["skrell_hair"]]</a>"
 				dat += "<a href ='?_src_=prefs;preference=skrell_hair;task=lock'>[random_locks["skrell_hair"] ? "Unlock" : "Lock"]</a><BR>"
 
