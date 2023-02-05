@@ -113,6 +113,8 @@
 	var/update_overlay = -1
 	var/icon_update_needed = FALSE
 	var/obj/machinery/computer/apc_control/remote_control = null
+	/// If the APC is for the bluespace locker
+	var/bluespace_locker_apc = FALSE
 
 /obj/machinery/power/apc/unlocked
 	locked = FALSE
@@ -207,6 +209,7 @@
 		stat |= MAINT
 		src.update_icon()
 		addtimer(CALLBACK(src, .proc/update), 5)
+	bluespace_locker_apc = istype(get_area(src), /area/bluespace_locker)
 
 /obj/machinery/power/apc/Destroy()
 	GLOB.apcs_list -= src
@@ -1226,20 +1229,55 @@
 	return
 
 /obj/machinery/power/apc/surplus()
-	if(terminal)
-		return terminal.surplus()
-	else
-		return 0
+	var/surplus = 0
+
+	APC_DRAWABLE(src, devices)
+
+	if(!devices)
+		return surplus
+		
+	for(var/device in devices)
+		var/obj/machinery/power/power_device = device
+		if(istype(power_device) || istype(power_device, /obj/structure/cable))
+			surplus += power_device.surplus()
+
+	return surplus
 
 /obj/machinery/power/apc/add_load(amount)
+	APC_DRAWABLE(src, devices)
+
+	if(!devices)
+		return
+	
+	for(var/device in devices)
+		var/obj/machinery/power/power_device = device
+		if((istype(power_device) || istype(power_device, /obj/structure/cable)) && power_device.powernet)
+			// Don't want to dump all of our usage into the cable or APC if we are a bluespace APC, cause then we could build up a "negitive charge" in that net but still draw some from other nets
+			var/ammount_to_dump = amount
+			if(!istype(power_device, /obj/machinery/power/terminal))
+				ammount_to_dump = min(ammount_to_dump, power_device.surplus())
+			power_device.add_load(ammount_to_dump)
+			amount -= ammount_to_dump
+			if(amount <= 0)
+				return
+
 	if(terminal && terminal.powernet)
 		terminal.add_load(amount)
 
 /obj/machinery/power/apc/avail()
-	if(terminal)
-		return terminal.avail()
-	else
-		return 0
+	var/avail = 0
+
+	APC_DRAWABLE(src, devices)
+
+	if(!devices)
+		return avail
+
+	for(var/device in devices)
+		var/obj/machinery/power/power_device = device
+		if(istype(power_device) || istype(power_device, /obj/structure/cable))
+			avail += power_device.avail()
+
+	return avail
 
 /obj/machinery/power/apc/process()
 	if(icon_update_needed)
@@ -1353,6 +1391,16 @@
 		if(cell.charge >= cell.maxcharge)
 			cell.charge = cell.maxcharge
 			charging = APC_FULLY_CHARGED
+
+			// TODO: Make this pull the extra even when cell is charging because not all of it is being used to charge the cell
+			// If this is a bluespace locker APC and we have extra charge, send it to a wire node connected to the locker outside if there is one
+			if(bluespace_locker_apc && terminal && terminal.surplus() && SSbluespace_locker.external_locker && SSbluespace_locker.external_locker.anchored && !istype(get_area(SSbluespace_locker.external_locker.anchored), /area/bluespace_locker))
+				var/turf/bslocker_turf = get_turf(SSbluespace_locker.external_locker)
+				var/obj/structure/cable/bslocker_node = bslocker_turf.get_cable_node()
+				if(bslocker_node && bslocker_node.powernet)
+					bslocker_node.add_avail(terminal.surplus())
+					terminal.add_load(terminal.surplus())
+
 
 		if(chargemode)
 			if(!charging)

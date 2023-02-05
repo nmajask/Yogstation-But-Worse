@@ -757,3 +757,17 @@
 /// For legacy procs using addtimer in callbacks. Don't use this.
 /proc/_addtimer_here(callback, time)
 	addtimer(callback, time)
+
+/// For APCs to find what devices they can pull power from
+#define APC_DRAWABLE(APC, OUT) \
+	var/list/OUT;\
+	if(APC.bluespace_locker_apc && SSbluespace_locker.external_locker && !istype(get_area(SSbluespace_locker.external_locker), /area/bluespace_locker)){\
+		var/obj/structure/cable/_bslocker_node;\
+		if(SSbluespace_locker.external_locker.anchored){\
+			var/turf/_bslocker_turf = get_turf(SSbluespace_locker.external_locker);\
+			_bslocker_node = _bslocker_turf.get_cable_node();\
+			if(_bslocker_node){LAZYADD(OUT, _bslocker_node)}}\
+		var/area/_bslocker_area = get_area(SSbluespace_locker.external_locker);\
+		var/obj/machinery/power/apc/_external_apc = _bslocker_area.get_apc();\
+		if(_external_apc && _bslocker_area.power_environ && (!istype(_bslocker_node) || _bslocker_node.powernet != _external_apc.powernet)){LAZYADD(OUT, _external_apc)}}\
+	if(terminal){LAZYADD(OUT, terminal)}\
