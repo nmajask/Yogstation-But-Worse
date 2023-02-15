@@ -72,7 +72,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/skin_tone = "caucasian1"		//Skin color
 	var/eye_color = "000"				//Eye color
 	var/datum/species/pref_species = new /datum/species/human()	//Mutant race
-	var/list/features = list("mcolor" = "FFF", "gradientstyle" = "None", "gradientcolor" = "000", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "tail_polysmorph" = "Polys", "teeth" = "None", "dome" = "None", "dorsal_tubes" = "No", "ethereal_mark" = "None", "pod_hair" = "Cabbage", "pod_flower" = "Cabbage")
+	var/list/features = list("mcolor" = "FFF", "gradientstyle" = "None", "gradientcolor" = "000", "ethcolor" = "9c3030", "tail_lizard" = "Smooth", "tail_human" = "None", "snout" = "Round", "horns" = "None", "ears" = "None", "wings" = "None", "frills" = "None", "spines" = "None", "body_markings" = "None", "legs" = "Normal Legs", "moth_wings" = "Plain", "tail_polysmorph" = "Polys", "teeth" = "None", "dome" = "None", "dorsal_tubes" = "No", "ethereal_mark" = "None", "pod_hair" = "Cabbage", "pod_flower" = "Cabbage", "ipc_screen" = "Blue", "ipc_antenna" = "None", "ipc_chassis" = "Morpheus Cyberkinetics(Greyscale)")
 	var/list/genders = list(MALE, FEMALE, PLURAL)
 	var/list/friendlyGenders = list("Male" = "male", "Female" = "female", "Other" = "plural")
 
@@ -137,6 +137,20 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/persistent_scars = TRUE
 
 	var/disable_alternative_announcers = FALSE
+	var/icon/background = "floor"
+	var/list/background_options = list(
+		"floor" = "Default Tile",
+		"white" = "Default White Tile",
+		"darkfull" = "Default Dark Tile",
+		"wood" = "Wood",
+		"rockvault" = "Rock Vault",
+		"grass4" = "Grass",
+		"black" = "Pure Black",
+		"grey" = "Pure Grey",
+		"pure_white" = "Pure White"
+	)
+
+	var/disable_balloon_alerts = FALSE
 
 /datum/preferences/New(client/C)
 	parent = C
@@ -276,8 +290,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<h2>Body</h2>"
 			dat += "<a href='?_src_=prefs;preference=all;task=random'>Random Body</a> "
 			dat += "<a href='?_src_=prefs;preference=all'>Always Random Body: [be_random_body ? "Yes" : "No"]</a>"
-			dat += "<a href='?_src_=prefs;preference=u_all;task=lock'>Unlock all</a><br>"
+			dat += "<a href='?_src_=prefs;preference=u_all;task=lock'>Unlock all</a>"
 			dat += "<a href='?_src_=prefs;preference=l_all;task=lock'>Lock all</a><br>"
+			dat += "<a href='?_src_=prefs;preference=cycle_background;task=input'>Background: [background_options[background]]</a><br><br>"
 
 			dat += "<table width='100%'><tr><td width='24%' valign='top'>"
 
@@ -611,6 +626,49 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					dat += "</td>"
 					mutant_category = 0
 
+			if("ipc_screen" in pref_species.mutant_bodyparts)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Screen Style</h3>"
+
+				dat += "<a href='?_src_=prefs;preference=ipc_screen;task=input'>[features["ipc_screen"]]</a><BR>"
+
+				dat += "<span style='border: 1px solid #161616; background-color: #[eye_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=eyes;task=input'>Change</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("ipc_antenna" in pref_species.mutant_bodyparts)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Antenna Style</h3>"
+
+				dat += "<a href='?_src_=prefs;preference=ipc_antenna;task=input'>[features["ipc_antenna"]]</a><BR>"
+
+				dat += "<span style='border:1px solid #161616; background-color: #[hair_color];'>&nbsp;&nbsp;&nbsp;</span> <a href='?_src_=prefs;preference=hair;task=input'>Change</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
+			if("ipc_chassis" in pref_species.mutant_bodyparts)
+				if(!mutant_category)
+					dat += APPEARANCE_CATEGORY_COLUMN
+
+				dat += "<h3>Chassis Style</h3>"
+
+				dat += "<a href='?_src_=prefs;preference=ipc_chassis;task=input'>[features["ipc_chassis"]]</a><BR>"
+
+				mutant_category++
+				if(mutant_category >= MAX_MUTANT_ROWS)
+					dat += "</td>"
+					mutant_category = 0
+
 			if("ears" in pref_species.default_features)
 				if(!mutant_category)
 					dat += APPEARANCE_CATEGORY_COLUMN
@@ -658,6 +716,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			dat += "<b>See Runechat for non-mobs:</b> <a href='?_src_=prefs;preference=see_chat_non_mob'>[see_chat_non_mob ? "Enabled" : "Disabled"]</a><br>"
 			dat += "<b>See Runechat emotes:</b> <a href='?_src_=prefs;preference=see_rc_emotes'>[see_rc_emotes ? "Enabled" : "Disabled"]</a><br>"
 			dat += "<b>Hear alternative station announcers:</b> <a href='?_src_=prefs;preference=alternative_announcers'>[disable_alternative_announcers ? "Disabled" : "Enabled"]</a><br>"
+			dat += "<b>Disable balloon alerts:</b> <a href='?_src_=prefs;preference=balloon_alerts'>[disable_balloon_alerts ? "Disabled" : "Enabled"]</a><br>"
 			dat += "<br>"
 			dat += "<b>Action Buttons:</b> <a href='?_src_=prefs;preference=action_buttons'>[(buttons_locked) ? "Locked In Place" : "Unlocked"]</a><br>"
 			//dat += "<b>Keybindings:</b> <a href='?_src_=prefs;preference=hotkeys'>[(hotkeys) ? "Hotkeys" : "Default"]</a><br>" // yogs - Custom keybindings
@@ -932,6 +991,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				BUTTON_KEY("Use item on self", ACTION_USESELF)
 				BUTTON_KEY("Drop", ACTION_DROP)
 				BUTTON_KEY("Equip", ACTION_EQUIP)
+				BUTTON_KEY("Rest", ACTION_REST)
+				BUTTON_KEY("Toggle Walk Run", ACTION_TOGGLEWALKRUN)
 
 				dat += "</td><td width='300px' height='300px' valign='top'>"
 
@@ -1297,7 +1358,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	if(href_list["bancheck"])
 		var/list/ban_details = is_banned_from_with_details(user.ckey, user.client.address, user.client.computer_id, href_list["bancheck"])
 		var/admin = FALSE
-		if(GLOB.admin_datums[user.ckey] || GLOB.deadmins[user.ckey])
+		if(GLOB.permissions.admin_datums[user.ckey] || GLOB.permissions.deadmins[user.ckey])
 			admin = TRUE
 		for(var/i in ban_details)
 			if(admin && !text2num(i["applies_to_admins"]))
@@ -1486,7 +1547,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				if("name")
 					var/new_name = input(user, "Choose your character's name:", "Character Preference")  as text|null
 					if(new_name)
-						new_name = reject_bad_name(new_name)
+						new_name = reject_bad_name(new_name, pref_species.allow_numbers_in_name)
 						if(new_name)
 							real_name = new_name
 						else
@@ -1496,6 +1557,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 					var/new_age = input(user, "Choose your character's age:\n([AGE_MIN]-[AGE_MAX])", "Character Preference") as num|null
 					if(new_age)
 						age = max(min( round(text2num(new_age)), AGE_MAX),AGE_MIN)
+
+				if("cycle_background")
+					background = next_list_item(background, background_options)
 
 				if("hair")
 					var/new_hair = input(user, "Choose your character's hair colour:", "Character Preference","#"+hair_color) as color|null
@@ -1773,6 +1837,29 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 							facial_hair_color = sanitize_hexcolor(new_facial)
 						else
 							to_chat(user, span_danger("Invalid head flower color. Your color is not bright enough."))
+				if("ipc_screen")
+					var/new_ipc_screen
+
+					new_ipc_screen = input(user, "Choose your character's screen:", "Character Preference") as null|anything in GLOB.ipc_screens_list
+
+					if(new_ipc_screen)
+						features["ipc_screen"] = new_ipc_screen
+
+				if("ipc_antenna")
+					var/new_ipc_antenna
+
+					new_ipc_antenna = input(user, "Choose your character's antenna:", "Character Preference") as null|anything in GLOB.ipc_antennas_list
+
+					if(new_ipc_antenna)
+						features["ipc_antenna"] = new_ipc_antenna
+
+				if("ipc_chassis")
+					var/new_ipc_chassis
+
+					new_ipc_chassis = input(user, "Choose your character's chassis:", "Character Preference") as null|anything in GLOB.ipc_chassis_list
+
+					if(new_ipc_chassis)
+						features["ipc_chassis"] = new_ipc_chassis
 				if("s_tone")
 					var/new_s_tone = input(user, "Choose your character's skin-tone:", "Character Preference")  as null|anything in GLOB.skin_tones
 					if(new_s_tone)
@@ -1902,6 +1989,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 						max_chat_length = clamp(desiredlength, 1, CHAT_MESSAGE_MAX_LENGTH)
 				if("alternative_announcers")
 					disable_alternative_announcers = !disable_alternative_announcers
+				if("balloon_alerts")
+					disable_balloon_alerts = !disable_balloon_alerts
 			// yogs start - Custom keybindings
 			if(href_list["keybinding"])
 				update_keybindings(user, href_list["keybinding"], href_list["dir"])

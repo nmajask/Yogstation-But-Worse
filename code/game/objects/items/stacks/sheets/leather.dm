@@ -168,6 +168,7 @@ GLOBAL_LIST_INIT(leather_recipes, list ( \
 	new/datum/stack_recipe("leather shoes", /obj/item/clothing/shoes/laceup, 2), \
 	new/datum/stack_recipe("muzzle", /obj/item/clothing/mask/muzzle, 2), \
 	new/datum/stack_recipe("toolbelt", /obj/item/storage/belt/utility, 4), \
+	new/datum/stack_recipe("medical webbing", /obj/item/storage/belt/medical/mining, 4), \
 	new/datum/stack_recipe("wallet", /obj/item/storage/wallet, 1), \
 ))
 
@@ -283,3 +284,11 @@ GLOBAL_LIST_INIT(sinew_recipes, list ( \
 	singular_name = "egg shell pieces"
 	icon_state = "sheet-gondola"
 	item_state = "sheet-gondola"
+
+/obj/item/stack/sheet/animalhide/mothroach
+	name = "mothroach hide"
+	desc = "A thin layer of mothroach hide."
+	singular_name = "mothroach hide piece"
+	icon_state = "sheet-mothroach"
+	item_state = "sheet-mothroach"
+	merge_type = /obj/item/stack/sheet/animalhide/mothroach
