@@ -128,31 +128,30 @@
 	if(type && frames)
 		cut_overlays()
 		if (suppressed)
-			add_overlay("[icon_state]_[suppressed.icon_state]")
+			add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_[suppressed.icon_state]")
 		if(type == "fire")
 			if(!chambered)
 				return
 			if (magazine)
-				if (special_mags)
-					add_overlay("[icon_state]_mag_[initial(magazine.icon_state)]")
+				add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_mag[special_mags ? "" : "_[initial(magazine.icon_state)]"]")
+				if(mag_display_ammo)
 					if (!magazine.ammo_count())
-						add_overlay("[icon_state]_mag_empty")
-				else
-					add_overlay("[icon_state]_mag")
-					var/capacity_number = 0
-					switch(get_ammo() / magazine.max_ammo)
-						if(0.2 to 0.39)
-							capacity_number = 20
-						if(0.4 to 0.59)
-							capacity_number = 40
-						if(0.6 to 0.79)
-							capacity_number = 60
-						if(0.8 to 0.99)
-							capacity_number = 80
-						if(1.0)
-							capacity_number = 100
-					if (capacity_number)
-						add_overlay("[icon_state]_mag_[capacity_number]")
+						add_overlay("[overlay_icon_state]_mag_empty")
+					else
+						var/capacity_number = 0
+						switch(get_ammo() / magazine.max_ammo)
+							if(0.2 to 0.39)
+								capacity_number = 20
+							if(0.4 to 0.59)
+								capacity_number = 40
+							if(0.6 to 0.79)
+								capacity_number = 60
+							if(0.8 to 0.99)
+								capacity_number = 80
+							if(1.0)
+								capacity_number = 100
+						if (capacity_number)
+							add_overlay("[overlay_icon_state]_mag_[capacity_number]")
 			feedback_fire_slide ? add_overlay(feedback_firing_icon) : add_overlay(feedback_original_icon)
 			DabAnimation(speed = feedback_recoil_speed, angle = ((rand(25,50)) * feedback_recoil_amount), direction = (feedback_recoil_reverse ? 2 : 3), hold_seconds = feedback_recoil_hold)
 			sleep(frames)
@@ -198,36 +197,35 @@
 		icon_state = "[initial(icon_state)][sawn_off ? "_sawn" : ""]"
 	cut_overlays()
 	if (bolt_type == BOLT_TYPE_LOCKING)
-		add_overlay("[icon_state]_bolt[bolt_locked ? "_locked" : ""]")
+		add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_bolt[bolt_locked ? "_locked" : ""]")
 	if (bolt_type == BOLT_TYPE_OPEN && bolt_locked)
-		add_overlay("[icon_state]_bolt")
+		add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_bolt")
 	if (suppressed)
-		add_overlay("[icon_state]_[suppressed.icon_state]")
+		add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_[suppressed.icon_state]")
 	if (enloudened)
-		add_overlay("[icon_state]_[enloudened.icon_state]")
+		add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_[enloudened.icon_state]")
 	if(!chambered && empty_indicator)
-		add_overlay("[icon_state]_empty")
+		add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_empty")
 	if (magazine)
-		if (special_mags)
-			add_overlay("[icon_state]_mag_[initial(magazine.icon_state)]")
+		add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_mag[special_mags ? "_[initial(magazine.icon_state)]" : ""]")
+		if(mag_display_ammo)
 			if (!magazine.ammo_count())
-				add_overlay("[icon_state]_mag_empty")
-		else
-			add_overlay("[icon_state]_mag")
-			var/capacity_number = 0
-			switch(get_ammo() / magazine.max_ammo)
-				if(0.2 to 0.39)
-					capacity_number = 20
-				if(0.4 to 0.59)
-					capacity_number = 40
-				if(0.6 to 0.79)
-					capacity_number = 60
-				if(0.8 to 0.99)
-					capacity_number = 80
-				if(1.0)
-					capacity_number = 100
-			if (capacity_number)
-				add_overlay("[icon_state]_mag_[capacity_number]")
+				add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_mag_empty")
+			else
+				var/capacity_number = 0
+				switch(get_ammo() / magazine.max_ammo)
+					if(0.2 to 0.39)
+						capacity_number = 20
+					if(0.4 to 0.59)
+						capacity_number = 40
+					if(0.6 to 0.79)
+						capacity_number = 60
+					if(0.8 to 0.99)
+						capacity_number = 80
+					if(1.0)
+						capacity_number = 100
+				if (capacity_number)
+					add_overlay("[overlay_icon_state ? overlay_icon_state : icon_state]_mag_[capacity_number]")
 
 
 /obj/item/gun/ballistic/process_chamber(empty_chamber = TRUE, from_firing = TRUE, chamber_next_round = TRUE)

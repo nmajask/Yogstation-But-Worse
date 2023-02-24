@@ -467,3 +467,56 @@
 	build_path = /obj/item/attachment/scope/infrared
 	category = list("Weapons")
 	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+
+// Railguns and railgun accessories
+/datum/design/railgun_lance
+	name = "Halberd Rail-Lance"
+	desc = "A masive MARS rail-lance that can propell full size railgun slugs to extreme speeds. Excells at punching through tough armor and hit exosuit pilots while inside their mech, though it is cumbersom to use and slow to fire."
+	id = "railgunlance"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 10000, /datum/material/glass = 5000, /datum/material/diamond = 1000, /datum/material/silver = 4500, /datum/material/gold = 5000, /datum/material/titanium = 1200, /datum/material/dilithium = 3000, /datum/material/plastic = 2000)
+	build_path = /obj/item/gun/ballistic/railgun/lance/empty
+	category = list("Weapons")
+	departmental_flags = DEPARTMENTAL_FLAG_ARMORY
+
+/datum/design/railgun_micro_revolver
+	name = "Spear Micro Rail-Revolver"
+	desc = "A handheld MARS rail-revolver that can propell small railgun slugs to extreme speeds. More portable then other MARS firearms, though its armor penitration and efficency."
+	id = "railgunmicrorevolver"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/iron = 5000, /datum/material/glass = 2000, /datum/material/diamond = 500, /datum/material/silver = 2500, /datum/material/gold = 3000, /datum/material/titanium = 1000, /datum/material/dilithium = 3000, /datum/material/plastic = 2000)
+	build_path = /obj/item/gun/ballistic/railgun/revolver/micro/empty
+	category = list("Weapons")
+	departmental_flags = DEPARTMENTAL_FLAG_ARMORY
+
+/datum/design/railgun_slug/sec
+	id = "secrailgunslug"
+	build_type = PROTOLATHE
+	category = list("Ammo")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+
+/datum/design/railgun_microslug/sec
+	id = "secrailgunmicroslug"
+	build_type = PROTOLATHE
+	category = list("Ammo")
+	departmental_flags = DEPARTMENTAL_FLAG_SECURITY
+
+/datum/design/railgun_slug_hardlight
+	name = "Railgun Hardlight Slug"
+	desc = "A non-lethal slug made of hardlight for use in railguns."
+	id = "railgunslughardlight"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/glass = 200, /datum/material/uranium = 200)
+	build_path = /obj/item/ammo_casing/caseless/railgun/hardlight
+	category = list("Ammo")
+	departmental_flags = DEPARTMENTAL_FLAG_ARMORY
+
+/datum/design/railgun_microslug_hardlight
+	name = "Railgun Hardlight Micro Slug"
+	desc = "A non-lethal micro slug made of hardlight for use in railguns."
+	id = "railgunmicroslughardlight"
+	build_type = PROTOLATHE
+	materials = list(/datum/material/glass = 100, /datum/material/uranium = 100)
+	build_path = /obj/item/ammo_casing/caseless/railgun/micro/hardlight
+	category = list("Ammo")
+	departmental_flags = DEPARTMENTAL_FLAG_ARMORY

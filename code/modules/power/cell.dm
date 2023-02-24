@@ -17,7 +17,7 @@
 	grind_results = list(/datum/reagent/lithium = 15, /datum/reagent/iron = 5, /datum/reagent/silicon = 5)
 	var/rigged = FALSE	// true if rigged to explode
 	var/chargerate = 100 //how much power is given every tick in a recharger
-	var/self_recharge = 0 //does it self recharge, over time, or not?
+	var/self_recharge = FALSE //does it self recharge, over time, or not?
 	var/ratingdesc = TRUE
 	var/grown_battery = FALSE // If it's a grown that acts as a battery, add a wire overlay to it.
 
@@ -375,3 +375,10 @@
 
 /obj/item/stock_parts/cell/crystal_cell/give(amount)
 	return //no cheating
+
+/obj/item/stock_parts/cell/syndicate
+	name = "syndicate micro-reactor"
+	desc = "A power cell that doesn't acctualy create power, but instead draws it from a disdant sorce using telecrystals"
+	maxcharge = 40000
+	chargerate = 200 // Takes 10 seconds to get one shot with a rail gun
+	self_recharge = TRUE

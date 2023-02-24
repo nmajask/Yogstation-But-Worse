@@ -1155,3 +1155,19 @@
 	build_path = /obj/item/airlock_painter/decal
 	category = list("initial","Tools","Tool Designs")
 	departmental_flags = DEPARTMENTAL_FLAG_ENGINEERING
+
+/datum/design/railgun_slug
+	name = "Railgun Slug"
+	id = "railgunslug"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 2000)
+	build_path = /obj/item/ammo_casing/caseless/railgun
+	category = list("hacked", "Security")
+
+/datum/design/railgun_microslug
+	name = "Railgun Micro Slug"
+	id = "railgunmicroslug"
+	build_type = AUTOLATHE
+	materials = list(/datum/material/iron = 1000)
+	build_path = /obj/item/ammo_casing/caseless/railgun/micro
+	category = list("hacked", "Security")

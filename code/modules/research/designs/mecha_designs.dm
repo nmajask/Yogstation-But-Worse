@@ -524,3 +524,25 @@
 	materials = list(/datum/material/iron=15000,/datum/material/titanium=10000,/datum/material/plasma=10000)
 	construction_time = 100
 	category = list("Exosuit Equipment")
+
+/datum/design/mech_railgun
+	name = "Exosuit Weapon (MARS Heavy Rail-Lance)"
+	desc = "A masive MARS rail-lance that can propell full size railgun slugs to extreme speeds. Excells at punching through tough armor and hit exosuit pilots while inside their mech, though it is cumbersom to use and slow to fire."
+	id = "mech_railgun"
+	build_type = MECHFAB
+	materials = list(/datum/material/iron = 15000, /datum/material/glass = 10000, /datum/material/diamond = 1500, /datum/material/silver = 6000, /datum/material/gold = 7000, /datum/material/titanium = 5000, /datum/material/dilithium = 10000, /datum/material/plastic = 3000)
+	construction_time = 100
+	build_path = /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun
+	category = list("Exosuit Equipment")
+
+/datum/design/mech_railgun_ammo
+	name = "MARS Heavy Rail-Lance Ammunition"
+	desc = "Ammunition for the MARS Heavy Rail-Lance."
+	id = "mech_railgun_ammo"
+	build_type = PROTOLATHE | MECHFAB
+	build_path = /obj/item/mecha_ammo/railgun
+	materials = list(/datum/material/iron=5000)
+	construction_time = 20
+	category = list("Exosuit Ammunition", "Ammo")
+	departmental_flags = DEPARTMENTAL_FLAG_ARMORY
+	combat_design = TRUE

@@ -3,7 +3,6 @@
 	desc = "A masive magazine for loading slugs into semi-automatic railguns."
 	icon_state = "railgunmag"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
-	w_class = WEIGHT_CLASS_NORMAL // Beg box
 	ammo_type = /obj/item/ammo_casing/caseless/railgun
 	caliber = "railgun"
 	max_ammo = 12
@@ -41,6 +40,12 @@
 	icon_state = "railgunmag_heartpiercer"
 	ammo_type = /obj/item/ammo_casing/caseless/railgun/heartpiercer
 
+/obj/item/ammo_box/magazine/railgun/hardlight
+	name = "railgun magazine (Hardlight)"
+	desc = "A masive magazine for loading slugs into semi-automatic railguns."
+	icon_state = "railgunmag_hardlight"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/hardlight
+
 // Quickloaders
 
 /obj/item/ammo_box/railgun/revolver
@@ -58,23 +63,48 @@
 	name = "railgun speed loader (Depleated Uranium)"
 	desc = "A four-shot speed loader designed for railgun revolvers."
 	icon_state = "railgun_quickloader_du"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/du
 
 /obj/item/ammo_box/railgun/revolver/he
 	name = "railgun speed loader (High Explosive)"
 	desc = "A four-shot speed loader designed for railgun revolvers."
 	icon_state = "railgun_quickloader_he"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/he
 
 /obj/item/ammo_box/railgun/revolver/pyro
 	name = "railgun speed loader (Pyrotechnic)"
 	desc = "A four-shot speed loader designed for railgun revolvers."
 	icon_state = "railgun_quickloader_pyro"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/pyro
 
 /obj/item/ammo_box/railgun/revolver/emp
 	name = "railgun speed loader (EMP)"
 	desc = "A four-shot speed loader designed for railgun revolvers."
 	icon_state = "railgun_quickloader_emp"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/emp
 
 /obj/item/ammo_box/railgun/revolver/heartpiercer
 	name = "railgun speed loader (Heart Piercer)"
 	desc = "A four-shot speed loader designed for railgun revolvers."
 	icon_state = "railgun_quickloader_heartpiercer"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/heartpiercer
+
+/obj/item/ammo_box/railgun/revolver/hardlight
+	name = "railgun speed loader (Hardlight)"
+	desc = "A four-shot speed loader designed for railgun revolvers."
+	icon_state = "railgun_quickloader_hardlight"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/hardlight
+
+/obj/item/ammo_box/railgun/revolver/micro
+	name = "railgun micro speed loader (Slug)"
+	desc = "A four-shot speed loader designed for railgun micro revolvers."
+	icon_state = "railgun_quickloader_micro"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/micro
+	caliber = "railgun_micro"
+
+/obj/item/ammo_box/railgun/revolver/micro/hardlight
+	name = "railgun micro speed loader (Hardlight)"
+	desc = "A four-shot speed loader designed for railgun micro revolvers."
+	icon_state = "railgun_quickloader_micro_hardlight"
+	ammo_type = /obj/item/ammo_casing/caseless/railgun/hardlight
+	caliber = "railgun_micro"

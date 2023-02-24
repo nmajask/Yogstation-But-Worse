@@ -613,6 +613,41 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	surplus = 25
 	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)
 
+/datum/uplink_item/dangerous/railgun_revolver
+	name = "Lancer Rail-Revolver"
+	desc = "A heavy revolver that fires dense slug at extreme velocity, though requires time between shots for the rails to recharge. \
+			Takes a long time to charge, though unlike other railguns it can charge when not in your hands."
+	item = /obj/item/gun/ballistic/railgun/revolver/syndicate
+	cost = 8
+	surplus = 30
+	include_modes = list(/datum/game_mode/nuclear)
+
+/datum/uplink_item/dangerous/railgun_carbine
+	name = "Glave Rail-Carbine"
+	desc = "A heavy rifle that fires dense slug at extreme velocity, though requires time between shots for the rails to recharge. \
+			Can be fired in burst or semi-auto."
+	item = /obj/item/gun/ballistic/railgun/carbine/syndicate
+	cost = 18
+	surplus = 25
+	include_modes = list(/datum/game_mode/nuclear)
+
+/datum/uplink_item/dangerous/railgun_sniper
+	name = "Pikeman Sniper Rail-Lance"
+	desc = "A massive magnetic cannon, what would happen if a sniper rifle and a rocket launcer had a baby. Perfect for dealing with heavy armor or exosuits!"
+	item = /obj/item/gun/ballistic/railgun/sniper/syndicate
+	cost = 20
+	surplus = 10
+	include_modes = list(/datum/game_mode/nuclear)
+
+/datum/uplink_item/dangerous/railgun_revolver_micro
+	name = "Spear Micro Rail-Revolver"
+	desc = "A small revolver that fires small slug at extreme velocity, though requires time between shots for the rails to recharge. \
+			The easy access to more ammo and recharging cell makes it excellent for gurrila warfare."
+	item = /obj/item/gun/ballistic/railgun/revolver/micro/syndicate
+	cost = 6
+	surplus = 50
+	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)
+
 // Stealthy Weapons
 /datum/uplink_item/stealthy_weapons
 	category = "Stealthy Weapons"

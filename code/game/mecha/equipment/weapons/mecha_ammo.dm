@@ -80,6 +80,16 @@
 	load_audio = "sound/weapons/bulletinsert.ogg"
 	ammo_type = "missiles_he"
 
+/obj/item/mecha_ammo/railgun
+	name = "railgun slugs"
+	desc = "A box of large metal slugs, used in an exosuit railgun."
+	icon_state = "railgun"
+	rounds = 12
+	round_term = "slug"
+	direct_load = TRUE
+	load_audio = "sound/weapons/bulletinsert.ogg"
+	ammo_type = "railgun"
+
 
 /obj/item/mecha_ammo/flashbang
 	name = "launchable flashbangs"

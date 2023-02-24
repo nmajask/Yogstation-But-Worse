@@ -278,6 +278,11 @@
 /datum/action/item_action/toggle_firemode
 	name = "Toggle Firemode"
 
+/datum/action/item_action/toggle_charging
+	name = "Toggle Charging"
+	icon_icon = 'icons/mob/actions/actions_items.dmi'
+	button_icon_state = "charge"
+
 /datum/action/item_action/toggle_bodycam
 	name = "Toggle Bodycamera"
 

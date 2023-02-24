@@ -25,6 +25,8 @@
 	var/vary_fire_sound = TRUE
 	var/fire_sound_volume = 50
 	var/dry_fire_sound = 'sound/weapons/gun_dry_fire.ogg'
+	/// Icon state that should be used for overlays or, if none are provided, the default icon_state
+	var/overlay_icon_state
 	var/obj/item/suppressor/suppressed	//whether or not a message is displayed when fired
 	var/obj/item/enloudener/enloudened	//whether or not an additional sound is played
 	var/can_suppress = FALSE

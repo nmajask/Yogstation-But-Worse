@@ -46,18 +46,7 @@
 	set_ready_state(0)
 	for(var/i=1 to get_shot_amount())
 		var/obj/item/projectile/A = new projectile(curloc)
-		A.firer = chassis.occupant
-		A.original = target
-		if(!A.suppressed && firing_effect_type)
-			new firing_effect_type(get_turf(src), chassis.dir)
-
-		var/spread = 0
-		if(variance)
-			if(randomspread)
-				spread = round((rand() - 0.5) * variance)
-			else
-				spread = round((i / projectiles_per_shot - 0.5) * variance)
-		A.preparePixelProjectile(target, chassis.occupant, params, spread)
+		ready_projectile(A, target, params, i)
 
 		A.fire()
 		playsound(chassis, fire_sound, 50, 1)
@@ -69,6 +58,21 @@
 	chassis.log_message("Fired from [src.name], targeting [target].", LOG_MECHA)
 	return 1
 
+/obj/item/mecha_parts/mecha_equipment/weapon/proc/ready_projectile(projectile, target, params, shots)
+	var/obj/item/projectile/A = projectile
+	A.firer = chassis.occupant
+	A.original = target
+	if(!A.suppressed && firing_effect_type)
+		new firing_effect_type(get_turf(src), chassis.dir)
+
+	var/spread = 0
+	if(variance)
+		if(randomspread)
+			spread = round((rand() - 0.5) * variance)
+		else
+			spread = round((shots / projectiles_per_shot - 0.5) * variance)
+	A.preparePixelProjectile(target, chassis.occupant, params, spread)
+	return projectile
 
 //Base energy weapon type
 /obj/item/mecha_parts/mecha_equipment/weapon/energy
@@ -392,6 +396,116 @@
 	equip_cooldown = 60
 	harmful = TRUE
 	ammo_type = "missiles_br"
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun
+	name = "\improper MARS heavy rail-lance" // Cant think of a good polearm name for this
+	desc = "A heavy railgun for combat exosuits. Shoots high velocity slugs that can pierce though objects and exosuit armor like papper."
+	icon_state = "mecha_railgun"
+	equip_cooldown = 10
+	projectile = /obj/item/projectile/bullet/railgun
+	projectiles = 12
+	projectiles_cache = 12
+	projectiles_cache_max = 36
+	harmful = TRUE
+	ammo_type = "railgun"
+	fire_sound = "sound/weapons/sniper_shot.ogg"
+
+	// Magnetic Charge Vars //
+	/// Last recorded magnetic charge. Don't use this var, use get_magnetic_charge() instead as this isnt updated when charging.
+	var/charge = 0
+	/// When the current rail charging started, used to calculate charge and is reset when get_magnetic_charge() is called.
+	var/charge_started
+	/// How long it takes for the max magnetic charge to be reached.
+	var/max_charge_time = 15 SECONDS
+	/// How long it takes for the rails to begain charging after a shot.
+	var/shot_charge_cooldown = 0.5 SECONDS
+	/// Speed that is given to a slug at max magnetic charge. Velocity given to the projectile is calculated with max_velocity * charge.
+	var/max_velocity = 100
+	/// Minimum magnetic charge that can be used per shot, so you don't shoot a slug with next to no velocity
+	var/minimum_charge_shot = 20
+	/// Timer for when the railgun is fully charged so it makes the noise
+	var/fully_charged_timer_id
+	/// Energy required for a max charge shot
+	var/energy_per_shot = 250 // Gives you 20 max charge shots with an upgraded+ cell
+	/// Sound played when the charge is full
+	var/full_charge_sound = 'sound/weapons/kenetic_reload.ogg'
+	
+/// This handles calculating what charge we actualy have and setting up the next timer
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/proc/get_magnetic_charge(update_timer = TRUE)
+	// If we don't have a starting time, set it to the current time
+	if(!charge_started)
+		charge_started = world.time
+	
+	message_admins("GMC - WT: [world.time] - CS: [charge_started]") // DELME
+	// We get the charge based on the change in time and dividing it by the time to max charge
+	return adjust_magnetic_charge(((world.time - charge_started) / max_charge_time) * 100, update_timer = update_timer, update_charge = FALSE)
+
+/// This handles setting the charge and manageing all that entails
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/proc/set_magnetic_charge(amt, force = FALSE, update_timer = TRUE)
+	var/max_charge = get_max_magnetic_charge()
+	var/remaining_time = max_charge_time * (max_charge - charge) * 0.01
+	charge = round(force ? amt : clamp(amt, 0, max_charge), 0.1)
+	if(!update_timer)
+		return charge
+	if(fully_charged_timer_id)
+		deltimer(fully_charged_timer_id)
+		fully_charged_timer_id = null
+	if(charge < max_charge)
+		charge_started = world.time
+		fully_charged_timer_id = addtimer(CALLBACK(src, PROC_REF(on_full_charge)), remaining_time, TIMER_STOPPABLE | TIMER_DELETE_ME | TIMER_UNIQUE)
+	message_admins("A - [charge]") // DELME
+	return charge
+
+/// Calls set_magnetic_charge, but with the amt given added to the current charge
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/proc/adjust_magnetic_charge(amt, force = FALSE, update_timer = TRUE, update_charge = TRUE)
+	return set_magnetic_charge((update_charge ? get_max_magnetic_charge() : charge) + amt, force, update_timer)
+
+/// Returns what the charge is currently capped at
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/proc/get_max_magnetic_charge()
+	. = 100
+	if(!istype(chassis))
+		return 0
+	var/mecha_charge = chassis.get_charge()
+	if(energy_per_shot && mecha_charge < energy_per_shot)
+		. = min(., mecha_charge / energy_per_shot)
+
+/// Called when the railgun should be fully charged
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/proc/on_full_charge()
+	message_admins("Full") // DELME
+	if(get_magnetic_charge(FALSE) >= 100)
+		message_admins("Check") // DELME
+		playsound(chassis, full_charge_sound, 60, 1)
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/action_checks(target)
+	if(!..())
+		return FALSE
+	if(get_magnetic_charge() < minimum_charge_shot)
+		return FALSE
+	return TRUE
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/ready_projectile(projectile, shots)
+	message_admins("ready")
+	if(istype(projectile, /obj/item/projectile/bullet/railgun))
+		message_admins("check") // DELME
+		var/obj/item/projectile/bullet/railgun/slug = projectile
+		var/magnetic_charge = get_magnetic_charge()
+		set_magnetic_charge(0)
+		energy_drain = energy_per_shot * magnetic_charge * 0.01
+		slug.set_velocity(max_velocity * magnetic_charge * 0.01)
+		message_admins("aaaa - magnetic_charge:[magnetic_charge] - used_charge:[magnetic_charge]") // DELME
+	return ..()
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/attach(obj/mecha/M)
+	..()
+	get_magnetic_charge()
+
+/obj/item/mecha_parts/mecha_equipment/weapon/ballistic/railgun/detach(atom/moveto=null)
+	..()
+	if(fully_charged_timer_id)
+		deltimer(fully_charged_timer_id)
+		fully_charged_timer_id = null
+	charge = 0
+	charge_started = null
 
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher

@@ -194,6 +194,7 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
 
+/*
 /datum/crafting_recipe/gauss
 	name = "Makeshift gauss rifle"
 	reqs = list(/obj/item/stock_parts/cell = 1,
@@ -204,6 +205,23 @@
 				/obj/item/stack/cable_coil = 10)
 	tools = list(TOOL_SCREWDRIVER,TOOL_WELDER,TOOL_WRENCH)
 	result = /obj/item/gun/ballistic/gauss
+	result = /obj/item/gun/ballistic/railgun/makeshift
+	time = 12
+	category = CAT_WEAPONRY
+	subcategory = CAT_WEAPON
+*/
+
+/datum/crafting_recipe/railgun_makeshift
+	name = "Makeshift Railgun"
+	reqs = list(/obj/item/stock_parts/cell = 1,
+				/obj/item/weaponcrafting/stock = 1,
+				/obj/item/weaponcrafting/receiver = 1,
+				/obj/item/stack/tape = 1,
+				/obj/item/stack/rods = 4,
+				/obj/item/stack/cable_coil = 10)
+	parts = list(/obj/item/stock_parts/cell = 1)
+	tools = list(TOOL_SCREWDRIVER,TOOL_WELDER,TOOL_WRENCH)
+	result = /obj/item/gun/ballistic/railgun/makeshift
 	time = 12
 	category = CAT_WEAPONRY
 	subcategory = CAT_WEAPON
@@ -449,12 +467,32 @@
 	category = CAT_WEAPONRY
 	subcategory = CAT_AMMO
 
+/*
 /datum/crafting_recipe/laserslug
 	name = "Bolts"
 	result = /obj/item/ammo_casing/caseless/bolts
 	reqs = list(/obj/item/stack/rods = 1)
 	tools = list(TOOL_WIRECUTTER)
 	time = 0.5 SECONDS
+	category = CAT_WEAPONRY
+	subcategory = CAT_AMMO
+*/
+
+/datum/crafting_recipe/railgun_slug_makeshift
+	name = "Makeshift Railgun Slug"
+	result = /obj/item/ammo_casing/caseless/railgun/makeshift
+	reqs = list(/obj/item/stack/rods = 2)
+	tools = list(TOOL_WIRECUTTER)
+	time = 0.5 SECONDS
+	category = CAT_WEAPONRY
+	subcategory = CAT_AMMO
+
+/datum/crafting_recipe/railgun_slug_micro_makeshift
+	name = "Makeshift Railgun Micro Slug"
+	result = /obj/item/ammo_casing/caseless/railgun/makeshift
+	reqs = list(/obj/item/stack/rods = 1)
+	tools = list(TOOL_WIRECUTTER)
+	time = 0.25 SECONDS
 	category = CAT_WEAPONRY
 	subcategory = CAT_AMMO
 

@@ -678,7 +678,7 @@
 	display_name = "Hardlight Weaponry"
 	description = "Weaponized forcefields!"
 	prereq_ids = list("weaponry", "emp_super")
-	design_ids = list("hardlightbow", "ntusp_conversion")
+	design_ids = list("hardlightbow", "ntusp_conversion", "railgunslughardlight", "railgunmicroslughardlight")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
 
 /datum/techweb_node/radioactive_weapons
@@ -744,6 +744,14 @@
 	prereq_ids = list("adv_weaponry", "bluespace_travel")
 	design_ids = list("gravitygun", "mech_gravcatapult")
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 2500)
+
+/datum/techweb_node/railgun
+	id = "railguns"
+	display_name = "Magnetic accelerating rail systems"
+	description = "Colloquially know as railguns, we could develop weapons using this technology to create hybrid energy-ballistic weapons to punch through even the toughest armor like paper!"
+	prereq_ids = list("syndicate_basic", "emp_super", "adv_power")
+	design_ids = list("railgunlance", "railgunmicrorevolver", "mech_railgun", "secrailgunslug", "secrailgunmicroslug", "mech_railgun_ammo")
+	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 3000)
 
 ////////////////////////mech technology////////////////////////
 /datum/techweb_node/adv_mecha
