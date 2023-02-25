@@ -4,6 +4,12 @@
 	caliber = "357"
 	max_ammo = 7
 
+/obj/item/ammo_box/magazine/internal/cylinder/Initialize()
+	. = ..()
+	if(start_empty) // Can't load ammo with a null stored_ammo, so here is a shit solution because I am tired of looking at gun code
+		for(var/i = 1, i <= max_ammo, i++)
+			LAZYADD(stored_ammo, null)
+
 /obj/item/ammo_box/magazine/internal/cylinder/get_round(keep = 0)
 	rotate()
 
@@ -14,7 +20,9 @@
 	return b
 
 /obj/item/ammo_box/magazine/internal/cylinder/proc/rotate()
-	var/b = stored_ammo[1]
+	var/atom/b = stored_ammo[1]
+	if(QDELETED(b))
+		b = null // Don't want to have the cylinder full of qdeleted refs as it causes issues, mainly for caseless rounds
 	stored_ammo.Cut(1,2)
 	stored_ammo.Insert(0, b)
 

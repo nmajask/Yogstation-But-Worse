@@ -380,5 +380,5 @@
 	name = "syndicate micro-reactor"
 	desc = "A power cell that doesn't acctualy create power, but instead draws it from a disdant sorce using telecrystals"
 	maxcharge = 40000
-	chargerate = 200 // Takes 10 seconds to get one shot with a rail gun
+	chargerate = 100 // Takes 20 seconds to get one shot with a rail gun
 	self_recharge = TRUE

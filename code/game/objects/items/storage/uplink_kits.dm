@@ -589,6 +589,13 @@
 	for(var/i in 1 to 2)
 		new /obj/item/ammo_box/a357(src)
 
+/obj/item/storage/box/syndie_kit/microrailrevolverammo
+	real_name = "micro railgun slug speed loader box"
+
+/obj/item/storage/box/syndie_kit/microrailrevolverammo/PopulateContents()
+	for(var/i in 1 to 2)
+		new /obj/item/ammo_box/railgun/revolver/micro(src)
+
 /obj/item/storage/box/syndie_kit/nuke
 	real_name = "box"
 

@@ -109,12 +109,12 @@
 	return FALSE
 
 ///Whether or not the box can be loaded, used in overrides
-/obj/item/ammo_box/proc/can_load(mob/user)
+/obj/item/ammo_box/proc/can_load(obj/item/loading, mob/user)
 	return TRUE
 
 /obj/item/ammo_box/attackby(obj/item/A, mob/user, params, silent = FALSE, replace_spent = 0)
 	var/num_loaded = 0
-	if(!can_load(user))
+	if(!can_load(A, user))
 		return
 	if(istype(A, /obj/item/ammo_box))
 		var/obj/item/ammo_box/AM = A

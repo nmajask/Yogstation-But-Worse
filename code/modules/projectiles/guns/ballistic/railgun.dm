@@ -13,6 +13,7 @@
 	semi_auto = FALSE
 	actions_types = list(/datum/action/item_action/toggle_charging)
 	internal_magazine = TRUE
+	spread = 0
 	load_sound = "sound/weapons/shotguninsert.ogg"
 	rack_sound = "sound/weapons/sniper_rack.ogg"
 	fire_sound = "sound/weapons/sniper_shot.ogg"
@@ -203,11 +204,11 @@
 	
 	var/magnetic_charge = get_magnetic_charge()
 	var/charge_to_use = min(magnetic_charge, max_charge_per_shot)
-	if(charge_to_use < minimum_charge_shot)
+	if(charge_to_use < minimum_charge_shot || charge_to_use <= 0)
 		return
 
-	var/used_charge = magnetic_charge - adjust_magnetic_charge(-charge_to_use)
-	message_admins("Used - used_charge: [used_charge] - charge_to_use: [charge_to_use]") // DELME
+	var/used_charge = magnetic_charge - adjust_magnetic_charge(-charge_to_use, update_charge = FALSE)
+	message_admins("Used - used_charge: [used_charge] - charge_to_use: [charge_to_use] - magnetic_charge: [magnetic_charge] - charge: [charge]") // DELME
 	cell.use(energy_per_shot * used_charge * 0.01)
 	slug.set_velocity(max_velocity * used_charge * 0.01)
 
@@ -245,6 +246,7 @@
 	semi_auto = TRUE
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT
+	spread = 5
 	max_charge_time = 15 SECONDS
 	unequiped_max_charge = 80
 	max_velocity = 60
@@ -300,17 +302,11 @@
 	. += "It can be spun with <b>alt+click</b>"
 
 /obj/item/gun/ballistic/railgun/revolver/syndicate
-	name = "syndicate rail-revolver"
 	desc = "A crimson MARS hybrid energy-ballistic revolver made of two magnetically charged rails that propell a rod to extreme speeds. Projectile speed is dependent on the magnetic charge, which passively goes up between shots when held. This one has a self recharing cell inside."
 	icon_state = "railgun_revolver_syndicate"
 	overlay_icon_state = "railgun_revolver"
 	item_state = "railgun_revolver_syndicate"
 	cell = /obj/item/stock_parts/cell/syndicate
-
-/obj/item/gun/ballistic/railgun/revolver/ert
-	desc = "A blue MARS hybrid energy-ballistic revolver made of two magnetically charged rails that propell a rod to extreme speeds. Projectile speed is dependent on the magnetic charge, which passively goes up between shots when held."
-	icon_state = "railgun_revolver_ert"
-	overlay_icon_state = "railgun_revolver"
 
 /obj/item/gun/ballistic/railgun/revolver/micro
 	name = "\improper Spear micro rail-revolver"
@@ -331,12 +327,7 @@
 	name = "prototype micro rail-revolver"
 	max_velocity = 90
 
-/obj/item/gun/ballistic/railgun/revolver/micro/prototype/empty
-	pin = null
-	starting_mag_type = /obj/item/ammo_box/magazine/internal/cylinder/railgun/micro/empty
-
 /obj/item/gun/ballistic/railgun/revolver/micro/syndicate // Tator tot one
-	name = "\improper syndicate micro rail-revolver"
 	desc = "A MARS hybrid energy-ballistic micro revolver made of two magnetically charged rails that propell a small rod to extreme speeds. Projectile speed is dependent on the magnetic charge, which passively goes up between shots even when not held. This one has smaller, less effective components to reduice size. This one has a self recharing cell inside."
 	icon_state = "railgun_revolver_micro_syndicate"
 	overlay_icon_state = "railgun_revolver_micro"
@@ -356,6 +347,7 @@
 	mag_type = /obj/item/ammo_box/magazine/railgun
 	actions_types = list(/datum/action/item_action/toggle_charging, /datum/action/item_action/toggle_firemode)
 	burst_size = 3
+	spread = 3
 	empty_alarm = TRUE
 	mag_display_ammo = TRUE
 	fire_delay = 0.25 SECONDS
@@ -396,11 +388,6 @@
 	overlay_icon_state = "railgun_carbine"
 	cell = /obj/item/stock_parts/cell/syndicate
 
-/obj/item/gun/ballistic/railgun/carbine/ert
-	desc = "A blue MARS hybrid energy-ballistic carbine made of two magnetically charged rails that propell a rod to extreme speeds. Projectile speed is dependent on the magnetic charge, which passively goes up between shots when held."
-	icon_state = "railgun_carbine_ert"
-	overlay_icon_state = "railgun_carbine"
-
 /obj/item/gun/ballistic/railgun/sniper // Offers the best single shot accuracy and speed, but the fire rite is awful. Best when combined with backup and a way to see people through walls for sniping.
 	name = "\improper Pikeman sniper rail-lance"
 	desc = "A massive MARS hybrid energy-ballistic lance made of two magnetically charged rails that propell a rod to extreme speeds. Projectile speed is dependent on the magnetic charge, which passively goes up between shots when held."
@@ -425,11 +412,6 @@
 	overlay_icon_state = "railgun_sniper"
 	cell = /obj/item/stock_parts/cell/syndicate
 
-/obj/item/gun/ballistic/railgun/sniper/ert
-	desc = "A massive, crimson MARS hybrid energy-ballistic lance made of two magnetically charged rails that propell a rod to extreme speeds. Projectile speed is dependent on the magnetic charge, which passively goes up between shots when held. This one has a self recharing cell inside."
-	icon_state = "railgun_sniper_syndicate"
-	overlay_icon_state = "railgun_sniper"
-
 /obj/item/gun/ballistic/railgun/lance // A weaker version of the standard revolver and sniper, this one aims to combine the weaknesses of both to make a weapon that isnt too powerful for crew to have. Functions like a heavy anti-armor gun that excells at fighting mech, though it is less effective against fast and unarmored targets due to the slow cooldown and lack of crowd control.
 	name = "\improper Halberd rail-lance"
 	desc = "A massive MARS hybrid energy-ballistic lance made of two magnetically charged rails that propell a rod to extreme speeds. Projectile speed is dependent on the magnetic charge, which passively goes up between shots when held."
@@ -437,6 +419,7 @@
 	item_state = "railgun_lance"
 	overlay_icon_state = "railgun_sniper"
 	weapon_weight = WEAPON_HEAVY
+	spread = 1
 	max_charge_time = 15 SECONDS
 	max_velocity = 60
 
@@ -449,7 +432,11 @@
 	desc = "A shoddy railgun made with scraps lying arround. Projectile speed is dependent on the magnetic charge, which passively goes up between shots when held."
 	icon_state = "railgun_makeshift"
 	item_state = "railgun_makeshift"
-	max_velocity = 40
+	weapon_weight = WEAPON_HEAVY
+	spread = 7
+	starting_mag_type = /obj/item/ammo_box/magazine/internal/railgun/empty
+	max_velocity = 30
+	energy_per_shot = 500
 	knife_x_offset = 17
 	knife_y_offset = 10
 	cell = null
@@ -470,7 +457,7 @@
 	else
 		return ..()
 
-/obj/item/gun/ballistic/railgun/revolver/AltClick(mob/user)
+/obj/item/gun/ballistic/railgun/makeshift/AltClick(mob/user)
 	if(cell)
 		to_chat(user, span_notice("You remove \the [cell] from [src]."))
 		cell.forceMove(drop_location())
@@ -484,8 +471,10 @@
 		if(cell) // Already have a cell, lets put the new one on the ground
 			new_cell.forceMove(drop_location())
 		else
-			new_cell.forceMove(drop_location())
+			new_cell.forceMove(src)
+			cell = new_cell
 	. = ..()
+	update_icon()
 
 /obj/item/gun/ballistic/railgun/sword
 	name = "railgun sword"
@@ -499,6 +488,7 @@
 	force = 30
 	throwforce = 7
 	w_class = WEIGHT_CLASS_HUGE
+	spread = 5
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	armour_penetration = 75
 	block_chance = 50

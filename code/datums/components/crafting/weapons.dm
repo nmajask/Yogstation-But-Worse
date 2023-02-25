@@ -489,7 +489,7 @@
 
 /datum/crafting_recipe/railgun_slug_micro_makeshift
 	name = "Makeshift Railgun Micro Slug"
-	result = /obj/item/ammo_casing/caseless/railgun/makeshift
+	result = /obj/item/ammo_casing/caseless/railgun/micro/makeshift
 	reqs = list(/obj/item/stack/rods = 1)
 	tools = list(TOOL_WIRECUTTER)
 	time = 0.25 SECONDS

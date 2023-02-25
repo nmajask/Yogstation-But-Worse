@@ -639,6 +639,14 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 	surplus = 10
 	include_modes = list(/datum/game_mode/nuclear)
 
+/datum/uplink_item/dangerous/railgun_sword
+	name = "Railgun Swrod"
+	desc = "A sword that doubles as a railgun, can only only have one slug loaded at a time."
+	item = /obj/item/gun/ballistic/railgun/sword/syndicate
+	cost = 10
+	surplus = 25
+	include_modes = list(/datum/game_mode/nuclear)
+
 /datum/uplink_item/dangerous/railgun_revolver_micro
 	name = "Spear Micro Rail-Revolver"
 	desc = "A small revolver that fires small slug at extreme velocity, though requires time between shots for the rails to recharge. \
@@ -1061,6 +1069,87 @@ GLOBAL_LIST_INIT(uplink_items, subtypesof(/datum/uplink_item))
 			Strike fear into the hearts of your enemies."
 	item = /obj/item/ammo_casing/caseless/rocket/hedp
 	cost = 6
+
+/datum/uplink_item/ammo/railgun
+	name = "Railgun Slug Magazine"
+	desc = "A magazine of 12 metal slugs for use in a railgun."
+	item = /obj/item/ammo_box/magazine/railgun
+	cost = 3
+	include_modes = list(/datum/game_mode/nuclear)
+
+/datum/uplink_item/ammo/railgun/du
+	name = "Railgun Slug Magazine (Depleated Uranium)"
+	desc = "A magazine of 12 metal slugs for use in a railgun."
+	item = /obj/item/ammo_box/magazine/railgun/du
+	cost = 6
+
+/datum/uplink_item/ammo/railgun/he
+	name = "Railgun Slug Magazine (High Explosive)"
+	desc = "A magazine of 12 metal slugs for use in a railgun."
+	item = /obj/item/ammo_box/magazine/railgun/he
+	cost = 6
+
+/datum/uplink_item/ammo/railgun/pyro
+	name = "Railgun Slug Magazine (Pyrotechnic)"
+	desc = "A magazine of 12 metal slugs for use in a railgun."
+	item = /obj/item/ammo_box/magazine/railgun/pyro
+	cost = 6
+
+/datum/uplink_item/ammo/railgun/emp
+	name = "Railgun Slug Magazine (EMP)"
+	desc = "A magazine of 12 metal slugs for use in a railgun."
+	item = /obj/item/ammo_box/magazine/railgun/emp
+	cost = 6
+
+/datum/uplink_item/ammo/railgun/heartpiercer
+	name = "Railgun Slug Magazine (Heart Piercer)"
+	desc = "A magazine of 12 metal slugs for use in a railgun."
+	item = /obj/item/ammo_box/magazine/railgun/heartpiercer
+	cost = 6
+
+/datum/uplink_item/ammo/railgun/revolver
+	name = "Railgun Slug Speed Loader"
+	desc = "A speed loader of 4 metal slugs for use in railgun revolvers."
+	item = /obj/item/ammo_box/railgun/revolver
+	cost = 1
+
+/datum/uplink_item/ammo/railgun/revolver/du
+	name = "Railgun Slug Speed Loader (Depleated Uranium)"
+	desc = "A speed loader of 4 metal slugs for use in railgun revolvers."
+	item = /obj/item/ammo_box/railgun/revolver/du
+	cost = 2
+
+/datum/uplink_item/ammo/railgun/revolver/he
+	name = "Railgun Slug Speed Loader (High Explosive)"
+	desc = "A speed loader of 4 metal slugs for use in railgun revolvers."
+	item = /obj/item/ammo_box/railgun/revolver/he
+	cost = 2
+
+/datum/uplink_item/ammo/railgun/revolver/pyro
+	name = "Railgun Slug Speed Loader (Pyrotechnic)"
+	desc = "A speed loader of 4 metal slugs for use in railgun revolvers."
+	item = /obj/item/ammo_box/railgun/revolver/pyro
+	cost = 2
+
+/datum/uplink_item/ammo/railgun/revolver/emp
+	name = "Railgun Slug Speed Loader (EMP)"
+	desc = "A speed loader of 4 metal slugs for use in railgun revolvers."
+	item = /obj/item/ammo_box/railgun/revolver/emp
+	cost = 2
+
+/datum/uplink_item/ammo/railgun/revolver/heartpiercer
+	name = "Railgun Slug Speed Loader (Heart Piercer)"
+	desc = "A speed loader of 4 metal slugs for use in railgun revolvers."
+	item = /obj/item/ammo_box/railgun/revolver/heartpiercer
+	cost = 2
+
+/datum/uplink_item/ammo/railgun/revolver/micro
+	name = "Railgun Micro Slug Speed Loader"
+	desc = "A speed loader of 4 metal slugs for use in railgun revolvers."
+	item = /obj/item/storage/box/syndie_kit/microrailrevolverammo
+	cost = 1
+	include_modes = list()
+	exclude_modes = list(/datum/game_mode/nuclear/clown_ops)
 
 /datum/uplink_item/ammo/pistolaps
 	name = "9mm Handgun Magazine"

@@ -5,6 +5,9 @@
 	caliber = "railgun"
 	max_ammo = 1
 
+/obj/item/ammo_box/magazine/internal/railgun/can_load(obj/item/loading, mob/user) // Have to load by hand
+	return !istype(loading, /obj/item/ammo_box)
+
 /obj/item/ammo_box/magazine/internal/railgun/empty
 	start_empty = TRUE
 
@@ -17,6 +20,9 @@
 	ammo_type = /obj/item/ammo_casing/caseless/railgun
 	caliber = "railgun"
 	max_ammo = 4
+
+/obj/item/ammo_box/magazine/internal/cylinder/railgun/can_load(obj/item/loading, mob/user) // Can't load by mag, use a speed loader!
+	return !istype(loading, /obj/item/ammo_box/magazine)
 
 /obj/item/ammo_box/magazine/internal/cylinder/railgun/micro
 	name = "micro railgun revolver cylinder"
